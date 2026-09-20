@@ -11,9 +11,9 @@
 <p align="center">
   <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/releases"><img src="https://img.shields.io/github/v/release/Anshuman-Sisodiya/ChefPocket?color=orange&style=flat-square" alt="Latest Release" /></a>
   <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/actions"><img src="https://img.shields.io/github/actions/workflow/status/Anshuman-Sisodiya/ChefPocket/build-ipa.yml?branch=main&label=build&style=flat-square" alt="Build Status" /></a>
-  <img src="https://img.shields.io/badge/Platform-iOS%2016.0%2B-blue?style=flat-square&logo=apple" alt="iOS 16+" />
+  <img src="https://img.shields.io/badge/Platform-iOS%2016.0+-blue?style=flat-square&logo=apple" alt="iOS 16+" />
   <img src="https://img.shields.io/badge/Swift-5.9-orange?style=flat-square&logo=swift" alt="Swift 5.9" />
-  <img src="https://img.shields.io/badge/AI-Google%20Gemini%201.5%20Flash-4285F4?style=flat-square&logo=google" alt="Google Gemini AI" />
+  <img src="https://img.shields.io/badge/AI-Gemini%201.5%20Flash-4285F4?style=flat-square&logo=google" alt="Google Gemini AI" />
   <a href="LICENSE"><img src="https://img.shields.io/github/license/Anshuman-Sisodiya/ChefPocket?style=flat-square" alt="License" /></a>
 </p>
 
