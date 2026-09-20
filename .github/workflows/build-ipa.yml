@@ -12,6 +12,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Backup Info Plists
+        run: |
+          cp ChefPocket/Info.plist /tmp/orig_app_info.plist
+          cp RecipeShareExtension/Info.plist /tmp/orig_ext_info.plist
+
       - name: Select Xcode Version
         run: |
           if [ -d "/Applications/Xcode_16.app" ]; then
@@ -68,7 +73,7 @@ jobs:
 
           # Main app plist injection
           app_plist = 'Payload/ChefPocket.app/Info.plist'
-          with open('ChefPocket/Info.plist', 'rb') as f:
+          with open('/tmp/orig_app_info.plist', 'rb') as f:
               src_app = plistlib.load(f)
           with open(app_plist, 'rb') as f:
               dest_app = plistlib.load(f)
@@ -81,7 +86,7 @@ jobs:
           # Extension plist injection (guarantees NSExtension is present)
           ext_plist = 'Payload/ChefPocket.app/PlugIns/RecipeShareExtension.appex/Info.plist'
           if os.path.exists(ext_plist):
-              with open('RecipeShareExtension/Info.plist', 'rb') as f:
+              with open('/tmp/orig_ext_info.plist', 'rb') as f:
                   src_ext = plistlib.load(f)
               with open(ext_plist, 'rb') as f:
                   dest_ext = plistlib.load(f)
@@ -90,7 +95,12 @@ jobs:
                       dest_ext[k] = v
               with open(ext_plist, 'wb') as f:
                   plistlib.dump(dest_ext, f)
-              print('Extension Info.plist successfully verified and merged with NSExtension!')
+              
+              # Assert validation
+              with open(ext_plist, 'rb') as f:
+                  check = plistlib.load(f)
+              assert 'NSExtension' in check, 'CRITICAL: NSExtension missing from extension Info.plist!'
+              print('Extension Info.plist successfully verified and merged with NSExtension:', check['NSExtension'])
           "
 
           zip -r ChefPocket.ipa Payload
