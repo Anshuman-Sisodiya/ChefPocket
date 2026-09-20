@@ -737,6 +737,48 @@ struct RecipeDetailView: View {
     @EnvironmentObject var store: RecipeStore
     @State private var showingAddedGroceryAlert = false
     
+    private var cleanInstructions: [String] {
+        let filtered = recipe.instructions.filter { step in
+            let lower = step.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+            return !lower.starts(with: "extracted from") &&
+                   !lower.starts(with: "source:") &&
+                   !lower.contains("youtube.com") &&
+                   !lower.contains("youtu.be") &&
+                   !lower.contains("instagram.com")
+        }
+        return filtered.isEmpty ? ["Prepare ingredients, cook with spices, and serve hot."] : filtered
+    }
+    
+    private var formattedShareText: String {
+        var text = """
+🍳 \(recipe.title)
+Diet: \(recipe.diet.label)
+Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | Protein: \(recipe.proteinGrams)g
+"""
+        if let whistles = recipe.whistleCount {
+            text += " | Cooker: \(whistles) whistles\n\n"
+        } else {
+            text += "\n\n"
+        }
+        
+        text += "🛒 INGREDIENTS:\n"
+        for ing in recipe.ingredients {
+            text += "• \(ing.name) - \(String(format: "%.1f", ing.amount)) \(ing.unit)\n"
+        }
+        
+        text += "\n👨‍🍳 INSTRUCTIONS:\n"
+        for (i, step) in cleanInstructions.enumerated() {
+            text += "\(i + 1). \(step)\n"
+        }
+        
+        if let url = recipe.sourceURL, !url.isEmpty {
+            text += "\nOriginal Video: \(url)\n"
+        }
+        
+        text += "\nShared from ChefPocket App 👨‍🍳"
+        return text
+    }
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
@@ -787,6 +829,49 @@ struct RecipeDetailView: View {
                 }
                 .padding(.horizontal)
                 
+                // Dedicated Video Link Card (Moved from instructions)
+                if let sourceURL = recipe.sourceURL, !sourceURL.isEmpty, let url = URL(string: sourceURL) {
+                    Link(destination: url) {
+                        HStack(spacing: 12) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.red.opacity(0.12))
+                                    .frame(width: 38, height: 38)
+                                Image(systemName: "play.rectangle.fill")
+                                    .foregroundColor(.red)
+                                    .font(.system(size: 18))
+                            }
+                            
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(sourceURL.contains("instagram") ? "Watch on Instagram Reels" : "Watch Original Recipe Video")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.primary)
+                                Text(sourceURL)
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
+                            }
+                            
+                            Spacer()
+                            
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 14)
+                                .fill(Color(.systemBackground))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .stroke(Color(.systemGray5), lineWidth: 1)
+                                )
+                        )
+                    }
+                    .padding(.horizontal)
+                }
+                
                 // Ingredients Section
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
@@ -823,13 +908,13 @@ struct RecipeDetailView: View {
                 .background(RoundedRectangle(cornerRadius: 14).fill(Color(.systemGray6)))
                 .padding(.horizontal)
                 
-                // Instructions Section
+                // Instructions Section (Pure culinary steps)
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Cooking Instructions")
                         .font(.headline)
                     
                     VStack(alignment: .leading, spacing: 14) {
-                        ForEach(Array(recipe.instructions.enumerated()), id: \.offset) { idx, step in
+                        ForEach(Array(cleanInstructions.enumerated()), id: \.offset) { idx, step in
                             HStack(alignment: .top, spacing: 12) {
                                 Text("\(idx + 1)")
                                     .font(.caption)
@@ -849,17 +934,48 @@ struct RecipeDetailView: View {
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 14).fill(Color(.systemGray6)))
                 .padding(.horizontal)
+                
+                // Social Media Share Button
+                ShareLink(
+                    item: formattedShareText,
+                    subject: Text(recipe.title),
+                    message: Text("Check out this recipe for \(recipe.title) on ChefPocket!")
+                ) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "square.and.arrow.up")
+                        Text("Share Recipe via WhatsApp, Instagram & More")
+                    }
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(Color(.systemGray6))
+                    .foregroundColor(.primary)
+                    .cornerRadius(14)
+                }
+                .padding(.horizontal)
             }
             .padding(.vertical)
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    store.toggleFavorite(recipeId: recipe.id)
-                }) {
-                    Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
-                        .foregroundColor(.red)
+                HStack(spacing: 12) {
+                    ShareLink(
+                        item: formattedShareText,
+                        subject: Text(recipe.title),
+                        message: Text("Check out this recipe for \(recipe.title) on ChefPocket!")
+                    ) {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(.orange)
+                    }
+                    
+                    Button(action: {
+                        store.toggleFavorite(recipeId: recipe.id)
+                    }) {
+                        Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
+                            .foregroundColor(.red)
+                    }
                 }
             }
         }

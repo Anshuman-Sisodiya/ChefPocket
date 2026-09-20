@@ -212,11 +212,16 @@ class AIService: ObservableObject {
             ingredients = [Ingredient(name: "Main ingredient", amount: 250, unit: "g")]
         }
         
-        let instructions = dict["instructions"] as? [String] ?? [
-            "Extracted from: \(videoURL)",
-            "Prepare ingredients and heat pan on medium flame.",
-            "Cook until golden and aromatic, finish with garnish."
+        var rawInstructions = dict["instructions"] as? [String] ?? [
+            "Prepare and chop all ingredients as listed.",
+            "Heat pan on medium flame, sauté aromatics and spices.",
+            "Add main ingredients and simmer until cooked through.",
+            "Finish with fresh garnish and serve hot."
         ]
+        let instructions = rawInstructions.filter {
+            let l = $0.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+            return !l.starts(with: "extracted from") && !l.starts(with: "source:") && !l.contains("http")
+        }
         
         return Recipe(
             title: title,
@@ -312,7 +317,6 @@ class AIService: ObservableObject {
                 Ingredient(name: "Fresh Coriander for Garnish", amount: 1, unit: "handful")
             ],
             instructions: [
-                "Extracted from: \(url)",
                 "Heat ghee or oil in a heavy-bottomed pan and sauté ginger garlic paste with cumin seeds until fragrant.",
                 "Add chopped onions and fry on medium-high heat until golden brown.",
                 "Add tomato puree, turmeric, red chilli, and garam masala; bhunao (cook) until the oil releases from the sides.",
