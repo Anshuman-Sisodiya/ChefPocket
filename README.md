@@ -27,14 +27,22 @@
 
 ## ✨ Features at a Glance
 
-### 🍽️ 165+ Curated Inbuilt Recipes
-- **🍞 Dedicated Bakery Section (20 Recipes)**: Eggless Fudge Brownies, Moist Banana Bread, Mumbai Ladi Pav, Focaccia, Blueberry Muffins, Atta Nankhatai, Choco Lava Cake, Cinnamon Swirl Rolls, Croissants, Quiche, and Tarts.
-- **☕ Drinks, Chai & Shakes (20 Recipes - 100% Non-Alcoholic)**: South Indian Filter Kaapi, Dhaba Masala Chai, Mumbai Cutting Chai, Kashmiri Kahwa, Cafe Frappé Cold Coffee, Mango Mastani, Punjabi Mango Lassi, Masala Chaas, Shahi Thandai, Nimbu Shikanji, and Belgian Chocolate Protein Shake.
-- **65 Pure Vegetarian Dishes**: Dhaba Paneer Bhurji, Dal Makhani, Dal Tadka, Amritsari Pindi Chole, Moong Dal Chilla, Palak Paneer, Pav Bhaji, Veg Dum Biryani, and more.
-- **60 Non-Vegetarian Dishes**: Butter Chicken, Mutton Rogan Josh, Champaran Handi Meat, Goan Fish Curry, Prawn Ghee Roast, Irani Cafe Egg Bhurji, Kolkata Biryani, and more.
-- **65 Pure Vegetarian Dishes**: Dhaba Paneer Bhurji, Dal Makhani, Dal Tadka, Amritsari Pindi Chole, Moong Dal Chilla, Palak Paneer, Pav Bhaji, Veg Dum Biryani, and more.
-- **60 Non-Vegetarian Dishes**: Butter Chicken, Mutton Rogan Josh, Champaran Handi Meat, Goan Fish Curry, Prawn Ghee Roast, Irani Cafe Egg Bhurji, Kolkata Biryani, and more.
-- **Nutritional Transparency**: Calories, protein in grams, prep time, and cooker whistle counts for every recipe.
+### 🍽️ 430+ Curated Inbuilt Recipes (The Ultimate Culinary Hub)
+- **🥖 Artisan Bakery & Breads (65 Recipes)**: Sourdough Country Loafs, French Baguettes, Italian Ciabatta, Shokupan Milk Bread, Brioche, NY Bagels, Mediterranean Pita, 8 Croissant variations (Butter, Pain au Chocolat, Almond Frangipane, Pistachio Cream, Morning Buns, Kouign-Amann), 10 Cheesecake masterpieces (New York Baked, Basque Burnt, Lotus Biscoff, Japanese Cotton Soufflé, Blueberry, Mango), Tarts, Brownies, and Cookies.
+- **☕ Drinks, Brews & Cafe Coolers (60 Recipes - 100% Non-Alcoholic)**: 18-Hour Cold Brews, Affogato al Caffè, Brass Davarah Filter Kaapi, Tiger Boba Milk Tea, Iced Matcha Latte, Peach Mint Iced Tea, Noon Chai, Virgin Mojitos, Blue Curacao Lemonade, Spicy Guava Chilli Fizz, Belgian Freakshakes, and Healthy Smoothies.
+- **🍝 Continental & Italian Bistro (39 Recipes)**: Aglio e Olio, Arrabbiata, Fettuccine Alfredo, Genovese Pesto Fusilli, Four-Cheese Baked Lasagna, Roman Cacio e Pepe, Truffle Tagliatelle, Neapolitan Margherita, Quattro Formaggi Pizza, Continental Sizzlers, Stroganoff, Minestrone, and French Onion Soup.
+- **🥟 Asian & Indo-Chinese Bistro (42 Recipes)**: Street Steamed Veg & Chicken Momos, Kurkure Fried Momos, Crystal Dimsums, Prawn Har Gow, Steamed Bao Buns, Kolkata Hakka Chowmein, Schezwan Fried Rice, Bangkok Pad Thai, Dan Dan Noodles, Manchurian, Tangra Chilli Chicken, and Thai Green/Red Curries.
+- **🌮 Mexican & Tex-Mex Classics (30 Recipes)**: Baja Fish Tacos, Paneer Tinga Tacos, Chicken Birria with Consomé Dip, Cheesy Quesadillas, Mission Burrito Bowls, Enchiladas Rojas & Verdes, Loaded Supreme Nachos, Molcajete Guacamole, Elote, and Churros con Chocolate.
+- **🧆 Middle Eastern & Mediterranean Heritage (27 Recipes)**: Crispy Golden Falafel, Silk-Smooth Hummus, Hummus Kawarma, Charred Baba Ganoush, Fluffy Pita Pockets, Whipped Garlic Toum, Fresh Tabbouleh, Shakshuka, Chicken Shawarma Wraps, and Pistachio Baklava.
+- **🥪 Indian Cafe & Bistro Specials (35 Recipes)**: Legendary Bombay Masala Grilled Sandwich, Club Sandwiches, Peri Peri Paninis, Corn & Spinach Melts, Gourmet Burgers, Truffle Parmesan Fries, Loaded Makhani Fries, Belgian Waffles, and Buttermilk Pancakes.
+- **🍛 Indian Regional Heritage (136 Recipes)**: Hyderabadi Dum Biryani, Awadhi Mutton Biryani, Kolkata Biryani, Chettinad Pepper Chicken, Malabar Fish Curry, Goan Balchão, Bengali Shorshe Maach, Rajasthani Laal Maas, Kashmiri Rogan Josh, and Gujarati Dal Dhokli.
+- **Nutritional Transparency**: Calories, protein in grams, prep time, and cooker whistle counts for every single recipe.
+
+### 🌐 Multi-Dimensional Culinary Filtering
+- **Cuisines Bar**: Filter effortlessly across `Indian Regional`, `Continental & Italian`, `Asian & Indo-Chinese`, `Mexican & Tex-Mex`, `Middle Eastern`, `Cafe & Bistro`, `Bakery & Breads`, and `Drinks & Brews`.
+- **Diet Selector**: `All (434)`, `Veg (306)`, `Non-Veg (128)` with geometric vector FSSAI badges.
+- **Meal Occasions**: `Breakfast`, `Lunch`, `Snacks`, and `Dinner`.
+- **Culinary Courses**: `Bakery`, `Drinks & Shakes`, `Sabzi`, `Dal`, `High-Protein`, `Street Food`, `Rice & Biryani`, and `Fusion`.
 
 ### 🥗 Pure Veg (🟢) & Non-Veg (🔴) Filtering
 - Dedicated capsule pills (`All 125`, `Veg 65`, `Non-Veg 60`) that never truncate.

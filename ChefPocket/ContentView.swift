@@ -78,16 +78,31 @@ struct CookbookHomeView: View {
     private var vegCount: Int { scopeRecipes.filter { $0.diet == .veg }.count }
     private var nonVegCount: Int { scopeRecipes.filter { $0.diet == .nonVeg }.count }
     
+    private var sectionHeaderTitle: String {
+        var parts: [String] = [store.selectedDiet.label]
+        if store.selectedCuisine != .all {
+            parts.append(store.selectedCuisine.rawValue)
+        }
+        if store.selectedCategory != .all {
+            parts.append(store.selectedCategory.rawValue)
+        } else if store.selectedMealType != .all {
+            parts.append(store.selectedMealType.rawValue)
+        }
+        return parts.joined(separator: " • ")
+    }
+    
     private var filteredRecipes: [Recipe] {
         scopeRecipes.filter { recipe in
+            let matchesCuisine = store.selectedCuisine == .all || recipe.cuisine == store.selectedCuisine
             let matchesDiet = store.selectedDiet == .all || recipe.diet == store.selectedDiet
             let matchesMeal = store.selectedMealType == .all || recipe.mealTypes.contains(store.selectedMealType)
             let matchesCategory = store.selectedCategory == .all || recipe.category == store.selectedCategory
             let matchesSearch = searchText.isEmpty ||
                 recipe.title.localizedCaseInsensitiveContains(searchText) ||
                 recipe.ingredients.contains(where: { $0.name.localizedCaseInsensitiveContains(searchText) }) ||
-                recipe.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) })
-            return matchesDiet && matchesMeal && matchesCategory && matchesSearch
+                recipe.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) }) ||
+                recipe.cuisine.rawValue.localizedCaseInsensitiveContains(searchText)
+            return matchesCuisine && matchesDiet && matchesMeal && matchesCategory && matchesSearch
         }
     }
     
@@ -294,7 +309,33 @@ struct CookbookHomeView: View {
                     .cornerRadius(12)
                     .padding(.horizontal)
                     
-                    // 6. Meal Occasions Bar (Breakfast, Lunch, Snacks, Dinner)
+                    // 6a. Regional Cuisines Filter Bar (All, Indian, Continental, Asian, Mexican, Middle Eastern, Cafe, Bakery, Drinks)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(Cuisine.allCases) { cuisine in
+                                Button(action: {
+                                    withAnimation { store.selectedCuisine = cuisine }
+                                }) {
+                                    HStack(spacing: 5) {
+                                        Image(systemName: cuisine.iconName)
+                                            .font(.caption2)
+                                        Text(cuisine.rawValue)
+                                            .font(.caption)
+                                            .fontWeight(store.selectedCuisine == cuisine ? .bold : .medium)
+                                    }
+                                    .padding(.horizontal, 13)
+                                    .padding(.vertical, 7)
+                                    .background(store.selectedCuisine == cuisine ? Color.orange : Color(.systemGray6))
+                                    .foregroundColor(store.selectedCuisine == cuisine ? .white : .primary)
+                                    .clipShape(Capsule())
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+
+                    // 6b. Meal Occasions Bar (Breakfast, Lunch, Snacks, Dinner)
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 8) {
                             ForEach(MealType.allCases) { meal in
@@ -386,13 +427,13 @@ struct CookbookHomeView: View {
                     // 8. Recipe List / Empty State
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Text("\(store.selectedDiet.label) • \(store.selectedCategory == .all ? store.selectedMealType.rawValue : store.selectedCategory.rawValue)")
+                            Text(sectionHeaderTitle)
                                 .font(.caption)
                                 .bold()
                                 .foregroundColor(.secondary)
                                 .textCase(.uppercase)
                             Spacer()
-                            Text("\(filteredRecipes.count) \(store.selectedCategory == .all ? "dishes" : store.selectedCategory.rawValue.lowercased())")
+                            Text("\(filteredRecipes.count) \(filteredRecipes.count == 1 ? "dish" : "dishes")")
                                 .font(.caption2)
                                 .foregroundColor(.secondary)
                         }
@@ -477,13 +518,13 @@ struct CookbookHomeView: View {
                     AajKyaBanauResultSheet(recipe: r, isPresented: $showingRandomizerModal)
                 }
             }
-            .alert("Reload All 125 Inbuilt Recipes?", isPresented: $showingResetAlert) {
+            .alert("Reload All 430+ Inbuilt Recipes?", isPresented: $showingResetAlert) {
                 Button("Reload", role: .destructive) {
                     store.resetToInbuiltRecipes()
                 }
                 Button("Cancel", role: .cancel) { }
             } message: {
-                Text("This will refresh all 125 curated recipes without affecting your custom recipes in My Kitchen.")
+                Text("This will refresh all 430+ curated recipes without affecting your custom recipes in My Kitchen.")
             }
             .onAppear {
                 checkClipboard()
@@ -523,8 +564,10 @@ struct CookbookHomeView: View {
         generator.impactOccurred()
         if let pick = store.getRandomRecipe(
             scope: store.selectedScope,
+            cuisine: store.selectedCuisine,
             diet: store.selectedDiet,
-            meal: store.selectedMealType
+            meal: store.selectedMealType,
+            category: store.selectedCategory
         ) {
             randomizedRecipe = pick
             showingRandomizerModal = true
@@ -585,10 +628,20 @@ struct AestheticRecipeCard: View {
                         .foregroundColor(.primary)
                         .lineLimit(2)
                     
-                    // Tags / Meal Types
-                    Text(recipe.tags.prefix(2).joined(separator: " • "))
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
+                    // Cuisine Chip & Tags
+                    HStack(spacing: 6) {
+                        Text(recipe.cuisine.rawValue)
+                            .font(.system(size: 10, weight: .semibold))
+                            .foregroundColor(.orange)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.orange.opacity(0.12))
+                            .clipShape(Capsule())
+                        
+                        Text(recipe.tags.prefix(2).joined(separator: " • "))
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
                 }
                 
                 Spacer()
@@ -817,6 +870,14 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
                             .font(.caption)
                             .fontWeight(.semibold)
                             .foregroundColor(recipe.diet.accentColor)
+                        
+                        Text("•")
+                            .foregroundColor(.secondary)
+                        
+                        Text(recipe.cuisine.rawValue)
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.orange)
                         
                         Text("•")
                             .foregroundColor(.secondary)

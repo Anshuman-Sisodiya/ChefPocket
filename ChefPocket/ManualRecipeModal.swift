@@ -5,6 +5,7 @@ struct ManualRecipeModal: View {
     @EnvironmentObject var store: RecipeStore
     
     @State private var title = ""
+    @State private var cuisine: Cuisine = .indian
     @State private var category: RecipeCategory = .sabzi
     @State private var diet: DietType = .veg
     @State private var selectedMeal: MealType = .dinner
@@ -29,6 +30,12 @@ struct ManualRecipeModal: View {
                         Text("Non-Vegetarian").tag(DietType.nonVeg)
                     }
                     .pickerStyle(.segmented)
+                    
+                    Picker("Cuisine", selection: $cuisine) {
+                        ForEach(Cuisine.allCases.filter { $0 != .all }) { c in
+                            Text(c.rawValue).tag(c)
+                        }
+                    }
                     
                     Picker("Category", selection: $category) {
                         ForEach(RecipeCategory.allCases.filter { $0 != .all }) { cat in
@@ -122,10 +129,11 @@ struct ManualRecipeModal: View {
         let recipe = Recipe(
             title: title,
             category: category,
+            cuisine: cuisine,
             diet: diet,
             mealTypes: [selectedMeal],
             isUserCreated: true,
-            tags: ["Home Recipe", category.rawValue, diet.rawValue],
+            tags: ["Home Recipe", cuisine.rawValue, category.rawValue, diet.rawValue],
             sourceURL: nil,
             prepTimeMinutes: prepTime,
             calories: calories,

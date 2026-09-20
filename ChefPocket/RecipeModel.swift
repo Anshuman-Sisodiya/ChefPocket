@@ -8,6 +8,34 @@ enum RecipeScope: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
+enum Cuisine: String, CaseIterable, Codable, Identifiable {
+    case all = "All"
+    case indian = "Indian Regional"
+    case continental = "Continental & Italian"
+    case asian = "Asian & Indo-Chinese"
+    case mexican = "Mexican & Tex-Mex"
+    case middleEastern = "Middle Eastern"
+    case cafe = "Cafe & Bistro"
+    case bakery = "Bakery & Breads"
+    case drinks = "Drinks & Brews"
+    
+    var id: String { rawValue }
+    
+    var iconName: String {
+        switch self {
+        case .all: return "globe"
+        case .indian: return "flame.fill"
+        case .continental: return "fork.knife"
+        case .asian: return "takeoutbag.and.cup.and.straw.fill"
+        case .mexican: return "flame"
+        case .middleEastern: return "sun.max.fill"
+        case .cafe: return "cup.and.saucer.fill"
+        case .bakery: return "birthday.cake.fill"
+        case .drinks: return "mug.fill"
+        }
+    }
+}
+
 enum DietType: String, CaseIterable, Codable, Identifiable {
     case all = "All"
     case veg = "Veg"
@@ -134,6 +162,7 @@ struct Recipe: Identifiable, Codable, Equatable {
     var id = UUID()
     var title: String
     var category: RecipeCategory
+    var cuisine: Cuisine = .indian
     var diet: DietType = .veg
     var mealTypes: [MealType] = [.lunch, .dinner]
     var isUserCreated: Bool = false
@@ -146,6 +175,67 @@ struct Recipe: Identifiable, Codable, Equatable {
     var ingredients: [Ingredient]
     var instructions: [String]
     var isFavorite: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title, category, cuisine, diet, mealTypes, isUserCreated, tags, sourceURL
+        case prepTimeMinutes, calories, proteinGrams, whistleCount, ingredients, instructions, isFavorite
+    }
+    
+    init(
+        id: UUID = UUID(),
+        title: String,
+        category: RecipeCategory,
+        cuisine: Cuisine = .indian,
+        diet: DietType = .veg,
+        mealTypes: [MealType] = [.lunch, .dinner],
+        isUserCreated: Bool = false,
+        tags: [String],
+        sourceURL: String? = nil,
+        prepTimeMinutes: Int,
+        calories: Int,
+        proteinGrams: Int,
+        whistleCount: Int? = nil,
+        ingredients: [Ingredient],
+        instructions: [String],
+        isFavorite: Bool = false
+    ) {
+        self.id = id
+        self.title = title
+        self.category = category
+        self.cuisine = cuisine
+        self.diet = diet
+        self.mealTypes = mealTypes
+        self.isUserCreated = isUserCreated
+        self.tags = tags
+        self.sourceURL = sourceURL
+        self.prepTimeMinutes = prepTimeMinutes
+        self.calories = calories
+        self.proteinGrams = proteinGrams
+        self.whistleCount = whistleCount
+        self.ingredients = ingredients
+        self.instructions = instructions
+        self.isFavorite = isFavorite
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
+        title = try container.decode(String.self, forKey: .title)
+        category = try container.decode(RecipeCategory.self, forKey: .category)
+        cuisine = try container.decodeIfPresent(Cuisine.self, forKey: .cuisine) ?? .indian
+        diet = try container.decodeIfPresent(DietType.self, forKey: .diet) ?? .veg
+        mealTypes = try container.decodeIfPresent([MealType].self, forKey: .mealTypes) ?? [.lunch, .dinner]
+        isUserCreated = try container.decodeIfPresent(Bool.self, forKey: .isUserCreated) ?? false
+        tags = try container.decodeIfPresent([String].self, forKey: .tags) ?? []
+        sourceURL = try container.decodeIfPresent(String.self, forKey: .sourceURL)
+        prepTimeMinutes = try container.decodeIfPresent(Int.self, forKey: .prepTimeMinutes) ?? 25
+        calories = try container.decodeIfPresent(Int.self, forKey: .calories) ?? 350
+        proteinGrams = try container.decodeIfPresent(Int.self, forKey: .proteinGrams) ?? 10
+        whistleCount = try container.decodeIfPresent(Int.self, forKey: .whistleCount)
+        ingredients = try container.decodeIfPresent([Ingredient].self, forKey: .ingredients) ?? []
+        instructions = try container.decodeIfPresent([String].self, forKey: .instructions) ?? []
+        isFavorite = try container.decodeIfPresent(Bool.self, forKey: .isFavorite) ?? false
+    }
 }
 
 struct ThaliPlan: Codable, Equatable {
@@ -163,14 +253,15 @@ class RecipeStore: ObservableObject {
     
     // UI Filters
     @Published var selectedScope: RecipeScope = .curated
+    @Published var selectedCuisine: Cuisine = .all
     @Published var selectedDiet: DietType = .all
     @Published var selectedMealType: MealType = .all
     @Published var selectedCategory: RecipeCategory = .all
     
     let suiteName = "group.com.chefpocket.recipes"
-    let recipesKey = "saved_recipes_key_v5"
-    let groceriesKey = "saved_groceries_key_v5"
-    let thaliKey = "saved_thali_key_v5"
+    let recipesKey = "saved_recipes_key_v6"
+    let groceriesKey = "saved_groceries_key_v6"
+    let thaliKey = "saved_thali_key_v6"
     
     private var defaults: UserDefaults {
         UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
@@ -186,7 +277,7 @@ class RecipeStore: ObservableObject {
     
     init() {
         loadData()
-        if recipes.isEmpty || curatedRecipes.count < 150 {
+        if recipes.isEmpty || curatedRecipes.count < 350 {
             loadBundledRecipes()
         }
     }
@@ -253,10 +344,19 @@ class RecipeStore: ObservableObject {
         loadBundledRecipes()
     }
     
-    func getRandomRecipe(scope: RecipeScope? = nil, diet: DietType? = nil, meal: MealType? = nil, category: RecipeCategory? = nil) -> Recipe? {
+    func getRandomRecipe(
+        scope: RecipeScope? = nil,
+        cuisine: Cuisine? = nil,
+        diet: DietType? = nil,
+        meal: MealType? = nil,
+        category: RecipeCategory? = nil
+    ) -> Recipe? {
         var pool = (scope == .myKitchen) ? myRecipes : (scope == .curated ? curatedRecipes : recipes)
         if pool.isEmpty { pool = recipes }
         
+        if let cu = cuisine, cu != .all {
+            pool = pool.filter { $0.cuisine == cu }
+        }
         if let d = diet, d != .all {
             pool = pool.filter { $0.diet == d }
         }
@@ -309,12 +409,16 @@ class RecipeStore: ObservableObject {
     private func categorizeIngredient(_ name: String) -> GroceryCategory {
         let lower = name.lowercased()
         if lower.contains("chicken") || lower.contains("mutton") || lower.contains("lamb") || lower.contains("fish") ||
-            lower.contains("prawn") || lower.contains("egg") || lower.contains("keema") || lower.contains("surmai") || lower.contains("pomfret") {
+            lower.contains("prawn") || lower.contains("egg") || lower.contains("keema") || lower.contains("surmai") || lower.contains("pomfret") ||
+            lower.contains("salmon") || lower.contains("shrimp") || lower.contains("beef") || lower.contains("bacon") || lower.contains("pepperoni") {
             return .meatAndEggs
         } else if lower.contains("onion") || lower.contains("tomato") || lower.contains("garlic") || lower.contains("ginger") ||
             lower.contains("chilli") || lower.contains("chili") || lower.contains("coriander") || lower.contains("palak") ||
             lower.contains("spinach") || lower.contains("potato") || lower.contains("gobi") || lower.contains("cauliflower") ||
-            lower.contains("methi") || lower.contains("bell pepper") || lower.contains("carrot") || lower.contains("lemon") || lower.contains("shallot") {
+            lower.contains("methi") || lower.contains("bell pepper") || lower.contains("capsicum") || lower.contains("carrot") ||
+            lower.contains("lemon") || lower.contains("lime") || lower.contains("shallot") || lower.contains("zucchini") ||
+            lower.contains("cabbage") || lower.contains("mushroom") || lower.contains("scallion") || lower.contains("avocado") ||
+            lower.contains("mint") || lower.contains("basil") || lower.contains("parsley") || lower.contains("rosemary") || lower.contains("thyme") {
             return .sabziMandi
         } else if lower.contains("tea") || lower.contains("coffee") || lower.contains("cocoa") ||
                     lower.contains("chocolate") || lower.contains("vanilla") || lower.contains("baking") ||
@@ -322,21 +426,26 @@ class RecipeStore: ObservableObject {
                     lower.contains("rose water") || lower.contains("jeera") || lower.contains("cumin") || lower.contains("haldi") || lower.contains("turmeric") ||
                     lower.contains("garam masala") || lower.contains("hing") || lower.contains("coriander powder") ||
                     lower.contains("mustard") || lower.contains("pepper") || lower.contains("cardamom") || lower.contains("clove") ||
-                    lower.contains("cinnamon") || lower.contains("chilli flakes") || lower.contains("paprika") || lower.contains("salt") || lower.contains("fennel") || lower.contains("anardana") {
+                    lower.contains("cinnamon") || lower.contains("chilli flakes") || lower.contains("paprika") || lower.contains("salt") ||
+                    lower.contains("fennel") || lower.contains("anardana") || lower.contains("sumac") || lower.contains("za'atar") || lower.contains("nutmeg") {
             return .masalaDabba
         } else if lower.contains("dal") || lower.contains("lentil") || lower.contains("chana") || lower.contains("toor") ||
                     lower.contains("moong") || lower.contains("urad") || lower.contains("rice") || lower.contains("atta") ||
-                    lower.contains("flour") || lower.contains("besan") || lower.contains("oats") || lower.contains("spaghetti") || lower.contains("rajma") || lower.contains("poha") {
+                    lower.contains("flour") || lower.contains("besan") || lower.contains("oats") || lower.contains("spaghetti") ||
+                    lower.contains("penne") || lower.contains("fettuccine") || lower.contains("fusilli") || lower.contains("pasta") ||
+                    lower.contains("noodles") || lower.contains("rajma") || lower.contains("poha") || lower.contains("beans") || lower.contains("chickpea") {
             return .dalsAndGrains
         } else if lower.contains("paneer") || lower.contains("ghee") || lower.contains("dahi") || lower.contains("curd") ||
-                    lower.contains("yogurt") || lower.contains("butter") || lower.contains("milk") || lower.contains("cheese") || lower.contains("cream") {
+                    lower.contains("yogurt") || lower.contains("butter") || lower.contains("milk") || lower.contains("cheese") ||
+                    lower.contains("cream") || lower.contains("ricotta") || lower.contains("mozzarella") || lower.contains("parmesan") ||
+                    lower.contains("cheddar") || lower.contains("burrata") || lower.contains("halloumi") || lower.contains("feta") {
             return .dairyAndGhee
         } else {
             return .other
         }
     }
     
-    // MARK: - Bundled 125+ Recipes Loader
+    // MARK: - Bundled Recipes Loader (400+ Curated Recipes)
     private func loadBundledRecipes() {
         let existingUserCreated = recipes.filter { $0.isUserCreated }
         
