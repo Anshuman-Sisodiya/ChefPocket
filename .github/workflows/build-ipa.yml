@@ -1,0 +1,50 @@
+﻿name: Build iPhone 13 IPA
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode Project
+        run: xcodegen generate
+
+      - name: Build Unsigned App
+        run: |
+          xcodebuild clean build \
+            -project ChefPocket.xcodeproj \
+            -scheme ChefPocket \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath derived_data \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Package IPA
+        run: |
+          mkdir -p Payload
+          APP_PATH=$(find derived_data/Build/Products/Release-iphoneos -name "ChefPocket.app" -type d | head -n 1)
+          if [ -z "$APP_PATH" ]; then
+            echo "Error: ChefPocket.app not found!"
+            find derived_data -type d -name "*.app"
+            exit 1
+          fi
+          echo "Found app bundle at: $APP_PATH"
+          cp -r "$APP_PATH" Payload/
+          zip -r ChefPocket.ipa Payload
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChefPocket-iPhone13-IPA
+          path: ChefPocket.ipa

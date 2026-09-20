@@ -1,0 +1,40 @@
+﻿name: ChefPocket
+options:
+  bundleIdPrefix: com.chefpocket
+  deploymentTarget:
+    iOS: "16.0"
+
+targets:
+  ChefPocket:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: ChefPocket
+    info:
+      path: ChefPocket/Info.plist
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.chefpocket.app
+      INFOPLIST_FILE: ChefPocket/Info.plist
+      CODE_SIGN_STYLE: Manual
+      CODE_SIGN_IDENTITY: ""
+      CODE_SIGNING_REQUIRED: NO
+      CODE_SIGNING_ALLOWED: NO
+    dependencies:
+      - target: RecipeShareExtension
+
+  RecipeShareExtension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: RecipeShareExtension
+    info:
+      path: RecipeShareExtension/Info.plist
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.chefpocket.app.share
+      INFOPLIST_FILE: RecipeShareExtension/Info.plist
+      CODE_SIGN_STYLE: Manual
+      CODE_SIGN_IDENTITY: ""
+      CODE_SIGNING_REQUIRED: NO
+      CODE_SIGNING_ALLOWED: NO
