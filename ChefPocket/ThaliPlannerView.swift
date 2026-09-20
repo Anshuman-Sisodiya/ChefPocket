@@ -5,11 +5,13 @@ struct ThaliPlannerView: View {
     @State private var showingAddedAlert = false
     
     private var availableDals: [Recipe] {
-        store.recipes.filter { $0.category == .dal }
+        let filtered = store.recipes.filter { (store.selectedDiet == .all || $0.diet == store.selectedDiet) && $0.category == .dal }
+        return filtered.isEmpty ? store.recipes.filter { $0.category == .dal } : filtered
     }
     
     private var availableSabzis: [Recipe] {
-        store.recipes.filter { $0.category == .sabzi || $0.category == .highProtein }
+        let filtered = store.recipes.filter { (store.selectedDiet == .all || $0.diet == store.selectedDiet) && ($0.category == .sabzi || $0.category == .highProtein) }
+        return filtered.isEmpty ? store.recipes.filter { $0.category == .sabzi || $0.category == .highProtein } : filtered
     }
     
     private var selectedDal: Recipe? {
@@ -246,7 +248,7 @@ struct ThaliItemPickerCard: View {
                 Menu {
                     ForEach(options) { r in
                         Button(action: { onSelect(r) }) {
-                            Text(r.title)
+                            Text("\(r.diet.symbol) \(r.title)")
                         }
                     }
                 } label: {

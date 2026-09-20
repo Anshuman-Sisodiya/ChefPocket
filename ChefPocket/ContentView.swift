@@ -43,15 +43,20 @@ struct RecipeBookView: View {
     @State private var showingRandomizerModal = false
     @State private var randomizedRecipe: Recipe? = nil
     @State private var detectedClipboardURL: String? = nil
+    @State private var showingResetAlert = false
+    
+    private var vegCount: Int { store.recipes.filter { $0.diet == .veg }.count }
+    private var nonVegCount: Int { store.recipes.filter { $0.diet == .nonVeg }.count }
     
     private var filteredRecipes: [Recipe] {
         store.recipes.filter { recipe in
+            let matchesDiet = store.selectedDiet == .all || recipe.diet == store.selectedDiet
             let matchesCategory = selectedCategory == .all || recipe.category == selectedCategory
             let matchesSearch = searchText.isEmpty ||
                 recipe.title.localizedCaseInsensitiveContains(searchText) ||
                 recipe.ingredients.contains(where: { $0.name.localizedCaseInsensitiveContains(searchText) }) ||
                 recipe.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) })
-            return matchesCategory && matchesSearch
+            return matchesDiet && matchesCategory && matchesSearch
         }
     }
     
@@ -101,6 +106,21 @@ struct RecipeBookView: View {
                     }
                 }
                 
+                // Diet Selector: All | Pure Veg | Non-Veg
+                Section {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Picker("Diet Preference", selection: $store.selectedDiet) {
+                            Text("🍽️ All (\(store.recipes.count))").tag(DietType.all)
+                            Text("🟢 Veg (\(vegCount))").tag(DietType.veg)
+                            Text("🔴 Non-Veg (\(nonVegCount))").tag(DietType.nonVeg)
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    .padding(.vertical, 2)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
+                }
+                
                 // Aaj Kya Banau? Hero Banner
                 Section {
                     Button(action: spinAajKyaBanau) {
@@ -115,10 +135,14 @@ struct RecipeBookView: View {
                             }
                             
                             VStack(alignment: .leading, spacing: 3) {
-                                Text("Aaj Kya Banau? 🎲")
-                                    .font(.headline)
-                                    .foregroundColor(.primary)
-                                Text("Can't decide? Tap for instant meal inspiration!")
+                                HStack {
+                                    Text("Aaj Kya Banau? 🎲")
+                                        .font(.headline)
+                                        .foregroundColor(.primary)
+                                    Text(store.selectedDiet.symbol)
+                                        .font(.caption)
+                                }
+                                Text("Tap for instant \(store.selectedDiet == .all ? "meal" : store.selectedDiet.label) inspiration!")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -162,13 +186,13 @@ struct RecipeBookView: View {
                 }
                 
                 // Recipe List
-                Section(header: Text("\(selectedCategory.rawValue) Recipes (\(filteredRecipes.count))")) {
+                Section(header: Text("\(store.selectedDiet.symbol) \(selectedCategory.rawValue) Dishes (\(filteredRecipes.count))")) {
                     if filteredRecipes.isEmpty {
                         VStack(spacing: 8) {
                             Image(systemName: "magnifyingglass")
                                 .font(.title)
                                 .foregroundColor(.secondary)
-                            Text("No matching recipes found")
+                            Text("No dishes match current filters")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }
@@ -185,7 +209,7 @@ struct RecipeBookView: View {
                 }
             }
             .navigationTitle("ChefPocket")
-            .searchable(text: $searchText, prompt: "Search dishes or fridge ingredients (paneer, dal...)")
+            .searchable(text: $searchText, prompt: "Search dishes, paneer, chicken, dal...")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
@@ -195,9 +219,13 @@ struct RecipeBookView: View {
                         Button(action: { showingManualCreateSheet = true }) {
                             Label("Create Custom Recipe", systemImage: "square.and.pencil")
                         }
+                        Divider()
+                        Button(role: .destructive, action: { showingResetAlert = true }) {
+                            Label("Reload Inbuilt 125 Recipes", systemImage: "arrow.counterclockwise")
+                        }
                     } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title2)
+                        Image(systemName: "ellipsis.circle")
+                            .font(.title3)
                             .foregroundColor(.orange)
                     }
                 }
@@ -213,6 +241,14 @@ struct RecipeBookView: View {
                     AajKyaBanauResultSheet(recipe: r, isPresented: $showingRandomizerModal)
                 }
             }
+            .alert("Reload All 125 Inbuilt Recipes?", isPresented: $showingResetAlert) {
+                Button("Reload Recipes", role: .destructive) {
+                    store.resetToInbuiltRecipes()
+                }
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text("This will refresh your cookbook with all 125 curated Indian and world dishes (Veg & Non-Veg).")
+            }
             .onAppear {
                 checkClipboard()
             }
@@ -222,7 +258,7 @@ struct RecipeBookView: View {
     private func spinAajKyaBanau() {
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
-        if let pick = store.recipes.randomElement() {
+        if let pick = store.getRandomRecipe(diet: store.selectedDiet, category: selectedCategory == .all ? nil : selectedCategory) ?? store.recipes.randomElement() {
             randomizedRecipe = pick
             showingRandomizerModal = true
         }
@@ -244,11 +280,20 @@ struct EnhancedRecipeRow: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
+            HStack(alignment: .top) {
+                // Diet Badge: Green dot 🟢 for Veg, Red dot 🔴 for Non-Veg
+                Text(recipe.diet == .veg ? "🟢" : "🔴")
+                    .font(.caption2)
+                    .padding(3)
+                    .background(Color(.systemGray6))
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                
                 Text(recipe.title)
                     .font(.headline)
                     .lineLimit(2)
+                
                 Spacer()
+                
                 if recipe.isFavorite {
                     Image(systemName: "heart.fill")
                         .foregroundColor(.red)
@@ -456,9 +501,12 @@ struct AajKyaBanauResultSheet: View {
                     .font(.system(size: 44))
                     .foregroundColor(.orange)
                 
-                Text("Tonight's Recommendation:")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                HStack(spacing: 6) {
+                    Text(recipe.diet.symbol)
+                    Text("Tonight's Recommendation:")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
                 
                 Text(recipe.title)
                     .font(.title)

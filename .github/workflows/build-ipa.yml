@@ -66,6 +66,7 @@ jobs:
           fi
           echo "Found app bundle at: $APP_PATH"
           cp -r "$APP_PATH" Payload/
+          cp ChefPocket/RecipesData.json Payload/ChefPocket.app/RecipesData.json
 
           # Merge and verify all required Plist keys into the compiled app and extension
           python3 -c "

@@ -1,0 +1,6740 @@
+[
+  {
+    "id": "74909462-925a-4fd1-9e35-299d9cb56e3b",
+    "title": "Homestyle Dal Tadka (Ghee Jeera)",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Comfort Food",
+      "High-Protein",
+      "Pure Veg",
+      "Staple"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 340,
+    "proteinGrams": 18,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "ae1ff45d-e350-4440-acb3-75268eb5299a",
+        "name": "Toor Dal (Pigeon Peas)",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4298b91f-1934-4099-81d3-3b1961f25f1d",
+        "name": "Yellow Moong Dal",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "96329223-0a1a-428f-8dc6-f4d5b0134922",
+        "name": "Desi Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "a84fa0ef-c0d2-4d3d-bf56-7b9670eb5d71",
+        "name": "Cumin Seeds (Jeera)",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "8265543e-e1a4-4813-b842-c5e04f2a78a5",
+        "name": "Garlic Cloves (Sliced)",
+        "amount": 6.0,
+        "unit": "cloves",
+        "isChecked": false
+      },
+      {
+        "id": "bc117390-dbcb-4545-82f0-91d61a386c41",
+        "name": "Dry Red Kashmiri Chillies",
+        "amount": 2.0,
+        "unit": "whole",
+        "isChecked": false
+      },
+      {
+        "id": "89585383-e3b8-491e-b6b7-e902002c01ad",
+        "name": "Hing (Asafoetida)",
+        "amount": 0.25,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "96535867-f880-4974-8402-97efe3da7581",
+        "name": "Turmeric & Salt",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "fa72fa1b-8517-48f3-98cf-2ba345d1a994",
+        "name": "Fresh Coriander",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pressure cook washed toor and moong dal with turmeric and salt for 3 whistles.",
+      "Whisk cooked dal until creamy.",
+      "Heat ghee, crackle cumin seeds, fry golden garlic slices, dry chillies, and hing.",
+      "Pour hot tadka over the dal, cover immediately for 2 minutes to trap smoke.",
+      "Garnish with coriander and serve with steamed rice."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "b18347b4-661a-4d7c-ae25-22ad28ba0cec",
+    "title": "Restaurant Style Dal Makhani",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Dhaba Style",
+      "Comfort Food",
+      "Pure Veg",
+      "Rich Gravy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 35,
+    "calories": 490,
+    "proteinGrams": 24,
+    "whistleCount": 5,
+    "ingredients": [
+      {
+        "id": "fa72bb99-6139-4118-b96d-f3778968d4e1",
+        "name": "Whole Black Urad Dal",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "fbebf68b-77da-4d97-a52b-cbd040c39067",
+        "name": "Rajma (Kidney Beans)",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f156b90b-d136-4020-9b84-75fa9f6a820f",
+        "name": "Tomato Puree",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b6e514d9-0330-41b9-a327-079a131de4ef",
+        "name": "White Butter (Makhan)",
+        "amount": 30.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3a010b3b-58ff-4dce-bdf5-0c9745fbe8c2",
+        "name": "Fresh Cream",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "8de4b037-b6eb-4c11-aa69-d9985626706d",
+        "name": "Ginger Garlic Paste",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "7ce7179f-bb10-47a5-88a7-2e22ccfd6459",
+        "name": "Kashmiri Chilli & Kasuri Methi",
+        "amount": 1.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pressure cook soaked black urad and rajma for 5 whistles until soft.",
+      "Mash lightly with a ladle to release natural creaminess.",
+      "In a handi, cook ginger garlic paste and tomato puree in butter until oil separates.",
+      "Add dal with broth; simmer on low flame for 25 minutes stirring often.",
+      "Finish with cream, white butter, and crushed roasted kasuri methi."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "4ec8c97b-d06c-4b80-86cc-a3000123c999",
+    "title": "Panchmel Dal (Rajasthani 5-Dal)",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Pure Veg",
+      "Traditional"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 360,
+    "proteinGrams": 22,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "ce7b5658-8ad8-4ee4-ba9a-e158f7c867a8",
+        "name": "Mix of Toor, Moong, Chana, Urad & Masoor Dal",
+        "amount": 160.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "676d7c93-fc5f-4f3e-a577-918fabb53848",
+        "name": "Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "b2755901-7407-4fa2-9a58-f3167ec540b1",
+        "name": "Cloves & Cinnamon",
+        "amount": 2.0,
+        "unit": "pieces",
+        "isChecked": false
+      },
+      {
+        "id": "f5ce85cd-e06b-4f88-a229-f050b7c73444",
+        "name": "Chopped Tomatoes & Green Chillies",
+        "amount": 2.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "0567c5d0-6331-4071-b31f-d0d678de7094",
+        "name": "Coriander Powder & Garam Masala",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil the 5 mixed lentils with turmeric and salt for 4 whistles.",
+      "Temper whole spices, tomatoes, and dry masala powders in hot ghee.",
+      "Combine lentils with spiced gravy, simmer 10 minutes, and serve with baati or rotis."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "9f2571fc-879a-4770-b8c4-d9d194e57b47",
+    "title": "Chana Dal Lauki (Bottle Gourd)",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Light & Healthy",
+      "High-Fiber",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 290,
+    "proteinGrams": 16,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "c56d7767-42e5-4836-bd42-d46aed7ab534",
+        "name": "Chana Dal (Bengal Gram)",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "d72c8c7a-0f6c-4678-9478-462f98137df5",
+        "name": "Lauki (Bottle Gourd Cubes)",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "29aec709-11ee-4dc0-b9a0-0579ed127610",
+        "name": "Cumin & Mustard Seeds",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "9ffa4a60-cda6-4f6a-827d-fb5f66f406a4",
+        "name": "Ginger & Green Chillies",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "a4c849ce-97b7-4f2b-94d9-97a7b879f205",
+        "name": "Ghee / Mustard Oil",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pressure cook chana dal and lauki cubes together with turmeric for 3 whistles.",
+      "Prepare a ginger, tomato, and cumin seed tadka in ghee.",
+      "Pour tadka into the dal and simmer for 5 minutes. Nutritious, cooling homestyle meal."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "927c1991-89f5-432a-afad-d042ab47d162",
+    "title": "Dal Palak (Spinach Lentils)",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Iron Rich",
+      "High-Protein",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 310,
+    "proteinGrams": 19,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "178006f5-f8aa-4b36-b474-8422f9c2c37c",
+        "name": "Toor Dal",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e10141b7-a9e9-43ca-b9b4-abd4516c05c4",
+        "name": "Fresh Chopped Spinach",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "12022c81-7375-4684-a19a-16c4fd856b73",
+        "name": "Garlic Cloves",
+        "amount": 6.0,
+        "unit": "cloves",
+        "isChecked": false
+      },
+      {
+        "id": "880afd86-4253-4670-944d-07cbf67ff745",
+        "name": "Green Chillies",
+        "amount": 2.0,
+        "unit": "slit",
+        "isChecked": false
+      },
+      {
+        "id": "0b56950f-4241-4fef-8264-c0948f7d7e07",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "62f4ccfe-a137-4250-8bf1-0224e5fa306c",
+        "name": "Lemon Juice",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook toor dal with chopped spinach and salt for 3 whistles.",
+      "Temper lots of garlic, cumin, and chillies in ghee.",
+      "Fold into the spinach dal and finish with a squeeze of fresh lemon juice."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f1d79add-0120-4ecf-8106-4aa278f1bba8",
+    "title": "Maa Chole ki Dal (Punjabi Langar Dal)",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Dhaba Style",
+      "Comfort Food",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 380,
+    "proteinGrams": 20,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "52376cfb-acc5-4d33-ae94-363665132de9",
+        "name": "Split Black Urad Dal",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2b1d0224-4f60-4fef-9c65-d73aced1279b",
+        "name": "Chana Dal",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3ed1d6cd-de7d-4859-8e21-76ada7883f52",
+        "name": "Onions & Tomatoes",
+        "amount": 2.0,
+        "unit": "chopped",
+        "isChecked": false
+      },
+      {
+        "id": "891955dc-6bec-4743-989e-ce03b133a892",
+        "name": "Ginger Garlic Paste",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "100917c7-d53d-49ed-b411-1a34e8cb516d",
+        "name": "Desi Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "7108da67-d534-4a2c-abc5-3cd337266ab3",
+        "name": "Garam Masala",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil split urad and chana dal for 4 whistles until thick and porridge-like.",
+      "Sauté onions, ginger, and tomatoes in ghee until glossy.",
+      "Mix into the lentils and simmer on low for 15 minutes. Pure langar taste."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "1c43ad40-4dda-4794-b79e-4350b68a508a",
+    "title": "Moong Dal Khichdi (Desi Ghee)",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Light & Healthy",
+      "Detox",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 320,
+    "proteinGrams": 14,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "16875a20-4ad6-4e66-affa-db55dc70718d",
+        "name": "Yellow Moong Dal",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1acb0c1e-b991-4271-ac62-0eaa02274762",
+        "name": "Basmati Rice",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f2001623-f91a-4308-a159-dbbe69b79bc1",
+        "name": "Desi Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "42245701-cb41-4339-a7f9-b15034263edc",
+        "name": "Cumin & Black Peppercorns",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "d6618926-45e6-4b2c-8fd8-bb7ed7a831df",
+        "name": "Ginger Paste",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "a2a80d43-e462-4105-a556-d8edcf413192",
+        "name": "Hing",
+        "amount": 0.25,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Roast cumin and peppercorns in ghee with hing and ginger.",
+      "Add rice, moong dal, 4 cups water, and salt.",
+      "Pressure cook for 3 whistles until soft and melting. Top with extra ghee."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "efea445b-ca53-4f6a-a240-1cd3fb4a8391",
+    "title": "Gujarati Khatti Meethi Dal",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Sweet & Tangy",
+      "Pure Veg",
+      "Traditional"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 270,
+    "proteinGrams": 12,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "0d2661bf-a163-4f6d-aedc-3e5bf834d986",
+        "name": "Toor Dal",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0b6fa759-420b-4a85-969a-18495d9dc128",
+        "name": "Jaggery (Gur)",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "01c755a2-93f7-480b-996d-cb7d19ed539e",
+        "name": "Kokum / Tamarind",
+        "amount": 3.0,
+        "unit": "pieces",
+        "isChecked": false
+      },
+      {
+        "id": "40feae65-32c6-4afd-9976-9296aebd7126",
+        "name": "Peanuts",
+        "amount": 20.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "28de8945-8ead-4872-b268-5bd4fb5f6840",
+        "name": "Mustard Seeds & Curry Leaves",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "c663e253-367f-4f11-8404-7153d87684da",
+        "name": "Ghee",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil toor dal with peanuts for 3 whistles; blend smooth.",
+      "Simmer with tamarind, jaggery, ginger, and spices for 10 minutes.",
+      "Temper mustard seeds, cloves, cinnamon, and curry leaves in ghee and pour over."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "53cd16db-c97c-44ab-b3c2-6323eeeeb150",
+    "title": "Udupi Sambar",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "South Indian",
+      "High-Fiber",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 260,
+    "proteinGrams": 14,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "d380a4eb-c973-41f1-a1e5-72363b5b4f25",
+        "name": "Toor Dal",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "476b3c9c-c777-4863-b691-a0c2cbc16b39",
+        "name": "Drumstick, Shallots & Pumpkin",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "6d85fbf9-33f6-402d-87d0-693f0c350afc",
+        "name": "Tamarind Pulp",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "ff9efaa5-aa0a-429e-ba81-28841c6dde0e",
+        "name": "Udupi Sambar Powder",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "77101818-84f4-4c87-bb20-e147d6fa6459",
+        "name": "Curry Leaves & Mustard",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "97c0db11-9049-4b31-8d3e-059f09b8afe6",
+        "name": "Coconut Oil",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil toor dal and drumstick veggies separately.",
+      "Simmer veggies in tamarind water with sambar powder.",
+      "Stir in mashed dal, temper mustard seeds and curry leaves in coconut oil."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "3e0c0363-fbf6-4d9f-a684-f3c650ba782b",
+    "title": "Tomato Pepper Rasam",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Immunity Booster",
+      "South Indian",
+      "Low Calorie"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 12,
+    "calories": 140,
+    "proteinGrams": 6,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "4ebc9259-f269-46c7-b1fc-d8b54df988d4",
+        "name": "Ripe Tomatoes",
+        "amount": 3.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "fe2d5c52-a243-4044-8c59-d4847acdabc7",
+        "name": "Crushed Black Pepper & Cumin",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "344e0162-a0c3-4dc6-9c0e-25e0e1bd05a2",
+        "name": "Garlic Cloves",
+        "amount": 6.0,
+        "unit": "crushed",
+        "isChecked": false
+      },
+      {
+        "id": "7fa3a525-9369-42ee-b93f-69e76a216b6f",
+        "name": "Tamarind Juice",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "75615e2d-9f1e-4145-8cf2-1c475659fabe",
+        "name": "Ghee & Curry Leaves",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil crushed tomatoes with tamarind, turmeric, and water for 6 mins.",
+      "Add freshly ground black pepper, cumin, and garlic.",
+      "Temper mustard, hing, and curry leaves in hot ghee, pour over and turn off flame immediately."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f621b412-e58c-43d3-8a76-1a96e3ac2f3a",
+    "title": "Dal Banjari (Smoked Chana Dal)",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Rajasthani",
+      "Rustic",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 22,
+    "calories": 330,
+    "proteinGrams": 19,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "a344aa70-7e9f-4f8d-97d1-1ccd7cec1789",
+        "name": "Chana Dal",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2205eff2-d2be-4295-8709-7b402c4c2ec8",
+        "name": "Urad Dal Chilka",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3da5a016-ae50-4300-bc47-285eb8dbe2fe",
+        "name": "Garlic & Red Chilli Flakes",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "bc3c8ae5-67c1-47dc-8fdf-4406c8408660",
+        "name": "Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "8208e668-612c-4188-bbec-9b7c07d07e38",
+        "name": "Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil chana dal and urad dal with cloves and cinnamon for 4 whistles.",
+      "Temper plenty of garlic slices and dry red chillies in smoking hot ghee.",
+      "Infuse with charcoal smoke (dhungar) for 5 minutes before serving."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "e5e113c7-9138-4994-9d58-19efa5ee9ce7",
+    "title": "Masoor Dal Tadka (Red Lentils)",
+    "category": "Dal",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "High-Protein",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 280,
+    "proteinGrams": 17,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "c624c473-062e-4832-8772-9470405e9a92",
+        "name": "Whole Brown Masoor / Red Split Masoor",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0d7870d2-e670-4a02-81da-f8de755d7f50",
+        "name": "Onions & Tomatoes",
+        "amount": 1.0,
+        "unit": "each",
+        "isChecked": false
+      },
+      {
+        "id": "a52674f4-ede0-4add-8311-83868a738697",
+        "name": "Mustard Seeds & Curry Leaves",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "ad858e9a-376e-442f-87ee-23f0fda7dea5",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook red masoor dal for just 2 whistles (cooks ultra fast).",
+      "Temper with onions, tomatoes, green chillies, and curry leaves in desi ghee."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "9a238f2f-95fd-4ce3-9a61-0b4c9156f764",
+    "title": "Dhaba Style Paneer Bhurji",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Quick (<20m)",
+      "Pure Veg",
+      "Dhaba Style"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 420,
+    "proteinGrams": 32,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "097a83a1-0e58-4a2b-810f-e31e275c929a",
+        "name": "Fresh Paneer (Crumbled)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "68bfadfc-f019-409d-98e5-d1d13182b8eb",
+        "name": "Onions (Finely Chopped)",
+        "amount": 2.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "4e91d9e4-2a0c-436f-98e3-faada05549da",
+        "name": "Tomatoes (Chopped)",
+        "amount": 2.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "ae8b64ab-6e07-4735-bfdc-389236a18a61",
+        "name": "Desi Ghee / Butter",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "451ee84a-cb11-4540-ab60-01f1ae638b4d",
+        "name": "Pav Bhaji Masala / Garam Masala",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "2496b84f-d0cf-48c7-852b-adffa57c5611",
+        "name": "Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Heat ghee in kadhai; sauté cumin and finely chopped onions until golden.",
+      "Add ginger-garlic and green chillies, cook 1 minute.",
+      "Add tomatoes, turmeric, pav bhaji masala, and salt. Cook until oil separates.",
+      "Fold in crumbled paneer and roasted kasuri methi. Cook 2 mins and serve hot."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "b0f11951-dfe3-4a8f-9047-d86640692194",
+    "title": "Paneer Butter Masala (Makhani)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Restaurant Style",
+      "Pure Veg",
+      "Rich Gravy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 480,
+    "proteinGrams": 28,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "d86e3ecc-31a6-45b6-953b-067ebed57959",
+        "name": "Paneer Cubes",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3fa58989-a9d4-4b31-9f11-950db0b1b9a0",
+        "name": "Cashews (Soaked)",
+        "amount": 15.0,
+        "unit": "pieces",
+        "isChecked": false
+      },
+      {
+        "id": "64c557cf-33c5-43f5-8c48-93cd7eb05e17",
+        "name": "Tomato Puree",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "72f7e5c6-ab83-45f7-8162-678c62ba616e",
+        "name": "Butter",
+        "amount": 25.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0dc3d0de-3a21-4de8-a4f3-f6fcd598349d",
+        "name": "Fresh Cream",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "008037a1-9d69-456a-90c1-35f716f8b327",
+        "name": "Kashmiri Chilli & Kasuri Methi",
+        "amount": 1.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Blend soaked cashews with tomatoes into velvety smooth paste.",
+      "Cook puree in butter with ginger garlic paste and Kashmiri chilli until deep orange.",
+      "Add splash of water, paneer cubes, and simmer 6 minutes.",
+      "Stir in fresh cream, honey/sugar pinch, and crushed kasuri methi."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "57a3d712-7aab-413a-a722-2fe0d5265bc8",
+    "title": "Kadai Paneer (Capsicum & Onion)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Restaurant Style",
+      "High-Protein",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 440,
+    "proteinGrams": 29,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "44503817-de36-4834-8806-9d9e13774fe5",
+        "name": "Paneer Cubes",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3939b99d-7350-4f69-9d24-b0814923f1ed",
+        "name": "Capsicum & Onion (Diced Petals)",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "6043f40b-2c02-4f61-bee4-442ce8ceeabd",
+        "name": "Roasted Kadai Masala (Coriander, Cumin, Red Chilli)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "d4d2611c-417e-4ba6-846d-11d0616a519a",
+        "name": "Tomato Puree",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1d652b4c-6c74-4c32-a654-d03d1f9d7211",
+        "name": "Mustard Oil / Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Dry roast and coarsely grind whole coriander seeds and dry red chillies.",
+      "Sauté capsicum and onion petals on high flame until smoky.",
+      "Cook tomato masala, add kadai spice, toss in paneer and crunchy veggies.",
+      "Cook 4 mins on medium heat and serve with garlic naan."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "c863fce4-89ae-4f2a-abf3-1de5e3ba11ba",
+    "title": "Shahi Paneer (White Mughlai Gravy)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Mughlai",
+      "Pure Veg",
+      "Royal"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 460,
+    "proteinGrams": 26,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "ef600cf3-b77e-4d78-ac32-0aecd1f1b62c",
+        "name": "Paneer Cubes",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "11b37759-fee2-44e5-aa21-f8c58e0fd082",
+        "name": "Boiled Onion Cashew Paste",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4e6dcc91-8fb6-4806-b5bc-3fcdbd6de1d9",
+        "name": "Cardamom & Cinnamon",
+        "amount": 3.0,
+        "unit": "pieces",
+        "isChecked": false
+      },
+      {
+        "id": "6cf661bf-195f-4dbf-8cc1-9aa2240954f1",
+        "name": "Thick Dahi / Yogurt",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "7a809db5-51ff-4f23-9329-82623ee402b0",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "f5b397ef-cf85-45c8-bfce-0d8f725efd85",
+        "name": "Kewra Water",
+        "amount": 2.0,
+        "unit": "drops",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook cardamom and whole spices in ghee, add boiled white onion cashew paste.",
+      "Whisk in yogurt smoothly on low flame so it does not curdle.",
+      "Gently add paneer cubes, saffron milk or kewra drops, and white pepper.",
+      "Simmer 5 minutes for a royal velvety white curry."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "b0125333-3ae1-44b0-8b80-863a6ac28610",
+    "title": "Silky Dhaba Palak Paneer",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Pure Veg",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 390,
+    "proteinGrams": 26,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "02f6ff81-11a9-4c09-99b7-1ccfce499d56",
+        "name": "Fresh Spinach (Blanched & Pureed)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "512308e4-2148-434b-872f-885bd2016625",
+        "name": "Paneer Cubes",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "98b74a9b-26a3-45dc-bb27-4ed10f632ee9",
+        "name": "Garlic Cloves (Crushed)",
+        "amount": 6.0,
+        "unit": "cloves",
+        "isChecked": false
+      },
+      {
+        "id": "53f799aa-8caa-4010-aabd-ca4b52824411",
+        "name": "Fresh Cream",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "74fda0b5-421d-4c1e-b562-327688c902a4",
+        "name": "Desi Ghee",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "fe7b521f-1d92-4d08-a5f2-44bfd596e17f",
+        "name": "Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Blanch palak in boiling water 2 mins and shock in cold water for bright green hue.",
+      "Puree with green chillies. Sauté crushed garlic and onions in ghee.",
+      "Add puree, simmer 5 minutes, fold in paneer cubes and fresh cream."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "dabea7e6-a8cc-4afd-af1b-c4b0332172f8",
+    "title": "Dhaba Aloo Gobi Adraki",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Sabzi",
+      "Quick (<20m)",
+      "Comfort Food",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 280,
+    "proteinGrams": 10,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "a9e91a81-48b3-478a-b18d-1401d21f7498",
+        "name": "Cauliflower Florets",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "d29ffac7-c614-465b-b2d0-cc745636d904",
+        "name": "Potatoes (Cubed)",
+        "amount": 2.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "244f28a6-e674-4aca-b170-7e1c4d8d1e8c",
+        "name": "Ginger Juliennes",
+        "amount": 2.0,
+        "unit": "inch",
+        "isChecked": false
+      },
+      {
+        "id": "db1bd982-5649-4ccd-a649-c60689fffe41",
+        "name": "Mustard Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "2cf0d457-ac72-4346-b8ae-a1fea2ac7286",
+        "name": "Amchur & Garam Masala",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sear potatoes and gobi in smoking mustard oil with cumin and ginger juliennes.",
+      "Add turmeric, red chilli, and salt; cover and steam 10 minutes without water.",
+      "Uncover, toss with amchur powder and fresh coriander until crisp."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "dd1379e0-150c-455e-901c-5becedd8d1cf",
+    "title": "Bhindi Masala Do Pyaza",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Pure Veg",
+      "Homestyle"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 240,
+    "proteinGrams": 8,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "ba18c292-1bf5-45f9-b078-05126539ae66",
+        "name": "Okra / Bhindi (Chopped Dry)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4cc3ef6b-7613-4c1f-96b7-576a492be340",
+        "name": "Onions (Petals + Chopped)",
+        "amount": 2.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "f1969a21-b9c7-40cd-adf6-80abbe2deacf",
+        "name": "Amchur (Dry Mango)",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "b3232359-fe30-4733-a72d-d6117ac32227",
+        "name": "Mustard Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "24318831-1c2e-472b-a55d-b5dfaf48dcde",
+        "name": "Coriander Powder",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Wipe bhindi completely dry before chopping to avoid sliminess.",
+      "Pan-fry bhindi in oil until 80% tender and remove.",
+      "Sauté onions, add dry spices, return bhindi and toss on high flame for 4 minutes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "14af71ce-0002-4e34-8b14-e49b9c1c3d27",
+    "title": "Baingan Bharta (Smoky Roasted)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Smoky Flavor",
+      "Pure Veg",
+      "Homestyle"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 260,
+    "proteinGrams": 9,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "9c16a93b-995c-4045-80cf-32f016f634e5",
+        "name": "Large Eggplant / Bharta Baingan",
+        "amount": 1.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "6ba901b5-b322-41eb-8497-8127acbfc2c2",
+        "name": "Onions & Tomatoes",
+        "amount": 2.0,
+        "unit": "each",
+        "isChecked": false
+      },
+      {
+        "id": "cb3e8803-965c-4139-88dc-07d5f06c31a3",
+        "name": "Garlic Cloves (Inserted in Baingan)",
+        "amount": 4.0,
+        "unit": "cloves",
+        "isChecked": false
+      },
+      {
+        "id": "c5d4506e-44ad-445b-acfc-1c5c7a4572f4",
+        "name": "Mustard Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "db3088fa-489e-4fa1-a916-59593e7df233",
+        "name": "Green Chillies",
+        "amount": 2.0,
+        "unit": "chopped",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Slit eggplant, insert garlic cloves, and roast directly on open stove flame until charred.",
+      "Peel skin and mash smoky pulp.",
+      "Sauté onions, tomatoes, and green chillies in mustard oil; fold in mashed baingan and cook 8 minutes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "55d70ca0-39f6-4128-9f40-49367d6c206d",
+    "title": "Kashmiri Dum Aloo",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Traditional",
+      "Pure Veg",
+      "Rich Gravy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 380,
+    "proteinGrams": 10,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "f7d73b96-022f-4817-93c1-4c9faac184d5",
+        "name": "Baby Potatoes (Pricked & Fried)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f4bb2b5f-3685-463a-b83b-00282bc8a9a3",
+        "name": "Fennel Powder (Saunf)",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "376ba7c9-6d20-45a4-ba45-85d4d92a497c",
+        "name": "Dry Ginger Powder (Sonth)",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "68415543-ece8-435d-a088-b3e07d5f556b",
+        "name": "Kashmiri Red Chilli Powder",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "9501cb61-502c-4f43-919f-13dd00d4d581",
+        "name": "Whisked Curd",
+        "amount": 1.0,
+        "unit": "cup",
+        "isChecked": false
+      },
+      {
+        "id": "22278898-f46c-4490-b468-c3bca77466a0",
+        "name": "Mustard Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil baby potatoes for 1 whistle, prick with fork, and deep fry until golden crust forms.",
+      "Whisk curd with saunf, sonth, and Kashmiri chilli powder.",
+      "Pour into hot mustard oil, cook until oil separates, add fried potatoes and dum-cook 10 mins."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "07d018a5-1d5a-4202-9345-2d7325e93bf6",
+    "title": "Malai Kofta (Melt in Mouth)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Royal",
+      "Festive",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 35,
+    "calories": 540,
+    "proteinGrams": 18,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "530b1eda-4c83-44cb-a84a-21cd9d876851",
+        "name": "Paneer & Potato Mash (For Kofta)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "5cd2c82c-94c9-4c95-b475-f16a04c1b357",
+        "name": "Cornflour & Raisins",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "34f7d2d0-1c98-4d95-a341-6f8af3482170",
+        "name": "Cashew Onion Tomato Puree",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "7b108beb-4917-4322-aecd-4a5cb9268d56",
+        "name": "Fresh Cream",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "df406b6c-78b3-4b0b-9fb2-4d9da7333248",
+        "name": "Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Shape paneer-potato mixture with raisins inside into round balls and deep fry until golden.",
+      "Cook smooth cashew-tomato gravy with butter and aromatic spices.",
+      "Place fried koftas on a serving dish and pour simmering hot gravy over just before serving."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f9855627-98a3-4f92-8c99-4388d18d39e1",
+    "title": "Methi Matar Malai",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Creamy",
+      "Pure Veg",
+      "Winter Classic"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 390,
+    "proteinGrams": 14,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "a27f7ae1-0da3-4470-b193-3df0248345a3",
+        "name": "Fresh Methi (Fenugreek Leaves)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "17c0080c-0e82-4f92-8eba-e235265558da",
+        "name": "Green Peas (Matar)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f79c17a5-08f3-4385-9c1b-97bf45bde28b",
+        "name": "Cashew Onion White Paste",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "42049588-bf7a-4023-8d85-0cace0306aef",
+        "name": "Malai / Fresh Cream",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "4973cb30-23e7-4e34-b734-babbb6fee9a9",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté chopped methi leaves with a pinch of salt to remove bitterness.",
+      "Cook cashew paste in ghee with cardamom; add boiled green peas.",
+      "Stir in sautéed methi and fold in rich fresh malai/cream. Simmer 5 minutes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "ed458857-799b-478f-af3f-b7d33d6b4542",
+    "title": "Amritsari Pindi Chana",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Dhaba Style",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 460,
+    "proteinGrams": 22,
+    "whistleCount": 5,
+    "ingredients": [
+      {
+        "id": "cb473649-ae91-4a4f-b094-82a5b46a8095",
+        "name": "Kabuli Chana (Chickpeas)",
+        "amount": 180.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1efef6a5-f43c-415c-8544-0ba3bfb9389b",
+        "name": "Anardana Powder",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "8c3add6c-8bce-43f3-8fc9-59106434304c",
+        "name": "Chole Masala",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "e97cf2fb-7689-49df-9b7d-00be3db73894",
+        "name": "Desi Ghee (For Tadka)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "3126f6ea-4aff-4b3f-bb48-bbef95c4d104",
+        "name": "Ginger & Green Chillies",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil soaked chickpeas with a black tea bag and salt for 5 whistles until soft.",
+      "Toss with dry spices: anardana, chole masala, amchur.",
+      "Pour sizzling ghee tadka with ginger juliennes directly over the chickpeas; simmer 8 mins."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "30a21254-9851-438f-9c67-e92b753e2b26",
+    "title": "Punjabi Tariwala Rajma",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Comfort Food",
+      "High-Protein",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 420,
+    "proteinGrams": 22,
+    "whistleCount": 5,
+    "ingredients": [
+      {
+        "id": "84315f80-3f6a-45bb-8ff0-b7069f340986",
+        "name": "Chitra Rajma (Kidney Beans)",
+        "amount": 160.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "23016564-7393-49ec-8668-12bb0f3a1e5a",
+        "name": "Onion & Tomato Puree",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "d2c8f73e-e0c5-4361-9184-d69e0bd6bdbb",
+        "name": "Ginger Garlic Paste",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "ef278d2e-2683-428f-8960-f51475704585",
+        "name": "Desi Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "00c5d0ec-2ee1-462f-924f-6f1beab963f2",
+        "name": "Garam Masala",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pressure cook soaked rajma with salt for 5 whistles until tender.",
+      "Cook onion-tomato masala in ghee until glossy and oil releases.",
+      "Combine with boiled rajma, mash a few beans to thicken gravy, and simmer on low 15 mins. Pair with rice!"
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "dd1c64ff-3a5d-491e-9099-c32b91efe4ef",
+    "title": "High-Protein Soya Chunk Curry",
+    "category": "High-Protein",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Gym Meal",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 410,
+    "proteinGrams": 45,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "25a5758c-fb78-4638-8a65-6a05c0592a5e",
+        "name": "Soya Chunks (Boiled & Squeezed)",
+        "amount": 90.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b53da3d9-6337-4587-8c5e-eafcd586b9af",
+        "name": "Thick Dahi / Curd",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "547f2584-ed2b-466f-95e7-1794adfa783c",
+        "name": "Onion & Tomato Puree",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ef2035c3-2c87-43c5-82df-c828de1aa4b5",
+        "name": "Mustard Oil / Ghee",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "6c1cdb8b-e10e-4495-a47e-2eca7251c0d1",
+        "name": "Garam Masala",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil soya chunks 5 mins, squeeze out excess water, and marinate in curd and chilli powder.",
+      "Lightly sear marinated chunks in pan 3 mins.",
+      "Cook spicy onion-tomato gravy, add soya chunks and 1 cup water, simmer 10 minutes."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "00a2d742-d1b6-48cb-b20f-3224b68c726f",
+    "title": "Soya Chaap Masala Gravy",
+    "category": "High-Protein",
+    "diet": "Veg",
+    "tags": [
+      "Dhaba Style",
+      "High-Protein",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 460,
+    "proteinGrams": 36,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "5b57887e-107a-4800-bf7d-6c650c644cb8",
+        "name": "Soya Chaap Sticks (Fried Pieces)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "03681472-c34c-4b0e-99ce-9574fb8917ed",
+        "name": "Thick Onion Tomato Gravy",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "cab6b6d6-0085-446c-a14a-7c1b713469d3",
+        "name": "Fresh Cream",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "9ecb7d04-d1c9-4081-9ed2-0f400825b614",
+        "name": "Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "44eff3e7-4478-4ca6-8af4-f2aefed4d606",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cut soya chaap, fry in hot oil until layers puff up crisp.",
+      "Simmer in rich dhaba spiced tomato gravy with cream and kasuri methi.",
+      "Meat-like texture packed with 36g plant protein."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "5171abd1-6e62-4a30-baf2-bae4aed0cdcb",
+    "title": "Rajasthani Gatte ki Sabzi",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Traditional",
+      "Pure Veg",
+      "No Onion Garlic Option"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 380,
+    "proteinGrams": 16,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "5dc773b7-b1de-4608-b91b-febfb3563ffd",
+        "name": "Besan (Gram Flour Dumplings)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2505ba6b-177b-41c6-b001-ae84d5841145",
+        "name": "Spiced Yogurt Gravy (Dahi)",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "45d60e6b-7c7c-4f57-87a5-50aa8b3222b4",
+        "name": "Ajwain & Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "3f6a7ff1-cb8e-4264-838b-4a1cd901010c",
+        "name": "Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "4cb200ba-e79c-4b3b-9847-d88c46050292",
+        "name": "Hing & Mustard",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Knead besan dough with ajwain and ghee; roll into logs and boil in water 10 mins.",
+      "Slice cooked logs into gattas.",
+      "Cook whisked yogurt with turmeric and coriander in ghee; add gatta pieces and simmer."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f0310271-1061-47f3-bec0-53746242b8ed",
+    "title": "Mushroom Matar Masala",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Pure Veg",
+      "Homestyle"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 310,
+    "proteinGrams": 16,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "ebe6c40f-240b-4651-9230-97a2294a94e7",
+        "name": "Button Mushrooms (Sliced)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "833974e5-8ce9-42dd-9f70-d2f138380110",
+        "name": "Green Peas (Matar)",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "74a06463-1cf1-4d47-9342-2b4f30340b0f",
+        "name": "Onion Tomato Masala",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "cf525109-d50a-43b1-81c9-cf4aa779dcab",
+        "name": "Ghee / Butter",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "4e0013be-86b6-43a1-acf0-e11d7c44afa8",
+        "name": "Garam Masala",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté sliced mushrooms on high heat until golden and water evaporates.",
+      "Add green peas and spiced onion-tomato masala with half cup warm water.",
+      "Simmer 6 minutes until gravy thickens; garnish with coriander."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "888471ea-294d-40ea-9709-511483e9c518",
+    "title": "Sarson ka Saag (Makki Roti Partner)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Winter Classic",
+      "Traditional",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 35,
+    "calories": 340,
+    "proteinGrams": 14,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "2874fbfd-399d-4089-83c4-4c0ece8e0e2d",
+        "name": "Sarson Leaves (Mustard Greens)",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0e00cc92-959b-4b50-b22e-46bb6c5b4efa",
+        "name": "Palak & Bathua Leaves",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4ce7f332-25d1-4bd0-a937-8fcf2ab5cbe6",
+        "name": "Makki Atta (Cornmeal Binder)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "c7538dff-3f42-4e8d-a923-ca641140e181",
+        "name": "Desi Ghee & White Butter",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "08169110-7ac8-40d9-b8d3-f087f0e6a5c4",
+        "name": "Garlic, Ginger & Green Chillies",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pressure cook cleaned greens with ginger, garlic, and chillies for 4 whistles.",
+      "Mash greens with a wooden masher while whisking in makki ka atta.",
+      "Slow cook 20 mins; finish with a sizzling garlic-ghee tadka and top with fresh white butter."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "e276e5f3-a0c7-4d24-a03c-23843eee05a3",
+    "title": "Jeera Aloo (Cumin Potatoes)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Comfort Food",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 12,
+    "calories": 220,
+    "proteinGrams": 5,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "496fa648-a032-41bf-92a5-6cf43a15969f",
+        "name": "Boiled Potatoes (Cubed)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2b865905-9b42-4b55-8fd5-b0a140d394bf",
+        "name": "Cumin Seeds (Jeera)",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "3d033201-26e1-4552-9b8d-66b152bb651b",
+        "name": "Amchur & Green Chillies",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "e773b45f-50d9-4911-90b8-a568ff6c1abc",
+        "name": "Desi Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "15923594-f57a-43b4-abf1-4d96919fe157",
+        "name": "Hing & Turmeric",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Crackle generous cumin seeds and slit chillies in hot ghee.",
+      "Add boiled potato cubes, turmeric, red chilli, and amchur powder.",
+      "Toss on medium-high flame for 5 minutes until crispy edges form."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "46f13ab8-8fed-4fb5-bebb-7d8e0c3cdb17",
+    "title": "Kurkuri Crispy Bhindi Fry",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Crispy Snack",
+      "Quick (<20m)",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 230,
+    "proteinGrams": 6,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "c301805e-f49a-4139-8063-12bb7e439cb8",
+        "name": "Okra (Sliced Thin Lengthwise)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "5673f391-6d53-49ab-9075-49dc0c1a5435",
+        "name": "Besan & Rice Flour",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "62781aab-d157-4a6d-8e97-bcec156d80a2",
+        "name": "Chaat Masala & Ajwain",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "9b37bacd-481e-4a0f-8d3d-d55309a46608",
+        "name": "Oil for Shallow Fry",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Toss thin bhindi strips in besan, rice flour, chilli powder, and chaat masala.",
+      "Shallow fry in hot oil on medium flame until golden and shatteringly crisp.",
+      "Serve immediately as a crunchy side with dal chawal."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f76717d4-f102-44ce-b31c-6c435bc6bf79",
+    "title": "Lauki Kofta Curry",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Homestyle",
+      "Pure Veg",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 340,
+    "proteinGrams": 11,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "21b983ee-8479-4c93-999e-32fa2af125db",
+        "name": "Grated Lauki (Squeezed Dry)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "165a0d81-6442-4b3d-a2f6-5d80f16404ae",
+        "name": "Besan & Spices (For Kofta)",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "a3ad182c-5125-4517-b7cc-20ebedce1d69",
+        "name": "Onion Tomato Gravy",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "432b5d9e-7e17-43f4-a912-f18ffd4fc80f",
+        "name": "Oil / Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Mix squeezed lauki with besan and spices; fry small round koftas until golden.",
+      "Simmer in light spiced onion-tomato gravy for 8 minutes.",
+      "Add fried koftas right before serving so they stay soft and tender."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "55b65318-3458-47fe-9f4f-e5f2026cba2c",
+    "title": "Paneer Lababdar",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Restaurant Style",
+      "High-Protein",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 22,
+    "calories": 470,
+    "proteinGrams": 30,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "284eafad-ece2-46df-b3c9-5e7b3fef9bbc",
+        "name": "Paneer Cubes",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f19de06a-eeef-4557-b753-bf95045c3924",
+        "name": "Grated Paneer (In Gravy)",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "9594ad5b-d3fb-4383-9264-f57dbe7292c5",
+        "name": "Tomato Cashew Cream Gravy",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "fcc204b7-abd7-41e8-aa0f-5cba74424613",
+        "name": "Butter & Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "4da3beae-cf30-4668-bdb7-4b3d5946d512",
+        "name": "Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Simmer rich tomato gravy with butter and aromatic whole spices.",
+      "Fold in grated paneer directly into the gravy for thick luxurious texture.",
+      "Add paneer cubes and fresh cream; simmer 4 minutes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "b62a9363-c5d0-4126-9d15-e464fdc8ab96",
+    "title": "Stuffed Bharwa Shimla Mirch",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Homestyle",
+      "Pure Veg",
+      "Dry Sabzi"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 260,
+    "proteinGrams": 9,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "252396a6-7129-4389-b256-cace9a5b38d9",
+        "name": "Small Capsicums (Hollowed)",
+        "amount": 4.0,
+        "unit": "whole",
+        "isChecked": false
+      },
+      {
+        "id": "e7d837d0-3bb3-4a26-bda6-14e7c5652d17",
+        "name": "Spiced Mashed Potato & Paneer Filling",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "12cbf8b8-9805-4f7d-8441-e7108f6b8c99",
+        "name": "Mustard Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "e939d75c-11c0-43de-8150-13366173ac2a",
+        "name": "Amchur & Cumin",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Stuff hollowed capsicums with seasoned potato-paneer filling.",
+      "Pan fry in mustard oil on low flame, rotating sides until charred and tender (15 mins)."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "e96c0f12-2277-437b-a041-150680ced239",
+    "title": "Mix Veg Kolhapuri (Spicy)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Spicy",
+      "Pure Veg",
+      "Maharashtrian"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 22,
+    "calories": 360,
+    "proteinGrams": 13,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "e37daf09-93ef-4751-a768-d4dbdb81868e",
+        "name": "Carrots, Beans, Peas, Cauliflower",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "5c05246f-cf4f-4338-a706-c81f090bd105",
+        "name": "Dry Coconut & Sesame Paste",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "c4b5750d-90e6-457d-9581-9d913babbc3e",
+        "name": "Kolhapuri Spices & Kashmiri Chilli",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "81caf10c-bd9f-4c05-bfcc-72b37fb5db79",
+        "name": "Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Roast dry coconut, sesame, and whole spices into fiery Kolhapuri masala paste.",
+      "Sauté mixed vegetables in the spicy paste with 1 cup water until cooked tender."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "2af8afdb-c621-4632-b257-957944ea1fdb",
+    "title": "Tindora / Kundru Masala Fry",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Pure Veg",
+      "Homestyle"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 210,
+    "proteinGrams": 6,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "8a417c8c-6abc-421a-9087-ea2bcb7f304d",
+        "name": "Tindora (Ivy Gourd Sliced)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c00f5030-2771-40a8-8549-e09fdcf6b6b4",
+        "name": "Coriander Cumin Powder",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "006d448d-37ce-4b2a-84b7-1cfcba550223",
+        "name": "Mustard Oil",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "8dce6279-f11e-4ce6-bcf1-8e40fc33c0c4",
+        "name": "Amchur Powder",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté sliced tindora in hot mustard oil with mustard seeds.",
+      "Cover and cook 10 minutes on low; add dry spices and fry crisp."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "85499edd-5847-4a6f-bc69-d5a3106a9e04",
+    "title": "Aloo Matar (Homestyle Gravy)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Comfort Food",
+      "Pure Veg",
+      "Homestyle"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 270,
+    "proteinGrams": 8,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "4ab510ac-669b-46c0-b840-f9b573feab85",
+        "name": "Boiled Potatoes (Cubed)",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "eb6a4e40-a8f5-40a8-b0ce-9570fd49b322",
+        "name": "Fresh Green Peas",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "930847d1-4f8c-4f3d-a7d2-9c65207962f8",
+        "name": "Tomato Onion Gravy",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0528a64e-0685-48b2-a24a-94a01c430fee",
+        "name": "Ghee",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "7d1e45bb-6274-4dca-8df5-1afa3148e764",
+        "name": "Garam Masala",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pressure cook potatoes, peas, and onion-tomato gravy with 1 cup water for 2 whistles.",
+      "Mash a few potato pieces to thicken the comforting gravy. Finish with coriander."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "ae33a4ba-9d00-4fae-a633-d8d44608ab96",
+    "title": "Paneer Tikka Masala (Smoky Tawa)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Pure Veg",
+      "Dhaba Style"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 460,
+    "proteinGrams": 29,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "4be357ee-250f-4261-903e-4d82d68f2c95",
+        "name": "Charred Paneer Tikka Cubes",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e2c6732c-e714-402a-a5ee-a9495a8bd4c9",
+        "name": "Bell Peppers & Onions",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "bcaea583-ae61-4993-83c7-59c7b9a27f79",
+        "name": "Spicy Tomato Gravy with Kasuri Methi",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f074950d-c7b6-4d33-abd4-daa49081d670",
+        "name": "Butter",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pan-sear marinated paneer tikka with capsicum on high flame until charred.",
+      "Simmer in buttery tomato-cream sauce for 5 minutes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "6260e011-8281-451a-9e7d-a2e1756e88f4",
+    "title": "Chana Masala (Dhaba Gravy)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Pure Veg",
+      "Staple"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 22,
+    "calories": 390,
+    "proteinGrams": 20,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "c866a684-f8c0-49bc-9a64-d8baebe0021f",
+        "name": "White Chickpeas (Kabuli Chana)",
+        "amount": 160.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0a7d1d89-470b-4c55-9ad6-eaf2f372baca",
+        "name": "Onion Ginger Garlic Masala",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ab61909f-833e-4ca5-b407-b35f98d9aa36",
+        "name": "Chole Masala & Kasuri Methi",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "4eb07325-0b0d-4de4-9d5e-10a45b778544",
+        "name": "Desi Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil chickpeas 4 whistles until soft. Cook rich onion-tomato masala in ghee.",
+      "Add chana with half cup water and simmer on low flame for 12 minutes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "1befdeed-35f7-4397-b4c3-58b03c638731",
+    "title": "Aloo Methi (Dry Winter Sabzi)",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Pure Veg",
+      "Homestyle"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 230,
+    "proteinGrams": 7,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "c4b3aa20-59d1-4438-9d92-a86d89bb6ccc",
+        "name": "Fresh Chopped Methi Leaves",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "076b5a5c-0f25-4715-b8c7-03f4ec557c9f",
+        "name": "Potatoes (Boiled & Cubed)",
+        "amount": 2.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "5d1964eb-a19d-4fe7-8ebd-68ee7df75525",
+        "name": "Mustard Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "4bed1a17-4993-436e-83aa-714a57ac2c20",
+        "name": "Garlic & Green Chillies",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté garlic slices and green chillies in hot mustard oil.",
+      "Add potatoes and fresh methi leaves; cook uncovered on medium flame until methi softens and potatoes turn crisp."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "3aa41f76-b4ba-4e10-8ec0-1222486ebf53",
+    "title": "Dum Aloo Banarasi",
+    "category": "Sabzi",
+    "diet": "Veg",
+    "tags": [
+      "Traditional",
+      "Pure Veg",
+      "Rich Gravy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 370,
+    "proteinGrams": 9,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "bbc2dc6f-bb57-40d9-b73d-5364b6ee75fa",
+        "name": "Stuffed Baby Potatoes (Paneer & Nuts)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "7eac27dd-ebd2-424f-be46-1d37f0c33856",
+        "name": "Tomato Poppy Seed Gravy",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "cc9ce850-d4c6-4bfc-8feb-58a7a6ca1080",
+        "name": "Desi Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Scoop out baby potatoes, stuff with crumbled spiced paneer and nuts, and deep fry.",
+      "Simmer in golden tomato-cashew-poppy seed gravy for 10 minutes on low dum."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "2b56c5fa-e3a5-45a5-b411-5bfd456ecb5d",
+    "title": "Crispy Paneer-Stuffed Moong Dal Chilla",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Quick (<20m)",
+      "Gym Meal"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 12,
+    "calories": 380,
+    "proteinGrams": 26,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "056e1168-6edf-4913-8050-040ec1317f4a",
+        "name": "Soaked Moong Dal (Blended)",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "913b9d62-a39d-4de9-a4ae-d1a00d66e61e",
+        "name": "Grated Paneer Stuffing",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "9a0848f8-9403-4184-8243-1b4b51208d7d",
+        "name": "Green Chilli & Ginger",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "59ca66d5-7bd8-4f8e-b21d-fd957242cf14",
+        "name": "Ghee",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "27c415c8-c3f8-4d2a-9169-9c6bc94c4ca1",
+        "name": "Chaat Masala",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Spread moong dal batter into a thin circular crepe on a hot tawa.",
+      "Drizzle ghee, flip once, and fill with grated paneer and herbs.",
+      "Fold and serve with green chutney."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "1b700ed1-55b1-41ff-b83d-538d3ff517fd",
+    "title": "Mumbai Chowpatty Pav Bhaji",
+    "category": "Street Food",
+    "diet": "Veg",
+    "tags": [
+      "Street Food",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 510,
+    "proteinGrams": 14,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "2313431a-7ea5-4b21-be7d-03532b68fb1b",
+        "name": "Boiled Veggies (Potatoes, Peas, Cauliflower)",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1692a7d1-d925-433b-8e41-dec01e226f30",
+        "name": "Amul Butter",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ba209d13-7d59-41c6-b23c-e712dc27de05",
+        "name": "Pav Bhaji Masala",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "724677ac-45f9-463f-8c9c-8a70b338cbc3",
+        "name": "Onions & Tomatoes",
+        "amount": 2.0,
+        "unit": "each",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil veggies 3 whistles; vigorously mash on tawa with butter, onions, tomatoes, and masala.",
+      "Simmer 8 minutes with extra butter and serve with toasted pav."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "1179c922-ad95-4e9c-8ba9-f4e7e41b82a2",
+    "title": "Indori Poha (Jeeravan Masala)",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Light & Healthy",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 10,
+    "calories": 280,
+    "proteinGrams": 7,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "6f8eed5c-0fda-4394-ae9f-549826b8b240",
+        "name": "Thick Poha (Flattened Rice)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0debf1c5-0e54-4814-a22a-03262a8564ff",
+        "name": "Peanuts (Fried)",
+        "amount": 25.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "a359db59-79c8-4560-84a2-3c46a2388e2d",
+        "name": "Mustard Seeds, Green Chillies, Curry Leaves",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "22e57342-37a9-431f-9ccd-efc85414a5b1",
+        "name": "Jeeravan Masala & Sev",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "89bb7122-ea5b-4ab9-b955-7516e9dc37c0",
+        "name": "Pomegranate Seeds & Lemon",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Rinse poha and drain thoroughly. Temper mustard, chillies, peanuts in oil.",
+      "Toss in poha with turmeric, salt, and sugar pinch.",
+      "Garnish with crunchy sev, fresh pomegranate seeds, and spicy Jeeravan powder."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "31c8d903-3234-45b8-83a0-b01e830bf2b3",
+    "title": "South Indian Masala Dosa",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "South Indian",
+      "Pure Veg",
+      "Street Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 360,
+    "proteinGrams": 10,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "ec6979c6-2b09-49e6-a74f-3fbffe642c83",
+        "name": "Fermented Dosa Batter",
+        "amount": 150.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "078cd3d0-8505-4309-9c88-d9d40898828d",
+        "name": "Spiced Potato Masala (Aloo)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "a24d0153-26ca-4563-985b-3db0a3f0b821",
+        "name": "Desi Ghee / Butter",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "0b5b7f8a-1bb0-443e-b16e-ff903b3c0cde",
+        "name": "Gunpowder (Podi)",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Spread batter paper-thin on cast iron tawa; drizzle ghee until crisp and golden.",
+      "Place spiced potato filling in the center, roll into a cylinder.",
+      "Serve with coconut chutney and hot sambar."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "00dc432d-fabe-4752-9419-257a36cd0205",
+    "title": "Steamed Soft Idli with Sambar",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "South Indian",
+      "Healthy",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 290,
+    "proteinGrams": 12,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "5b36f94e-637d-4729-9544-300047d61462",
+        "name": "Idli Batter (Rice & Urad Dal)",
+        "amount": 200.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "0a7d452c-0e45-438c-b01f-3e0d6656a22a",
+        "name": "Sambar & Coconut Chutney",
+        "amount": 1.0,
+        "unit": "bowl",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pour batter into oiled idli plates and steam for 10 minutes until fluffy and cloud-soft.",
+      "Serve dipped in piping hot vegetable sambar."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "26a58f3b-d02a-4c1d-b772-f9e067e441d0",
+    "title": "Crispy Medu Vada",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "South Indian",
+      "Pure Veg",
+      "Crispy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 340,
+    "proteinGrams": 13,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "23179a9f-c80e-4f9f-b7b1-02d1728666fa",
+        "name": "Urad Dal Batter (Whisked Fluffy)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3a2a05a8-669c-440d-9b76-67986c0caac7",
+        "name": "Curry Leaves, Peppercorn & Coconut Bits",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "cc5c1e6a-9a73-45c9-a04d-86a9cca44cbe",
+        "name": "Oil for Frying",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Whisk thick urad dal batter with peppercorns and curry leaves until aerated.",
+      "Shape doughnut rings with wet hands and deep fry in hot oil until golden brown."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "21600bd4-cef6-45ac-a399-04b87676c71b",
+    "title": "Classic Punjabi Aloo Paratha",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "Comfort Food",
+      "Dhaba Style",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 390,
+    "proteinGrams": 11,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "dc682f2d-04fc-4f7d-b5a7-81556d6e8775",
+        "name": "Whole Wheat Atta Dough",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "9da45efb-9a4a-4d8a-89ac-34be14416ef5",
+        "name": "Spiced Mashed Potatoes",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1e099c42-eb03-42c7-9dca-2792f9feedbe",
+        "name": "Amchur, Ajwain & Green Chillies",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "773aa77c-22c7-4498-b735-d8a30b8aa265",
+        "name": "White Butter / Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Roll dough, stuff generously with spiced potato mixture, and seal carefully.",
+      "Roll out flat and roast on hot tawa with generous ghee until blistered and golden.",
+      "Serve with cold curd and homemade mango pickle."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "fa72a483-25c5-42aa-971e-535118337601",
+    "title": "Paneer Onion Paratha",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "High-Protein",
+      "Dhaba Style",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 440,
+    "proteinGrams": 24,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "2976be60-226c-42af-843d-cb51a99b3476",
+        "name": "Atta Dough",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1ead10a8-893a-465f-bfdd-a9ea3abd313c",
+        "name": "Fresh Grated Paneer",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "72dc837a-6d2c-4b76-aa0a-544deb6bdb30",
+        "name": "Finely Diced Onions & Coriander",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "6fdebeca-0a75-43ff-a8df-e91e9183c3cc",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Stuff rolled wheat dough with spiced grated paneer and onions.",
+      "Roast on tawa until crisp on both sides. High protein fuel for your morning."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "aa58c454-7c1b-4227-aa28-5a4325c45868",
+    "title": "Methi Thepla (Travel Friendly)",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "Gujarati",
+      "Healthy",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 12,
+    "calories": 260,
+    "proteinGrams": 8,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "d7b4953e-2f31-4ac7-91e3-9bfacf039b1a",
+        "name": "Wheat Flour & Besan Mix",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c38f16a1-e1f7-44fc-8dcc-bff288bc15c8",
+        "name": "Fresh Chopped Methi Leaves",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4cb651eb-0932-4803-b997-f2b2de8327ad",
+        "name": "Curd, Sesame Seeds & Ajwain",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "16952036-79d8-4cba-bc74-6a36de1df101",
+        "name": "Oil",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Knead dough using curd, methi, sesame seeds, and spices.",
+      "Roll thin and roast lightly on tawa with oil. Stays soft for days!"
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "79273bd6-5b86-4706-ad0a-4bfa457cb508",
+    "title": "Gujarati Nylon Khaman Dhokla",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "Light & Healthy",
+      "Low Calorie",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 210,
+    "proteinGrams": 9,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "9920f435-fcf4-40d1-a47f-574e1562764b",
+        "name": "Besan (Gram Flour)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "bfae9155-e9f4-4f5a-a52d-80abef2fd19f",
+        "name": "Fruit Salt (Eno) / Baking Soda",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "772bca7f-ed64-4559-a727-08dbcd2fc357",
+        "name": "Mustard, Green Chillies & Sugar Water Tadka",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Whisk besan with lemon juice, turmeric, and water; add Eno right before steaming.",
+      "Steam 12 mins in cooker without whistle. Pour sweet and tangy mustard tadka water."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "766a21d3-9d75-44e4-ab69-8ad7ef46c772",
+    "title": "Sabudana Khichdi (Vrat Special)",
+    "category": "Breakfast",
+    "diet": "Veg",
+    "tags": [
+      "Gluten-Free",
+      "Pure Veg",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 360,
+    "proteinGrams": 8,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "b1d0eadd-7a2b-458f-b508-da4c222659ed",
+        "name": "Soaked Sabudana (Tapioca Pearls)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "5046510b-daad-4a3e-89e9-ea60ccc64193",
+        "name": "Roasted Crushed Peanuts",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "23a9816c-ef9e-4bae-8376-c8118ad4f832",
+        "name": "Boiled Potatoes (Cubed)",
+        "amount": 1.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "29d5ec9e-fc93-47b4-801f-f953bfd4defa",
+        "name": "Ghee & Cumin Seeds",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Soak sabudana until pearls separate easily without stickiness.",
+      "Sauté cumin, chillies, and boiled potatoes in ghee; fold in sabudana and crushed peanuts.",
+      "Cook covered on low 4 mins until pearls turn translucent."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "85b1493c-b8c5-446b-8bcb-4f851910d963",
+    "title": "Delhi Samosa Chaat",
+    "category": "Street Food",
+    "diet": "Veg",
+    "tags": [
+      "Street Food",
+      "Chatpata",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 10,
+    "calories": 420,
+    "proteinGrams": 10,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "4d3e0cd2-5934-4ee9-8104-85816d90c4e4",
+        "name": "Crispy Fried Samosas",
+        "amount": 2.0,
+        "unit": "whole",
+        "isChecked": false
+      },
+      {
+        "id": "571cafe8-59f1-4cfd-b1ad-41f4ba7e34f9",
+        "name": "Warm Ragda / Chana Curry",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "610a04c6-f9bf-4051-89af-0ddb5dce74c8",
+        "name": "Sweet Imli Chutney & Spicy Mint Chutney",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "05f9564e-c755-4d9c-9f94-dbd30c04e9ed",
+        "name": "Whisked Sweet Dahi & Sev",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Crush hot samosas in a shallow bowl; top with warm spiced chickpea curry.",
+      "Drizzle sweet tamarind chutney, spicy green chutney, and creamy dahi.",
+      "Top with crunchy nylon sev and fresh coriander."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "6dd7c415-39a4-49d0-8f63-dcbb801272e5",
+    "title": "Mumbai Vada Pav (Dry Garlic Chutney)",
+    "category": "Street Food",
+    "diet": "Veg",
+    "tags": [
+      "Street Food",
+      "Quick (<20m)",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 380,
+    "proteinGrams": 9,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "62bb0557-64d1-48be-afd8-bcd8d46c5c98",
+        "name": "Spiced Potato Batata Vada (Fried)",
+        "amount": 2.0,
+        "unit": "pieces",
+        "isChecked": false
+      },
+      {
+        "id": "034435bc-f6bf-4c3a-89aa-bff82aa1589a",
+        "name": "Soft Ladi Pav",
+        "amount": 2.0,
+        "unit": "buns",
+        "isChecked": false
+      },
+      {
+        "id": "ecbcc47b-6cfc-49db-8673-d8a6d4629762",
+        "name": "Fiery Red Dry Garlic Chutney",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "f18e279e-7710-4c3e-a1b6-f54c2eb75127",
+        "name": "Fried Green Salted Chillies",
+        "amount": 2.0,
+        "unit": "chillies",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Dip spiced potato balls in seasoned gram flour batter and deep fry.",
+      "Slit pav, spread green chutney and fiery red dry garlic coconut chutney.",
+      "Insert hot vada, press down and serve with fried salted chillies."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "74c9f97c-4689-42bf-a7c9-e56b59c781b5",
+    "title": "Hyderabadi Veg Dum Biryani",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "Dum Biryani",
+      "Pure Veg",
+      "Royal"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 35,
+    "calories": 480,
+    "proteinGrams": 16,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "738b0907-7dd3-452a-8218-5a29ab36ca73",
+        "name": "Aged Basmati Rice (70% Boiled)",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "33ebb31d-528b-4132-b822-e948da395a11",
+        "name": "Marinated Veggies (Paneer, Carrots, Beans)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "eb76c515-7887-4432-bf57-73c3e18ea0e9",
+        "name": "Fried Golden Onions (Birista)",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0765870c-4a0f-4c7a-80ff-26e9c0ce2512",
+        "name": "Saffron Milk & Kewra",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "0e42fa3b-4358-4801-95ed-ed7bc52d6250",
+        "name": "Desi Ghee & Mint Leaves",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Layer spiced marinated vegetables in handi, top with parboiled aromatic basmati rice.",
+      "Sprinkle birista, mint, saffron milk, and generous desi ghee.",
+      "Seal handi lid with dough and cook on low dum flame for 20 minutes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "b875f065-08ac-4723-ac49-bac9eba4d7c2",
+    "title": "Restaurant Jeera Rice",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Everyday Staple",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 12,
+    "calories": 260,
+    "proteinGrams": 5,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "51e9957f-5e42-4bd4-bfa9-22f41ca5ff94",
+        "name": "Basmati Rice",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3bf6e3ab-14e9-4937-af7e-09bdd2109881",
+        "name": "Shahjeera / Cumin Seeds",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "22ae75ae-d1b6-42bf-ad1f-61a0bfc85411",
+        "name": "Desi Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "e41a828c-74c8-4674-9982-cefb096c1885",
+        "name": "Bay Leaf & Green Cardamom",
+        "amount": 2.0,
+        "unit": "pieces",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Crackle cumin seeds and bay leaf in hot ghee until deeply fragrant.",
+      "Add washed basmati rice, sauté 1 minute, add 2 cups water and salt.",
+      "Pressure cook for 2 whistles; fluff gently with a fork."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "3afc3aa0-c4ee-45e4-85de-a4ae1bd90ffd",
+    "title": "South Indian Curd Rice (Thayir Sadam)",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "Cooling",
+      "South Indian",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 10,
+    "calories": 290,
+    "proteinGrams": 9,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "2fca44d7-2d3f-4423-8000-2f995d3d4e82",
+        "name": "Soft Boiled Rice (Mashed)",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "dd47b531-0932-458a-ae42-678fbac5b1c5",
+        "name": "Fresh Dahi & Splash of Milk",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "8317cad1-603b-4da2-aa71-16b7e49cb514",
+        "name": "Mustard, Urad Dal, Curry Leaves, Ginger",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "8b2e6d87-c673-4635-9c9f-e2b08fb8cc3c",
+        "name": "Ghee / Oil",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "abd1c6b7-a2a2-4f12-9dd5-79e1fee079eb",
+        "name": "Pomegranate",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Mash warm soft rice; mix with fresh curd and a splash of milk so it stays sweet.",
+      "Temper mustard seeds, urad dal, ginger, and curry leaves; pour over.",
+      "Top with fresh crunchy pomegranate seeds."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "17af4f89-6634-421f-aece-6d64b1033af3",
+    "title": "Lemon Rice (Chitranna)",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "South Indian",
+      "Tangy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 12,
+    "calories": 310,
+    "proteinGrams": 7,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "4e7eea71-3a91-4a54-9c45-12cdef7ef3ed",
+        "name": "Cooked Basmati Rice",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "395918e0-a29a-48c1-82a2-28776e30f2d4",
+        "name": "Lemon Juice",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "2736d070-49d8-4075-b409-3da3620aa1b6",
+        "name": "Roasted Peanuts & Chana Dal",
+        "amount": 30.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "eee0e5f0-2a81-4123-81c4-bff55c46ba33",
+        "name": "Mustard, Turmeric & Curry Leaves",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "e048970a-c6a9-4fca-a622-d918459c512a",
+        "name": "Sesame Oil",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Heat oil, fry crunchy peanuts, chana dal, mustard, chillies, and turmeric.",
+      "Turn off heat, stir in fresh lemon juice.",
+      "Gently toss with cold cooked rice until evenly yellow and aromatic."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "6a799ede-6675-445c-b52b-ebeed8159b26",
+    "title": "Mumbai Tawa Pulao",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "Street Food",
+      "Quick (<20m)",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 380,
+    "proteinGrams": 10,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "fd80b48b-9d23-4a93-9419-cfa4cf75f9a4",
+        "name": "Boiled Basmati Rice",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "26bae262-7ed5-4cde-b0cb-5423d403fc25",
+        "name": "Diced Veggies (Capsicum, Tomato, Peas)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ffe657b2-511b-4fa5-8996-b3c50062ea49",
+        "name": "Pav Bhaji Masala & Butter",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "On a wide tawa, melt butter and cook crunchy vegetables with pav bhaji masala.",
+      "Toss cooked basmati rice vigorously with the spicy buttery bhaji mix for 3 minutes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "3a0fc54e-9010-4453-8299-e436772ea02b",
+    "title": "Kashmiri Sweet & Nutty Pulao",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "Royal",
+      "Pure Veg",
+      "Dry Fruits"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 420,
+    "proteinGrams": 9,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "883af487-f16f-4088-8cef-2069709a65ee",
+        "name": "Basmati Rice",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4763bb60-4c23-447a-912b-a1a9086a2ee8",
+        "name": "Fried Cashews, Almonds & Walnuts",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "42f7622f-0282-4387-893f-0e925e386a3f",
+        "name": "Pomegranate & Apple Slices",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "7c765fce-fd9f-44e6-a569-9f409fa17081",
+        "name": "Saffron Milk & Desi Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook basmati rice with whole spices and saffron.",
+      "Gently mix in roasted dry fruits, sliced fresh fruits, and ghee."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "bb145ad3-556e-481d-9acc-b9f8797b6103",
+    "title": "Karnataka Bisi Bele Bath",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "South Indian",
+      "Comfort Food",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 410,
+    "proteinGrams": 15,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "ad6d1ba0-5a26-4b28-8fba-d50da3472a9c",
+        "name": "Rice & Toor Dal Mix",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "9d1e5a6a-f117-4895-bc36-09500a1bb591",
+        "name": "Mixed Vegetables",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "cfa1252b-ce9c-4b38-9a50-41affbe7aaf2",
+        "name": "Bisi Bele Bath Masala",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "5e46eb26-a5c1-421a-97f7-8a69d520d2bb",
+        "name": "Ghee & Cashews",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "303be169-0bf7-4064-bc30-8e2c5b142e44",
+        "name": "Tamarind Juice",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pressure cook rice, lentils, and mixed vegetables together for 3 whistles.",
+      "Simmer with tamarind water and freshly roasted spicy-cinnamon masala powder.",
+      "Temper crunchy cashews and curry leaves in hot ghee and pour over."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "fb497630-e128-4892-97de-9bbaa12ec62e",
+    "title": "Matar Pulao (Green Peas Rice)",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Everyday Staple",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 310,
+    "proteinGrams": 8,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "4a3b0556-ecde-425f-aed4-bade191c1b0f",
+        "name": "Basmati Rice",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "18677611-49f4-42f3-9193-a34f5c8ba116",
+        "name": "Sweet Green Peas",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "9c72bca2-c874-44d2-9bba-0b7b33241f34",
+        "name": "Ghee & Whole Garam Masala",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "d5e248fc-c33e-45da-9ec5-1408f252b4f1",
+        "name": "Fried Brown Onions",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté cumin, cloves, cardamom, and green peas in ghee.",
+      "Add basmati rice, 2 cups water, and cook for 2 whistles. Aromatic and tender."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "4447ac3d-c9d7-4419-9217-8fc5d4f2dc88",
+    "title": "Pudina Mint Rice",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "Quick (<20m)",
+      "Fresh",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 290,
+    "proteinGrams": 7,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "73034c47-b668-411e-a117-69b803630c9d",
+        "name": "Basmati Rice",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "70586c84-e08a-4546-99f3-60192a015ed3",
+        "name": "Fresh Mint & Coriander Paste",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b18925c3-0d5f-4e95-a998-de2bc83f8909",
+        "name": "Ghee, Cloves & Green Chillies",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté mint paste in ghee until fragrant; mix with basmati rice and 2 cups water for 2 whistles."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "d27bd327-add1-41b9-934e-f6c6ac93dbdc",
+    "title": "Tomato Bath / Tomato Rice",
+    "category": "Rice & Biryani",
+    "diet": "Veg",
+    "tags": [
+      "South Indian",
+      "Tangy",
+      "Pure Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 320,
+    "proteinGrams": 7,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "e5e4439e-6155-4f24-8567-fbbea0e8287f",
+        "name": "Basmati Rice",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "08c84065-dddb-452d-b501-4be53322574e",
+        "name": "Finely Chopped Juicy Tomatoes",
+        "amount": 3.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "c4861c60-3ba3-46b6-af12-94d9a04b0936",
+        "name": "Fennel, Cinnamon & Curry Leaves",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "bfb94081-0ec6-4c99-aadf-deddd778ac4b",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook spiced tomato gravy with whole spices in pressure cooker.",
+      "Add rice, pressure cook 2 whistles. Tangy and spicy south Indian favorite."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "122a78e2-f62e-4f64-9e0c-a0e21b704a6b",
+    "title": "Old Delhi Butter Chicken (Murgh Makhani)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "High-Protein",
+      "Restaurant Style"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 520,
+    "proteinGrams": 38,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "acc4df6a-17df-4c08-8a42-57a31b463eeb",
+        "name": "Tandoori Chicken Tikka Pieces",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "43b4726e-aea5-4c19-bcd8-90c9b713fa78",
+        "name": "Tomato Cashew Gravy",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "400ca1c8-eab6-4c82-a151-4d69aeb1a752",
+        "name": "Amul Butter",
+        "amount": 30.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "a17d588e-a7e3-4172-b7ab-274cc9a6021d",
+        "name": "Fresh Cream",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "cbda4220-3a22-4645-9797-e7fc2a89300c",
+        "name": "Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and tandoori spices; pan-sear until charred.",
+      "Simmer smooth tomato-cashew gravy with butter and mild spices.",
+      "Add chicken pieces, simmer 8 minutes, finish with cream, butter, and kasuri methi."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "d6dd37ca-fc7b-4a4d-823f-3ffa18296985",
+    "title": "Dhaba Style Chicken Curry (Tariwala)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "Dhaba Style",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 460,
+    "proteinGrams": 42,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "a2faef00-ac6f-4ee0-965b-657911ecc23c",
+        "name": "Bone-in Chicken Cut Pieces",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "efe085f1-64a0-40bc-aea9-5e6c293ae34e",
+        "name": "Sliced Onions",
+        "amount": 2.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "fec49424-275c-4ab8-8d76-53ef14e4e314",
+        "name": "Ginger Garlic Paste",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "ca9dec4e-c9d2-4261-83dc-9fdc3588e680",
+        "name": "Mustard Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "e4d995dc-5991-4527-aedd-5ef4a3d64ca4",
+        "name": "Dhaba Garam Masala",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Heat mustard oil to smoking point; sear chicken pieces until lightly browned.",
+      "Sauté sliced onions, ginger-garlic, and whole spices until dark brown (bhunao).",
+      "Add chicken, 1.5 cups water, and pressure cook for 3 whistles. Thin spicy gravy for rice!"
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "9c3a4091-0ba0-4073-897d-0345b042c0b6",
+    "title": "Hyderabadi Chicken Dum Biryani",
+    "category": "Rice & Biryani",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "Dum Biryani",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 40,
+    "calories": 620,
+    "proteinGrams": 46,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "563b5f30-97f0-4830-bd1c-1eb148190a79",
+        "name": "Marinated Chicken (Yogurt, Fried Onion, Biryani Masala)",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "884cc30a-df5f-484c-b845-35d24b9a6e17",
+        "name": "Long Grain Aged Basmati Rice (70% Cooked)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "a673bee7-9898-40f7-9d8f-2681817b0fd6",
+        "name": "Desi Ghee & Saffron Milk",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "5cca154f-39c1-4047-a52f-2414980b5425",
+        "name": "Fresh Mint & Fried Onions",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate chicken overnight in spiced yogurt, ginger garlic, and mint.",
+      "Place chicken at the bottom of a heavy pot; layer fragrant parboiled basmati rice over.",
+      "Drizzle saffron milk, rose water, and ghee; seal with dough and dum-cook 25 minutes."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "f75ad691-37ad-45cb-8197-50db14d653cd",
+    "title": "Chicken Tikka Masala (Smoky Gravy)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "High-Protein",
+      "Popular"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 490,
+    "proteinGrams": 40,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "ac02b9a1-d48b-4b9e-ae59-4590b8b9094d",
+        "name": "Smoky Charred Chicken Tikka",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "65db3ec3-aafd-481c-8c6e-3003406c9113",
+        "name": "Spiced Onion Tomato Masala",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1ab7a344-022e-4eae-a599-9e85ec5d4f3a",
+        "name": "Fresh Cream",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "427e9684-9a57-4133-af83-baccae2a7a59",
+        "name": "Bell Peppers & Onions (Petals)",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sear chicken tikka in a smoking hot pan.",
+      "Cook spicy, tangy onion-tomato gravy with capsicum petals.",
+      "Toss chicken into gravy, simmer 5 minutes, finish with cream and coriander."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f97d7bed-8ab9-4564-a0b1-2dcae041ac7b",
+    "title": "Kadai Chicken (Peshawari Style)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "High-Protein",
+      "Dhaba Style"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 440,
+    "proteinGrams": 39,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "7e1d199c-1d1c-42c1-8dce-9182847c3287",
+        "name": "Boneless Chicken Thigh Cubes",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "a00441ad-01e2-4c39-b787-98596d626bfe",
+        "name": "Capsicum & Onion Dices",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e4e098f9-1d1f-45a4-860d-467c9c93227a",
+        "name": "Freshly Crushed Kadai Spices",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "acdbbfc7-cb72-43a5-9bf5-f7e7f8b1788c",
+        "name": "Mustard Oil / Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Dry roast coriander seeds and dry red chillies; crush coarsely.",
+      "Stir-fry chicken, capsicum, and onions in high heat with the spicy kadai masala."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "ba67c87e-95b9-46ae-bb6e-760198343163",
+    "title": "Chicken Chettinad (Fiery Black Pepper)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "South Indian",
+      "Spicy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 450,
+    "proteinGrams": 40,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "8f724c40-9789-4ba8-98b7-f433a3ae8af8",
+        "name": "Chicken Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "447fbd84-bb42-44d9-9d62-186f8379be2b",
+        "name": "Roasted Chettinad Masala (Fennel, Pepper, Poppy Seeds)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "ccfb19d0-ddbf-49c9-9df6-18fdff1f9110",
+        "name": "Curry Leaves & Coconut Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "66e42760-f301-4ee6-b870-f5a112def905",
+        "name": "Shallots / Sambar Onions",
+        "amount": 10.0,
+        "unit": "whole",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Grind roasted spices with fresh coconut into thick Chettinad paste.",
+      "Sauté shallots and curry leaves in coconut oil, add chicken and masala paste.",
+      "Pressure cook 2 whistles until intensely aromatic and peppery."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "72dfb164-8bdb-4236-a8c9-1b47a42b0bde",
+    "title": "Chicken Korma (Shahi Mughlai)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "Royal",
+      "Rich Gravy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 510,
+    "proteinGrams": 36,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "ab52671b-bd34-4778-8332-bf7bf5069eb3",
+        "name": "Chicken Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "84f57b77-1457-4e24-9dff-d39fc4691c7c",
+        "name": "Fried Onion & Almond Paste",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4bc6594c-38c8-428e-b5cf-1c3d044144a6",
+        "name": "Whisked Dahi / Yogurt",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "56d34e5c-a962-44fb-8e7b-40b322671d91",
+        "name": "Desi Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "b37ea297-075d-42c3-ac72-72c7e6c04652",
+        "name": "Mace & Cardamom",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook whole aromatic spices in ghee, add chicken and sear lightly.",
+      "Stir in whisked yogurt and fried onion almond paste; cook on low dum until oil floats."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "1f479ce1-c609-4bc4-b5e2-eedf25ac1302",
+    "title": "Tandoori Chicken (Air Fryer / Oven)",
+    "category": "High-Protein",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Gym Meal",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 380,
+    "proteinGrams": 48,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "ec561a57-cf7f-4f2f-ad56-f046f8f906cf",
+        "name": "Skinless Chicken Drumsticks / Thighs",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "a89a00f0-9dbc-4a29-8d0d-ae843edb1078",
+        "name": "Hung Curd (Greek Yogurt)",
+        "amount": 4.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "eea6494c-6c89-4d22-8dcb-ba6f94a3bd02",
+        "name": "Kashmiri Red Chilli, Ginger Garlic & Mustard Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "ca43ede2-f01f-4ad5-b0fc-4adf80ed9256",
+        "name": "Chaat Masala & Lemon",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Make deep cuts in chicken; marinate with lemon juice, salt, and ginger-garlic (first marinade).",
+      "Apply thick hung curd, mustard oil, and tandoori spices (second marinade).",
+      "Air-fry at 200°C for 18-20 minutes or pan-sear until charred and juicy."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "a7516a09-1a5d-486c-be89-19c73166fa02",
+    "title": "Chicken Keema Matar",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "High-Protein",
+      "Street Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 410,
+    "proteinGrams": 38,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "a18d9d2f-3243-4b34-9e9c-550ccfc555ea",
+        "name": "Minced Chicken (Keema)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "fd24a2d2-ed6e-4d5d-8989-1d3ea6676efd",
+        "name": "Green Peas (Matar)",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0cf57dfd-7141-41a2-9fd8-d878fbcca51f",
+        "name": "Chopped Onions & Tomatoes",
+        "amount": 2.0,
+        "unit": "each",
+        "isChecked": false
+      },
+      {
+        "id": "edc51eab-b3c0-4fb0-9b27-398da51605ba",
+        "name": "Ginger, Garlic & Green Chillies",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "26aa9dd5-eed2-4dba-8cb2-e9b4d11c56a7",
+        "name": "Ghee / Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté ginger garlic and onions in ghee until brown.",
+      "Add chicken keema, break lumps with a spatula, and cook on high heat 5 minutes.",
+      "Add green peas, tomatoes, garam masala, cover and simmer 10 mins. Serve with pav!"
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "e0a43330-6fb2-4263-9672-bf1547803d16",
+    "title": "Chicken Saagwala (Palak Chicken)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "Iron Rich",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 22,
+    "calories": 420,
+    "proteinGrams": 41,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "f6f4b77e-8170-4069-80d4-cc1697046994",
+        "name": "Chicken Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "87fa6132-98a8-4577-b7f9-7f9fc50362aa",
+        "name": "Pureed Fresh Spinach (Palak)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b7cf33f5-5c36-4132-9653-62ee6448c292",
+        "name": "Garlic & Ginger Slices",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "4ad81dbd-ba45-48b3-aeea-ad10b5e28a44",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sear chicken pieces with onions and garlic in ghee.",
+      "Add blanched spinach puree and spices; pressure cook for 2 whistles."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "fe74c2f7-121f-4f9e-a7b5-72427f586932",
+    "title": "Chicken 65 (Crispy South Indian)",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Street Food",
+      "Crispy",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 390,
+    "proteinGrams": 36,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "e472560f-3b10-4dfd-aa24-3e5a1c02e352",
+        "name": "Boneless Chicken Cubes",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "6a4a706a-dbcf-43bc-b8db-c6b8f162d7af",
+        "name": "Rice Flour & Cornflour",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "9e5e478a-4060-46c1-af26-e6b51b381d52",
+        "name": "Curd, Red Chilli & Curry Leaves",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "bd579477-98d8-4d6b-9fbd-8a79cc0372ae",
+        "name": "Oil for Frying",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate chicken in spiced curd, egg white, rice flour, and red chilli.",
+      "Deep fry until golden crisp. Toss with tempered curry leaves and garlic."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "72cea042-a4c6-4955-a465-4314312a6c74",
+    "title": "Indo-Chinese Chilli Chicken",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Street Food",
+      "Indo-Chinese",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 410,
+    "proteinGrams": 34,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "09d2c669-cc55-4f58-baca-549b541b8565",
+        "name": "Fried Crispy Chicken Cubes",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "49875a38-d049-43ad-bcdf-d91d0f01ea3c",
+        "name": "Capsicum & Onion Dices",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "39431723-7f45-41b5-9629-6d73234b7d50",
+        "name": "Soy Sauce, Chilli Sauce & Vinegar",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "7c9d6a67-cf5f-49fa-b5d4-3dd47833b983",
+        "name": "Garlic & Green Chillies",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté heaps of garlic, chillies, capsicum, and onions in a flaming hot wok.",
+      "Add dark soy, green chilli sauce, and cornstarch slurry.",
+      "Toss crispy chicken pieces until coated in glossy sauce."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "3a4cfabf-0f2e-4543-b8e3-7c916cf01867",
+    "title": "Methi Chicken (Fenugreek Chicken)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "Winter Classic",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 22,
+    "calories": 430,
+    "proteinGrams": 40,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "4cebbe08-1fa5-4766-a7d7-f843b5bfb6ed",
+        "name": "Chicken Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2b214d08-0581-4310-b59c-0e78d8180852",
+        "name": "Fresh Methi Leaves (Chopped)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "14df4f2e-66f0-4430-aaf3-ccaafc26dece",
+        "name": "Onion Curd Gravy",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "7970199f-b2b3-4534-a8c8-79dcdd227ee1",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté methi leaves lightly to reduce bitterness.",
+      "Cook chicken with onion-tomato-curd masala; fold in methi leaves and simmer 10 mins."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "6b8fdfb5-21ef-4ad1-b437-a49ad93171a8",
+    "title": "Malvani Chicken Sukka (Dry Coconut)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "Coastal",
+      "Spicy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 470,
+    "proteinGrams": 42,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "8ed7d21c-5eff-4975-8bb8-168c58970bf5",
+        "name": "Chicken Cut Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b1ed950f-0ae4-4a65-910f-5b2d1a4398c1",
+        "name": "Roasted Grated Coconut Paste",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c6de774b-0922-4cdc-8633-52c5daf00b23",
+        "name": "Malvani Masala & Kokum",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "960f010b-a7d5-4c1a-a872-72f31a491dd9",
+        "name": "Curry Leaves & Mustard",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pressure cook chicken with turmeric and salt 2 whistles.",
+      "Roast coconut paste with Malvani spices until dark and fragrant.",
+      "Toss cooked chicken into coconut masala until completely coated and dry."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "c5497c79-8cf1-4e75-853b-669ff391e13c",
+    "title": "Chicken Shawarma Protein Bowl",
+    "category": "Fusion",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Gym Meal",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 420,
+    "proteinGrams": 45,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "f48ed8ed-3423-4370-8253-c921b52524fe",
+        "name": "Spiced Grilled Chicken Breast",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "a9aac739-bc94-407b-8508-542d33ec3fb7",
+        "name": "Garlic Hung Curd Toum",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "fb3dce7f-7bdc-4a33-8bd0-55b79bf1ccce",
+        "name": "Cucumber, Tomato, Onion Salad",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "63673f95-964f-4cbc-bc9a-0e9b3b2ea677",
+        "name": "Pickled Beetroot",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate chicken breast in cumin, coriander, paprika, and garlic; grill 6 mins each side.",
+      "Slice grilled chicken over fresh crisp salad with garlic curd dressing."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "339c873c-60b7-438f-b2c4-a1d66a4daff3",
+    "title": "Kolhapuri Chicken (Fiery Red Curry)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Spicy",
+      "Non-Veg",
+      "Maharashtrian"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 22,
+    "calories": 460,
+    "proteinGrams": 41,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "fede9fb6-6eb8-4c38-b01c-7d1d7996e904",
+        "name": "Chicken Pieces",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "74faac75-72c2-4bf7-bbc3-097dfade5c00",
+        "name": "Kolhapuri Chutney & Dry Coconut",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "248d97d0-43d6-4e09-b49a-7c376488015f",
+        "name": "Mustard Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "16d04cad-b6b9-4a57-9521-2d7c9c9ee22b",
+        "name": "Onions",
+        "amount": 2.0,
+        "unit": "large",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sear chicken in smoking oil, add roasted dark coconut masala and Kolhapuri spices.",
+      "Pressure cook 3 whistles. Extremely spicy and rich rassa."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "e4032add-4658-4f69-94f0-42220aad2fa1",
+    "title": "Chicken Do Pyaza",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Non-Veg",
+      "Homestyle",
+      "Dhaba Style"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 440,
+    "proteinGrams": 38,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "3ff162a6-db73-439d-a00a-a9ba9e7c4fdc",
+        "name": "Chicken Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3b96b314-d41d-4d14-8784-0b5d3d1ebea1",
+        "name": "Onion Cubes & Chopped Onions",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "553d0948-8f5d-4325-9b3b-ef104e783a18",
+        "name": "Whole Spices & Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "3f94803f-1177-4d6f-b2a3-dde70b120619",
+        "name": "Ghee / Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook chicken with chopped onions until tender.",
+      "Add crispy onion petals in the last 4 minutes of cooking for signature two-onion texture."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "928062d6-dac9-4938-82e4-488ca426e70c",
+    "title": "Chicken Rezala (Bengali White Curry)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Royal",
+      "Bengali",
+      "Mild Gravy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 480,
+    "proteinGrams": 36,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "3cadf631-909d-4c44-9bdb-e2fa04f64b96",
+        "name": "Chicken Cuts",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ea279308-c5a7-4f9f-86a7-5389b81eb122",
+        "name": "Cashew & Poppy Seed Paste",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "df1af480-41be-42fb-b643-527d644d500c",
+        "name": "Whole Dry Red Chillies & Kewra",
+        "amount": 4.0,
+        "unit": "chillies",
+        "isChecked": false
+      },
+      {
+        "id": "db766b4e-156f-4d03-95c1-43183998a04d",
+        "name": "Ghee & Dahi",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Slow simmer chicken in cashew-poppy seed curd gravy with dry red chillies and kewra water."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "4703f7c7-b49b-4ae1-bad2-1f1c731d9274",
+    "title": "Chicken Sukka (Mangalore Kori Sukka)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Coastal",
+      "Non-Veg",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 460,
+    "proteinGrams": 42,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "99a3a155-6d2c-4901-abc2-33173266913e",
+        "name": "Chicken Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "44e4ecd0-f20e-42f9-81c2-e15e0a1e5232",
+        "name": "Fresh Roasted Grated Coconut",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "54ff67c2-3694-4670-8eda-cdc22b2a0166",
+        "name": "Byadgi Chilli, Coriander & Tamarind Paste",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "157b41bb-420d-44c9-a663-45eb01726fbe",
+        "name": "Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook chicken in spiced tamarind broth.",
+      "Toss with freshly roasted coarse coconut mixture until dry. Pairs amazingly with neer dosa."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "6db532b0-c107-4c6e-88be-2ea683205469",
+    "title": "Chicken Malai Tikka (Melt in Mouth)",
+    "category": "High-Protein",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Gym Meal",
+      "Mughlai"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 410,
+    "proteinGrams": 44,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "f1c86e34-bf40-4009-a896-b3da527a87fe",
+        "name": "Boneless Chicken Thigh / Breast Cubes",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4d4f8f3d-b9b8-4642-9b41-c6302d736df4",
+        "name": "Hung Curd, Cream & Cheese Paste",
+        "amount": 4.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "e25dd95c-d176-43ff-9e9a-490a37be9cbd",
+        "name": "Cardamom & White Pepper",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "a0eb59b0-ed10-4923-9fdb-4f979b510450",
+        "name": "Lemon Juice",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate chicken in cream, hung curd, ginger garlic, cheese, and cardamom.",
+      "Pan grill or air-fry on high heat until charred spots appear and meat stays juicy."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "c021aeab-78d5-43a5-8c44-44d5a52e4bd0",
+    "title": "Pepper Chicken Fry (Andhra Style)",
+    "category": "High-Protein",
+    "diet": "Non-Veg",
+    "tags": [
+      "South Indian",
+      "Spicy",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 380,
+    "proteinGrams": 42,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "5dbec840-4696-4ff8-9893-f7aceb28f64c",
+        "name": "Chicken Cubes",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "70b58cfd-1d03-4316-9d89-e7222f1a74c9",
+        "name": "Freshly Crushed Black Peppercorns",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "fe13df16-0bf0-4515-aa66-0ca635b63ec4",
+        "name": "Curry Leaves & Green Chillies",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "a828681f-aac6-4e8e-83c5-6586abe0dabb",
+        "name": "Coconut Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pan-roast chicken in coconut oil with heaps of curry leaves, garlic, and fresh crushed black pepper until dry."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "7e57fd3c-9f85-485d-9b40-45a41a5b09a7",
+    "title": "Hariyali Chicken Tikka (Green Herbs)",
+    "category": "High-Protein",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Gym Meal",
+      "Pure Herbs"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 360,
+    "proteinGrams": 43,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "2f9c1006-efe9-45ad-a13a-1f86f27b7310",
+        "name": "Chicken Breast Cubes",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c3617ff7-f25c-470a-883f-761e5524ecaa",
+        "name": "Mint & Coriander Chutney Paste",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2aecaf3f-284d-4670-82bb-024a8500075b",
+        "name": "Hung Curd & Chaat Masala",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate in cilantro-mint-green chilli paste with hung curd.",
+      "Grill on skewers 12 minutes. Lean, vibrant, and packed with clean protein."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "7f38fd1d-135f-4ec5-9ca9-f3a3cc6e7997",
+    "title": "Chicken Lababdar",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Restaurant Style",
+      "Rich Gravy",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 490,
+    "proteinGrams": 39,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "ed7b79ad-786a-4b10-90d8-388d75fd2652",
+        "name": "Chicken Tikka Cubes",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "27179d8e-fc56-49ef-a8c0-dc4ae7a271ca",
+        "name": "Tomato Cashew Butter Gravy",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "266e8ac6-f619-4456-bc0a-115918780d49",
+        "name": "Grated Cheese / Paneer (In Gravy)",
+        "amount": 30.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "df68b555-a0b3-4f41-9e85-e3ef99125aa7",
+        "name": "Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Simmer spiced chicken in luscious tomato cashew gravy with grated paneer for extra body."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "d2141863-4505-4e77-9132-73b8dff63e4a",
+    "title": "Chicken Kali Mirch (Black Pepper Cream)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Restaurant Style",
+      "Mild",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 22,
+    "calories": 470,
+    "proteinGrams": 38,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "de145c46-61c4-47b1-a04a-5c92caae8fbc",
+        "name": "Chicken Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e36fcbf0-c47e-4562-9acd-d8805b246a9f",
+        "name": "Cashew Curd Gravy",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b17aa7f3-f64c-409a-9c71-a89680941a48",
+        "name": "Coarsely Pounded Black Pepper",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "64394a53-4d29-4ed5-8a41-cad807ce5ef6",
+        "name": "Fresh Cream & Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Simmer chicken in white cashew-curd gravy studded with coarsely cracked black peppercorns."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "2636424b-caa9-410b-aa80-aa693b853099",
+    "title": "Honey Chilli Chicken",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Indo-Chinese",
+      "Sweet & Spicy",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 420,
+    "proteinGrams": 32,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "c2f0d59e-1b0d-40ba-bc56-c57d6930e6bb",
+        "name": "Crispy Fried Chicken Strips",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2dba0844-2888-4a5a-8e70-1108b31331ec",
+        "name": "Honey & Chilli Garlic Sauce",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "b68f3dbd-b32f-4cec-a03b-3891ccf92bdd",
+        "name": "Toasted Sesame Seeds & Spring Onions",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Toss crispy fried chicken strips in honey, red chilli paste, garlic, and vinegar.",
+      "Garnish with toasted sesame seeds and spring onion greens."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "1154bfac-e88a-4aa3-9f04-80c0f87421a1",
+    "title": "Kashmiri Mutton Rogan Josh",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Royal",
+      "Traditional",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 35,
+    "calories": 540,
+    "proteinGrams": 36,
+    "whistleCount": 5,
+    "ingredients": [
+      {
+        "id": "798ba87e-8023-426b-a187-c77813777514",
+        "name": "Tender Mutton Cuts",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b686e522-9d38-4ba4-8328-7a75b39bf9cc",
+        "name": "Kashmiri Red Chilli Paste (Ratanjot)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "53c1f769-0154-4d14-9a5f-b502609181fb",
+        "name": "Fennel (Saunf) & Ginger Powder",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "bec82c60-6ac4-45e6-acd8-47946c22c86d",
+        "name": "Whisked Curd",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f63680e9-4174-486b-bc71-b6659f1e88d9",
+        "name": "Mustard Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "8f90d63c-259c-4901-aebc-6a693a3bce8e",
+        "name": "Asafoetida & Cloves",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Brown mutton in smoking mustard oil with whole cloves and cardamom.",
+      "Add whisked curd and Kashmiri chilli paste, stirring vigorously on low heat.",
+      "Add fennel and dry ginger powder with water; pressure cook 5 whistles until meat falls off bone."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "4199ddda-3e07-47ae-a9a7-fb653f58a5e5",
+    "title": "Champaran Handi Mutton (Ahuna Meat)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Bihari Classic",
+      "Rustic",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 45,
+    "calories": 590,
+    "proteinGrams": 40,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "c79aca22-020c-411c-aa5a-77be1a9150ab",
+        "name": "Mutton Pieces with Bone",
+        "amount": 450.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1dd2d9c7-d6ca-4061-9a00-b0327fb79f7c",
+        "name": "Sliced Onions",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "7c468ee2-6b4d-4e2c-9958-91afabe21ad1",
+        "name": "Whole Garlic Pods",
+        "amount": 2.0,
+        "unit": "heads",
+        "isChecked": false
+      },
+      {
+        "id": "13227874-f31a-4f08-8488-fb486296a05d",
+        "name": "Raw Mustard Oil",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "751c778c-f282-44b4-9992-11e89c3c565b",
+        "name": "Whole Spices (Khada Masala)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Mix raw mutton with sliced onions, whole garlic heads, raw mustard oil, and crushed whole spices.",
+      "Seal in clay handi or heavy pressure cooker; cook on low heat for 4 whistles without stirring.",
+      "Garlic heads soften into sweet buttery spread; meat becomes fork-tender."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "cb57a8c1-987e-470b-a74c-416673ed268d",
+    "title": "Rajasthani Laal Maas",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Fiery",
+      "Royal",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 35,
+    "calories": 560,
+    "proteinGrams": 38,
+    "whistleCount": 5,
+    "ingredients": [
+      {
+        "id": "3c0d8428-3ac7-4a64-9483-2348d1303237",
+        "name": "Mutton Cuts",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "5cd69147-4724-4722-99df-51f6b2da0b74",
+        "name": "Mathania Dry Red Chillies (Paste)",
+        "amount": 12.0,
+        "unit": "chillies",
+        "isChecked": false
+      },
+      {
+        "id": "cff7fb07-f8b8-4961-a896-31862bc939d3",
+        "name": "Desi Ghee",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "fabfc3cd-db03-4430-b0f6-15726d0f9a7f",
+        "name": "Garlic Paste",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "9aa019f3-c078-46c7-9ff1-1f946304bbbc",
+        "name": "Curd",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Brown mutton in generous desi ghee with lots of garlic.",
+      "Add Mathania chilli paste and beaten curd; pressure cook for 5 whistles.",
+      "Infuse with a hot piece of burning charcoal drizzled with ghee (Dhungar) for signature smokiness."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "aeaf169f-0670-43f3-8908-702f5f800346",
+    "title": "Hyderabadi Mutton Dum Biryani",
+    "category": "Rice & Biryani",
+    "diet": "Non-Veg",
+    "tags": [
+      "Royal",
+      "Dum Biryani",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 45,
+    "calories": 680,
+    "proteinGrams": 44,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "cebd6853-cb8e-4251-b9e6-0e12afd97c39",
+        "name": "Marinated Mutton with Raw Papaya",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e5bff305-606e-49fe-a3eb-0151aaabb38b",
+        "name": "Aged Basmati Rice",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "7f9d75b8-f4f4-4fbb-8909-d0d2be092c27",
+        "name": "Ghee, Saffron & Mint",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "165e121a-b4c9-4c39-99c0-2833540a58cf",
+        "name": "Fried Golden Onions",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Tenderize mutton with raw papaya paste and aromatic spices for 4 hours.",
+      "Layer with 70% boiled rice, saffron, and fried onions; seal lid tightly and slow-dum cook."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "e7c70c6a-5c5a-49d2-96ec-687e5264a4b0",
+    "title": "Mutton Keema Pav (Irani Cafe)",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Street Food",
+      "Non-Veg",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 480,
+    "proteinGrams": 36,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "c2949602-3b5f-4a0f-84e8-6ed058c724ed",
+        "name": "Mutton Mince (Keema)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "df4f9e99-1de6-44bf-b20d-b6a3741a73ae",
+        "name": "Finely Chopped Onions & Tomatoes",
+        "amount": 2.0,
+        "unit": "each",
+        "isChecked": false
+      },
+      {
+        "id": "53366e4f-fbbb-4560-bea8-841b5db4c224",
+        "name": "Green Chillies, Ginger Garlic",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "65f52198-581f-417f-9a82-fe6af3767207",
+        "name": "Butter / Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté whole spices and onions until dark golden.",
+      "Add mutton keema, fry on high flame until fat renders.",
+      "Simmer with spices and coriander; serve with buttery soft pav."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "b069243f-7f08-4670-b31a-1255988ea6f1",
+    "title": "Bhuna Gosht (Slow Roasted Mutton)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Dhaba Style",
+      "Non-Veg",
+      "Rich Gravy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 35,
+    "calories": 570,
+    "proteinGrams": 38,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "c55618a8-5127-447a-83cc-0ee4824e5b7a",
+        "name": "Mutton Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "67e3ad0b-4f81-42e5-b7d6-ed9fed64e0df",
+        "name": "Thick Onion Tomato Masala",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3313254e-6603-4545-af1f-7cd79de56de4",
+        "name": "Ghee & Whole Garam Masala",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Continuous slow roasting (bhunao) of mutton in its own juices and spices until thick, semi-dry, dark brown masala coats the meat."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "9c4dbeeb-070f-448c-bd20-30b2095a09b6",
+    "title": "Railway Mutton Curry (Anglo-Indian)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Heritage",
+      "Non-Veg",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 490,
+    "proteinGrams": 35,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "d24d9b70-127d-48f2-9a96-40da643e7793",
+        "name": "Mutton with Potatoes",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1f9f2f47-7cd5-432f-a881-387426bc1bd3",
+        "name": "Vinegar & Tamarind",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "a8dc7a82-4b60-4faf-8930-e77edec7ec45",
+        "name": "Coconut Milk & Whole Spices",
+        "amount": 150.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "f94b9338-4830-4cf5-a6e9-7288edd70fa7",
+        "name": "Mustard Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook mutton and halved potatoes with vinegar, spices, and coconut milk for 4 whistles."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "4370e529-7249-4766-91a7-bbb9161cdde2",
+    "title": "Mutton Sukka (Madurai Style)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "South Indian",
+      "Spicy",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 520,
+    "proteinGrams": 39,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "93d09d78-74ee-4a8c-a59a-a0fdee212beb",
+        "name": "Tender Mutton Bits",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ecc89baa-b420-4215-bc77-b2acef76d364",
+        "name": "Shallots & Curry Leaves",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "129923ac-2a92-4de2-a149-1397fdf5033a",
+        "name": "Crushed Black Pepper & Fennel",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "5666c44f-8a14-4f57-9212-adfc7a1a5a23",
+        "name": "Gingelly Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook mutton until tender; roast with shallots, curry leaves, and black pepper until dry and spicy."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "4a328e66-a20f-4d52-a984-a7cd4e9cc352",
+    "title": "Kosha Mangsho (Bengali Spicy Mutton)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Bengali Classic",
+      "Rich Gravy",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 40,
+    "calories": 580,
+    "proteinGrams": 37,
+    "whistleCount": 5,
+    "ingredients": [
+      {
+        "id": "53e72494-f82f-4cb9-b488-bc7a58511774",
+        "name": "Mutton Cuts",
+        "amount": 400.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "5c1fbe2e-6496-4824-984b-2dbef51dae7f",
+        "name": "Caramelized Sliced Onions",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0b4c10d4-bf33-4437-9726-b50c403e5f8a",
+        "name": "Mustard Oil & Whisked Dahi",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "69c78865-0833-4211-938f-7c2caeed2916",
+        "name": "Bengali Garam Masala",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate mutton in curd and mustard oil.",
+      "Caramelize sugar in smoking oil, brown onions, and slow-bhunao mutton until pitch dark mahogany."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "4bc881ee-886d-4153-b2e8-2a0ed64ae566",
+    "title": "Lucknowi Shami Kebab (Melt in Mouth)",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Royal",
+      "Awadhi",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 390,
+    "proteinGrams": 32,
+    "whistleCount": 3,
+    "ingredients": [
+      {
+        "id": "de56fbba-5fc8-4680-9992-513b21cdfaf0",
+        "name": "Mutton Keema & Chana Dal Mix",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b4bfa1b7-5e4e-4c96-bc70-e69aea5ab5f3",
+        "name": "Potli Masala Whole Spices",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "17ee06a2-b194-4c5d-9a0c-be9858f5c161",
+        "name": "Ghee for Pan Frying",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "20e77940-a16d-4e26-be5a-1a397a6ae707",
+        "name": "Mint Onion Stuffing",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil keema with chana dal and whole spices for 3 whistles.",
+      "Grind into ultra-silky paste on silbatta, shape flat patties with mint inside, and shallow fry in ghee."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f27c8276-7626-4b82-93cd-28bce8aa7648",
+    "title": "Nalli Nihari (Slow Cooked Shank)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Old Delhi",
+      "Royal",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 45,
+    "calories": 620,
+    "proteinGrams": 42,
+    "whistleCount": 6,
+    "ingredients": [
+      {
+        "id": "4aef24b6-2bca-427c-a2d4-acc44557a03d",
+        "name": "Mutton Shanks with Bone Marrow (Nalli)",
+        "amount": 500.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "66056807-9539-42c4-bc95-75da3070c031",
+        "name": "Nihari Spices (Fennel, Mace, Star Anise)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "786a1fd7-2027-486b-a283-d6161bfac0dc",
+        "name": "Wheat Flour Slurry (Atta)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "43b3e113-3ffc-46a4-bc31-3eef7dbfe734",
+        "name": "Desi Ghee",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Slow braise mutton shanks with aromatic Nihari spices for 6 whistles.",
+      "Thicken gravy with wheat flour slurry and top with sizzling ghee tadka, ginger juliennes, and lemon."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "328f36a4-c001-4778-af40-5fc38a8d2a44",
+    "title": "Dhaba Mutton Curry (Homestyle)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Dhaba Style",
+      "Comfort Food",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 510,
+    "proteinGrams": 36,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "5d4c554a-e109-421f-8416-803696d7c2bd",
+        "name": "Mutton Pieces",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "8a96a46e-b33e-4996-916f-d0a767e11bde",
+        "name": "Onion Tomato Masala",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2d2767ac-de21-4260-aaad-623d9cca0370",
+        "name": "Mustard Oil & Coriander",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sear mutton with rustic spices, cook 4 whistles in pressure cooker with 2 cups water."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "c17c39e6-2b74-494e-9848-f85e5a2f3122",
+    "title": "Mutton Galouti Kebab",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Royal",
+      "Awadhi",
+      "Street Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 410,
+    "proteinGrams": 30,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "49ecf2b8-c058-43ba-98c7-ce5eab090ea1",
+        "name": "Finely Minced Lamb (Minced 5 times)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e9ce19f5-6744-4bd8-a487-283f3acb042d",
+        "name": "Raw Papaya Paste & Rose Water",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "ebfcc55b-061d-4cc8-8f4b-7d43214cdbec",
+        "name": "Roasted Besan & Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate velvety lamb paste with tenderizer, shape soft disc patties, and sear gently on a tawa."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f7098a16-d638-43ed-a34c-6a980d96ebeb",
+    "title": "Mutton Pulao (Yakhni Pulao)",
+    "category": "Rice & Biryani",
+    "diet": "Non-Veg",
+    "tags": [
+      "Heritage",
+      "Mild",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 35,
+    "calories": 520,
+    "proteinGrams": 34,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "23d6b4f6-59ee-4096-ab71-88a23ff62f44",
+        "name": "Mutton Yakhni Broth",
+        "amount": 3.0,
+        "unit": "cups",
+        "isChecked": false
+      },
+      {
+        "id": "91514edf-4fc9-430c-a0ac-81945a9dfafe",
+        "name": "Tender Mutton Pieces",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0a0c647f-09f9-46e0-8490-1b18360df5c4",
+        "name": "Basmati Rice",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "dfb0b4d8-0cf7-4c7a-9e9a-40e2180f888f",
+        "name": "Fennel & Coriander Seeds Potli",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Simmer mutton with whole spice bouquet garni to extract clear aromatic broth.",
+      "Cook basmati rice in the rich yakhni broth with ghee until grains stand tall."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "5ecaa17f-ab41-4ac2-83c0-178557f02dee",
+    "title": "Mutton Dalcha (Lentil Mutton Stew)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Hyderabadi",
+      "High-Protein",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 490,
+    "proteinGrams": 36,
+    "whistleCount": 4,
+    "ingredients": [
+      {
+        "id": "c81b849a-b282-4e43-b29b-9cee4bd20275",
+        "name": "Chana Dal",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "16397fb9-ea52-4240-90fd-c938163a34ce",
+        "name": "Mutton Cuts",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "dd360b75-f9d4-401d-b2d5-8ab864884030",
+        "name": "Lauki (Bottle Gourd)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "fa9494c6-0043-43d6-9c01-c877ef45f8ed",
+        "name": "Tamarind & Spices",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook mutton and chana dal with bottle gourd until tender; temper with curry leaves and tamarind."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "c8ab52e5-46df-4115-ae57-aad807f9443a",
+    "title": "Goan Fish Curry (Coconut Kokum)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Coastal",
+      "Seafood",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 380,
+    "proteinGrams": 32,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "2ec769d9-e20c-458e-96e3-d7ee27602670",
+        "name": "Kingfish / Surmai Steaks",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f25a8d4b-6b28-4224-8609-00e30b3c8907",
+        "name": "Fresh Coconut Milk",
+        "amount": 200.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "3784390b-fdd9-43c6-a95c-1305f6eee737",
+        "name": "Kokum Petals (Tangy)",
+        "amount": 4.0,
+        "unit": "pieces",
+        "isChecked": false
+      },
+      {
+        "id": "14d80265-3ca2-4f21-a235-0a3de25b3740",
+        "name": "Kashmiri Chilli & Coriander Paste",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Grind coconut with red chillies, coriander seeds, garlic, and cumin into a paste.",
+      "Simmer paste with kokum water; gently slide in fish slices and cook 6 minutes."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "261ec845-5529-4209-8975-0fa8604c08c8",
+    "title": "Bengali Macher Jhol (Mustard Gravy)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Bengali Classic",
+      "Seafood",
+      "Light & Healthy"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 310,
+    "proteinGrams": 28,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "11297672-2768-44b8-8257-6e853e142a4f",
+        "name": "Rohu / Katla Fish Steaks (Turmeric Rubbed)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c745a54e-eff1-42c8-bbf0-1298c634fb5f",
+        "name": "Mustard Seed Paste (Shorshe)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "035ff7a8-20ca-47f5-859b-8c04b590e5b2",
+        "name": "Potatoes & Pointed Gourd (Parwal)",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "d982e9aa-d8f2-458e-b285-a79fd59bac8e",
+        "name": "Mustard Oil & Kalonji",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Lightly fry turmeric-salted fish in smoking mustard oil.",
+      "Temper nigella seeds (kalonji) and green chillies; simmer in light mustard water with potatoes."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "2e8ac93b-bcac-472d-b6d9-591fdc371785",
+    "title": "Crispy Amritsari Fish Fry",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Street Food",
+      "Crispy",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 340,
+    "proteinGrams": 32,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "bb02d117-9c9a-4305-8030-7289b87fdb20",
+        "name": "Fish Fillets (Sole / Surmai)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ca6065b6-41cd-4e22-9484-5e82c48926d0",
+        "name": "Besan & Rice Flour",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "1e9dbdb4-5e94-4e4c-890f-43cc99bf7cbe",
+        "name": "Ajwain (Carom Seeds) & Lemon Juice",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "281e2dcc-ed34-4a67-afb2-18f11b7b1336",
+        "name": "Oil for Shallow Fry",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate fish in lemon, ajwain, ginger-garlic, and gram flour.",
+      "Shallow fry until crisp and golden. Sprinkle chaat masala."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "57648dcf-7aa3-4948-95b3-24fb833ddae4",
+    "title": "Malabar Prawn Curry",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Kerala Classic",
+      "Seafood",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 360,
+    "proteinGrams": 30,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "45584f27-3645-423e-bf47-562062ad7261",
+        "name": "Cleaned De-veined Prawns",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "fcb578fd-2bb5-4c22-95b9-fbc7e1018d55",
+        "name": "Coconut Milk",
+        "amount": 180.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "04d5d742-ea10-4ed8-a33e-6eb7e36b0a67",
+        "name": "Kudampuli (Malabar Tamarind)",
+        "amount": 2.0,
+        "unit": "pieces",
+        "isChecked": false
+      },
+      {
+        "id": "eb858cc8-3c12-47fc-99ba-4d75b5efa0f5",
+        "name": "Curry Leaves & Coconut Oil",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook prawns in earthen clay pot with kudampuli and spices for 5 minutes.",
+      "Pour thick coconut milk and finish with hot coconut oil curry leaf tadka."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "896f9465-1e66-4699-8805-4046dff08039",
+    "title": "Garlic Butter Pepper Prawns",
+    "category": "Fusion",
+    "diet": "Non-Veg",
+    "tags": [
+      "Seafood",
+      "Quick (<20m)",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 10,
+    "calories": 290,
+    "proteinGrams": 31,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "4211863e-f121-40e7-b914-45226c305aa0",
+        "name": "Prawns (Peeled)",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4961b8e7-67bf-4025-9d64-34bb551ef3b4",
+        "name": "Butter",
+        "amount": 25.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "dc75c708-dc44-46e8-bddd-265b21dfac1d",
+        "name": "Garlic (Minced)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "23846237-9c8d-4370-a7ee-7f33dcd5abcb",
+        "name": "Crushed Black Pepper & Lemon",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Melt butter in skillet, sauté minced garlic until fragrant.",
+      "Toss in prawns and cook on high flame for 3 minutes until pink and juicy."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "81de66e7-b719-4d27-a7e9-131055b5abbd",
+    "title": "Tandoori Pomfret",
+    "category": "High-Protein",
+    "diet": "Non-Veg",
+    "tags": [
+      "Seafood",
+      "Gym Meal",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 320,
+    "proteinGrams": 36,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "0fb54c9d-ae29-4927-b807-1074ab475d40",
+        "name": "Whole Pomfret (Cleaned & Scored)",
+        "amount": 1.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "534ed538-075b-4c50-b821-14559c2a5468",
+        "name": "Tandoori Masala & Hung Curd",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "9b182fc1-7d26-441d-9c69-f2bfcae1c1bc",
+        "name": "Mustard Oil & Lemon",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate scored pomfret with tandoori spices and lemon.",
+      "Grill or pan-sear on high heat 5 mins each side until charred and succulent."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "08b2200b-a33d-49cb-a01d-d39a595e8324",
+    "title": "Kerala Meen Pollichathu (Banana Leaf)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Traditional",
+      "Coastal",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 350,
+    "proteinGrams": 33,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "897bb5ed-233d-46cc-9e73-29bdf0df4a5a",
+        "name": "Pearl Spot Fish (Karimeen)",
+        "amount": 1.0,
+        "unit": "whole",
+        "isChecked": false
+      },
+      {
+        "id": "2daec434-75ae-43d4-96ff-4d0488723e65",
+        "name": "Shallot Tomato Masala",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f7a41df8-3fe9-48e4-b407-47366eef2600",
+        "name": "Banana Leaf for Wrapping",
+        "amount": 1.0,
+        "unit": "leaf",
+        "isChecked": false
+      },
+      {
+        "id": "0013c96c-1692-4625-a4d4-10f7848a92c4",
+        "name": "Coconut Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pan fry fish 2 minutes; coat in spicy shallot tomato masala.",
+      "Wrap tight in wilted banana leaf and pan-roast in coconut oil until flavors infuse deeply."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "280b5de1-3900-4dd0-afde-a75d178571a5",
+    "title": "Hyderabadi Prawn Biryani",
+    "category": "Rice & Biryani",
+    "diet": "Non-Veg",
+    "tags": [
+      "Seafood",
+      "Dum Biryani",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 30,
+    "calories": 540,
+    "proteinGrams": 38,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "1dbefb57-04ef-4e7b-939e-157abd35bd21",
+        "name": "Marinated Tiger Prawns",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "420d1785-d585-4629-b0f6-4c801d928d43",
+        "name": "Basmati Rice",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "15000cf4-5253-4028-a0f9-3cb3bc45c6a5",
+        "name": "Fried Onions, Mint & Saffron",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "7b490069-0f9d-4665-86e5-152d9dbc8e3f",
+        "name": "Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Layer spiced marinated prawns with parboiled basmati rice.",
+      "Dum cook on low flame 15 minutes so prawns remain tender and sweet."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "791c1a3a-f006-49e4-9c46-70f645a554d1",
+    "title": "Kolambi Masala (Dry Prawn Fry)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Maharashtrian",
+      "Coastal",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 310,
+    "proteinGrams": 32,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "7c8a8bd4-e243-448c-9cab-df22d6879a92",
+        "name": "Small Prawns",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b239d330-cfbf-4d06-82a3-3ffd4b8e2919",
+        "name": "Onion Coconut Masala",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "596f76ff-058d-4d6d-8114-4cb0252cf4f1",
+        "name": "Malvani Masala & Kokum",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté prawns with onions, kokum water, and fiery Malvani masala until dry and coated."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "192c0f0c-cd70-4d42-8640-af7b629df3d6",
+    "title": "Fish Tikka (Ajwaini Fish)",
+    "category": "High-Protein",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Gym Meal",
+      "Seafood"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 290,
+    "proteinGrams": 35,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "9c272d98-9e35-48bc-bdfc-8211baaf3062",
+        "name": "Boneless Fish Cubes (Basa / Surmai)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "562dc5f9-bfa4-4c9f-9cc6-ddb3c1a8a673",
+        "name": "Ajwain, Hung Curd & Mustard Oil",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Marinate fish in ajwain, tandoori masala, and lemon juice.",
+      "Sear in a hot grill pan for 4 minutes each side."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "4600c0cd-01cc-4d63-a5da-d407642ffedf",
+    "title": "Irani Cafe Mumbai Egg Bhurji",
+    "category": "Breakfast",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Quick (<20m)",
+      "Street Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 10,
+    "calories": 360,
+    "proteinGrams": 24,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "2b353aeb-fcc3-4203-bfb2-7ee8971a41a6",
+        "name": "Whole Eggs (Whisked)",
+        "amount": 4.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "363e5e8d-bc2c-4ad3-b8f4-eded82fdf2e6",
+        "name": "Diced Onions & Tomatoes",
+        "amount": 2.0,
+        "unit": "each",
+        "isChecked": false
+      },
+      {
+        "id": "824665fc-4e73-4e3b-9701-6c4b1d349776",
+        "name": "Butter / Ghee",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "04c302f1-03f2-4023-8109-3ca096915d55",
+        "name": "Pav Bhaji Masala & Chillies",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté onions and chillies in butter until golden.",
+      "Add tomatoes and spices, scramble eggs gently until soft and creamy. Serve with pav."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "aef40c91-7dee-4d08-894a-2683f76158b1",
+    "title": "Dhaba Style Egg Curry (Boiled & Fried)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Dhaba Style",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 380,
+    "proteinGrams": 26,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "2c920e83-36c2-4537-90a8-2a417194ed4a",
+        "name": "Hard Boiled Eggs (Pricked & Fried)",
+        "amount": 4.0,
+        "unit": "eggs",
+        "isChecked": false
+      },
+      {
+        "id": "1d0c834d-f5f6-40dd-a83f-1f122af40a15",
+        "name": "Spiced Onion Tomato Gravy",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "9d2cc6dc-6632-4d8b-9c83-5f15997db0ca",
+        "name": "Mustard Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "e004ed51-2add-4a87-b1cd-512e439ceee8",
+        "name": "Garam Masala & Kasuri Methi",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Prick boiled eggs, fry in turmeric-chilli mustard oil until golden blistered crust forms.",
+      "Simmer in rich spiced dhaba gravy for 6 minutes."
+    ],
+    "isFavorite": true
+  },
+  {
+    "id": "1bfe662d-048a-4103-9044-6f71b34a1b7f",
+    "title": "Kolhapuri Egg Curry (Spicy Masala)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "Spicy",
+      "Non-Veg",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 20,
+    "calories": 390,
+    "proteinGrams": 26,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "fccb5bf8-a3f1-4bca-8b44-27a372943420",
+        "name": "Boiled Eggs",
+        "amount": 4.0,
+        "unit": "eggs",
+        "isChecked": false
+      },
+      {
+        "id": "34a7edf2-e3cc-4d65-9d04-8290f3295895",
+        "name": "Roasted Coconut Sesame Kolhapuri Masala",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "db675543-bf43-4169-aeec-8c4a9297fc07",
+        "name": "Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Simmer fried boiled eggs in fiery dark roasted Kolhapuri coconut gravy."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "bf1b0ac6-2ab9-4686-85b6-e36f43763e05",
+    "title": "Hyderabadi Egg Dum Biryani",
+    "category": "Rice & Biryani",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Dum Biryani",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 25,
+    "calories": 490,
+    "proteinGrams": 28,
+    "whistleCount": 2,
+    "ingredients": [
+      {
+        "id": "1c5584c8-fd45-49df-b6b7-bfe397f9499e",
+        "name": "Fried Boiled Eggs",
+        "amount": 4.0,
+        "unit": "eggs",
+        "isChecked": false
+      },
+      {
+        "id": "1f52e18e-977b-4ea0-8152-10993dc0a229",
+        "name": "Aged Basmati Rice",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "5e8032d3-483a-421f-ae90-95ccc1f72b6a",
+        "name": "Biryani Masala & Fried Onions",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "d60ed100-901a-427a-9713-9da3e3014046",
+        "name": "Ghee",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Layer fried spiced eggs with parboiled basmati rice, mint, and saffron milk; dum-cook 15 mins."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "563aaec9-073f-48f7-b587-9e27130c1632",
+    "title": "Street Style Double Egg Roll (Kolkata)",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Street Food",
+      "Non-Veg",
+      "High-Protein"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 12,
+    "calories": 420,
+    "proteinGrams": 22,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "522fdfe5-9c6e-47d2-9c5a-0cfdaebf551a",
+        "name": "Flaky Paratha",
+        "amount": 1.0,
+        "unit": "piece",
+        "isChecked": false
+      },
+      {
+        "id": "672cb22e-068f-4821-8398-f56ee86f02dc",
+        "name": "Eggs (Beaten)",
+        "amount": 2.0,
+        "unit": "eggs",
+        "isChecked": false
+      },
+      {
+        "id": "adbb2835-97c1-4a55-984e-e445c81c6c4c",
+        "name": "Sliced Onions, Green Chillies & Kasundi Mustard",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Pour beaten egg on tawa, press flaky paratha on top until attached and crisp.",
+      "Roll with crunchy sliced onions, green chillies, and lemon juice."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "b43338a5-898b-41c2-a475-f3826811da66",
+    "title": "Middle Eastern Shakshuka (Poached Eggs in Tomato Sauce)",
+    "category": "Breakfast",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Fusion",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 340,
+    "proteinGrams": 22,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "44f9ceff-61b0-421f-9caa-e7e8cbab557c",
+        "name": "Eggs",
+        "amount": 3.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "403fecd9-c280-46f9-95a9-59301fc12128",
+        "name": "Crushed Tomatoes & Bell Peppers",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c7169333-8fc4-43b8-839b-ae689c42cbc3",
+        "name": "Cumin, Paprika & Garlic",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "da0f4e5d-6d84-4901-98ff-19dd94ddc50a",
+        "name": "Olive Oil",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Simmer spiced tomato, garlic, and bell pepper sauce in skillet.",
+      "Make hollow wells, crack whole eggs in, cover and cook 5 mins until whites set and yolks run."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "67afc909-6d10-46f2-b784-cdb956d90a84",
+    "title": "Masala Omelette with Butter Pav",
+    "category": "Breakfast",
+    "diet": "Non-Veg",
+    "tags": [
+      "Quick (<20m)",
+      "High-Protein",
+      "Street Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 8,
+    "calories": 330,
+    "proteinGrams": 20,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "79aa1bad-4b7f-426a-bd2b-ba01331c7baf",
+        "name": "Eggs",
+        "amount": 3.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "9ce1a985-96af-4569-86bd-52324b07aa56",
+        "name": "Finely Chopped Onion, Tomato, Chillies, Coriander",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "93c5f4a6-2e36-4a01-b4c9-0633f0170500",
+        "name": "Butter",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "ff7895d0-051f-4297-a92e-f8fb7ab44f82",
+        "name": "Pav",
+        "amount": 2.0,
+        "unit": "buns",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Whisk eggs vigorously with chopped onions, chillies, and coriander.",
+      "Fry in sizzling butter in hot pan; flip and serve with toasted butter pav."
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "cadd0f40-4afd-4e15-892c-eef68a53c760",
+    "title": "Egg Keema / Anda Ghotala (Surat Style)",
+    "category": "Street Food",
+    "diet": "Non-Veg",
+    "tags": [
+      "Street Food",
+      "High-Protein",
+      "Gujarati"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 15,
+    "calories": 410,
+    "proteinGrams": 26,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "4d15fd3c-8701-4c8d-8ae3-69e2e1a6a284",
+        "name": "Boiled Eggs (Grated)",
+        "amount": 2.0,
+        "unit": "eggs",
+        "isChecked": false
+      },
+      {
+        "id": "608ac767-5fb1-46c7-b773-fe4121867e4f",
+        "name": "Raw Eggs (Scrambled & Half-fry)",
+        "amount": 2.0,
+        "unit": "eggs",
+        "isChecked": false
+      },
+      {
+        "id": "a9cf6685-4f57-436d-b1ee-8aaed6e38ad4",
+        "name": "Tomato Onion Pav Bhaji Gravy",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3cb735b0-97ca-461c-983f-1c0f0f644fb4",
+        "name": "Butter",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook grated boiled eggs into spiced buttery tomato gravy.",
+      "Top with sunny-side up fried egg. A Surti street food icon!"
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "f6a8882e-ecf2-467f-a90a-8ecc34166e40",
+    "title": "Egg Roast (Kerala Style)",
+    "category": "Sabzi",
+    "diet": "Non-Veg",
+    "tags": [
+      "South Indian",
+      "High-Protein",
+      "Non-Veg"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 18,
+    "calories": 340,
+    "proteinGrams": 24,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "3197eaec-d447-4520-81de-9131e9e22036",
+        "name": "Hard Boiled Eggs (Slit)",
+        "amount": 4.0,
+        "unit": "eggs",
+        "isChecked": false
+      },
+      {
+        "id": "ee6c5a53-826d-4f85-8077-b1a97069b71d",
+        "name": "Sliced Onions (Caramelized)",
+        "amount": 3.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "27a05eee-4482-4283-963a-c20bea12603c",
+        "name": "Fennel, Black Pepper & Curry Leaves",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "40f9b4e4-f075-48a9-8db6-842fdb129797",
+        "name": "Coconut Oil",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Caramelize sliced onions in coconut oil with fennel and pepper.",
+      "Toss boiled eggs until coated in thick dark jammy onion masala. Perfect with appams!"
+    ],
+    "isFavorite": false
+  },
+  {
+    "id": "c75ee659-4e35-434c-bada-d43710cfc1d7",
+    "title": "Egg Paratha (Street Kathi Style)",
+    "category": "Breakfast",
+    "diet": "Non-Veg",
+    "tags": [
+      "High-Protein",
+      "Quick (<20m)",
+      "Comfort Food"
+    ],
+    "sourceURL": null,
+    "prepTimeMinutes": 12,
+    "calories": 380,
+    "proteinGrams": 20,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "f947b70b-1151-41ef-af75-93170c69d5c3",
+        "name": "Atta Paratha",
+        "amount": 1.0,
+        "unit": "piece",
+        "isChecked": false
+      },
+      {
+        "id": "967f2a81-98ad-4df5-a92d-094d36107339",
+        "name": "Eggs (Whisked with Spices)",
+        "amount": 2.0,
+        "unit": "eggs",
+        "isChecked": false
+      },
+      {
+        "id": "7353053e-eaf5-445f-829a-a6a01556dafa",
+        "name": "Green Chillies & Onions",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "60830bd4-08c0-4304-9a44-0ee9c2ac4f87",
+        "name": "Ghee",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cook paratha, lift edge and pour whisked eggs inside pocket or layer on top.",
+      "Cook until crisp on both sides. Hearty, filling breakfast."
+    ],
+    "isFavorite": false
+  }
+]
