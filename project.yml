@@ -15,6 +15,7 @@ targets:
     info:
       path: ChefPocket/Info.plist
     settings:
+      GENERATE_INFOPLIST_FILE: NO
       PRODUCT_BUNDLE_IDENTIFIER: com.chefpocket.app
       INFOPLIST_FILE: ChefPocket/Info.plist
       CODE_SIGN_STYLE: Manual
@@ -33,6 +34,7 @@ targets:
     info:
       path: RecipeShareExtension/Info.plist
     settings:
+      GENERATE_INFOPLIST_FILE: NO
       PRODUCT_BUNDLE_IDENTIFIER: com.chefpocket.app.share
       INFOPLIST_FILE: RecipeShareExtension/Info.plist
       CODE_SIGN_STYLE: Manual

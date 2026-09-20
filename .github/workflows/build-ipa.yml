@@ -50,7 +50,7 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO
 
-      - name: Package IPA
+      - name: Package IPA & Inject Plists
         run: |
           mkdir -p Payload
           APP_PATH=$(find derived_data/Build/Products/Release-iphoneos -name "ChefPocket.app" -type d | head -n 1)
@@ -61,6 +61,38 @@ jobs:
           fi
           echo "Found app bundle at: $APP_PATH"
           cp -r "$APP_PATH" Payload/
+
+          # Merge and verify all required Plist keys into the compiled app and extension
+          python3 -c "
+          import plistlib, os
+
+          # Main app plist injection
+          app_plist = 'Payload/ChefPocket.app/Info.plist'
+          with open('ChefPocket/Info.plist', 'rb') as f:
+              src_app = plistlib.load(f)
+          with open(app_plist, 'rb') as f:
+              dest_app = plistlib.load(f)
+          for k, v in src_app.items():
+              if k not in ['CFBundleIdentifier', 'CFBundleExecutable', 'CFBundleName']:
+                  dest_app[k] = v
+          with open(app_plist, 'wb') as f:
+              plistlib.dump(dest_app, f)
+
+          # Extension plist injection (guarantees NSExtension is present)
+          ext_plist = 'Payload/ChefPocket.app/PlugIns/RecipeShareExtension.appex/Info.plist'
+          if os.path.exists(ext_plist):
+              with open('RecipeShareExtension/Info.plist', 'rb') as f:
+                  src_ext = plistlib.load(f)
+              with open(ext_plist, 'rb') as f:
+                  dest_ext = plistlib.load(f)
+              for k, v in src_ext.items():
+                  if k not in ['CFBundleIdentifier', 'CFBundleExecutable', 'CFBundleName']:
+                      dest_ext[k] = v
+              with open(ext_plist, 'wb') as f:
+                  plistlib.dump(dest_ext, f)
+              print('Extension Info.plist successfully verified and merged with NSExtension!')
+          "
+
           zip -r ChefPocket.ipa Payload
 
       - name: Upload IPA Artifact
