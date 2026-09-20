@@ -1,4 +1,12 @@
-﻿import Foundation
+import Foundation
+import SwiftUI
+
+// MARK: - Enums
+enum RecipeScope: String, CaseIterable, Identifiable {
+    case curated = "Curated"
+    case myKitchen = "My Kitchen"
+    var id: String { rawValue }
+}
 
 enum DietType: String, CaseIterable, Codable, Identifiable {
     case all = "All"
@@ -9,17 +17,45 @@ enum DietType: String, CaseIterable, Codable, Identifiable {
     
     var symbol: String {
         switch self {
-        case .all: return "🍽️"
-        case .veg: return "🟢"
-        case .nonVeg: return "🔴"
+        case .all: return "All"
+        case .veg: return "Veg"
+        case .nonVeg: return "Non-Veg"
         }
     }
     
     var label: String {
         switch self {
         case .all: return "All Dishes"
-        case .veg: return "Pure Veg"
-        case .nonVeg: return "Non-Veg"
+        case .veg: return "Vegetarian"
+        case .nonVeg: return "Non-Vegetarian"
+        }
+    }
+    
+    var accentColor: Color {
+        switch self {
+        case .all: return .primary
+        case .veg: return .green
+        case .nonVeg: return .red
+        }
+    }
+}
+
+enum MealType: String, CaseIterable, Codable, Identifiable {
+    case all = "All"
+    case breakfast = "Breakfast"
+    case lunch = "Lunch"
+    case snacks = "Snacks"
+    case dinner = "Dinner"
+    
+    var id: String { rawValue }
+    
+    var sfSymbol: String {
+        switch self {
+        case .all: return "sparkles"
+        case .breakfast: return "sun.horizon.fill"
+        case .lunch: return "sun.max.fill"
+        case .snacks: return "cup.and.saucer.fill"
+        case .dinner: return "moon.stars.fill"
         }
     }
 }
@@ -72,6 +108,7 @@ enum GroceryCategory: String, CaseIterable, Codable, Identifiable {
     }
 }
 
+// MARK: - Models
 struct Ingredient: Identifiable, Codable, Equatable {
     var id = UUID()
     var name: String
@@ -94,6 +131,8 @@ struct Recipe: Identifiable, Codable, Equatable {
     var title: String
     var category: RecipeCategory
     var diet: DietType = .veg
+    var mealTypes: [MealType] = [.lunch, .dinner]
+    var isUserCreated: Bool = false
     var tags: [String]
     var sourceURL: String?
     var prepTimeMinutes: Int
@@ -112,24 +151,37 @@ struct ThaliPlan: Codable, Equatable {
     var side: String = "Cucumber Onion Salad & Dahi"
 }
 
+// MARK: - RecipeStore
 class RecipeStore: ObservableObject {
     @Published var recipes: [Recipe] = []
     @Published var groceries: [GroceryItem] = []
     @Published var thali: ThaliPlan = ThaliPlan()
+    
+    // UI Filters
+    @Published var selectedScope: RecipeScope = .curated
     @Published var selectedDiet: DietType = .all
+    @Published var selectedMealType: MealType = .all
     
     let suiteName = "group.com.chefpocket.recipes"
-    let recipesKey = "saved_recipes_key_v3"
-    let groceriesKey = "saved_groceries_key_v3"
-    let thaliKey = "saved_thali_key_v3"
+    let recipesKey = "saved_recipes_key_v4"
+    let groceriesKey = "saved_groceries_key_v4"
+    let thaliKey = "saved_thali_key_v4"
     
     private var defaults: UserDefaults {
         UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
     }
     
+    var curatedRecipes: [Recipe] {
+        recipes.filter { !$0.isUserCreated }
+    }
+    
+    var myRecipes: [Recipe] {
+        recipes.filter { $0.isUserCreated }
+    }
+    
     init() {
         loadData()
-        if recipes.isEmpty || recipes.count < 50 {
+        if recipes.isEmpty || curatedRecipes.count < 50 {
             loadBundledRecipes()
         }
     }
@@ -162,6 +214,11 @@ class RecipeStore: ObservableObject {
     }
     
     // MARK: - Recipe Actions
+    func deleteRecipe(id: UUID) {
+        recipes.removeAll(where: { $0.id == id })
+        saveData()
+    }
+    
     func deleteRecipe(at offsets: IndexSet) {
         recipes.remove(atOffsets: offsets)
         saveData()
@@ -181,7 +238,9 @@ class RecipeStore: ObservableObject {
     }
     
     func addRecipe(_ recipe: Recipe) {
-        recipes.insert(recipe, at: 0)
+        var newR = recipe
+        newR.isUserCreated = true
+        recipes.insert(newR, at: 0)
         saveData()
     }
     
@@ -189,15 +248,20 @@ class RecipeStore: ObservableObject {
         loadBundledRecipes()
     }
     
-    func getRandomRecipe(diet: DietType? = nil, category: RecipeCategory? = nil) -> Recipe? {
-        var pool = recipes
+    func getRandomRecipe(scope: RecipeScope? = nil, diet: DietType? = nil, meal: MealType? = nil, category: RecipeCategory? = nil) -> Recipe? {
+        var pool = (scope == .myKitchen) ? myRecipes : (scope == .curated ? curatedRecipes : recipes)
+        if pool.isEmpty { pool = recipes }
+        
         if let d = diet, d != .all {
             pool = pool.filter { $0.diet == d }
+        }
+        if let m = meal, m != .all {
+            pool = pool.filter { $0.mealTypes.contains(m) }
         }
         if let c = category, c != .all {
             pool = pool.filter { $0.category == c }
         }
-        return pool.randomElement()
+        return pool.randomElement() ?? recipes.randomElement()
     }
     
     // MARK: - Grocery Actions
@@ -264,79 +328,27 @@ class RecipeStore: ObservableObject {
         }
     }
     
-    // MARK: - Video Link Import
-    func addFromURL(_ urlString: String) {
-        let clean = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
-        let isShort = clean.contains("shorts") || clean.contains("youtube") || clean.contains("youtu.be")
-        let defaultTitle = isShort ? "Imported YouTube Recipe" : "Imported Video Recipe"
-        
-        let newRecipe = Recipe(
-            title: defaultTitle,
-            category: .highProtein,
-            diet: .veg,
-            tags: ["Video Import", "Trending"],
-            sourceURL: clean,
-            prepTimeMinutes: 15,
-            calories: 450,
-            proteinGrams: 28,
-            whistleCount: nil,
-            ingredients: [
-                Ingredient(name: "Main Ingredient / Protein", amount: 200, unit: "g"),
-                Ingredient(name: "Finely Chopped Onion", amount: 1, unit: "medium"),
-                Ingredient(name: "Tomatoes", amount: 2, unit: "medium"),
-                Ingredient(name: "Ginger Garlic Paste", amount: 1, unit: "tbsp"),
-                Ingredient(name: "Desi Ghee / Olive Oil", amount: 1, unit: "tbsp"),
-                Ingredient(name: "Garam Masala & Turmeric", amount: 1, unit: "tsp")
-            ],
-            instructions: [
-                "Extracted from: \(clean)",
-                "Heat ghee in a pan and sauté ginger garlic paste with cumin seeds until fragrant.",
-                "Add onions and tomatoes, cooking until the oil releases from the masala.",
-                "Toss in the main protein and spices, cooking for 6-8 minutes on medium flame.",
-                "Garnish with freshly chopped coriander and serve hot with rotis or rice."
-            ]
-        )
-        recipes.insert(newRecipe, at: 0)
-        saveData()
-        
-        if isShort, let encoded = clean.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-           let oEmbedURL = URL(string: "https://www.youtube.com/oembed?url=\(encoded)&format=json") {
-            let targetId = newRecipe.id
-            URLSession.shared.dataTask(with: oEmbedURL) { [weak self] data, _, _ in
-                guard let data = data,
-                      let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-                      let fetchedTitle = json["title"] as? String else { return }
-                
-                DispatchQueue.main.async {
-                    if let idx = self?.recipes.firstIndex(where: { $0.id == targetId }) {
-                        self?.recipes[idx].title = fetchedTitle
-                        self?.saveData()
-                    }
-                }
-            }.resume()
-        }
-    }
-    
     // MARK: - Bundled 125+ Recipes Loader
     private func loadBundledRecipes() {
+        let existingUserCreated = recipes.filter { $0.isUserCreated }
+        
+        var loaded: [Recipe] = []
         if let url = Bundle.main.url(forResource: "RecipesData", withExtension: "json"),
            let data = try? Data(contentsOf: url),
-           let decoded = try? JSONDecoder().decode([Recipe].self, from: data),
-           !decoded.isEmpty {
-            self.recipes = decoded
-            saveData()
-            return
+           let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
+            loaded = decoded
+        } else {
+            let bundlePath = Bundle.main.bundlePath
+            let jsonPath = (bundlePath as NSString).appendingPathComponent("RecipesData.json")
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)),
+               let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
+                loaded = decoded
+            }
         }
         
-        // Secondary check in bundle directory
-        let bundlePath = Bundle.main.bundlePath
-        let jsonPath = (bundlePath as NSString).appendingPathComponent("RecipesData.json")
-        if let data = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)),
-           let decoded = try? JSONDecoder().decode([Recipe].self, from: data),
-           !decoded.isEmpty {
-            self.recipes = decoded
+        if !loaded.isEmpty {
+            self.recipes = existingUserCreated + loaded
             saveData()
-            return
         }
     }
 }

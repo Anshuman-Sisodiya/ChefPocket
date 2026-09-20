@@ -45,12 +45,12 @@ struct ThaliPlannerView: View {
                     // Header Card
                     VStack(alignment: .leading, spacing: 6) {
                         HStack {
-                            Text("🍱 Aaj Ki Thali Planner")
+                            Text("Daily Thali Planner")
                                 .font(.title2)
                                 .bold()
                             Spacer()
                             Button(action: randomizeThali) {
-                                Label("Randomize", systemImage: "dice.fill")
+                                Label("Suggest", systemImage: "sparkles")
                                     .font(.caption)
                                     .bold()
                                     .padding(.horizontal, 10)
@@ -248,7 +248,7 @@ struct ThaliItemPickerCard: View {
                 Menu {
                     ForEach(options) { r in
                         Button(action: { onSelect(r) }) {
-                            Text("\(r.diet.symbol) \(r.title)")
+                            Text("[\(r.diet.rawValue)] \(r.title)")
                         }
                     }
                 } label: {

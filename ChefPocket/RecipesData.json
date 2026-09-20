@@ -87,7 +87,12 @@
       "Pour hot tadka over the dal, cover immediately for 2 minutes to trap smoke.",
       "Garnish with coriander and serve with steamed rice."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "b18347b4-661a-4d7c-ae25-22ad28ba0cec",
@@ -163,7 +168,12 @@
       "Add dal with broth; simmer on low flame for 25 minutes stirring often.",
       "Finish with cream, white butter, and crushed roasted kasuri methi."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "4ec8c97b-d06c-4b80-86cc-a3000123c999",
@@ -222,7 +232,12 @@
       "Temper whole spices, tomatoes, and dry masala powders in hot ghee.",
       "Combine lentils with spiced gravy, simmer 10 minutes, and serve with baati or rotis."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "9f2571fc-879a-4770-b8c4-d9d194e57b47",
@@ -281,7 +296,12 @@
       "Prepare a ginger, tomato, and cumin seed tadka in ghee.",
       "Pour tadka into the dal and simmer for 5 minutes. Nutritious, cooling homestyle meal."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "927c1991-89f5-432a-afad-d042ab47d162",
@@ -347,7 +367,12 @@
       "Temper lots of garlic, cumin, and chillies in ghee.",
       "Fold into the spinach dal and finish with a squeeze of fresh lemon juice."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f1d79add-0120-4ecf-8106-4aa278f1bba8",
@@ -413,7 +438,12 @@
       "Sauté onions, ginger, and tomatoes in ghee until glossy.",
       "Mix into the lentils and simmer on low for 15 minutes. Pure langar taste."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "1c43ad40-4dda-4794-b79e-4350b68a508a",
@@ -479,7 +509,12 @@
       "Add rice, moong dal, 4 cups water, and salt.",
       "Pressure cook for 3 whistles until soft and melting. Top with extra ghee."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "efea445b-ca53-4f6a-a240-1cd3fb4a8391",
@@ -545,7 +580,12 @@
       "Simmer with tamarind, jaggery, ginger, and spices for 10 minutes.",
       "Temper mustard seeds, cloves, cinnamon, and curry leaves in ghee and pour over."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "53cd16db-c97c-44ab-b3c2-6323eeeeb150",
@@ -611,7 +651,12 @@
       "Simmer veggies in tamarind water with sambar powder.",
       "Stir in mashed dal, temper mustard seeds and curry leaves in coconut oil."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "3e0c0363-fbf6-4d9f-a684-f3c650ba782b",
@@ -670,7 +715,12 @@
       "Add freshly ground black pepper, cumin, and garlic.",
       "Temper mustard, hing, and curry leaves in hot ghee, pour over and turn off flame immediately."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f621b412-e58c-43d3-8a76-1a96e3ac2f3a",
@@ -729,7 +779,12 @@
       "Temper plenty of garlic slices and dry red chillies in smoking hot ghee.",
       "Infuse with charcoal smoke (dhungar) for 5 minutes before serving."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "e5e113c7-9138-4994-9d58-19efa5ee9ce7",
@@ -780,7 +835,12 @@
       "Cook red masoor dal for just 2 whistles (cooks ultra fast).",
       "Temper with onions, tomatoes, green chillies, and curry leaves in desi ghee."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "9a238f2f-95fd-4ce3-9a61-0b4c9156f764",
@@ -848,7 +908,13 @@
       "Add tomatoes, turmeric, pav bhaji masala, and salt. Cook until oil separates.",
       "Fold in crumbled paneer and roasted kasuri methi. Cook 2 mins and serve hot."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Breakfast",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "b0f11951-dfe3-4a8f-9047-d86640692194",
@@ -915,7 +981,12 @@
       "Add splash of water, paneer cubes, and simmer 6 minutes.",
       "Stir in fresh cream, honey/sugar pinch, and crushed kasuri methi."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "57a3d712-7aab-413a-a722-2fe0d5265bc8",
@@ -975,7 +1046,12 @@
       "Cook tomato masala, add kadai spice, toss in paneer and crunchy veggies.",
       "Cook 4 mins on medium heat and serve with garlic naan."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "c863fce4-89ae-4f2a-abf3-1de5e3ba11ba",
@@ -1042,7 +1118,12 @@
       "Gently add paneer cubes, saffron milk or kewra drops, and white pepper.",
       "Simmer 5 minutes for a royal velvety white curry."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "b0125333-3ae1-44b0-8b80-863a6ac28610",
@@ -1108,7 +1189,12 @@
       "Puree with green chillies. Sauté crushed garlic and onions in ghee.",
       "Add puree, simmer 5 minutes, fold in paneer cubes and fresh cream."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "dabea7e6-a8cc-4afd-af1b-c4b0332172f8",
@@ -1168,7 +1254,12 @@
       "Add turmeric, red chilli, and salt; cover and steam 10 minutes without water.",
       "Uncover, toss with amchur powder and fresh coriander until crisp."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "dd1379e0-150c-455e-901c-5becedd8d1cf",
@@ -1227,7 +1318,12 @@
       "Pan-fry bhindi in oil until 80% tender and remove.",
       "Sauté onions, add dry spices, return bhindi and toss on high flame for 4 minutes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "14af71ce-0002-4e34-8b14-e49b9c1c3d27",
@@ -1286,7 +1382,12 @@
       "Peel skin and mash smoky pulp.",
       "Sauté onions, tomatoes, and green chillies in mustard oil; fold in mashed baingan and cook 8 minutes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "55d70ca0-39f6-4128-9f40-49367d6c206d",
@@ -1352,7 +1453,12 @@
       "Whisk curd with saunf, sonth, and Kashmiri chilli powder.",
       "Pour into hot mustard oil, cook until oil separates, add fried potatoes and dum-cook 10 mins."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "07d018a5-1d5a-4202-9345-2d7325e93bf6",
@@ -1411,7 +1517,12 @@
       "Cook smooth cashew-tomato gravy with butter and aromatic spices.",
       "Place fried koftas on a serving dish and pour simmering hot gravy over just before serving."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f9855627-98a3-4f92-8c99-4388d18d39e1",
@@ -1470,7 +1581,12 @@
       "Cook cashew paste in ghee with cardamom; add boiled green peas.",
       "Stir in sautéed methi and fold in rich fresh malai/cream. Simmer 5 minutes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "ed458857-799b-478f-af3f-b7d33d6b4542",
@@ -1529,7 +1645,12 @@
       "Toss with dry spices: anardana, chole masala, amchur.",
       "Pour sizzling ghee tadka with ginger juliennes directly over the chickpeas; simmer 8 mins."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "30a21254-9851-438f-9c67-e92b753e2b26",
@@ -1588,7 +1709,12 @@
       "Cook onion-tomato masala in ghee until glossy and oil releases.",
       "Combine with boiled rajma, mash a few beans to thicken gravy, and simmer on low 15 mins. Pair with rice!"
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "dd1c64ff-3a5d-491e-9099-c32b91efe4ef",
@@ -1647,7 +1773,12 @@
       "Lightly sear marinated chunks in pan 3 mins.",
       "Cook spicy onion-tomato gravy, add soya chunks and 1 cup water, simmer 10 minutes."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "00a2d742-d1b6-48cb-b20f-3224b68c726f",
@@ -1706,7 +1837,12 @@
       "Simmer in rich dhaba spiced tomato gravy with cream and kasuri methi.",
       "Meat-like texture packed with 36g plant protein."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "5171abd1-6e62-4a30-baf2-bae4aed0cdcb",
@@ -1765,7 +1901,12 @@
       "Slice cooked logs into gattas.",
       "Cook whisked yogurt with turmeric and coriander in ghee; add gatta pieces and simmer."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f0310271-1061-47f3-bec0-53746242b8ed",
@@ -1824,7 +1965,12 @@
       "Add green peas and spiced onion-tomato masala with half cup warm water.",
       "Simmer 6 minutes until gravy thickens; garnish with coriander."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "888471ea-294d-40ea-9709-511483e9c518",
@@ -1883,7 +2029,12 @@
       "Mash greens with a wooden masher while whisking in makki ka atta.",
       "Slow cook 20 mins; finish with a sizzling garlic-ghee tadka and top with fresh white butter."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "e276e5f3-a0c7-4d24-a03c-23843eee05a3",
@@ -1942,7 +2093,12 @@
       "Add boiled potato cubes, turmeric, red chilli, and amchur powder.",
       "Toss on medium-high flame for 5 minutes until crispy edges form."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "46f13ab8-8fed-4fb5-bebb-7d8e0c3cdb17",
@@ -1994,7 +2150,13 @@
       "Shallow fry in hot oil on medium flame until golden and shatteringly crisp.",
       "Serve immediately as a crunchy side with dal chawal."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f76717d4-f102-44ce-b31c-6c435bc6bf79",
@@ -2046,7 +2208,12 @@
       "Simmer in light spiced onion-tomato gravy for 8 minutes.",
       "Add fried koftas right before serving so they stay soft and tender."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "55b65318-3458-47fe-9f4f-e5f2026cba2c",
@@ -2105,7 +2272,12 @@
       "Fold in grated paneer directly into the gravy for thick luxurious texture.",
       "Add paneer cubes and fresh cream; simmer 4 minutes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "b62a9363-c5d0-4126-9d15-e464fdc8ab96",
@@ -2156,7 +2328,12 @@
       "Stuff hollowed capsicums with seasoned potato-paneer filling.",
       "Pan fry in mustard oil on low flame, rotating sides until charred and tender (15 mins)."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "e96c0f12-2277-437b-a041-150680ced239",
@@ -2207,7 +2384,12 @@
       "Roast dry coconut, sesame, and whole spices into fiery Kolhapuri masala paste.",
       "Sauté mixed vegetables in the spicy paste with 1 cup water until cooked tender."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "2af8afdb-c621-4632-b257-957944ea1fdb",
@@ -2258,7 +2440,13 @@
       "Sauté sliced tindora in hot mustard oil with mustard seeds.",
       "Cover and cook 10 minutes on low; add dry spices and fry crisp."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "85499edd-5847-4a6f-bc69-d5a3106a9e04",
@@ -2316,7 +2504,12 @@
       "Pressure cook potatoes, peas, and onion-tomato gravy with 1 cup water for 2 whistles.",
       "Mash a few potato pieces to thicken the comforting gravy. Finish with coriander."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "ae33a4ba-9d00-4fae-a633-d8d44608ab96",
@@ -2367,7 +2560,13 @@
       "Pan-sear marinated paneer tikka with capsicum on high flame until charred.",
       "Simmer in buttery tomato-cream sauce for 5 minutes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "6260e011-8281-451a-9e7d-a2e1756e88f4",
@@ -2418,7 +2617,12 @@
       "Boil chickpeas 4 whistles until soft. Cook rich onion-tomato masala in ghee.",
       "Add chana with half cup water and simmer on low flame for 12 minutes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "1befdeed-35f7-4397-b4c3-58b03c638731",
@@ -2469,7 +2673,12 @@
       "Sauté garlic slices and green chillies in hot mustard oil.",
       "Add potatoes and fresh methi leaves; cook uncovered on medium flame until methi softens and potatoes turn crisp."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "3aa41f76-b4ba-4e10-8ec0-1222486ebf53",
@@ -2513,7 +2722,12 @@
       "Scoop out baby potatoes, stuff with crumbled spiced paneer and nuts, and deep fry.",
       "Simmer in golden tomato-cashew-poppy seed gravy for 10 minutes on low dum."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "2b56c5fa-e3a5-45a5-b411-5bfd456ecb5d",
@@ -2572,7 +2786,12 @@
       "Drizzle ghee, flip once, and fill with grated paneer and herbs.",
       "Fold and serve with green chutney."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "1b700ed1-55b1-41ff-b83d-538d3ff517fd",
@@ -2622,7 +2841,12 @@
       "Boil veggies 3 whistles; vigorously mash on tawa with butter, onions, tomatoes, and masala.",
       "Simmer 8 minutes with extra butter and serve with toasted pav."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "1179c922-ad95-4e9c-8ba9-f4e7e41b82a2",
@@ -2681,7 +2905,11 @@
       "Toss in poha with turmeric, salt, and sugar pinch.",
       "Garnish with crunchy sev, fresh pomegranate seeds, and spicy Jeeravan powder."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "31c8d903-3234-45b8-83a0-b01e830bf2b3",
@@ -2733,7 +2961,11 @@
       "Place spiced potato filling in the center, roll into a cylinder.",
       "Serve with coconut chutney and hot sambar."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "00dc432d-fabe-4752-9419-257a36cd0205",
@@ -2770,7 +3002,11 @@
       "Pour batter into oiled idli plates and steam for 10 minutes until fluffy and cloud-soft.",
       "Serve dipped in piping hot vegetable sambar."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "26a58f3b-d02a-4c1d-b772-f9e067e441d0",
@@ -2814,7 +3050,11 @@
       "Whisk thick urad dal batter with peppercorns and curry leaves until aerated.",
       "Shape doughnut rings with wet hands and deep fry in hot oil until golden brown."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "21600bd4-cef6-45ac-a399-04b87676c71b",
@@ -2866,7 +3106,12 @@
       "Roll out flat and roast on hot tawa with generous ghee until blistered and golden.",
       "Serve with cold curd and homemade mango pickle."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "fa72a483-25c5-42aa-971e-535118337601",
@@ -2917,7 +3162,12 @@
       "Stuff rolled wheat dough with spiced grated paneer and onions.",
       "Roast on tawa until crisp on both sides. High protein fuel for your morning."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "aa58c454-7c1b-4227-aa28-5a4325c45868",
@@ -2968,7 +3218,11 @@
       "Knead dough using curd, methi, sesame seeds, and spices.",
       "Roll thin and roast lightly on tawa with oil. Stays soft for days!"
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "79273bd6-5b86-4706-ad0a-4bfa457cb508",
@@ -3012,7 +3266,11 @@
       "Whisk besan with lemon juice, turmeric, and water; add Eno right before steaming.",
       "Steam 12 mins in cooker without whistle. Pour sweet and tangy mustard tadka water."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "766a21d3-9d75-44e4-ab69-8ad7ef46c772",
@@ -3064,7 +3322,11 @@
       "Sauté cumin, chillies, and boiled potatoes in ghee; fold in sabudana and crushed peanuts.",
       "Cook covered on low 4 mins until pearls turn translucent."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "85b1493c-b8c5-446b-8bcb-4f851910d963",
@@ -3116,7 +3378,11 @@
       "Drizzle sweet tamarind chutney, spicy green chutney, and creamy dahi.",
       "Top with crunchy nylon sev and fresh coriander."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "6dd7c415-39a4-49d0-8f63-dcbb801272e5",
@@ -3168,7 +3434,11 @@
       "Slit pav, spread green chutney and fiery red dry garlic coconut chutney.",
       "Insert hot vada, press down and serve with fried salted chillies."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "74c9f97c-4689-42bf-a7c9-e56b59c781b5",
@@ -3227,7 +3497,12 @@
       "Sprinkle birista, mint, saffron milk, and generous desi ghee.",
       "Seal handi lid with dough and cook on low dum flame for 20 minutes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "b875f065-08ac-4723-ac49-bac9eba4d7c2",
@@ -3279,7 +3554,12 @@
       "Add washed basmati rice, sauté 1 minute, add 2 cups water and salt.",
       "Pressure cook for 2 whistles; fluff gently with a fork."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "3afc3aa0-c4ee-45e4-85de-a4ae1bd90ffd",
@@ -3338,7 +3618,12 @@
       "Temper mustard seeds, urad dal, ginger, and curry leaves; pour over.",
       "Top with fresh crunchy pomegranate seeds."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "17af4f89-6634-421f-aece-6d64b1033af3",
@@ -3397,7 +3682,12 @@
       "Turn off heat, stir in fresh lemon juice.",
       "Gently toss with cold cooked rice until evenly yellow and aromatic."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "6a799ede-6675-445c-b52b-ebeed8159b26",
@@ -3441,7 +3731,12 @@
       "On a wide tawa, melt butter and cook crunchy vegetables with pav bhaji masala.",
       "Toss cooked basmati rice vigorously with the spicy buttery bhaji mix for 3 minutes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "3a0fc54e-9010-4453-8299-e436772ea02b",
@@ -3492,7 +3787,12 @@
       "Cook basmati rice with whole spices and saffron.",
       "Gently mix in roasted dry fruits, sliced fresh fruits, and ghee."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "bb145ad3-556e-481d-9acc-b9f8797b6103",
@@ -3551,7 +3851,12 @@
       "Simmer with tamarind water and freshly roasted spicy-cinnamon masala powder.",
       "Temper crunchy cashews and curry leaves in hot ghee and pour over."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "fb497630-e128-4892-97de-9bbaa12ec62e",
@@ -3602,7 +3907,12 @@
       "Sauté cumin, cloves, cardamom, and green peas in ghee.",
       "Add basmati rice, 2 cups water, and cook for 2 whistles. Aromatic and tender."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "4447ac3d-c9d7-4419-9217-8fc5d4f2dc88",
@@ -3645,7 +3955,12 @@
     "instructions": [
       "Sauté mint paste in ghee until fragrant; mix with basmati rice and 2 cups water for 2 whistles."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "d27bd327-add1-41b9-934e-f6c6ac93dbdc",
@@ -3696,7 +4011,12 @@
       "Cook spiced tomato gravy with whole spices in pressure cooker.",
       "Add rice, pressure cook 2 whistles. Tangy and spicy south Indian favorite."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "122a78e2-f62e-4f64-9e0c-a0e21b704a6b",
@@ -3755,7 +4075,12 @@
       "Simmer smooth tomato-cashew gravy with butter and mild spices.",
       "Add chicken pieces, simmer 8 minutes, finish with cream, butter, and kasuri methi."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "d6dd37ca-fc7b-4a4d-823f-3ffa18296985",
@@ -3814,7 +4139,12 @@
       "Sauté sliced onions, ginger-garlic, and whole spices until dark brown (bhunao).",
       "Add chicken, 1.5 cups water, and pressure cook for 3 whistles. Thin spicy gravy for rice!"
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "9c3a4091-0ba0-4073-897d-0345b042c0b6",
@@ -3866,7 +4196,12 @@
       "Place chicken at the bottom of a heavy pot; layer fragrant parboiled basmati rice over.",
       "Drizzle saffron milk, rose water, and ghee; seal with dough and dum-cook 25 minutes."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f75ad691-37ad-45cb-8197-50db14d653cd",
@@ -3918,7 +4253,13 @@
       "Cook spicy, tangy onion-tomato gravy with capsicum petals.",
       "Toss chicken into gravy, simmer 5 minutes, finish with cream and coriander."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f97d7bed-8ab9-4564-a0b1-2dcae041ac7b",
@@ -3969,7 +4310,12 @@
       "Dry roast coriander seeds and dry red chillies; crush coarsely.",
       "Stir-fry chicken, capsicum, and onions in high heat with the spicy kadai masala."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "ba67c87e-95b9-46ae-bb6e-760198343163",
@@ -4021,7 +4367,12 @@
       "Sauté shallots and curry leaves in coconut oil, add chicken and masala paste.",
       "Pressure cook 2 whistles until intensely aromatic and peppery."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "72dfb164-8bdb-4236-a8c9-1b47a42b0bde",
@@ -4079,7 +4430,12 @@
       "Cook whole aromatic spices in ghee, add chicken and sear lightly.",
       "Stir in whisked yogurt and fried onion almond paste; cook on low dum until oil floats."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "1f479ce1-c609-4bc4-b5e2-eedf25ac1302",
@@ -4131,7 +4487,13 @@
       "Apply thick hung curd, mustard oil, and tandoori spices (second marinade).",
       "Air-fry at 200°C for 18-20 minutes or pan-sear until charred and juicy."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "a7516a09-1a5d-486c-be89-19c73166fa02",
@@ -4190,7 +4552,12 @@
       "Add chicken keema, break lumps with a spatula, and cook on high heat 5 minutes.",
       "Add green peas, tomatoes, garam masala, cover and simmer 10 mins. Serve with pav!"
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "e0a43330-6fb2-4263-9672-bf1547803d16",
@@ -4241,7 +4608,12 @@
       "Sear chicken pieces with onions and garlic in ghee.",
       "Add blanched spinach puree and spices; pressure cook for 2 whistles."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "fe74c2f7-121f-4f9e-a7b5-72427f586932",
@@ -4292,7 +4664,11 @@
       "Marinate chicken in spiced curd, egg white, rice flour, and red chilli.",
       "Deep fry until golden crisp. Toss with tempered curry leaves and garlic."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "72cea042-a4c6-4955-a465-4314312a6c74",
@@ -4344,7 +4720,11 @@
       "Add dark soy, green chilli sauce, and cornstarch slurry.",
       "Toss crispy chicken pieces until coated in glossy sauce."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "3a4cfabf-0f2e-4543-b8e3-7c916cf01867",
@@ -4395,7 +4775,12 @@
       "Sauté methi leaves lightly to reduce bitterness.",
       "Cook chicken with onion-tomato-curd masala; fold in methi leaves and simmer 10 mins."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "6b8fdfb5-21ef-4ad1-b437-a49ad93171a8",
@@ -4447,7 +4832,12 @@
       "Roast coconut paste with Malvani spices until dark and fragrant.",
       "Toss cooked chicken into coconut masala until completely coated and dry."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "c5497c79-8cf1-4e75-853b-669ff391e13c",
@@ -4498,7 +4888,12 @@
       "Marinate chicken breast in cumin, coriander, paprika, and garlic; grill 6 mins each side.",
       "Slice grilled chicken over fresh crisp salad with garlic curd dressing."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "339c873c-60b7-438f-b2c4-a1d66a4daff3",
@@ -4549,7 +4944,12 @@
       "Sear chicken in smoking oil, add roasted dark coconut masala and Kolhapuri spices.",
       "Pressure cook 3 whistles. Extremely spicy and rich rassa."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "e4032add-4658-4f69-94f0-42220aad2fa1",
@@ -4600,7 +5000,12 @@
       "Cook chicken with chopped onions until tender.",
       "Add crispy onion petals in the last 4 minutes of cooking for signature two-onion texture."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "928062d6-dac9-4938-82e4-488ca426e70c",
@@ -4650,7 +5055,12 @@
     "instructions": [
       "Slow simmer chicken in cashew-poppy seed curd gravy with dry red chillies and kewra water."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "4703f7c7-b49b-4ae1-bad2-1f1c731d9274",
@@ -4701,7 +5111,12 @@
       "Cook chicken in spiced tamarind broth.",
       "Toss with freshly roasted coarse coconut mixture until dry. Pairs amazingly with neer dosa."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "6db532b0-c107-4c6e-88be-2ea683205469",
@@ -4752,7 +5167,13 @@
       "Marinate chicken in cream, hung curd, ginger garlic, cheese, and cardamom.",
       "Pan grill or air-fry on high heat until charred spots appear and meat stays juicy."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "c021aeab-78d5-43a5-8c44-44d5a52e4bd0",
@@ -4802,7 +5223,13 @@
     "instructions": [
       "Pan-roast chicken in coconut oil with heaps of curry leaves, garlic, and fresh crushed black pepper until dry."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "7e57fd3c-9f85-485d-9b40-45a41a5b09a7",
@@ -4846,7 +5273,13 @@
       "Marinate in cilantro-mint-green chilli paste with hung curd.",
       "Grill on skewers 12 minutes. Lean, vibrant, and packed with clean protein."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "7f38fd1d-135f-4ec5-9ca9-f3a3cc6e7997",
@@ -4896,7 +5329,12 @@
     "instructions": [
       "Simmer spiced chicken in luscious tomato cashew gravy with grated paneer for extra body."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "d2141863-4505-4e77-9132-73b8dff63e4a",
@@ -4946,7 +5384,12 @@
     "instructions": [
       "Simmer chicken in white cashew-curd gravy studded with coarsely cracked black peppercorns."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "2636424b-caa9-410b-aa80-aa693b853099",
@@ -4990,7 +5433,11 @@
       "Toss crispy fried chicken strips in honey, red chilli paste, garlic, and vinegar.",
       "Garnish with toasted sesame seeds and spring onion greens."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "1154bfac-e88a-4aa3-9f04-80c0f87421a1",
@@ -5056,7 +5503,12 @@
       "Add whisked curd and Kashmiri chilli paste, stirring vigorously on low heat.",
       "Add fennel and dry ginger powder with water; pressure cook 5 whistles until meat falls off bone."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "4199ddda-3e07-47ae-a9a7-fb653f58a5e5",
@@ -5115,7 +5567,12 @@
       "Seal in clay handi or heavy pressure cooker; cook on low heat for 4 whistles without stirring.",
       "Garlic heads soften into sweet buttery spread; meat becomes fork-tender."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "cb57a8c1-987e-470b-a74c-416673ed268d",
@@ -5174,7 +5631,12 @@
       "Add Mathania chilli paste and beaten curd; pressure cook for 5 whistles.",
       "Infuse with a hot piece of burning charcoal drizzled with ghee (Dhungar) for signature smokiness."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "aeaf169f-0670-43f3-8908-702f5f800346",
@@ -5225,7 +5687,12 @@
       "Tenderize mutton with raw papaya paste and aromatic spices for 4 hours.",
       "Layer with 70% boiled rice, saffron, and fried onions; seal lid tightly and slow-dum cook."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "e7c70c6a-5c5a-49d2-96ec-687e5264a4b0",
@@ -5277,7 +5744,11 @@
       "Add mutton keema, fry on high flame until fat renders.",
       "Simmer with spices and coriander; serve with buttery soft pav."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "b069243f-7f08-4670-b31a-1255988ea6f1",
@@ -5320,7 +5791,12 @@
     "instructions": [
       "Continuous slow roasting (bhunao) of mutton in its own juices and spices until thick, semi-dry, dark brown masala coats the meat."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "9c4dbeeb-070f-448c-bd20-30b2095a09b6",
@@ -5370,7 +5846,12 @@
     "instructions": [
       "Cook mutton and halved potatoes with vinegar, spices, and coconut milk for 4 whistles."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "4370e529-7249-4766-91a7-bbb9161cdde2",
@@ -5420,7 +5901,12 @@
     "instructions": [
       "Cook mutton until tender; roast with shallots, curry leaves, and black pepper until dry and spicy."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "4a328e66-a20f-4d52-a984-a7cd4e9cc352",
@@ -5471,7 +5957,12 @@
       "Marinate mutton in curd and mustard oil.",
       "Caramelize sugar in smoking oil, brown onions, and slow-bhunao mutton until pitch dark mahogany."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "4bc881ee-886d-4153-b2e8-2a0ed64ae566",
@@ -5522,7 +6013,11 @@
       "Boil keema with chana dal and whole spices for 3 whistles.",
       "Grind into ultra-silky paste on silbatta, shape flat patties with mint inside, and shallow fry in ghee."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f27c8276-7626-4b82-93cd-28bce8aa7648",
@@ -5573,7 +6068,12 @@
       "Slow braise mutton shanks with aromatic Nihari spices for 6 whistles.",
       "Thicken gravy with wheat flour slurry and top with sizzling ghee tadka, ginger juliennes, and lemon."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "328f36a4-c001-4778-af40-5fc38a8d2a44",
@@ -5616,7 +6116,12 @@
     "instructions": [
       "Sear mutton with rustic spices, cook 4 whistles in pressure cooker with 2 cups water."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "c17c39e6-2b74-494e-9848-f85e5a2f3122",
@@ -5659,7 +6164,11 @@
     "instructions": [
       "Marinate velvety lamb paste with tenderizer, shape soft disc patties, and sear gently on a tawa."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f7098a16-d638-43ed-a34c-6a980d96ebeb",
@@ -5710,7 +6219,12 @@
       "Simmer mutton with whole spice bouquet garni to extract clear aromatic broth.",
       "Cook basmati rice in the rich yakhni broth with ghee until grains stand tall."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "5ecaa17f-ab41-4ac2-83c0-178557f02dee",
@@ -5760,7 +6274,12 @@
     "instructions": [
       "Cook mutton and chana dal with bottle gourd until tender; temper with curry leaves and tamarind."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "c8ab52e5-46df-4115-ae57-aad807f9443a",
@@ -5811,7 +6330,12 @@
       "Grind coconut with red chillies, coriander seeds, garlic, and cumin into a paste.",
       "Simmer paste with kokum water; gently slide in fish slices and cook 6 minutes."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "261ec845-5529-4209-8975-0fa8604c08c8",
@@ -5862,7 +6386,12 @@
       "Lightly fry turmeric-salted fish in smoking mustard oil.",
       "Temper nigella seeds (kalonji) and green chillies; simmer in light mustard water with potatoes."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "2e8ac93b-bcac-472d-b6d9-591fdc371785",
@@ -5913,7 +6442,11 @@
       "Marinate fish in lemon, ajwain, ginger-garlic, and gram flour.",
       "Shallow fry until crisp and golden. Sprinkle chaat masala."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "57648dcf-7aa3-4948-95b3-24fb833ddae4",
@@ -5964,7 +6497,12 @@
       "Cook prawns in earthen clay pot with kudampuli and spices for 5 minutes.",
       "Pour thick coconut milk and finish with hot coconut oil curry leaf tadka."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "896f9465-1e66-4699-8805-4046dff08039",
@@ -6015,7 +6553,12 @@
       "Melt butter in skillet, sauté minced garlic until fragrant.",
       "Toss in prawns and cook on high flame for 3 minutes until pink and juicy."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "81de66e7-b719-4d27-a7e9-131055b5abbd",
@@ -6059,7 +6602,12 @@
       "Marinate scored pomfret with tandoori spices and lemon.",
       "Grill or pan-sear on high heat 5 mins each side until charred and succulent."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "08b2200b-a33d-49cb-a01d-d39a595e8324",
@@ -6110,7 +6658,12 @@
       "Pan fry fish 2 minutes; coat in spicy shallot tomato masala.",
       "Wrap tight in wilted banana leaf and pan-roast in coconut oil until flavors infuse deeply."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "280b5de1-3900-4dd0-afde-a75d178571a5",
@@ -6161,7 +6714,12 @@
       "Layer spiced marinated prawns with parboiled basmati rice.",
       "Dum cook on low flame 15 minutes so prawns remain tender and sweet."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "791c1a3a-f006-49e4-9c46-70f645a554d1",
@@ -6204,7 +6762,13 @@
     "instructions": [
       "Sauté prawns with onions, kokum water, and fiery Malvani masala until dry and coated."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "192c0f0c-cd70-4d42-8640-af7b629df3d6",
@@ -6241,7 +6805,13 @@
       "Marinate fish in ajwain, tandoori masala, and lemon juice.",
       "Sear in a hot grill pan for 4 minutes each side."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "4600c0cd-01cc-4d63-a5da-d407642ffedf",
@@ -6292,7 +6862,12 @@
       "Sauté onions and chillies in butter until golden.",
       "Add tomatoes and spices, scramble eggs gently until soft and creamy. Serve with pav."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "aef40c91-7dee-4d08-894a-2683f76158b1",
@@ -6343,7 +6918,12 @@
       "Prick boiled eggs, fry in turmeric-chilli mustard oil until golden blistered crust forms.",
       "Simmer in rich spiced dhaba gravy for 6 minutes."
     ],
-    "isFavorite": true
+    "isFavorite": true,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "1bfe662d-048a-4103-9044-6f71b34a1b7f",
@@ -6386,7 +6966,12 @@
     "instructions": [
       "Simmer fried boiled eggs in fiery dark roasted Kolhapuri coconut gravy."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "bf1b0ac6-2ab9-4686-85b6-e36f43763e05",
@@ -6436,7 +7021,12 @@
     "instructions": [
       "Layer fried spiced eggs with parboiled basmati rice, mint, and saffron milk; dum-cook 15 mins."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "563aaec9-073f-48f7-b587-9e27130c1632",
@@ -6480,7 +7070,13 @@
       "Pour beaten egg on tawa, press flaky paratha on top until attached and crisp.",
       "Roll with crunchy sliced onions, green chillies, and lemon juice."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast",
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "b43338a5-898b-41c2-a475-f3826811da66",
@@ -6531,7 +7127,11 @@
       "Simmer spiced tomato, garlic, and bell pepper sauce in skillet.",
       "Make hollow wells, crack whole eggs in, cover and cook 5 mins until whites set and yolks run."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "67afc909-6d10-46f2-b784-cdb956d90a84",
@@ -6582,7 +7182,11 @@
       "Whisk eggs vigorously with chopped onions, chillies, and coriander.",
       "Fry in sizzling butter in hot pan; flip and serve with toasted butter pav."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "cadd0f40-4afd-4e15-892c-eef68a53c760",
@@ -6633,7 +7237,11 @@
       "Cook grated boiled eggs into spiced buttery tomato gravy.",
       "Top with sunny-side up fried egg. A Surti street food icon!"
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "f6a8882e-ecf2-467f-a90a-8ecc34166e40",
@@ -6684,7 +7292,12 @@
       "Caramelize sliced onions in coconut oil with fennel and pepper.",
       "Toss boiled eggs until coated in thick dark jammy onion masala. Perfect with appams!"
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false
   },
   {
     "id": "c75ee659-4e35-434c-bada-d43710cfc1d7",
@@ -6735,6 +7348,11 @@
       "Cook paratha, lift edge and pour whisked eggs inside pocket or layer on top.",
       "Cook until crisp on both sides. Hearty, filling breakfast."
     ],
-    "isFavorite": false
+    "isFavorite": false,
+    "mealTypes": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "isUserCreated": false
   }
 ]

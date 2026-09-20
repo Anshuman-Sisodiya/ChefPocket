@@ -45,7 +45,7 @@ struct CookModeView: View {
                                     .font(.system(size: 42, weight: .bold, design: .rounded))
                                     .foregroundColor(currentWhistles >= targetWhistles ? .green : .orange)
                                 
-                                Text(currentWhistles >= targetWhistles ? "🔥 Target Reached! Turn off flame!" : "Waiting for cooker whistle...")
+                                Text(currentWhistles >= targetWhistles ? "Target reached! Turn off flame." : "Waiting for cooker whistle...")
                                     .font(.caption)
                                     .bold()
                                     .foregroundColor(currentWhistles >= targetWhistles ? .green : .secondary)

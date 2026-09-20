@@ -3,13 +3,14 @@ import SwiftUI
 @main
 struct ChefPocketApp: App {
     @StateObject private var store = RecipeStore()
+    @StateObject private var auth = AuthManager()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(store)
+                .environmentObject(auth)
                 .onOpenURL { incomingURL in
-                    // Handles deep links from the Share Extension: chefpocket://import?url=...
                     handleIncomingURL(incomingURL)
                 }
         }
@@ -21,6 +22,13 @@ struct ChefPocketApp: App {
               let queryItem = components.queryItems?.first(where: { $0.name == "url" }),
               let sharedVideoURL = queryItem.value else { return }
         
-        store.addFromURL(sharedVideoURL)
+        Task {
+            let apiKey = auth.currentUser?.geminiApiKey
+            if let recipe = try? await AIService.shared.extractRecipe(from: sharedVideoURL, userApiKey: apiKey) {
+                await MainActor.run {
+                    store.addRecipe(recipe)
+                }
+            }
+        }
     }
 }

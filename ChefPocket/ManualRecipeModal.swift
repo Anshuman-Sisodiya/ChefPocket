@@ -1,4 +1,4 @@
-﻿import SwiftUI
+import SwiftUI
 
 struct ManualRecipeModal: View {
     @Binding var isPresented: Bool
@@ -6,6 +6,8 @@ struct ManualRecipeModal: View {
     
     @State private var title = ""
     @State private var category: RecipeCategory = .sabzi
+    @State private var diet: DietType = .veg
+    @State private var selectedMeal: MealType = .dinner
     @State private var prepTime = 15
     @State private var calories = 350
     @State private var protein = 20
@@ -20,11 +22,23 @@ struct ManualRecipeModal: View {
         NavigationStack {
             Form {
                 Section(header: Text("Basic Details")) {
-                    TextField("Recipe Title (e.g. Dhabha Paneer Tikka)", text: $title)
+                    TextField("Recipe Title (e.g. Dhaba Paneer Tikka)", text: $title)
+                    
+                    Picker("Diet", selection: $diet) {
+                        Text("Vegetarian").tag(DietType.veg)
+                        Text("Non-Vegetarian").tag(DietType.nonVeg)
+                    }
+                    .pickerStyle(.segmented)
                     
                     Picker("Category", selection: $category) {
                         ForEach(RecipeCategory.allCases.filter { $0 != .all }) { cat in
                             Text(cat.rawValue).tag(cat)
+                        }
+                    }
+                    
+                    Picker("Primary Meal", selection: $selectedMeal) {
+                        ForEach(MealType.allCases.filter { $0 != .all }) { meal in
+                            Text(meal.rawValue).tag(meal)
                         }
                     }
                 }
@@ -33,7 +47,7 @@ struct ManualRecipeModal: View {
                     Stepper("Prep Time: \(prepTime) mins", value: $prepTime, in: 5...120, step: 5)
                     Stepper("Calories: \(calories) kcal", value: $calories, in: 50...1500, step: 25)
                     Stepper("Protein: \(protein) g", value: $protein, in: 0...100, step: 2)
-                    Stepper("Pressure Cooker Whistles: \(whistles == 0 ? "None" : "\(whistles) whistles")", value: $whistles, in: 0...10)
+                    Stepper("Cooker Whistles: \(whistles == 0 ? "None" : "\(whistles) whistles")", value: $whistles, in: 0...10)
                 }
                 
                 Section(header: Text("Ingredients")) {
@@ -73,7 +87,7 @@ struct ManualRecipeModal: View {
                     .onDelete { idx in instructionsList.remove(atOffsets: idx) }
                 }
             }
-            .navigationTitle("New Desi Recipe")
+            .navigationTitle("New Recipe")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -108,7 +122,10 @@ struct ManualRecipeModal: View {
         let recipe = Recipe(
             title: title,
             category: category,
-            tags: ["Home Recipe", category.rawValue],
+            diet: diet,
+            mealTypes: [selectedMeal],
+            isUserCreated: true,
+            tags: ["Home Recipe", category.rawValue, diet.rawValue],
             sourceURL: nil,
             prepTimeMinutes: prepTime,
             calories: calories,
@@ -118,5 +135,6 @@ struct ManualRecipeModal: View {
             instructions: instructionsList.isEmpty ? ["Cook and serve hot."] : instructionsList
         )
         store.addRecipe(recipe)
+        store.selectedScope = .myKitchen
     }
 }
