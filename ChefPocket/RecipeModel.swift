@@ -62,6 +62,8 @@ enum MealType: String, CaseIterable, Codable, Identifiable {
 
 enum RecipeCategory: String, CaseIterable, Codable, Identifiable {
     case all = "All"
+    case bakery = "Bakery"
+    case drinks = "Drinks & Shakes"
     case sabzi = "Sabzi"
     case dal = "Dal"
     case highProtein = "High-Protein"
@@ -75,6 +77,8 @@ enum RecipeCategory: String, CaseIterable, Codable, Identifiable {
     var iconName: String {
         switch self {
         case .all: return "sparkles"
+        case .bakery: return "birthday.cake.fill"
+        case .drinks: return "cup.and.saucer.fill"
         case .sabzi: return "leaf.fill"
         case .dal: return "bowl.fill"
         case .highProtein: return "flame.fill"
@@ -161,11 +165,12 @@ class RecipeStore: ObservableObject {
     @Published var selectedScope: RecipeScope = .curated
     @Published var selectedDiet: DietType = .all
     @Published var selectedMealType: MealType = .all
+    @Published var selectedCategory: RecipeCategory = .all
     
     let suiteName = "group.com.chefpocket.recipes"
-    let recipesKey = "saved_recipes_key_v4"
-    let groceriesKey = "saved_groceries_key_v4"
-    let thaliKey = "saved_thali_key_v4"
+    let recipesKey = "saved_recipes_key_v5"
+    let groceriesKey = "saved_groceries_key_v5"
+    let thaliKey = "saved_thali_key_v5"
     
     private var defaults: UserDefaults {
         UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
@@ -181,7 +186,7 @@ class RecipeStore: ObservableObject {
     
     init() {
         loadData()
-        if recipes.isEmpty || curatedRecipes.count < 50 {
+        if recipes.isEmpty || curatedRecipes.count < 150 {
             loadBundledRecipes()
         }
     }
@@ -311,7 +316,10 @@ class RecipeStore: ObservableObject {
             lower.contains("spinach") || lower.contains("potato") || lower.contains("gobi") || lower.contains("cauliflower") ||
             lower.contains("methi") || lower.contains("bell pepper") || lower.contains("carrot") || lower.contains("lemon") || lower.contains("shallot") {
             return .sabziMandi
-        } else if lower.contains("jeera") || lower.contains("cumin") || lower.contains("haldi") || lower.contains("turmeric") ||
+        } else if lower.contains("tea") || lower.contains("coffee") || lower.contains("cocoa") ||
+                    lower.contains("chocolate") || lower.contains("vanilla") || lower.contains("baking") ||
+                    lower.contains("yeast") || lower.contains("saffron") || lower.contains("kesar") ||
+                    lower.contains("rose water") || lower.contains("jeera") || lower.contains("cumin") || lower.contains("haldi") || lower.contains("turmeric") ||
                     lower.contains("garam masala") || lower.contains("hing") || lower.contains("coriander powder") ||
                     lower.contains("mustard") || lower.contains("pepper") || lower.contains("cardamom") || lower.contains("clove") ||
                     lower.contains("cinnamon") || lower.contains("chilli flakes") || lower.contains("paprika") || lower.contains("salt") || lower.contains("fennel") || lower.contains("anardana") {

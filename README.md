@@ -27,7 +27,11 @@
 
 ## ✨ Features at a Glance
 
-### 🍽️ 125+ Curated Inbuilt Recipes
+### 🍽️ 165+ Curated Inbuilt Recipes
+- **🍞 Dedicated Bakery Section (20 Recipes)**: Eggless Fudge Brownies, Moist Banana Bread, Mumbai Ladi Pav, Focaccia, Blueberry Muffins, Atta Nankhatai, Choco Lava Cake, Cinnamon Swirl Rolls, Croissants, Quiche, and Tarts.
+- **☕ Drinks, Chai & Shakes (20 Recipes - 100% Non-Alcoholic)**: South Indian Filter Kaapi, Dhaba Masala Chai, Mumbai Cutting Chai, Kashmiri Kahwa, Cafe Frappé Cold Coffee, Mango Mastani, Punjabi Mango Lassi, Masala Chaas, Shahi Thandai, Nimbu Shikanji, and Belgian Chocolate Protein Shake.
+- **65 Pure Vegetarian Dishes**: Dhaba Paneer Bhurji, Dal Makhani, Dal Tadka, Amritsari Pindi Chole, Moong Dal Chilla, Palak Paneer, Pav Bhaji, Veg Dum Biryani, and more.
+- **60 Non-Vegetarian Dishes**: Butter Chicken, Mutton Rogan Josh, Champaran Handi Meat, Goan Fish Curry, Prawn Ghee Roast, Irani Cafe Egg Bhurji, Kolkata Biryani, and more.
 - **65 Pure Vegetarian Dishes**: Dhaba Paneer Bhurji, Dal Makhani, Dal Tadka, Amritsari Pindi Chole, Moong Dal Chilla, Palak Paneer, Pav Bhaji, Veg Dum Biryani, and more.
 - **60 Non-Vegetarian Dishes**: Butter Chicken, Mutton Rogan Josh, Champaran Handi Meat, Goan Fish Curry, Prawn Ghee Roast, Irani Cafe Egg Bhurji, Kolkata Biryani, and more.
 - **Nutritional Transparency**: Calories, protein in grams, prep time, and cooker whistle counts for every recipe.

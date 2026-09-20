@@ -7354,5 +7354,2851 @@
       "Dinner"
     ],
     "isUserCreated": false
+  },
+  {
+    "id": "c53687bf-48ad-4c3f-a089-c47b66bac940",
+    "title": "Eggless Chocolate Fudge Brownies",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Eggless",
+      "Dessert",
+      "Chocolate"
+    ],
+    "prepTimeMinutes": 25,
+    "calories": 280,
+    "proteinGrams": 4,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "d4c0970b-4443-4cf8-9dbb-415291ecccab",
+        "name": "Dark Chocolate (Chopped)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c8c5e51f-fbc9-49e5-a5e7-a6d68e803060",
+        "name": "Unsalted Butter",
+        "amount": 75.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4e1b8d4a-65b7-4c9c-96d4-317be1622659",
+        "name": "Sweetened Condensed Milk",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "82282b67-ffff-4fdf-a5df-69d0884a76b5",
+        "name": "All-Purpose Flour (Maida)",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "87ecf548-66c6-4328-af10-cdbe1d16612c",
+        "name": "Cocoa Powder (Unsweetened)",
+        "amount": 30.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ec2b8efc-c844-47fb-9c74-fa8f98929b37",
+        "name": "Baking Powder",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "2407986a-8ea1-49a5-a0a2-f778c6cff558",
+        "name": "Vanilla Extract",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Melt dark chocolate and butter together in a heatproof bowl set over simmering water (or microwave in 30s bursts).",
+      "Whisk in condensed milk, milk, and vanilla extract until smooth and glossy.",
+      "Sift in flour, cocoa powder, and baking powder. Gently fold with a spatula until just combined without overmixing.",
+      "Pour batter into a parchment-lined 8-inch square baking tin.",
+      "Bake at 170°C (340°F) for 22-25 minutes until a toothpick inserted in center comes out with moist crumbs.",
+      "Cool completely before slicing into fudgy squares."
+    ]
+  },
+  {
+    "id": "a8a39ee0-9804-4d19-9a4e-6b3c76d6b0ba",
+    "title": "Moist Banana Walnut Loaf Bread",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Breakfast",
+      "High-Fiber",
+      "Quick Bread"
+    ],
+    "prepTimeMinutes": 45,
+    "calories": 220,
+    "proteinGrams": 5,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "29f45fa2-8eaf-4c90-bdc0-fb68e67cd97f",
+        "name": "Overripe Bananas (Mashed)",
+        "amount": 3.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "9ed7317b-e1f1-4605-a3c2-97dd5ba57b87",
+        "name": "Whole Wheat Atta / Flour",
+        "amount": 180.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "66e3b625-5413-467b-8b61-2746659af93d",
+        "name": "Brown Sugar / Jaggery Powder",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "8567aa0f-f68d-449a-a083-4573d789ce5a",
+        "name": "Vegetable Oil / Melted Butter",
+        "amount": 60.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "3fc0f0a1-91ec-4c45-bf78-a0d9479651a7",
+        "name": "Walnut Kernels (Chopped)",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e756d2a2-d5ea-4506-843d-517bca88f0d6",
+        "name": "Cinnamon Powder",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "d57a3f36-1032-49ea-a57c-94154a336db9",
+        "name": "Baking Soda",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Mash ripe bananas in a bowl; whisk in brown sugar, melted butter, and a splash of milk.",
+      "Whisk together whole wheat flour, cinnamon, and baking soda.",
+      "Combine wet and dry ingredients gently, folding in chopped walnuts.",
+      "Pour batter into a greased 9x5-inch loaf tin.",
+      "Bake at 175°C (350°F) for 40-45 minutes until a skewer comes out clean.",
+      "Let cool on a wire rack, slice and serve with butter or tea."
+    ]
+  },
+  {
+    "id": "b7f2c071-3824-4a45-8799-2b159bf2dd77",
+    "title": "Mumbai Ladi Pav (Homemade Dinner Rolls)",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks",
+      "Lunch"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Breads",
+      "Street Food",
+      "Eggless"
+    ],
+    "prepTimeMinutes": 35,
+    "calories": 160,
+    "proteinGrams": 5,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "a20377fd-aa23-4164-b771-5c4b0f8f8569",
+        "name": "All-Purpose Flour (Maida)",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "766497f3-7b59-41ec-a39d-50ff7a59b2ae",
+        "name": "Instant Dry Yeast",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "9a94c356-1c75-4d1e-b22d-6c0aded4b6f4",
+        "name": "Warm Water / Milk",
+        "amount": 180.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "2cf4dc90-5b3f-4cbf-a4c7-6c0285364e91",
+        "name": "Sugar",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "3531a9aa-4c58-4f48-a293-c85eb1156df7",
+        "name": "Softened Butter",
+        "amount": 25.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f2ad70ea-09b8-414e-87f8-8cd7a52fe3ed",
+        "name": "Salt",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Activate yeast and sugar in lukewarm water for 5 minutes until frothy.",
+      "Knead flour, salt, and yeast mixture for 8-10 minutes until elastic and smooth, incorporating butter at the end.",
+      "Cover and let rise in a warm place for 1 hour until doubled in volume.",
+      "Punch dough down, divide into 9 equal round balls, and place tightly side-by-side in a greased square pan.",
+      "Proof for 30 minutes, then brush with milk.",
+      "Bake at 190°C (375°F) for 18-20 minutes until golden brown on top. Brush immediately with melted butter!"
+    ]
+  },
+  {
+    "id": "4bfafd0d-90ce-4ae4-8169-22b31d7329ec",
+    "title": "Eggless Blueberry Streusel Muffins",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Muffins",
+      "Breakfast",
+      "Eggless"
+    ],
+    "prepTimeMinutes": 25,
+    "calories": 210,
+    "proteinGrams": 4,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "a5327d44-26fb-4453-aaf7-ed218becf231",
+        "name": "Fresh or Frozen Blueberries",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "5657bb81-f796-4c86-9359-06cdd091683c",
+        "name": "Flour",
+        "amount": 180.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "281d3928-1979-4b9e-88f1-ea1d520da854",
+        "name": "Yogurt / Curd",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "631ae040-d0d3-49a2-9b60-142eaf1491e8",
+        "name": "Sugar",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c7fe648c-ea85-46a7-a4dc-1e75a2f70698",
+        "name": "Oil",
+        "amount": 50.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "b2e41659-7f1f-4e48-92cb-ab35d69bf06a",
+        "name": "Baking Powder & Soda",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Whisk yogurt, sugar, oil, and vanilla extract until sugar dissolves.",
+      "Fold in sifted flour, baking powder, and pinch of salt.",
+      "Toss blueberries in 1 tsp dry flour (to prevent sinking) and gently fold into batter.",
+      "Divide batter into a 6-cup muffin tray lined with paper cups.",
+      "Bake at 180°C (350°F) for 20-22 minutes until tops spring back when lightly touched.",
+      "Cool for 5 minutes and enjoy warm."
+    ]
+  },
+  {
+    "id": "1f78429b-dcf7-4188-808c-56fb951b00ed",
+    "title": "Bakery Style Desi Atta Nankhatai",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Desi",
+      "Biscuits",
+      "Chai Partner"
+    ],
+    "prepTimeMinutes": 20,
+    "calories": 150,
+    "proteinGrams": 3,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "74c8de04-a20c-41a2-9762-22b01b6dc4db",
+        "name": "Desi Ghee (Semi-solid)",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3e420411-d830-404b-891a-5a2799483bb3",
+        "name": "Powdered Sugar",
+        "amount": 75.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "24003bf7-4618-4141-9f0d-d1ce19996279",
+        "name": "Whole Wheat Atta",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "599f75a9-d5a6-4e3b-8e31-c2cd2e3808bd",
+        "name": "Besan (Gram Flour)",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e52bb682-edee-46c6-91cd-a723d722cd60",
+        "name": "Sooji (Semolina)",
+        "amount": 20.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "876ddb4c-dbe1-44ae-b9c7-b61af553a4f6",
+        "name": "Cardamom Powder",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "cfbed56d-939b-4483-a2dc-822eba42d4d6",
+        "name": "Pistachios (Slivered)",
+        "amount": 15.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Cream ghee and powdered sugar together with a whisk for 5-7 minutes until pale, light, and fluffy.",
+      "Sift in wheat flour, besan, sooji, and cardamom powder.",
+      "Bring the dough together gently using your hands without hard kneading.",
+      "Roll into small lemon-sized balls, flatten slightly, and make a cross slit on top with a knife.",
+      "Press slivered pistachios in the center.",
+      "Bake at 160°C (320°F) for 15-18 minutes until the base turns golden. Cool completely to crisp up!"
+    ]
+  },
+  {
+    "id": "6527efbe-f3a8-4e79-b33d-b8864050e70b",
+    "title": "Garlic Rosemary Cheese Focaccia",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Artisan Bread",
+      "Italian",
+      "Cheesy"
+    ],
+    "prepTimeMinutes": 30,
+    "calories": 240,
+    "proteinGrams": 7,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "71eacb2b-53c1-47d5-8296-2ae503cb7e63",
+        "name": "Bread Flour / Maida",
+        "amount": 300.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "fcb98f7f-6b7b-45cf-bf3e-190f2d088640",
+        "name": "Extra Virgin Olive Oil",
+        "amount": 45.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "76583899-5408-4b6d-8097-1e70bbee526f",
+        "name": "Instant Yeast",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "5efa0002-c5f6-4a1d-9693-5914a42fa455",
+        "name": "Garlic Cloves (Sliced)",
+        "amount": 6.0,
+        "unit": "cloves",
+        "isChecked": false
+      },
+      {
+        "id": "161235ae-81a9-4c58-83c1-8759a0f920b9",
+        "name": "Fresh Rosemary Leaves",
+        "amount": 2.0,
+        "unit": "sprigs",
+        "isChecked": false
+      },
+      {
+        "id": "74307de4-bbf8-4dda-a4e0-07958465bfae",
+        "name": "Mozzarella / Parmesan",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "ea902929-cc06-45f9-85c1-b348d7c24c74",
+        "name": "Flaky Sea Salt",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Mix flour, yeast, salt, warm water, and olive oil into a high-hydration sticky dough.",
+      "Perform stretch-and-folds every 20 minutes for 1 hour, then let proof until bubbly.",
+      "Transfer dough into an olive oil coated baking dish and let expand.",
+      "Drizzle generously with olive oil and press your fingers deep into the dough to create iconic focaccia dimples.",
+      "Top with garlic slices, fresh rosemary, sea salt, and cheese.",
+      "Bake at 210°C (410°F) for 22-25 minutes until golden and crisp."
+    ]
+  },
+  {
+    "id": "5adfb5da-fcdc-477a-a95b-50f990771c7b",
+    "title": "Chewy Belgian Chocolate Chip Cookies",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Cookies",
+      "Chocolate",
+      "American Classic"
+    ],
+    "prepTimeMinutes": 18,
+    "calories": 190,
+    "proteinGrams": 3,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "20700274-76d3-4d33-aa0e-0c3ce92bb4bb",
+        "name": "Butter (Melted & Cooled)",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "aae18fb2-7b8c-4247-979f-b3ea024a5bd4",
+        "name": "Brown Sugar & White Sugar",
+        "amount": 90.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2bfe3f85-acca-44dd-a682-234acd75c0c9",
+        "name": "All-Purpose Flour",
+        "amount": 140.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "630efc7a-bdaa-4c62-bb97-7b0132ca236a",
+        "name": "Dark Chocolate Chips",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "250935fb-7a7d-42ae-88a7-03c815305b10",
+        "name": "Milk (for binding)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "4dac3592-8d6e-450d-9228-27e2b4892703",
+        "name": "Baking Soda & Salt",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Whisk melted butter with brown sugar and white sugar until completely emulsified.",
+      "Add milk and vanilla extract, whisking until smooth.",
+      "Fold in flour, baking soda, and salt until a cookie dough forms.",
+      "Fold in generous dark chocolate chips.",
+      "Scoop dough balls onto a baking sheet lined with parchment paper.",
+      "Bake at 175°C (350°F) for 10-12 minutes until edges are golden while centers stay soft and chewy."
+    ]
+  },
+  {
+    "id": "7f3608cd-8fe2-499a-a6ee-dace4824ade6",
+    "title": "Eggless Molten Choco Lava Cake",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Dessert",
+      "Chocolate",
+      "Cafe Style"
+    ],
+    "prepTimeMinutes": 15,
+    "calories": 320,
+    "proteinGrams": 5,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "bbe57e35-2efc-4868-961b-a4a4999c25bb",
+        "name": "Dark Chocolate (Compound/Couverture)",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "bdcc84e4-634e-4e62-93de-03b8e3c4c96f",
+        "name": "Butter",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "88453a5d-ba9f-4ab3-b4eb-edb63a006f86",
+        "name": "Warm Milk",
+        "amount": 60.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "6c0ac34f-fa2c-48b1-a6f0-1e2dd90c2e58",
+        "name": "Powdered Sugar",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1dbe5d83-9e00-460e-a64b-e9354ae9b111",
+        "name": "All-Purpose Flour",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "24c60cb5-9e28-4a73-bd68-c609e73f8151",
+        "name": "Cocoa Powder",
+        "amount": 10.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Melt dark chocolate and butter together until silky smooth.",
+      "Whisk in warm milk and powdered sugar.",
+      "Sift in flour and cocoa powder; gently fold into a smooth batter.",
+      "Pour into greased ramekins dusted with cocoa powder.",
+      "Bake at 200°C (400°F) for exactly 8-9 minutes until the sides are set but the center wobbles.",
+      "Invert onto a serving plate immediately and dust with powdered sugar. Spoon in to watch the molten chocolate lava flow!"
+    ]
+  },
+  {
+    "id": "2147c4e2-5aca-4d02-9f27-ba9195c1c33e",
+    "title": "Cinnamon Swirl Buns with Glaze",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Breads",
+      "Sweet",
+      "Breakfast"
+    ],
+    "prepTimeMinutes": 35,
+    "calories": 290,
+    "proteinGrams": 5,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "54cb3b2b-981b-43f0-9b32-b24bf85a360d",
+        "name": "Flour",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "22923484-ddd9-4f33-9b68-a73373f05e5d",
+        "name": "Yeast",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "dc1f7d80-8b6b-463c-b3bd-0ca5135cd554",
+        "name": "Brown Sugar",
+        "amount": 60.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "556c5d42-0792-4207-92af-bd97afd5732a",
+        "name": "Cinnamon Powder",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "f017740f-0836-4165-bf02-ed045e9f28fd",
+        "name": "Soft Butter",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "71ed1e6d-43cc-4ec8-b40e-d2deee3603c7",
+        "name": "Icing Sugar & Cream Cheese",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Knead soft yeast dough and proof for 1 hour until doubled.",
+      "Roll dough into a rectangle, spread softened butter, and sprinkle heavily with brown sugar and cinnamon.",
+      "Roll tightly into a log and slice into 8 round pinwheels using thread or knife.",
+      "Place rolls in a baking dish and let rise for 25 minutes.",
+      "Bake at 180°C (350°F) for 20-22 minutes until golden brown.",
+      "Drizzle warm rolls with cream cheese vanilla glaze."
+    ]
+  },
+  {
+    "id": "70b48655-ee1f-430d-972b-29c9e8349cd1",
+    "title": "Eggless Red Velvet Cupcakes",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Dessert",
+      "Cupcakes",
+      "Eggless"
+    ],
+    "prepTimeMinutes": 22,
+    "calories": 230,
+    "proteinGrams": 4,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "c233b356-a1a3-42bd-958a-0092353d6b58",
+        "name": "Flour",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c3f087fb-d6d6-44be-ac16-eeb9824e91c8",
+        "name": "Cocoa Powder",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "0b49e28e-8d23-44de-a338-46a3f6402173",
+        "name": "Curd / Buttermilk",
+        "amount": 120.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "5bd0610d-ac88-4742-8e59-8b66b3f33919",
+        "name": "Oil",
+        "amount": 50.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "8f2fb4b4-aa5a-4b49-b5b7-b919a5302778",
+        "name": "Red Food Coloring",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "a50b313b-7ccf-4214-9130-edfa52c36345",
+        "name": "Vinegar & Baking Soda",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Whisk buttermilk, sugar, oil, vanilla, and red coloring until vibrant.",
+      "Sift in flour and cocoa powder; mix gently.",
+      "Add baking soda and vinegar together (it will fizz) and immediately fold into batter.",
+      "Divide into cupcake liners.",
+      "Bake at 170°C (340°F) for 18-20 minutes.",
+      "Top with whipped cream or cream cheese swirl."
+    ]
+  },
+  {
+    "id": "e2dccb7a-92d5-44cf-8238-11ba5c41d955",
+    "title": "Spiced Carrot Walnut Loaf Cake",
+    "category": "Bakery",
+    "diet": "Non-Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Traditional",
+      "Spiced",
+      "With Eggs"
+    ],
+    "prepTimeMinutes": 35,
+    "calories": 260,
+    "proteinGrams": 6,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "6561a082-1356-49ef-af8c-16250891942e",
+        "name": "Finely Grated Carrots",
+        "amount": 180.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0045188d-24bf-4723-808f-756e087f2c78",
+        "name": "Whole Eggs",
+        "amount": 2.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "ecca86a2-8710-4838-83bd-272695acfe4c",
+        "name": "Flour",
+        "amount": 160.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e1b49b0b-151a-4187-9bf0-b2321c078270",
+        "name": "Brown Sugar",
+        "amount": 90.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "65413b35-7087-4979-a80c-914b64ec6d0f",
+        "name": "Vegetable Oil",
+        "amount": 60.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "1f1c1099-e624-48c5-a655-a78daf4c4c2b",
+        "name": "Cinnamon & Nutmeg",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "bded470b-e204-483e-948f-0401ca9cdbec",
+        "name": "Toasted Walnuts",
+        "amount": 35.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Beat eggs with brown sugar and oil until thick and pale.",
+      "Fold in sifted flour, baking powder, cinnamon, and nutmeg.",
+      "Gently fold in grated carrots and chopped walnuts.",
+      "Pour into a lined loaf tin.",
+      "Bake at 175°C (350°F) for 35 minutes until a skewer tests clean.",
+      "Cool and serve with hot tea or coffee."
+    ]
+  },
+  {
+    "id": "ac572990-91ba-43ab-a492-f83572ebde1f",
+    "title": "Authentic Flaky French Croissants",
+    "category": "Bakery",
+    "diet": "Non-Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "French",
+      "Breakfast",
+      "Laminated"
+    ],
+    "prepTimeMinutes": 40,
+    "calories": 290,
+    "proteinGrams": 6,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "d374e3d7-caeb-4483-803d-36e6920ea782",
+        "name": "Bread Flour",
+        "amount": 250.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "21455154-6e8d-4469-a668-db181cafa7a3",
+        "name": "European Unsalted Butter",
+        "amount": 130.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "bb22e5da-813d-447c-aa0c-b0767f9a2eac",
+        "name": "Yeast & Milk",
+        "amount": 140.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "85d8abb1-2ba9-41b9-bb27-b878a7dbac9d",
+        "name": "Sugar & Salt",
+        "amount": 25.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "a81bd139-1ffd-4bb6-ba49-ee1415f689fb",
+        "name": "Egg (for Egg Wash)",
+        "amount": 1.0,
+        "unit": "egg",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Knead chilled dough and encase butter block; laminate with 3 single folds, chilling between each turn.",
+      "Roll laminated sheet thin and slice into long isosceles triangles.",
+      "Gently stretch base and roll tightly into crescent horns.",
+      "Proof for 1.5 hours at 24°C until doubled and jiggly.",
+      "Brush gently with beaten egg wash.",
+      "Bake at 200°C (400°F) for 18-20 minutes until deeply golden, flaky, and caramelized."
+    ]
+  },
+  {
+    "id": "d8c513df-3840-433b-8df8-90e9f4ac49db",
+    "title": "Crispy Veg Potato Puff Patties",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Street Food",
+      "Desi Puff",
+      "Savory"
+    ],
+    "prepTimeMinutes": 25,
+    "calories": 220,
+    "proteinGrams": 5,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "e62edf67-fd99-44c0-b183-d85603f2bdca",
+        "name": "Puff Pastry Sheets",
+        "amount": 6.0,
+        "unit": "sheets",
+        "isChecked": false
+      },
+      {
+        "id": "bb5f982c-1051-4e69-82c8-5a3e3c6fb699",
+        "name": "Boiled Potatoes (Diced)",
+        "amount": 2.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "4f003e5c-ddad-4b90-aa86-003d2581a580",
+        "name": "Green Peas & Carrots",
+        "amount": 60.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f20d2664-bd18-46b8-9cc1-beaf0e7e5ae6",
+        "name": "Garam Masala & Amchur",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "3cdbf4aa-c2ff-4b46-aa96-86d0cae3d3ca",
+        "name": "Green Chillies & Ginger",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Sauté ginger, chillies, peas, and potatoes with turmeric, amchur, and garam masala to make savory filling.",
+      "Cut puff pastry sheets into squares and place a spoonful of filling in the center.",
+      "Fold diagonally into triangles, sealing edges firmly with a fork.",
+      "Brush with milk and arrange on a lined baking tray.",
+      "Bake at 200°C (400°F) for 20-22 minutes until puffed, ultra-flaky, and crisp.",
+      "Serve hot with tangy tamarind chutney or tomato ketchup."
+    ]
+  },
+  {
+    "id": "2de3dc3c-cd35-4a9c-926c-db8c93dfab34",
+    "title": "Old-School Tutti Frutti Tea Cake",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Breakfast"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Tea Cake",
+      "Desi Bakery",
+      "Eggless"
+    ],
+    "prepTimeMinutes": 30,
+    "calories": 190,
+    "proteinGrams": 3,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "59b8a3e9-7386-46d4-bf72-cb5f1d629b20",
+        "name": "All-Purpose Flour",
+        "amount": 160.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "662ac294-ffc6-4a1a-9d89-78b0ae9ffbe7",
+        "name": "Tutti Frutti (Candied Papaya)",
+        "amount": 60.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b7fd9d12-edc1-4f81-ae8e-972e79699f73",
+        "name": "Condensed Milk / Curd",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "bb988490-e0ea-4a3e-a12a-a11cd42df61b",
+        "name": "Melted Butter",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "07e67e50-009f-4670-97ff-472d3024a6ad",
+        "name": "Pineapple or Vanilla Essence",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "27afff59-0c41-42fc-af1f-d4448ffc6a33",
+        "name": "Baking Powder",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Toss tutti frutti in 1 tbsp flour to prevent them from sinking to the bottom.",
+      "Whisk condensed milk, melted butter, milk, and pineapple essence until smooth.",
+      "Fold in flour and baking powder, then fold in colorful tutti frutti.",
+      "Transfer into a parchment-lined loaf pan.",
+      "Bake at 170°C (340°F) for 28-30 minutes.",
+      "Cool, slice into bakery-style rectangles, and enjoy with evening chai."
+    ]
+  },
+  {
+    "id": "0be3ede0-3105-42d5-b8dc-9914c2b84036",
+    "title": "Tandoori Paneer Stuffed Calzone Bread",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Dinner",
+      "Lunch",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Fusion",
+      "High-Protein",
+      "Cheesy"
+    ],
+    "prepTimeMinutes": 25,
+    "calories": 290,
+    "proteinGrams": 14,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "76f047a0-9c58-44c1-8b7f-2731cbfc917d",
+        "name": "Bread Dough / Pizza Dough",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "b263ed1c-cff9-4dce-9fcf-b2217b3c85d5",
+        "name": "Paneer Cubes (Marinated)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c9da2e16-48a1-47db-9da0-f06ce57280ad",
+        "name": "Capsicum & Onion Slices",
+        "amount": 60.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "8c138b17-e94b-426f-bc0d-526cb6704519",
+        "name": "Tandoori Masala & Ghee",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "63bd1093-f6f8-43c4-a30f-562624389175",
+        "name": "Shredded Mozzarella",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Toss paneer cubes and veggies in tandoori spices and sauté lightly.",
+      "Roll bread dough into a 10-inch circle.",
+      "Spread paneer filling and cheese across half the circle.",
+      "Fold the other half over and crimp edges tightly to seal into a half-moon calzone.",
+      "Cut 2 steam vents on top and brush with garlic butter.",
+      "Bake at 220°C (425°F) for 15 minutes until bubbly, golden brown, and crisp."
+    ]
+  },
+  {
+    "id": "0efdb351-f289-4496-a6f6-1874e515d66f",
+    "title": "Eggless Dark Chocolate Ganache Tart",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Dessert",
+      "Chocolate",
+      "Gourmet"
+    ],
+    "prepTimeMinutes": 25,
+    "calories": 310,
+    "proteinGrams": 5,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "dffc6e1c-90f8-4a29-8481-cc61af458ab9",
+        "name": "Digestive Biscuits (Crushed)",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "619957af-0b87-4bb3-88d5-37fc78168b2f",
+        "name": "Melted Butter",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "fb9c3a75-0af2-4a41-84b1-e2c47e3bb385",
+        "name": "Dark Chocolate 70%",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c79400bc-6899-47c4-8a61-05226181e6fa",
+        "name": "Fresh Cream / Amul Cream",
+        "amount": 120.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "d0947214-200e-4776-be25-dfdb41ba0afa",
+        "name": "Sea Salt Flakes",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Mix crushed biscuits with melted butter and press firmly into a tart tin base; chill for 15 minutes.",
+      "Heat cream until steaming (do not boil) and pour over chopped dark chocolate.",
+      "Let sit for 2 minutes, then whisk gently until a glossy, rich ganache forms.",
+      "Pour silky chocolate ganache into the chilled crust.",
+      "Refrigerate for 2 hours until set.",
+      "Sprinkle with flaky sea salt and slice into luxurious wedges."
+    ]
+  },
+  {
+    "id": "5290487b-c731-483d-b0c0-1fee1d768885",
+    "title": "Basbousa (Semolina Coconut Cake)",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Middle Eastern",
+      "Dessert",
+      "Eggless"
+    ],
+    "prepTimeMinutes": 30,
+    "calories": 220,
+    "proteinGrams": 4,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "87d1fe31-7723-4f34-a996-22d8098ed2be",
+        "name": "Sooji (Semolina)",
+        "amount": 180.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "de2c67c0-307d-4994-924b-82b342adf41f",
+        "name": "Desiccated Coconut",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "71eb5764-d697-446b-bd83-25ca97aa17bd",
+        "name": "Yogurt / Curd",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "191eb6dd-1171-499d-a5f3-9faac0a6f093",
+        "name": "Melted Ghee",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "03f93d71-88ee-4cf0-8ac6-36a2e17f12ee",
+        "name": "Rose Water & Sugar Syrup",
+        "amount": 100.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "bd48ae26-ee66-4e0c-b161-b9314afdc1e1",
+        "name": "Whole Almonds",
+        "amount": 12.0,
+        "unit": "nuts",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Mix semolina, coconut, sugar, yogurt, and melted ghee into a thick batter.",
+      "Spread evenly into a greased baking pan.",
+      "Score diamond patterns with a knife and place a whole almond in each diamond center.",
+      "Bake at 180°C (350°F) for 28-30 minutes until golden.",
+      "Pour warm rose-flavored sugar syrup evenly over the hot cake.",
+      "Let syrup absorb fully before serving at room temperature."
+    ]
+  },
+  {
+    "id": "98d01366-d0e3-4cd5-bb07-125ec5a01112",
+    "title": "Spinach & Feta Cheese Savory Quiche",
+    "category": "Bakery",
+    "diet": "Non-Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Lunch"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Savory",
+      "High-Protein",
+      "With Eggs"
+    ],
+    "prepTimeMinutes": 35,
+    "calories": 280,
+    "proteinGrams": 12,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "fd556ce6-70c5-4d26-93c3-b8def7f2f72d",
+        "name": "Shortcrust Pastry",
+        "amount": 1.0,
+        "unit": "sheet",
+        "isChecked": false
+      },
+      {
+        "id": "1c31a909-d23b-4515-8217-f7145ee1563c",
+        "name": "Whole Eggs",
+        "amount": 3.0,
+        "unit": "large",
+        "isChecked": false
+      },
+      {
+        "id": "d26f358c-76f7-4b64-8d2d-245131923185",
+        "name": "Milk & Cream",
+        "amount": 100.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "3a7486ad-8d29-4339-9614-a3870f69ad32",
+        "name": "Baby Spinach (Sautéed)",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "15caa2c1-ccaa-44c7-bce5-488bf68480d3",
+        "name": "Feta Cheese (Crumbled)",
+        "amount": 60.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "fe5718d5-ca8c-41ee-aca5-eff3f7751cd6",
+        "name": "Nutmeg & Black Pepper",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Blind bake shortcrust pastry in a tart tin at 190°C for 10 minutes.",
+      "Whisk eggs, milk, cream, pinch of nutmeg, salt, and pepper.",
+      "Layer sautéed garlic spinach and crumbled feta in the pre-baked tart shell.",
+      "Pour the egg custard gently over the filling.",
+      "Bake at 175°C (350°F) for 25 minutes until custard is set and golden.",
+      "Cool slightly, slice and serve with a fresh salad."
+    ]
+  },
+  {
+    "id": "ec0b18df-48f7-4aa0-a0ae-62e1b8c7aa20",
+    "title": "Cranberry Orange Zest Scones",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Breakfast",
+      "Tea Partner",
+      "Eggless"
+    ],
+    "prepTimeMinutes": 22,
+    "calories": 210,
+    "proteinGrams": 4,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "0eb48f27-ab85-4686-b587-01148fae843a",
+        "name": "Flour",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "2f2955eb-3aa8-4a98-a10a-640c6594744e",
+        "name": "Cold Butter (Cubed)",
+        "amount": 60.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "dda6226c-efff-404d-bc23-2fab0c8aadbf",
+        "name": "Dried Cranberries",
+        "amount": 40.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "7373e872-dbc6-4de1-a60b-87a9e9c03312",
+        "name": "Fresh Orange Zest",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "12175525-f15c-4d69-9333-25ba14919cb8",
+        "name": "Cold Milk",
+        "amount": 80.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "55649893-00b1-4a18-8426-91b0f09af5ca",
+        "name": "Baking Powder",
+        "amount": 2.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Rub cold cubed butter into flour and baking powder using fingertips until pea-sized crumbs form.",
+      "Toss in dried cranberries, orange zest, and sugar.",
+      "Add cold milk and gently bring dough together into a round disc without overworking.",
+      "Cut disc into 6 triangular wedges.",
+      "Brush tops with milk and sprinkle with coarse sugar.",
+      "Bake at 200°C (400°F) for 16-18 minutes until golden and flaky."
+    ]
+  },
+  {
+    "id": "79581158-0cf2-4691-b1e6-c540c9881c3a",
+    "title": "Rustic Artisan Sourdough Bread",
+    "category": "Bakery",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Bakery",
+      "Artisan",
+      "Healthy",
+      "Breads"
+    ],
+    "prepTimeMinutes": 45,
+    "calories": 180,
+    "proteinGrams": 7,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "8d59a4d9-d512-49c1-8cda-ca8fa3d47365",
+        "name": "High Protein Bread Flour",
+        "amount": 350.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "e1747c26-3d99-40ce-ab5d-89ca3501f961",
+        "name": "Whole Wheat Flour",
+        "amount": 50.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "1ecf5892-0ea1-4aae-b38e-a03cbc528f0c",
+        "name": "Water",
+        "amount": 300.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "822b5066-aa86-4ab3-a332-d280609da68f",
+        "name": "Active Sourdough Starter / Yeast",
+        "amount": 80.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "df197f99-5862-4b6f-89b5-7a59232a6aa4",
+        "name": "Sea Salt",
+        "amount": 8.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Autolyse flours and water for 30 minutes, then fold in active starter and salt.",
+      "Perform 4 stretch-and-folds over 2 hours, then bulk ferment until airy and pillowy.",
+      "Shape into a tight boule and place in a proofing basket; cold ferment overnight in fridge.",
+      "Score the loaf with a blade.",
+      "Bake in a preheated Dutch oven at 230°C (450°F) with lid on for 20 minutes, then lid off for 15 minutes for a deep golden crust.",
+      "Cool for at least 1 hour before slicing to reveal open airy crumb."
+    ]
+  },
+  {
+    "id": "5ea958b9-9adf-4841-944e-7461fd88d0c1",
+    "title": "Authentic South Indian Filter Coffee (Kaapi)",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Coffee",
+      "South Indian",
+      "Traditional"
+    ],
+    "prepTimeMinutes": 8,
+    "calories": 110,
+    "proteinGrams": 4,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "f3dd5687-bbdb-4331-a99a-e57462354f90",
+        "name": "Filter Coffee Powder (80:20 Chicory Blend)",
+        "amount": 3.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "c4ea18eb-0a58-4661-9b55-411e14785c4d",
+        "name": "Boiling Hot Water",
+        "amount": 100.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "52d0aa7b-a0b7-401f-99b4-f455f73b429d",
+        "name": "Full Cream Milk (Boiled)",
+        "amount": 150.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "9892099c-24f8-4a07-99ab-3c21ed1f9793",
+        "name": "Raw Sugar / Jaggery",
+        "amount": 1.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Add coffee powder into top container of the brass coffee filter; press down lightly with the pressing disc.",
+      "Pour boiling water over the disc and close lid; let dark aromatic decoction drip through for 10 minutes.",
+      "In a traditional davarah/tumbler, add sugar and 40ml of hot freshly brewed decoction.",
+      "Pour boiling, frothy full cream milk from a height.",
+      "Pour back and forth between dabarah and tumbler to aerate and build thick velvety froth. Serve piping hot!"
+    ]
+  },
+  {
+    "id": "c72a5eeb-d94f-4d3b-849f-6bfb77a6b8a9",
+    "title": "Dhaba Kadak Masala Chai",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Tea",
+      "Desi",
+      "Immunity"
+    ],
+    "prepTimeMinutes": 10,
+    "calories": 95,
+    "proteinGrams": 3,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "91f9dddb-7ba9-4314-bb9e-c8164979c3a9",
+        "name": "Strong CTC Black Tea Leaves",
+        "amount": 2.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "6460b65e-90c2-4620-9a17-0f0f8b7c3b0c",
+        "name": "Fresh Ginger (Crushed)",
+        "amount": 1.0,
+        "unit": "inch",
+        "isChecked": false
+      },
+      {
+        "id": "3d972dee-3d99-45fc-9c1a-c974db882687",
+        "name": "Green Cardamom (Cracked)",
+        "amount": 3.0,
+        "unit": "pods",
+        "isChecked": false
+      },
+      {
+        "id": "9fb38756-d736-4922-81e1-98a404a83305",
+        "name": "Cloves & Cinnamon Stick",
+        "amount": 1.0,
+        "unit": "piece",
+        "isChecked": false
+      },
+      {
+        "id": "4b240c56-23cd-480b-a309-bc8521534cdb",
+        "name": "Black Peppercorns",
+        "amount": 3.0,
+        "unit": "corns",
+        "isChecked": false
+      },
+      {
+        "id": "89d84d24-3cf1-4bfd-a693-75411af6859e",
+        "name": "Water",
+        "amount": 150.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "e9593595-c1ec-4a61-9ad9-2fbbd0de2128",
+        "name": "Milk",
+        "amount": 100.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "e27a7fe2-d581-4349-99b8-5cbb9d920739",
+        "name": "Sugar",
+        "amount": 2.0,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Coarsely crush ginger, cardamom, cloves, and peppercorns in a mortar pestle.",
+      "Boil water in a saucepan with crushed spices for 3 minutes until flavors infuse and color deepens.",
+      "Add CTC black tea leaves and simmer for 2 minutes on medium flame.",
+      "Pour in milk and sugar; bring to a rolling boil.",
+      "Simmer on low-medium flame for 3 minutes, letting the tea rise and fall twice for a rich, kadak body.",
+      "Strain through a sieve into cutting glasses or kulhads and serve hot!"
+    ]
+  },
+  {
+    "id": "e5b0a602-2a2b-4479-b481-16456b42acbe",
+    "title": "Mumbai Tapri Cutting Chai (Adrak Elaichi)",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Chai",
+      "Street Style",
+      "Quick"
+    ],
+    "prepTimeMinutes": 7,
+    "calories": 80,
+    "proteinGrams": 2,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "0da02ee0-3d50-46e5-b54e-4975fe4e8da6",
+        "name": "Assam Tea Powder",
+        "amount": 1.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "1bb69d2f-6fc8-4af8-a481-bbb2eb1eb185",
+        "name": "Fresh Ginger (Pounded)",
+        "amount": 1.5,
+        "unit": "inch",
+        "isChecked": false
+      },
+      {
+        "id": "e9aa72ef-c7ca-4e27-92fd-231644a90ef4",
+        "name": "Cardamom Pods",
+        "amount": 2.0,
+        "unit": "pods",
+        "isChecked": false
+      },
+      {
+        "id": "9dacb458-44c0-4c0e-a9d7-2d790dad1c23",
+        "name": "Equal parts Milk and Water",
+        "amount": 200.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "f8bcde0f-0bee-4c42-aa6e-bff4617f2e22",
+        "name": "Sugar",
+        "amount": 1.5,
+        "unit": "tsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil water with pounded ginger and cardamom for 2 minutes.",
+      "Add tea powder and milk together.",
+      "Boil vigorously on high heat for 3 minutes until aromatic and rich caramel in color.",
+      "Strain into half-filled cutting tea glasses and enjoy with Parle-G or bun maska."
+    ]
+  },
+  {
+    "id": "cb79f560-7d24-418a-8ed5-0672e86e9c94",
+    "title": "Royal Kashmiri Saffron Kahwa",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Tea",
+      "Kashmiri",
+      "Detox"
+    ],
+    "prepTimeMinutes": 10,
+    "calories": 55,
+    "proteinGrams": 1,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "0bd13838-5110-460e-ac35-fc70593957cd",
+        "name": "Kashmiri Green Tea Leaves",
+        "amount": 1.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "2f40ecd3-ad41-4479-bf3d-2ae2b419330c",
+        "name": "Pure Saffron Strands (Kesar)",
+        "amount": 8.0,
+        "unit": "strands",
+        "isChecked": false
+      },
+      {
+        "id": "9d017e3b-f690-4b09-911c-fbfa03e14451",
+        "name": "Cardamom Pods & Cinnamon",
+        "amount": 2.0,
+        "unit": "pods",
+        "isChecked": false
+      },
+      {
+        "id": "43b37bd0-12ff-4138-9d98-c112492eeb02",
+        "name": "Almonds (Blanched & Slivers)",
+        "amount": 10.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "7a8b7e82-b563-4ebf-b98e-6515e43b62a7",
+        "name": "Water",
+        "amount": 300.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "3d9cbd2d-3015-4be1-8b65-b7bcac4e6da8",
+        "name": "Honey or Rock Sugar",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil water in a pot with crushed cardamom and cinnamon stick for 3 minutes.",
+      "Add green tea leaves and remove from heat; let steep covered for 3 minutes.",
+      "In cups, place saffron strands, slivered almonds, and honey.",
+      "Strain the hot amber tea into the cups.",
+      "Watch saffron release golden hues and stir gently. Sip warm for soothing digestive luxury."
+    ]
+  },
+  {
+    "id": "de64a00c-0923-45a1-8b8f-3bf981aac1f4",
+    "title": "Cafe Style Frappé (Cold Coffee with Ice Cream)",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Breakfast"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Coffee",
+      "Chilled",
+      "Creamy"
+    ],
+    "prepTimeMinutes": 5,
+    "calories": 240,
+    "proteinGrams": 6,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "cf2eccb8-3307-4a12-aa49-9566b70b015c",
+        "name": "Instant Coffee Powder",
+        "amount": 2.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "66adfcc9-1545-4663-a1eb-a1bc36fcdaa3",
+        "name": "Warm Water (to dissolve coffee)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "45c5134a-e029-4073-bf85-fb2c42a1c83d",
+        "name": "Chilled Whole Milk",
+        "amount": 200.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "22a3bc70-7a17-4268-930b-82d1586ebc79",
+        "name": "Vanilla Ice Cream",
+        "amount": 1.0,
+        "unit": "large scoop",
+        "isChecked": false
+      },
+      {
+        "id": "ee4f2072-6f59-43c8-98fe-2c07775d8cfe",
+        "name": "Sugar",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "3e658e09-ebcf-4423-9d9f-9b92e5a343c2",
+        "name": "Ice Cubes",
+        "amount": 4.0,
+        "unit": "cubes",
+        "isChecked": false
+      },
+      {
+        "id": "e0479fcf-b32b-4803-b031-2b7bc2941e5f",
+        "name": "Chocolate Syrup",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Dissolve coffee powder and sugar in warm water.",
+      "Add coffee mixture, chilled milk, ice cubes, and half the vanilla scoop into a blender.",
+      "Blend on high speed for 45-60 seconds until thick, frothy, and creamy.",
+      "Drizzle chocolate syrup on the inside walls of a tall glass.",
+      "Pour cold coffee in, top with remaining scoop of vanilla ice cream, and dust with coffee powder."
+    ]
+  },
+  {
+    "id": "693bfa3a-482d-422e-bd0b-88f3cf2af841",
+    "title": "Iced Caramel Vanilla Macchiato",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Breakfast"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Coffee",
+      "Iced",
+      "Cafe Favorite"
+    ],
+    "prepTimeMinutes": 5,
+    "calories": 160,
+    "proteinGrams": 4,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "daeddc41-1cc6-4f0a-a727-8896c9993165",
+        "name": "Espresso or Strong Brewed Coffee",
+        "amount": 60.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "76c9aa47-ca98-48c2-a7a7-48e31d2d475a",
+        "name": "Chilled Milk / Oat Milk",
+        "amount": 180.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "e56e8565-614b-498e-87e1-f279782e31a2",
+        "name": "Vanilla Syrup",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "7bec170d-c891-4ef4-a56d-d3f5aaceacb7",
+        "name": "Caramel Drizzle Sauce",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "bbd061e9-072b-4925-b10b-282ea065121a",
+        "name": "Ice Cubes",
+        "amount": 1.0,
+        "unit": "cup",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Add vanilla syrup to bottom of a glass, then fill glass to the top with ice cubes.",
+      "Pour chilled milk over the ice.",
+      "Slowly pour hot espresso or concentrated coffee directly over the center of the milk for distinct aesthetic layers.",
+      "Drizzle top generously with buttery caramel sauce.",
+      "Serve layered with a straw."
+    ]
+  },
+  {
+    "id": "57e812d9-a40b-4e8d-918f-c0f918e1f5e6",
+    "title": "Bistro Fresh Lemon Mint Iced Tea",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Lunch"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Iced Tea",
+      "Refreshing",
+      "Summer"
+    ],
+    "prepTimeMinutes": 8,
+    "calories": 70,
+    "proteinGrams": 0,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "00f87ac6-73d2-42ee-a109-866902f0ee31",
+        "name": "Black Tea Leaves / Bags",
+        "amount": 2.0,
+        "unit": "bags",
+        "isChecked": false
+      },
+      {
+        "id": "26f41dd5-f9f7-4fbf-a294-4b881c4fb62f",
+        "name": "Fresh Lemon Juice",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "0f954838-49f7-4d12-9cfd-648f580be302",
+        "name": "Fresh Mint Leaves",
+        "amount": 10.0,
+        "unit": "leaves",
+        "isChecked": false
+      },
+      {
+        "id": "99f6d01c-9a0f-45f8-8d38-80ac9c1cf0f5",
+        "name": "Honey or Sugar Syrup",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "156c6958-63e9-456b-a8f9-f3882e1bdd9f",
+        "name": "Ice Cubes & Lemon Slices",
+        "amount": 1.0,
+        "unit": "glass",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Steep black tea in 200ml hot water for 4 minutes; discard tea bag and cool completely.",
+      "In a tall glass, lightly muddle mint leaves with lemon juice and honey.",
+      "Fill glass with ice cubes and lemon slices.",
+      "Pour brewed chilled tea over the ice.",
+      "Stir gently and garnish with a fresh sprig of mint."
+    ]
+  },
+  {
+    "id": "be309965-d01c-42b8-a26b-fb415b926352",
+    "title": "Summer Peach & Basil Iced Tea",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Iced Tea",
+      "Fruity",
+      "Cooler"
+    ],
+    "prepTimeMinutes": 8,
+    "calories": 85,
+    "proteinGrams": 0,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "02aaa50e-b381-4fb6-b86c-526c83199fca",
+        "name": "Peach Puree / Slices",
+        "amount": 60.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "88522b83-4dc3-4b17-9922-0f17303e6b93",
+        "name": "Brewed Black Tea (Chilled)",
+        "amount": 200.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "0a2ff726-f688-41dc-a2fa-08782922f9ba",
+        "name": "Fresh Basil Leaves",
+        "amount": 4.0,
+        "unit": "leaves",
+        "isChecked": false
+      },
+      {
+        "id": "72f0e1ee-e6e9-407b-9e1f-8679c55b1dc3",
+        "name": "Lemon Juice",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "b84d68f0-fa37-4f27-93af-fa11f93c4e14",
+        "name": "Honey",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Lightly muddle peach slices, basil leaves, and lemon juice with honey in a shaker.",
+      "Add chilled brewed tea and ice cubes.",
+      "Shake vigorously for 15 seconds.",
+      "Pour into a chilled glass over fresh ice.",
+      "Garnish with a fresh peach wedge and basil leaf."
+    ]
+  },
+  {
+    "id": "da3efed6-58a0-486e-9be0-6e4c7a8efc4e",
+    "title": "Thick Punjabi Sweet Mango Lassi",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Lunch",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Lassi",
+      "Desi Classic",
+      "Yogurt"
+    ],
+    "prepTimeMinutes": 5,
+    "calories": 260,
+    "proteinGrams": 8,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "9a15727f-c134-41c3-ae46-51e063b275f4",
+        "name": "Thick Fresh Curd / Greek Yogurt",
+        "amount": 200.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "683bc486-e25f-475e-a28f-34167782f0ff",
+        "name": "Alphonso Mango Pulp",
+        "amount": 120.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "12c09308-11a1-453d-b43a-270a8126e075",
+        "name": "Cardamom Powder",
+        "amount": 0.25,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "f33d741b-c9fa-4207-ba8d-61296e1d39c8",
+        "name": "Sugar",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "7a1c7e56-60e4-4ede-99a3-701bd150aec3",
+        "name": "Saffron Strands & Pistachios",
+        "amount": 1.0,
+        "unit": "pinch",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Combine thick chilled yogurt, mango pulp, sugar, and cardamom powder in a blender or traditional mathani (churner).",
+      "Blend on low-medium speed for 30 seconds until rich, velvety smooth, and creamy (do not overblend).",
+      "Pour into earthen clay kulhads or glasses.",
+      "Garnish with saffron strands, chopped pistachios, and fresh mango cubes. Serve chilled!"
+    ]
+  },
+  {
+    "id": "29e34bc5-1361-42a8-8091-261f723cda04",
+    "title": "Bhuna Jeera Masala Chaas (Spiced Buttermilk)",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Lunch",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Digestive",
+      "Low-Calorie",
+      "Desi"
+    ],
+    "prepTimeMinutes": 5,
+    "calories": 45,
+    "proteinGrams": 3,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "8166c8b4-e21c-48d7-b426-b1da80170d1b",
+        "name": "Fresh Curd (Dahi)",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "0b29c434-61ec-408b-af1a-55e09bef90a4",
+        "name": "Chilled Water",
+        "amount": 200.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "f6d609c9-8630-4445-8530-9ca2a52c7775",
+        "name": "Roasted Cumin Powder (Bhuna Jeera)",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "acf2dac5-c42e-4674-976a-c38932161938",
+        "name": "Kala Namak (Black Salt)",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "6c773f12-accd-411f-b190-e292e94a8726",
+        "name": "Green Chilli & Ginger (Finely Crushed)",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "4c6739d5-1b82-4dda-8d46-8f341cd58e45",
+        "name": "Fresh Mint & Coriander",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Blend curd, chilled water, roasted cumin powder, black salt, and ginger-chilli paste until frothy.",
+      "Toss in finely chopped mint and coriander leaves.",
+      "Pour into tall glasses over ice cubes.",
+      "Sprinkle a pinch of roasted jeera on top and serve after a hearty Indian meal for flawless digestion."
+    ]
+  },
+  {
+    "id": "40b590eb-bf11-431b-87d3-7056a3a56c4b",
+    "title": "Pune Special Mango Mastani Thick Shake",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Shakes",
+      "Iconic",
+      "Dessert"
+    ],
+    "prepTimeMinutes": 8,
+    "calories": 360,
+    "proteinGrams": 9,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "d52ef294-0e57-425e-ad84-317017d86cfb",
+        "name": "Mango Pulp",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "3b2968c3-bc04-453f-a6ce-ae9476191ffb",
+        "name": "Chilled Full Cream Milk",
+        "amount": 150.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "9bfbb29e-bb71-46be-9305-e28b98035994",
+        "name": "Vanilla or Mango Ice Cream",
+        "amount": 2.0,
+        "unit": "scoops",
+        "isChecked": false
+      },
+      {
+        "id": "f058304c-56b5-4ba1-9092-58d8182b2893",
+        "name": "Tutti Frutti & Glazed Cherries",
+        "amount": 15.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "91692c86-b6cd-4778-9aa4-ea6d397fc062",
+        "name": "Cashews & Almonds (Chopped)",
+        "amount": 15.0,
+        "unit": "g",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Blend mango pulp, chilled milk, and 1 scoop of ice cream until super thick and luxurious.",
+      "Pour the thick shake into a large glass.",
+      "Top with a second large scoop of ice cream.",
+      "Crown with chopped cashews, almonds, tutti frutti, and a bright red glazed cherry.",
+      "Serve with both a spoon and a straw!"
+    ]
+  },
+  {
+    "id": "bdff4592-359e-4fb9-8dcf-7e62ab0c8f74",
+    "title": "Shahi Royal Badam Kesar Milk",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Nourishing",
+      "Royal",
+      "High-Protein"
+    ],
+    "prepTimeMinutes": 12,
+    "calories": 210,
+    "proteinGrams": 9,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "313ccc91-95a6-467f-9ceb-a62a8d4fe96e",
+        "name": "Raw Almonds (Soaked & Peeled)",
+        "amount": 20.0,
+        "unit": "nuts",
+        "isChecked": false
+      },
+      {
+        "id": "df191e35-f3ec-43cd-af61-59792b6405ab",
+        "name": "Whole Milk",
+        "amount": 250.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "6f25a426-5b8a-43f1-b607-3886662ed8b2",
+        "name": "Kashmiri Saffron (Kesar)",
+        "amount": 8.0,
+        "unit": "strands",
+        "isChecked": false
+      },
+      {
+        "id": "a0d91610-040a-4278-87e9-ff400f4922e7",
+        "name": "Cardamom Powder",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "8054c4fb-674a-42c6-b333-8ac85ea66542",
+        "name": "Sugar / Honey",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Blend soaked peeled almonds with 3 tbsp warm milk into a fine, silky paste.",
+      "Bring whole milk to a boil in a heavy pot.",
+      "Add the almond paste, saffron strands, and sugar.",
+      "Simmer on low flame for 6-8 minutes, stirring continuously so milk thickens.",
+      "Finish with cardamom powder and slivered pistachios.",
+      "Serve warm in winter or chilled in summer!"
+    ]
+  },
+  {
+    "id": "beba699a-fc22-4949-a260-370e0bfcec87",
+    "title": "Banarasi Shahi Thandai",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Festive",
+      "Cooling",
+      "Heritage"
+    ],
+    "prepTimeMinutes": 15,
+    "calories": 240,
+    "proteinGrams": 7,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "4ec14415-44bf-4f61-b05f-a11961358d6a",
+        "name": "Almonds & Cashews (Soaked)",
+        "amount": 25.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "c341fb61-d86f-409e-99e2-8d4db2f2ffcd",
+        "name": "Khus Khus (Poppy Seeds)",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "d8b2f22f-64df-4aa1-b1aa-68c405ce941f",
+        "name": "Fennel Seeds (Saunf)",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "cf8c938c-375f-4ac1-a4ea-e1a2f5e089e7",
+        "name": "Black Peppercorns",
+        "amount": 6.0,
+        "unit": "corns",
+        "isChecked": false
+      },
+      {
+        "id": "9db4c9f1-fa84-4452-a75a-23a7c988bdab",
+        "name": "Rose Petals & Saffron",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "af8238fb-10a4-486a-bc70-f7b3c4c856a8",
+        "name": "Chilled Full Cream Milk",
+        "amount": 250.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "a615f30d-683f-4900-825d-3b496a969a7f",
+        "name": "Sugar",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Soak almonds, cashews, poppy seeds, fennel seeds, peppercorns, and rose petals in warm water for 2 hours.",
+      "Grind into an ultra-smooth, fragrant spice-nut paste.",
+      "Whisk the paste with chilled milk and sugar until thoroughly dissolved.",
+      "Strain through a fine muslin cloth or sieve for a velvety texture.",
+      "Serve chilled over crushed ice, garnished with saffron and dried rose petals."
+    ]
+  },
+  {
+    "id": "d0ef17aa-0854-49b5-bd52-7aab4f4fbe73",
+    "title": "Belgian Chocolate Protein Power Shake",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "High-Protein",
+      "Gym Favorite",
+      "Recovery"
+    ],
+    "prepTimeMinutes": 5,
+    "calories": 320,
+    "proteinGrams": 32,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "02199d9c-847e-4b32-943f-a221a3d60679",
+        "name": "Chocolate Whey Protein / Plant Protein",
+        "amount": 1.0,
+        "unit": "scoop (30g)",
+        "isChecked": false
+      },
+      {
+        "id": "c6989424-bd47-4261-a9de-8a0620568959",
+        "name": "Ripe Banana",
+        "amount": 1.0,
+        "unit": "medium",
+        "isChecked": false
+      },
+      {
+        "id": "f58e5f10-8b0d-4ed6-ab24-1f7220ba2031",
+        "name": "Peanut Butter",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "61449ab5-3d93-48dd-83ac-326b0ac13fcb",
+        "name": "Unsweetened Cocoa Powder",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "67875135-9ec1-4430-ad2b-d1f0783786c4",
+        "name": "Chia Seeds",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "d64cea31-4ec3-4301-858b-58b65c7609de",
+        "name": "Milk or Almond Milk",
+        "amount": 250.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "88865f20-c747-442e-a076-3dbf58b0dec9",
+        "name": "Ice Cubes",
+        "amount": 3.0,
+        "unit": "cubes",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Add milk, protein powder, sliced banana, peanut butter, cocoa powder, and ice into a high-speed blender.",
+      "Blend for 45 seconds until thick and velvety smooth.",
+      "Pour into a shaker bottle or glass.",
+      "Stir in chia seeds and drink immediately for 32g clean post-workout protein."
+    ]
+  },
+  {
+    "id": "442b8bc1-3468-43bc-b58a-2c31add5dd89",
+    "title": "Wild Berry Greek Yogurt Smoothie",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Breakfast",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Smoothie",
+      "High-Protein",
+      "Healthy"
+    ],
+    "prepTimeMinutes": 5,
+    "calories": 190,
+    "proteinGrams": 16,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "371523a1-5e93-4894-8e7b-e27c7b2c2a0b",
+        "name": "Greek Yogurt (Plain)",
+        "amount": 150.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "4e381e10-628f-487a-84e5-4056dbf9e0cd",
+        "name": "Strawberries & Blueberries",
+        "amount": 100.0,
+        "unit": "g",
+        "isChecked": false
+      },
+      {
+        "id": "f140aff2-967a-4bf1-81e9-22e93672bfad",
+        "name": "Honey",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "5b5563ab-5a2c-440c-adab-f4dd2363fbf4",
+        "name": "Flaxseed Powder",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "f0baddd6-8103-4853-b1b4-1dbd066c1bfd",
+        "name": "Cold Water or Coconut Water",
+        "amount": 50.0,
+        "unit": "ml",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Combine Greek yogurt, frozen or fresh berries, honey, flaxseed, and coconut water in a blender.",
+      "Pulse and blend until vibrant purple and creamy.",
+      "Pour into a glass and top with a fresh strawberry slice and chia seeds."
+    ]
+  },
+  {
+    "id": "31949870-7baf-47e0-bea6-9bffbf4e1f4a",
+    "title": "Old Delhi Masala Shikanji (Spiced Lemonade)",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks",
+      "Lunch"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Street Food",
+      "Desi Cooler",
+      "Electrolyte"
+    ],
+    "prepTimeMinutes": 5,
+    "calories": 60,
+    "proteinGrams": 0,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "9830c18c-96aa-4063-9bfc-f980411c6ee3",
+        "name": "Fresh Lemon Juice",
+        "amount": 2.0,
+        "unit": "lemons",
+        "isChecked": false
+      },
+      {
+        "id": "328470bf-abc1-41a5-a1f8-eae1ef60392a",
+        "name": "Chilled Water or Soda",
+        "amount": 250.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "be1ee593-0315-47cf-86dc-ba61d77f03b7",
+        "name": "Roasted Cumin Powder (Bhuna Jeera)",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "4fa252b1-581e-4fbe-bdd3-6da1ccff8083",
+        "name": "Kala Namak (Black Salt)",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "415945b3-6930-4245-85b5-fffae4b3d75e",
+        "name": "Chaat Masala",
+        "amount": 0.25,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "90d7b204-d0b5-42e9-a784-bc946e3a8b9a",
+        "name": "Sugar / Jaggery Syrup",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "72cd5b47-fda4-4667-9c2e-10d1e7f7b825",
+        "name": "Mint Leaves & Crushed Ice",
+        "amount": 1.0,
+        "unit": "glass",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Squeeze fresh lemon juice into a glass; add sugar syrup, black salt, chaat masala, and roasted cumin.",
+      "Stir until spices and sugar syrup blend into a flavorful concentrate.",
+      "Fill glass with crushed ice and pour in chilled water or bubbly soda.",
+      "Stir vigorously with a spoon and garnish with fresh mint leaves and lemon wheels."
+    ]
+  },
+  {
+    "id": "e0956fc4-b96b-4189-9a13-20ddfecc2984",
+    "title": "Fresh Lime Soda (Sweet & Salt)",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Lunch",
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Restaurant Classic",
+      "Fizzy",
+      "Quick"
+    ],
+    "prepTimeMinutes": 3,
+    "calories": 50,
+    "proteinGrams": 0,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "45615aa4-dfd8-4fc3-bc3c-9c049420ad12",
+        "name": "Chilled Club Soda",
+        "amount": 250.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "2a75c6c9-959c-4c38-9f93-24fff4ff3ed6",
+        "name": "Fresh Lime Juice",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "5228e2f5-7576-46bb-b974-d7aa52e0c767",
+        "name": "Simple Sugar Syrup",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "6a7a2955-b3e2-48ac-bf17-4e08108f7e7a",
+        "name": "Black Salt & Regular Salt",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "0aea9fcd-293f-4214-af68-c720947a031c",
+        "name": "Ice Cubes",
+        "amount": 4.0,
+        "unit": "cubes",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Add fresh lime juice, sugar syrup, and both salts to a tall glass.",
+      "Add plenty of ice cubes.",
+      "Pop open chilled club soda and pour slowly over the ice as it fizzes dramatically.",
+      "Give a swift stir with a long bar spoon and enjoy instantly!"
+    ]
+  },
+  {
+    "id": "89959d40-9073-4a23-80ef-3092622083e1",
+    "title": "Ruby Hibiscus Rose Cooler",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Snacks"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Herbal",
+      "Antioxidant",
+      "Floral"
+    ],
+    "prepTimeMinutes": 8,
+    "calories": 65,
+    "proteinGrams": 0,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "97816199-4d27-42db-9796-7c61ff5301ec",
+        "name": "Dried Hibiscus Flowers (Gudhal)",
+        "amount": 2.0,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "31a2be47-68f5-4b30-a9ad-51ec654ff6aa",
+        "name": "Boiling Water",
+        "amount": 200.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "1e291ccd-5a85-4577-96ce-ef5c99aa3d91",
+        "name": "Pure Edible Rose Water",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "5f2890ec-98ee-44f5-a4c7-c21de1be00e4",
+        "name": "Honey or Maple Syrup",
+        "amount": 1.5,
+        "unit": "tbsp",
+        "isChecked": false
+      },
+      {
+        "id": "97f5cb72-b577-42c5-9de3-bf518662d903",
+        "name": "Lime Juice & Pomegranate Seeds",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Steep dried hibiscus flowers in boiling water for 5 minutes until deep ruby red; strain and chill.",
+      "Stir in rose water, lime juice, and honey.",
+      "Serve in a glass filled with ice and fresh pomegranate seeds for a floral, crisp refreshment."
+    ]
+  },
+  {
+    "id": "303c541d-0f53-4b59-aa09-e50e934a3b5b",
+    "title": "Malabar Sulaimani Spiced Black Tea",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Lunch",
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Tea",
+      "Kerala",
+      "Post-Meal Digestif"
+    ],
+    "prepTimeMinutes": 7,
+    "calories": 40,
+    "proteinGrams": 0,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "fe1c24a3-7560-468a-89fa-60891e5ec6d1",
+        "name": "Black Tea Leaves",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "a12ca174-b931-45c1-b58c-c0e62dbd40f9",
+        "name": "Cardamom Pods (Cracked)",
+        "amount": 2.0,
+        "unit": "pods",
+        "isChecked": false
+      },
+      {
+        "id": "fb9f7306-8dd5-4255-9a9c-c2a8ee158fa8",
+        "name": "Cinnamon Stick",
+        "amount": 1.0,
+        "unit": "inch",
+        "isChecked": false
+      },
+      {
+        "id": "7b3f4bab-1059-4978-8dba-2fd24e036bd7",
+        "name": "Fresh Lemon Juice",
+        "amount": 1.0,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "37c90aaa-23ae-4254-9c39-5d0ce70e70c7",
+        "name": "Mint Leaves",
+        "amount": 4.0,
+        "unit": "leaves",
+        "isChecked": false
+      },
+      {
+        "id": "6fa6baed-76d7-43bb-82c3-89de2601b364",
+        "name": "Jaggery or Sugar",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Boil water with cracked cardamom, cinnamon, and jaggery for 3 minutes.",
+      "Add black tea leaves, turn off heat, and steep for 1.5 minutes.",
+      "Strain into clear cups.",
+      "Add fresh lemon juice and fresh mint leaf.",
+      "Serve hot after a Biryani feast as the traditional Malabar digestive tea."
+    ]
+  },
+  {
+    "id": "051c645e-af18-46b5-8024-a05217e3107c",
+    "title": "Golden Haldi Doodh (Ayurvedic Immunity Latte)",
+    "category": "Drinks & Shakes",
+    "diet": "Veg",
+    "mealTypes": [
+      "Dinner"
+    ],
+    "isUserCreated": false,
+    "tags": [
+      "Drinks",
+      "Immunity",
+      "Ayurvedic",
+      "Warm Comfort"
+    ],
+    "prepTimeMinutes": 8,
+    "calories": 140,
+    "proteinGrams": 6,
+    "whistleCount": null,
+    "ingredients": [
+      {
+        "id": "aa692017-8fbc-4525-969b-529d1d011d39",
+        "name": "Milk (or Almond/Oat Milk)",
+        "amount": 250.0,
+        "unit": "ml",
+        "isChecked": false
+      },
+      {
+        "id": "fe7ac2be-6859-4f2d-ac0d-4c88ef55c9a1",
+        "name": "Pure Turmeric Powder (Haldi)",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "9e990e8a-7eb6-42a5-af9e-bde2efbfb19f",
+        "name": "Cracked Black Pepper (Essential for Curcumin absorption)",
+        "amount": 1.0,
+        "unit": "pinch",
+        "isChecked": false
+      },
+      {
+        "id": "d1edd167-e653-4500-b0db-54f3e225d81e",
+        "name": "Cinnamon Powder",
+        "amount": 0.25,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "4a8edf7c-cf4b-4212-9b36-2901f1f0a01a",
+        "name": "Desi Ghee",
+        "amount": 0.5,
+        "unit": "tsp",
+        "isChecked": false
+      },
+      {
+        "id": "b196ed27-944e-4190-9631-f94afe46925e",
+        "name": "Organic Honey",
+        "amount": 1.0,
+        "unit": "tbsp",
+        "isChecked": false
+      }
+    ],
+    "instructions": [
+      "Warm milk in a saucepan over medium heat.",
+      "Whisk in turmeric, black pepper, cinnamon, and a tiny dollop of desi ghee.",
+      "Simmer gently for 4 minutes until golden and deeply aromatic (do not boil hard).",
+      "Remove from heat, let cool slightly, and stir in raw honey.",
+      "Drink warm before bedtime for restful sleep and deep immune recovery."
+    ]
   }
 ]

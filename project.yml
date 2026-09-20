@@ -18,8 +18,8 @@ targets:
       path: ChefPocket/Info.plist
       properties:
         CFBundleDisplayName: ChefPocket
-        CFBundleShortVersionString: "1.0.0"
-        CFBundleVersion: "1"
+        CFBundleShortVersionString: "1.1.0"
+        CFBundleVersion: "2"
         UILaunchScreen: {}
         CFBundleURLTypes:
           - CFBundleURLName: com.chefpocket.app
@@ -50,8 +50,8 @@ targets:
       properties:
         CFBundleDisplayName: ChefPocket
         CFBundlePackageType: "XPC!"
-        CFBundleShortVersionString: "1.0.0"
-        CFBundleVersion: "1"
+        CFBundleShortVersionString: "1.1.0"
+        CFBundleVersion: "2"
         NSExtension:
           NSExtensionPointIdentifier: "com.apple.share-services"
           NSExtensionPrincipalClass: "$(PRODUCT_MODULE_NAME).ShareViewController"

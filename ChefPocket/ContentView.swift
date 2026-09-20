@@ -82,11 +82,12 @@ struct CookbookHomeView: View {
         scopeRecipes.filter { recipe in
             let matchesDiet = store.selectedDiet == .all || recipe.diet == store.selectedDiet
             let matchesMeal = store.selectedMealType == .all || recipe.mealTypes.contains(store.selectedMealType)
+            let matchesCategory = store.selectedCategory == .all || recipe.category == store.selectedCategory
             let matchesSearch = searchText.isEmpty ||
                 recipe.title.localizedCaseInsensitiveContains(searchText) ||
                 recipe.ingredients.contains(where: { $0.name.localizedCaseInsensitiveContains(searchText) }) ||
                 recipe.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) })
-            return matchesDiet && matchesMeal && matchesSearch
+            return matchesDiet && matchesMeal && matchesCategory && matchesSearch
         }
     }
     
@@ -319,6 +320,32 @@ struct CookbookHomeView: View {
                         .padding(.horizontal)
                     }
                     
+                    // 6b. Culinary Course & Category Bar (Bakery, Drinks, Dals, Sabzis...)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(RecipeCategory.allCases) { cat in
+                                Button(action: {
+                                    withAnimation { store.selectedCategory = cat }
+                                }) {
+                                    HStack(spacing: 5) {
+                                        Image(systemName: cat.iconName)
+                                            .font(.caption2)
+                                        Text(cat.rawValue)
+                                            .font(.caption)
+                                            .fontWeight(store.selectedCategory == cat ? .bold : .medium)
+                                    }
+                                    .padding(.horizontal, 13)
+                                    .padding(.vertical, 6)
+                                    .background(store.selectedCategory == cat ? Color.orange : Color(.systemGray6))
+                                    .foregroundColor(store.selectedCategory == cat ? .white : .primary)
+                                    .clipShape(Capsule())
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                    
                     // 7. Subtle "Aaj Kya Banau?" Prompt Card
                     Button(action: spinAajKyaBanau) {
                         HStack(spacing: 12) {
@@ -359,13 +386,13 @@ struct CookbookHomeView: View {
                     // 8. Recipe List / Empty State
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Text("\(store.selectedDiet.label) • \(store.selectedMealType.rawValue)")
+                            Text("\(store.selectedDiet.label) • \(store.selectedCategory == .all ? store.selectedMealType.rawValue : store.selectedCategory.rawValue)")
                                 .font(.caption)
                                 .bold()
                                 .foregroundColor(.secondary)
                                 .textCase(.uppercase)
                             Spacer()
-                            Text("\(filteredRecipes.count) dishes")
+                            Text("\(filteredRecipes.count) \(store.selectedCategory == .all ? "dishes" : store.selectedCategory.rawValue.lowercased())")
                                 .font(.caption2)
                                 .foregroundColor(.secondary)
                         }
