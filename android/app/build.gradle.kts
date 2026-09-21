@@ -10,9 +10,9 @@ android {
     defaultConfig {
         applicationId = "com.chefpocket.app"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 2
-        versionName = "1.4.1"
+        targetSdk = 33
+        versionCode = 3
+        versionName = "1.4.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -26,9 +26,9 @@ android {
             storePassword = "chefpocketkeystore"
             keyAlias = "chefpocket"
             keyPassword = "chefpocketkeystore"
-            enableV1Signing = true
-            enableV2Signing = true
-            enableV3Signing = true
+            v1SigningEnabled = true
+            v2SigningEnabled = true
+            v3SigningEnabled = true
         }
     }
 
