@@ -9,25 +9,25 @@ struct ContentView: View {
         TabView(selection: $selectedTab) {
             CookbookHomeView()
                 .tabItem {
-                    Label("Cookbook", systemImage: "book.closed.fill")
+                    Label(LanguageManager.shared.t("tab_cookbook"), systemImage: "book.closed.fill")
                 }
                 .tag(0)
             
             ThaliPlannerView()
                 .tabItem {
-                    Label("Thali", systemImage: "circle.grid.cross.fill")
+                    Label(LanguageManager.shared.t("tab_thali"), systemImage: "circle.grid.cross.fill")
                 }
                 .tag(1)
             
             GroceryListView()
                 .tabItem {
-                    Label("Sabzi Mandi", systemImage: "basket.fill")
+                    Label(LanguageManager.shared.t("tab_groceries"), systemImage: "basket.fill")
                 }
                 .tag(2)
             
             CookModeView()
                 .tabItem {
-                    Label("Cook Mode", systemImage: "timer")
+                    Label(LanguageManager.shared.t("tab_cookmode"), systemImage: "timer")
                 }
                 .tag(3)
         }
@@ -59,6 +59,7 @@ struct FSSAIBadge: View {
 struct CookbookHomeView: View {
     @EnvironmentObject var store: RecipeStore
     @EnvironmentObject var auth: AuthManager
+    @ObservedObject var languageManager = LanguageManager.shared
     
     @State private var searchText = ""
     @State private var showingProfileSheet = false
@@ -262,7 +263,7 @@ struct CookbookHomeView: View {
                     // 4. Diet Pill Selector (All | Veg | Non-Veg) - Never Truncated
                     HStack(spacing: 8) {
                         DietPillButton(
-                            title: "All",
+                            title: languageManager.t("diet_all"),
                             count: scopeRecipes.count,
                             isSelected: store.selectedDiet == .all,
                             dotColor: nil
@@ -271,7 +272,7 @@ struct CookbookHomeView: View {
                         }
                         
                         DietPillButton(
-                            title: "Veg",
+                            title: languageManager.t("diet_veg"),
                             count: vegCount,
                             isSelected: store.selectedDiet == .veg,
                             dotColor: .green
@@ -280,7 +281,7 @@ struct CookbookHomeView: View {
                         }
                         
                         DietPillButton(
-                            title: "Non-Veg",
+                            title: languageManager.t("diet_non_veg"),
                             count: nonVegCount,
                             isSelected: store.selectedDiet == .nonVeg,
                             dotColor: .red
@@ -294,7 +295,7 @@ struct CookbookHomeView: View {
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.secondary)
-                        TextField("Search dishes, paneer, chicken, dal...", text: $searchText)
+                        TextField(languageManager.t("search_placeholder"), text: $searchText)
                             .font(.subheadline)
                         if !searchText.isEmpty {
                             Button(action: { searchText = "" }) {
@@ -309,84 +310,135 @@ struct CookbookHomeView: View {
                     .cornerRadius(12)
                     .padding(.horizontal)
                     
-                    // 6a. Regional Cuisines Filter Bar (All, Indian, Continental, Asian, Mexican, Middle Eastern, Cafe, Bakery, Drinks)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
+                    // 6. Compact Dropdown Filter Bar (Cuisine, Meal, Category, Reset)
+                    HStack(spacing: 8) {
+                        // Cuisine Dropdown Menu
+                        Menu {
                             ForEach(Cuisine.allCases) { cuisine in
                                 Button(action: {
                                     withAnimation { store.selectedCuisine = cuisine }
                                 }) {
-                                    HStack(spacing: 5) {
+                                    HStack {
                                         Image(systemName: cuisine.iconName)
-                                            .font(.caption2)
                                         Text(cuisine.rawValue)
-                                            .font(.caption)
-                                            .fontWeight(store.selectedCuisine == cuisine ? .bold : .medium)
+                                        if store.selectedCuisine == cuisine {
+                                            Image(systemName: "checkmark")
+                                        }
                                     }
-                                    .padding(.horizontal, 13)
-                                    .padding(.vertical, 7)
-                                    .background(store.selectedCuisine == cuisine ? Color.orange : Color(.systemGray6))
-                                    .foregroundColor(store.selectedCuisine == cuisine ? .white : .primary)
-                                    .clipShape(Capsule())
                                 }
-                                .buttonStyle(.plain)
                             }
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: store.selectedCuisine == .all ? "globe" : store.selectedCuisine.iconName)
+                                    .font(.caption2)
+                                Text(store.selectedCuisine == .all ? languageManager.t("filter_cuisine") : store.selectedCuisine.rawValue)
+                                    .font(.caption)
+                                    .fontWeight(store.selectedCuisine != .all ? .bold : .medium)
+                                    .lineLimit(1)
+                                Image(systemName: "chevron.down")
+                                    .font(.system(size: 8, weight: .bold))
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 7)
+                            .background(store.selectedCuisine != .all ? Color.orange : Color(.systemGray6))
+                            .foregroundColor(store.selectedCuisine != .all ? .white : .primary)
+                            .clipShape(Capsule())
                         }
-                        .padding(.horizontal)
-                    }
 
-                    // 6b. Meal Occasions Bar (Breakfast, Lunch, Snacks, Dinner)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
+                        // Meal Occasion Dropdown Menu
+                        Menu {
                             ForEach(MealType.allCases) { meal in
                                 Button(action: {
                                     withAnimation { store.selectedMealType = meal }
                                 }) {
-                                    HStack(spacing: 5) {
+                                    HStack {
                                         Image(systemName: meal.sfSymbol)
-                                            .font(.caption2)
                                         Text(meal.rawValue)
-                                            .font(.caption)
-                                            .fontWeight(store.selectedMealType == meal ? .bold : .medium)
+                                        if store.selectedMealType == meal {
+                                            Image(systemName: "checkmark")
+                                        }
                                     }
-                                    .padding(.horizontal, 14)
-                                    .padding(.vertical, 7)
-                                    .background(store.selectedMealType == meal ? Color.primary : Color(.systemGray6))
-                                    .foregroundColor(store.selectedMealType == meal ? Color(.systemBackground) : .primary)
-                                    .clipShape(Capsule())
                                 }
-                                .buttonStyle(.plain)
                             }
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: store.selectedMealType.sfSymbol)
+                                    .font(.caption2)
+                                Text(store.selectedMealType == .all ? languageManager.t("filter_meal") : store.selectedMealType.rawValue)
+                                    .font(.caption)
+                                    .fontWeight(store.selectedMealType != .all ? .bold : .medium)
+                                    .lineLimit(1)
+                                Image(systemName: "chevron.down")
+                                    .font(.system(size: 8, weight: .bold))
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 7)
+                            .background(store.selectedMealType != .all ? Color.primary : Color(.systemGray6))
+                            .foregroundColor(store.selectedMealType != .all ? Color(.systemBackground) : .primary)
+                            .clipShape(Capsule())
                         }
-                        .padding(.horizontal)
-                    }
-                    
-                    // 6b. Culinary Course & Category Bar (Bakery, Drinks, Dals, Sabzis...)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
+
+                        // Culinary Category Dropdown Menu
+                        Menu {
                             ForEach(RecipeCategory.allCases) { cat in
                                 Button(action: {
                                     withAnimation { store.selectedCategory = cat }
                                 }) {
-                                    HStack(spacing: 5) {
+                                    HStack {
                                         Image(systemName: cat.iconName)
-                                            .font(.caption2)
                                         Text(cat.rawValue)
-                                            .font(.caption)
-                                            .fontWeight(store.selectedCategory == cat ? .bold : .medium)
+                                        if store.selectedCategory == cat {
+                                            Image(systemName: "checkmark")
+                                        }
                                     }
-                                    .padding(.horizontal, 13)
-                                    .padding(.vertical, 6)
-                                    .background(store.selectedCategory == cat ? Color.orange : Color(.systemGray6))
-                                    .foregroundColor(store.selectedCategory == cat ? .white : .primary)
-                                    .clipShape(Capsule())
                                 }
-                                .buttonStyle(.plain)
+                            }
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: store.selectedCategory == .all ? "sparkles" : store.selectedCategory.iconName)
+                                    .font(.caption2)
+                                Text(store.selectedCategory == .all ? languageManager.t("filter_category") : store.selectedCategory.rawValue)
+                                    .font(.caption)
+                                    .fontWeight(store.selectedCategory != .all ? .bold : .medium)
+                                    .lineLimit(1)
+                                Image(systemName: "chevron.down")
+                                    .font(.system(size: 8, weight: .bold))
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 7)
+                            .background(store.selectedCategory != .all ? Color.orange : Color(.systemGray6))
+                            .foregroundColor(store.selectedCategory != .all ? .white : .primary)
+                            .clipShape(Capsule())
+                        }
+
+                        // Quick Reset Button
+                        if store.selectedCuisine != .all || store.selectedMealType != .all || store.selectedCategory != .all {
+                            Button(action: {
+                                withAnimation {
+                                    store.selectedCuisine = .all
+                                    store.selectedMealType = .all
+                                    store.selectedCategory = .all
+                                }
+                            }) {
+                                HStack(spacing: 3) {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .font(.caption2)
+                                    Text(languageManager.t("filter_reset"))
+                                        .font(.caption2)
+                                        .bold()
+                                }
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 6)
+                                .background(Color.red.opacity(0.12))
+                                .foregroundColor(.red)
+                                .clipShape(Capsule())
                             }
                         }
-                        .padding(.horizontal)
+
+                        Spacer()
                     }
-                    
+                    .padding(.horizontal)
+
                     // 7. Subtle "Aaj Kya Banau?" Prompt Card
                     Button(action: spinAajKyaBanau) {
                         HStack(spacing: 12) {
@@ -542,7 +594,9 @@ struct CookbookHomeView: View {
     private func checkClipboard() {
         if let clip = UIPasteboard.general.string,
            (clip.contains("youtube.com") || clip.contains("youtu.be") || clip.contains("instagram.com")) {
-            detectedClipboardURL = clip
+            if store.findRecipe(matchingURL: clip) == nil {
+                detectedClipboardURL = clip
+            }
         }
     }
     
@@ -793,6 +847,13 @@ struct AIImportModal: View {
         guard !clean.isEmpty else { return }
         errorMessage = nil
         
+        // Prevent adding duplicate recipe
+        if let existing = store.findRecipe(matchingURL: clean) {
+            existingRecipeTitle = existing.title
+            showingAlreadyExistsAlert = true
+            return
+        }
+        
         Task {
             do {
                 let apiKey = auth.currentUser?.geminiApiKey
@@ -815,7 +876,10 @@ struct AIImportModal: View {
 struct RecipeDetailView: View {
     let recipe: Recipe
     @EnvironmentObject var store: RecipeStore
+    @ObservedObject var languageManager = LanguageManager.shared
+    @Environment(\.dismiss) var dismiss
     @State private var showingAddedGroceryAlert = false
+    @State private var showingDeleteConfirm = false
     
     private var cleanInstructions: [String] {
         let filtered = recipe.instructions.filter { step in
@@ -1031,7 +1095,7 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
                 ) {
                     HStack(spacing: 8) {
                         Image(systemName: "square.and.arrow.up")
-                        Text("Share Recipe via WhatsApp, Instagram & More")
+                        Text(languageManager.t("share_recipe"))
                     }
                     .font(.subheadline)
                     .fontWeight(.semibold)
@@ -1042,6 +1106,24 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
                     .cornerRadius(14)
                 }
                 .padding(.horizontal)
+
+                // Delete Custom Recipe Button
+                if recipe.isUserCreated {
+                    Button(role: .destructive, action: { showingDeleteConfirm = true }) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "trash.fill")
+                            Text(languageManager.t("delete_recipe"))
+                        }
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(Color.red.opacity(0.12))
+                        .foregroundColor(.red)
+                        .cornerRadius(14)
+                    }
+                    .padding(.horizontal)
+                }
             }
             .padding(.vertical)
         }
@@ -1049,6 +1131,13 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack(spacing: 12) {
+                    if recipe.isUserCreated {
+                        Button(role: .destructive, action: { showingDeleteConfirm = true }) {
+                            Image(systemName: "trash")
+                                .foregroundColor(.red)
+                        }
+                    }
+                    
                     ShareLink(
                         item: formattedShareText,
                         subject: Text(recipe.title),
@@ -1071,6 +1160,15 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
             Button("OK", role: .cancel) { }
         } message: {
             Text("Ingredients for \(recipe.title) have been organized into your Sabzi Mandi grocery list.")
+        }
+        .confirmationDialog(languageManager.t("confirm_delete_title"), isPresented: $showingDeleteConfirm, titleVisibility: .visible) {
+            Button(languageManager.t("delete"), role: .destructive) {
+                store.deleteRecipe(id: recipe.id)
+                dismiss()
+            }
+            Button(languageManager.t("cancel"), role: .cancel) { }
+        } message: {
+            Text(languageManager.t("confirm_delete_msg"))
         }
     }
     

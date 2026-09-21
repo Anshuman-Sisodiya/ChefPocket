@@ -21,6 +21,18 @@
 
 ## 📖 Overview
 
+### 🆕 What's New in v1.3.0
+- **Permanent Custom Recipe Storage**: User-created recipes and favorites are now completely decoupled into permanent unversioned storage (`chefpocket_user_custom_recipes_permanent`). Includes an automated retroactive migration scanner that recovers custom recipes from older versions (v1...v6).
+- **Duplicate Prevention for Links**: Canonical URL normalizer for YouTube Shorts, Watch links, and Instagram Reels prevents saving the same link multiple times.
+- **Delete Custom Recipes**: Easy deletion of user-added recipes directly from `RecipeDetailView` or via context menu in `My Kitchen`.
+- **Compact Dropdown Filter Bar**: Clean SwiftUI dropdown menus (`Menu`) for Cuisines, Meals, and Categories with active highlights and a 1-tap Reset pill, replacing multiple horizontal scrollbars.
+- **Multi-Language Support (8 Languages)**: Full native localization for English, Hindi (हिन्दी), Hinglish (Everyday Hindi), Spanish (Español), French (Français), Tamil (தமிழ்), Telugu (తెలుగు), and Bengali (বাংলা).
+- **Aesthetic Parity Across All Tabs**: Complete visual overhaul of Thali Planner (macro rings & royal platter), Sabzi Mandi (card-segmented groceries), and Cook Mode (circular whistle ring, animated timers & countertop reader).
+- **Google Account Cloud Sync**: Sync custom recipes, favorites, and groceries across devices using your Google Account, plus AirDrop/file export/import.
+- **Dark / Light Mode Toggle & Dynamic Dark App Icon**: OLED Obsidian Dark Mode toggle with automatic switching of the home screen app icon (`AppIcon-Dark`).
+
+---
+
 **ChefPocket** is an authentic, high-aesthetic native iOS application designed for home cooks, food lovers, and fitness enthusiasts. Built using modern SwiftUI, it solves everyday kitchen challenges — from *"Aaj Kya Banau?"* decision fatigue to tracking pressure cooker whistles, planning balanced Indian Thalis, and converting fast YouTube Shorts & Instagram Reels into structured cooking recipes using Google Gemini AI.
 
 ---

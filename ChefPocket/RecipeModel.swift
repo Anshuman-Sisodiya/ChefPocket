@@ -259,9 +259,26 @@ class RecipeStore: ObservableObject {
     @Published var selectedCategory: RecipeCategory = .all
     
     let suiteName = "group.com.chefpocket.recipes"
-    let recipesKey = "saved_recipes_key_v6"
-    let groceriesKey = "saved_groceries_key_v6"
-    let thaliKey = "saved_thali_key_v6"
+    
+    // PERMANENT UNVERSIONED USER STORAGE KEYS
+    let permanentUserRecipesKey = "chefpocket_user_custom_recipes_permanent"
+    let permanentFavoritesKey = "chefpocket_user_favorites_permanent"
+    
+    // CACHED / SYSTEM KEYS
+    let recipesKey = "saved_recipes_key_v7"
+    let groceriesKey = "saved_groceries_key_v7"
+    let thaliKey = "saved_thali_key_v7"
+    
+    // HISTORICAL KEYS FOR RETROACTIVE MIGRATION SCAN
+    private let historicalRecipeKeys = [
+        "saved_recipes_key",
+        "saved_recipes_key_v1",
+        "saved_recipes_key_v2",
+        "saved_recipes_key_v3",
+        "saved_recipes_key_v4",
+        "saved_recipes_key_v5",
+        "saved_recipes_key_v6"
+    ]
     
     private var defaults: UserDefaults {
         UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
@@ -276,28 +293,132 @@ class RecipeStore: ObservableObject {
     }
     
     init() {
+        // 1. Run migration scan to recover any custom recipes from historical versions
+        migrateHistoricalUserData()
+        
+        // 2. Load permanent user data + bundled recipes
         loadData()
-        if recipes.isEmpty || curatedRecipes.count < 350 {
+        
+        // 3. Ensure bundled recipes are always present and up-to-date
+        if curatedRecipes.count < 350 {
             loadBundledRecipes()
         }
     }
     
-    func loadData() {
-        if let data = defaults.data(forKey: recipesKey),
-           let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
-            self.recipes = decoded
+    // MARK: - Retroactive Migration Scanner
+    /// Recovers all user-created recipes and favorites from historical versions (v1...v6) and permanently protects them.
+    func migrateHistoricalUserData() {
+        var recoveredCustom: [Recipe] = []
+        var recoveredFavorites: Set<String> = []
+        
+        // 1. Load any already-permanent custom recipes
+        if let permData = defaults.data(forKey: permanentUserRecipesKey) ?? UserDefaults.standard.data(forKey: permanentUserRecipesKey),
+           let decoded = try? JSONDecoder().decode([Recipe].self, from: permData) {
+            recoveredCustom.append(contentsOf: decoded)
         }
+        
+        // 2. Load existing permanent favorites
+        if let favData = defaults.data(forKey: permanentFavoritesKey) ?? UserDefaults.standard.data(forKey: permanentFavoritesKey),
+           let favList = try? JSONDecoder().decode([String].self, from: favData) {
+            recoveredFavorites.formUnion(favList)
+        }
+        
+        // 3. Scan all historical keys in both App Group defaults and Standard defaults
+        let targets = [defaults, UserDefaults.standard]
+        for def in targets {
+            for key in historicalRecipeKeys {
+                if let data = def.data(forKey: key),
+                   let list = try? JSONDecoder().decode([Recipe].self, from: data) {
+                    for r in list {
+                        if r.isUserCreated {
+                            // Deduplicate by UUID or title
+                            if !recoveredCustom.contains(where: { $0.id == r.id || $0.title.lowercased() == r.title.lowercased() }) {
+                                recoveredCustom.append(r)
+                            }
+                        }
+                        if r.isFavorite {
+                            recoveredFavorites.insert(r.id.uuidString)
+                            recoveredFavorites.insert(r.title.lowercased())
+                        }
+                    }
+                }
+            }
+        }
+        
+        // 4. Persist recovered items to permanent storage
+        if let encodedCustom = try? JSONEncoder().encode(recoveredCustom) {
+            defaults.set(encodedCustom, forKey: permanentUserRecipesKey)
+            UserDefaults.standard.set(encodedCustom, forKey: permanentUserRecipesKey)
+        }
+        if let encodedFavs = try? JSONEncoder().encode(Array(recoveredFavorites)) {
+            defaults.set(encodedFavs, forKey: permanentFavoritesKey)
+            UserDefaults.standard.set(encodedFavs, forKey: permanentFavoritesKey)
+        }
+    }
+    
+    // MARK: - Data Loading & Saving
+    func loadData() {
+        // A. Load permanent user custom recipes
+        var userRecipes: [Recipe] = []
+        if let data = defaults.data(forKey: permanentUserRecipesKey) ?? UserDefaults.standard.data(forKey: permanentUserRecipesKey),
+           let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
+            userRecipes = decoded
+        }
+        
+        // B. Load favorite IDs
+        var favoriteSet: Set<String> = []
+        if let favData = defaults.data(forKey: permanentFavoritesKey) ?? UserDefaults.standard.data(forKey: permanentFavoritesKey),
+           let favList = try? JSONDecoder().decode([String].self, from: favData) {
+            favoriteSet = Set(favList)
+        }
+        
+        // C. Load bundled curated recipes
+        var bundled = fetchBundledRecipes()
+        
+        // D. Apply favorites to bundled recipes
+        for i in 0..<bundled.count {
+            if favoriteSet.contains(bundled[i].id.uuidString) || favoriteSet.contains(bundled[i].title.lowercased()) {
+                bundled[i].isFavorite = true
+            }
+        }
+        
+        // E. Merge: User recipes first, then curated
+        self.recipes = userRecipes + bundled
+        
+        // F. Load groceries & thali
         if let data = defaults.data(forKey: groceriesKey),
            let decoded = try? JSONDecoder().decode([GroceryItem].self, from: data) {
             self.groceries = decoded
+        } else if let data = defaults.data(forKey: "saved_groceries_key_v6"),
+                  let decoded = try? JSONDecoder().decode([GroceryItem].self, from: data) {
+            self.groceries = decoded
         }
+        
         if let data = defaults.data(forKey: thaliKey),
            let decoded = try? JSONDecoder().decode(ThaliPlan.self, from: data) {
+            self.thali = decoded
+        } else if let data = defaults.data(forKey: "saved_thali_key_v6"),
+                  let decoded = try? JSONDecoder().decode(ThaliPlan.self, from: data) {
             self.thali = decoded
         }
     }
     
     func saveData() {
+        // 1. Permanently persist user custom recipes
+        let custom = myRecipes
+        if let encodedCustom = try? JSONEncoder().encode(custom) {
+            defaults.set(encodedCustom, forKey: permanentUserRecipesKey)
+            UserDefaults.standard.set(encodedCustom, forKey: permanentUserRecipesKey)
+        }
+        
+        // 2. Permanently persist favorites
+        let favoriteIdentifiers = recipes.filter { $0.isFavorite }.map { $0.id.uuidString }
+        if let encodedFavs = try? JSONEncoder().encode(favoriteIdentifiers) {
+            defaults.set(encodedFavs, forKey: permanentFavoritesKey)
+            UserDefaults.standard.set(encodedFavs, forKey: permanentFavoritesKey)
+        }
+        
+        // 3. Cache full active recipe list
         if let encoded = try? JSONEncoder().encode(recipes) {
             defaults.set(encoded, forKey: recipesKey)
         }
@@ -307,9 +428,135 @@ class RecipeStore: ObservableObject {
         if let encoded = try? JSONEncoder().encode(thali) {
             defaults.set(encoded, forKey: thaliKey)
         }
+        
+        // Post notification for cloud sync listeners
+        NotificationCenter.default.post(name: NSNotification.Name("ChefPocketDataDidChange"), object: nil)
+    }
+    
+    private func fetchBundledRecipes() -> [Recipe] {
+        var loaded: [Recipe] = []
+        if let url = Bundle.main.url(forResource: "RecipesData", withExtension: "json"),
+           let data = try? Data(contentsOf: url),
+           let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
+            loaded = decoded
+        } else {
+            let bundlePath = Bundle.main.bundlePath
+            let jsonPath = (bundlePath as NSString).appendingPathComponent("RecipesData.json")
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)),
+               let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
+                loaded = decoded
+            }
+        }
+        return loaded
+    }
+    
+    private func loadBundledRecipes() {
+        let custom = myRecipes
+        var bundled = fetchBundledRecipes()
+        
+        var favoriteSet: Set<String> = []
+        if let favData = defaults.data(forKey: permanentFavoritesKey),
+           let favList = try? JSONDecoder().decode([String].self, from: favData) {
+            favoriteSet = Set(favList)
+        }
+        
+        for i in 0..<bundled.count {
+            if favoriteSet.contains(bundled[i].id.uuidString) || favoriteSet.contains(bundled[i].title.lowercased()) {
+                bundled[i].isFavorite = true
+            }
+        }
+        
+        if !bundled.isEmpty {
+            self.recipes = custom + bundled
+            saveData()
+        }
+    }
+    
+    func resetToInbuiltRecipes() {
+        loadBundledRecipes()
+    }
+    
+    // MARK: - URL Normalization & Deduplication
+    static func normalizeURL(_ urlString: String) -> String {
+        var clean = urlString.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard !clean.isEmpty else { return "" }
+        
+        // Remove tracking query strings (?si=..., &feature=..., etc.)
+        if let qIdx = clean.firstIndex(of: "?") {
+            let query = String(clean[qIdx...])
+            if clean.contains("watch?v=") {
+                if let vRange = query.range(of: "v=") {
+                    let afterV = String(query[vRange.upperBound...])
+                    let vid = afterV.split(separator: "&").first ?? ""
+                    return "yt:\(vid)"
+                }
+            }
+            clean = String(clean[..<qIdx])
+        }
+        
+        // YouTube Shorts: /shorts/ABC123xyz
+        if clean.contains("/shorts/") {
+            let parts = clean.components(separatedBy: "/shorts/")
+            if let last = parts.last {
+                let vid = last.split(separator: "/").first?.split(separator: "?").first ?? ""
+                return "yt:\(vid)"
+            }
+        }
+        
+        // youtu.be/ABC123xyz
+        if clean.contains("youtu.be/") {
+            let parts = clean.components(separatedBy: "youtu.be/")
+            if let last = parts.last {
+                let vid = last.split(separator: "/").first?.split(separator: "?").first ?? ""
+                return "yt:\(vid)"
+            }
+        }
+        
+        // Instagram: /reel/ABC123xyz or /p/ABC123xyz
+        if clean.contains("/reel/") {
+            let parts = clean.components(separatedBy: "/reel/")
+            if let last = parts.last {
+                let code = last.split(separator: "/").first?.split(separator: "?").first ?? ""
+                return "ig:\(code)"
+            }
+        }
+        if clean.contains("/p/") {
+            let parts = clean.components(separatedBy: "/p/")
+            if let last = parts.last {
+                let code = last.split(separator: "/").first?.split(separator: "?").first ?? ""
+                return "ig:\(code)"
+            }
+        }
+        
+        return clean
+    }
+    
+    func findRecipe(matchingURL urlString: String) -> Recipe? {
+        let targetNorm = RecipeStore.normalizeURL(urlString)
+        guard !targetNorm.isEmpty else { return nil }
+        return recipes.first { r in
+            if let s = r.sourceURL, !s.isEmpty {
+                return RecipeStore.normalizeURL(s) == targetNorm
+            }
+            return false
+        }
     }
     
     // MARK: - Recipe Actions
+    @discardableResult
+    func addRecipe(_ recipe: Recipe) -> (recipe: Recipe, isNew: Bool) {
+        // Prevent adding duplicate recipe with same source link
+        if let s = recipe.sourceURL, !s.isEmpty, let existing = findRecipe(matchingURL: s) {
+            return (existing, false)
+        }
+        
+        var newR = recipe
+        newR.isUserCreated = true
+        recipes.insert(newR, at: 0)
+        saveData()
+        return (newR, true)
+    }
+    
     func deleteRecipe(id: UUID) {
         recipes.removeAll(where: { $0.id == id })
         saveData()
@@ -331,17 +578,6 @@ class RecipeStore: ObservableObject {
         guard let idx = recipes.firstIndex(where: { $0.id == recipeId }) else { return }
         recipes[idx].isFavorite.toggle()
         saveData()
-    }
-    
-    func addRecipe(_ recipe: Recipe) {
-        var newR = recipe
-        newR.isUserCreated = true
-        recipes.insert(newR, at: 0)
-        saveData()
-    }
-    
-    func resetToInbuiltRecipes() {
-        loadBundledRecipes()
     }
     
     func getRandomRecipe(
@@ -442,30 +678,6 @@ class RecipeStore: ObservableObject {
             return .dairyAndGhee
         } else {
             return .other
-        }
-    }
-    
-    // MARK: - Bundled Recipes Loader (400+ Curated Recipes)
-    private func loadBundledRecipes() {
-        let existingUserCreated = recipes.filter { $0.isUserCreated }
-        
-        var loaded: [Recipe] = []
-        if let url = Bundle.main.url(forResource: "RecipesData", withExtension: "json"),
-           let data = try? Data(contentsOf: url),
-           let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
-            loaded = decoded
-        } else {
-            let bundlePath = Bundle.main.bundlePath
-            let jsonPath = (bundlePath as NSString).appendingPathComponent("RecipesData.json")
-            if let data = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)),
-               let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
-                loaded = decoded
-            }
-        }
-        
-        if !loaded.isEmpty {
-            self.recipes = existingUserCreated + loaded
-            saveData()
         }
     }
 }

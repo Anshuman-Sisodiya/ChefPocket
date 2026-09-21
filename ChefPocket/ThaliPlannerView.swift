@@ -1,7 +1,8 @@
-﻿import SwiftUI
+import SwiftUI
 
 struct ThaliPlannerView: View {
     @EnvironmentObject var store: RecipeStore
+    @ObservedObject var languageManager = LanguageManager.shared
     @State private var showingAddedAlert = false
     
     private var availableDals: [Recipe] {
@@ -42,148 +43,210 @@ struct ThaliPlannerView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
-                    // Header Card
-                    VStack(alignment: .leading, spacing: 6) {
+                    // 1. Hero Header Card
+                    VStack(alignment: .leading, spacing: 8) {
                         HStack {
-                            Text("Daily Thali Planner")
-                                .font(.title2)
-                                .bold()
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(languageManager.t("thali_title"))
+                                    .font(.title2)
+                                    .bold()
+                                Text(languageManager.t("thali_subtitle"))
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
                             Spacer()
                             Button(action: randomizeThali) {
-                                Label("Suggest", systemImage: "sparkles")
+                                Label(languageManager.t("thali_suggest"), systemImage: "sparkles")
                                     .font(.caption)
                                     .bold()
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 6)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 8)
                                     .background(Color.orange.opacity(0.15))
                                     .foregroundColor(.orange)
-                                    .cornerRadius(8)
+                                    .clipShape(Capsule())
                             }
                         }
-                        Text("Balanced Indian dining: Pair a Dal with a Sabzi and Roti for complete protein & nutrition.")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
                     }
                     .padding(.horizontal)
+                    .padding(.top, 4)
                     
-                    // Thali Nutrition Macro Meter
+                    // 2. Nutrition Macro Meter Cards
                     HStack(spacing: 12) {
-                        MacroStatBox(title: "Total Protein", value: "\(totalProtein)g", color: .orange, icon: "flame.fill")
-                        MacroStatBox(title: "Total Calories", value: "\(totalCalories) kcal", color: .green, icon: "bolt.fill")
-                        MacroStatBox(title: "Course Count", value: "4 Items", color: .blue, icon: "circle.grid.2x2.fill")
+                        AestheticMacroStat(
+                            title: "Total Protein",
+                            value: "\(totalProtein)g",
+                            icon: "flame.fill",
+                            color: .orange
+                        )
+                        AestheticMacroStat(
+                            title: "Total Calories",
+                            value: "\(totalCalories) kcal",
+                            icon: "bolt.fill",
+                            color: .green
+                        )
+                        AestheticMacroStat(
+                            title: "Complete Diet",
+                            value: "4 Courses",
+                            icon: "circle.grid.2x2.fill",
+                            color: .blue
+                        )
                     }
                     .padding(.horizontal)
                     
-                    // Thali Assembly Cards
-                    VStack(spacing: 14) {
-                        // 1. Dal Selector
-                        ThaliItemPickerCard(
-                            title: "1. Main Dal (Lentils)",
-                            icon: "bowl.fill",
-                            color: .orange,
-                            selectedItem: selectedDal?.title ?? "Select Dal",
-                            macros: "\(selectedDal?.proteinGrams ?? 0)g protein • \(selectedDal?.calories ?? 0) kcal",
-                            options: availableDals,
-                            onSelect: { recipe in
-                                store.thali.dalRecipeId = recipe.id
-                                store.saveData()
-                            }
-                        )
+                    // 3. Royal Thali Platter Showcase (Visual assembly)
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Assembled Thali Platter")
+                            .font(.caption)
+                            .bold()
+                            .foregroundColor(.secondary)
+                            .textCase(.uppercase)
+                            .padding(.horizontal)
                         
-                        // 2. Sabzi Selector
-                        ThaliItemPickerCard(
-                            title: "2. Sabzi / Curry",
-                            icon: "leaf.fill",
-                            color: .green,
-                            selectedItem: selectedSabzi?.title ?? "Select Sabzi",
-                            macros: "\(selectedSabzi?.proteinGrams ?? 0)g protein • \(selectedSabzi?.calories ?? 0) kcal",
-                            options: availableSabzis,
-                            onSelect: { recipe in
-                                store.thali.sabziRecipeId = recipe.id
-                                store.saveData()
-                            }
-                        )
-                        
-                        // 3. Bread & Rice
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack {
-                                Label("3. Roti & Rice", systemImage: "circle.grid.cross.fill")
-                                    .font(.subheadline)
-                                    .bold()
-                                    .foregroundColor(.blue)
-                                Spacer()
-                                Text("6g protein")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
+                        VStack(spacing: 12) {
+                            // Dal Course
+                            if let dal = selectedDal {
+                                ThaliCourseCard(
+                                    courseNumber: "1",
+                                    courseType: "Main Dal / Lentils",
+                                    icon: "bowl.fill",
+                                    color: .orange,
+                                    recipe: dal,
+                                    options: availableDals
+                                ) { chosen in
+                                    store.thali.dalRecipeId = chosen.id
+                                    store.saveData()
+                                }
                             }
                             
-                            Picker("Bread", selection: $store.thali.breadOrRice) {
-                                Text("2x Phulka Roti").tag("2x Whole Wheat Phulkas")
-                                Text("Steamed Basmati Rice").tag("Steamed Basmati Rice")
-                                Text("Jeera Rice").tag("Jeera Rice")
-                                Text("Ajwain Paratha").tag("Ajwain Paratha")
-                            }
-                            .pickerStyle(.segmented)
-                            .onChange(of: store.thali.breadOrRice) { _ in store.saveData() }
-                        }
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 14).fill(Color(.systemGray6)))
-                        
-                        // 4. Accompaniment / Salad
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack {
-                                Label("4. Dahi & Salad", systemImage: "drop.fill")
-                                    .font(.subheadline)
-                                    .bold()
-                                    .foregroundColor(.purple)
-                                Spacer()
-                                Text("4g protein")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
+                            // Sabzi Course
+                            if let sabzi = selectedSabzi {
+                                ThaliCourseCard(
+                                    courseNumber: "2",
+                                    courseType: "Sabzi / Curry",
+                                    icon: "leaf.fill",
+                                    color: .green,
+                                    recipe: sabzi,
+                                    options: availableSabzis
+                                ) { chosen in
+                                    store.thali.sabziRecipeId = chosen.id
+                                    store.saveData()
+                                }
                             }
                             
-                            Picker("Accompaniment", selection: $store.thali.side) {
-                                Text("Cucumber Dahi Raita").tag("Cucumber Dahi Raita")
-                                Text("Kachumber Salad").tag("Kachumber Salad")
-                                Text("Plain Curd & Achaar").tag("Plain Curd & Achaar")
-                                Text("Roasted Papad").tag("Roasted Papad")
+                            // Bread & Rice Selection
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack {
+                                    HStack(spacing: 6) {
+                                        Text("3")
+                                            .font(.caption2)
+                                            .bold()
+                                            .foregroundColor(.white)
+                                            .frame(width: 18, height: 18)
+                                            .background(Color.blue)
+                                            .clipShape(Circle())
+                                        Text("Roti & Rice")
+                                            .font(.subheadline)
+                                            .bold()
+                                    }
+                                    Spacer()
+                                    Text("6g protein • 160 kcal")
+                                        .font(.caption2)
+                                        .foregroundColor(.secondary)
+                                }
+                                
+                                Picker("Bread", selection: $store.thali.breadOrRice) {
+                                    Text("2x Phulka Roti").tag("2x Whole Wheat Phulkas")
+                                    Text("Steamed Basmati").tag("Steamed Basmati Rice")
+                                    Text("Jeera Rice").tag("Jeera Rice")
+                                    Text("Ajwain Paratha").tag("Ajwain Paratha")
+                                }
+                                .pickerStyle(.segmented)
+                                .onChange(of: store.thali.breadOrRice) { _ in store.saveData() }
                             }
-                            .pickerStyle(.segmented)
-                            .onChange(of: store.thali.side) { _ in store.saveData() }
+                            .padding(14)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(Color(.systemBackground))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .stroke(Color(.systemGray5), lineWidth: 1)
+                                    )
+                            )
+                            
+                            // Accompaniment Selection
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack {
+                                    HStack(spacing: 6) {
+                                        Text("4")
+                                            .font(.caption2)
+                                            .bold()
+                                            .foregroundColor(.white)
+                                            .frame(width: 18, height: 18)
+                                            .background(Color.purple)
+                                            .clipShape(Circle())
+                                        Text("Dahi & Accompaniment")
+                                            .font(.subheadline)
+                                            .bold()
+                                    }
+                                    Spacer()
+                                    Text("4g protein • 60 kcal")
+                                        .font(.caption2)
+                                        .foregroundColor(.secondary)
+                                }
+                                
+                                Picker("Side", selection: $store.thali.side) {
+                                    Text("Cucumber Raita").tag("Cucumber Dahi Raita")
+                                    Text("Kachumber Salad").tag("Kachumber Salad")
+                                    Text("Curd & Achaar").tag("Plain Curd & Achaar")
+                                    Text("Roasted Papad").tag("Roasted Papad")
+                                }
+                                .pickerStyle(.segmented)
+                                .onChange(of: store.thali.side) { _ in store.saveData() }
+                            }
+                            .padding(14)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(Color(.systemBackground))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .stroke(Color(.systemGray5), lineWidth: 1)
+                                    )
+                            )
                         }
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 14).fill(Color(.systemGray6)))
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
                     
-                    // Add Entire Thali to Groceries Button
+                    // 4. Add to Sabzi Mandi Primary Button
                     Button(action: addThaliToGroceries) {
-                        HStack {
+                        HStack(spacing: 8) {
                             Image(systemName: "cart.badge.plus")
-                            Text("Add Entire Thali to Sabzi Mandi List")
+                            Text(languageManager.t("thali_add_all"))
                         }
                         .font(.headline)
                         .frame(maxWidth: .infinity)
-                        .padding()
+                        .padding(.vertical, 14)
                         .background(Color.orange)
                         .foregroundColor(.white)
                         .cornerRadius(14)
+                        .shadow(color: Color.orange.opacity(0.3), radius: 6, x: 0, y: 3)
                     }
                     .padding(.horizontal)
-                    .padding(.top, 10)
+                    .padding(.top, 6)
                 }
-                .padding(.vertical)
+                .padding(.bottom, 32)
             }
-            .navigationTitle("Thali Planner")
+            .navigationTitle(languageManager.t("tab_thali"))
             .alert("Thali Ingredients Added!", isPresented: $showingAddedAlert) {
                 Button("Great", role: .cancel) { }
             } message: {
-                Text("All ingredients for \(selectedDal?.title ?? "Dal") and \(selectedSabzi?.title ?? "Sabzi") have been organized into your Sabzi Mandi grocery list.")
+                Text("All ingredients for \(selectedDal?.title ?? "Dal") and \(selectedSabzi?.title ?? "Sabzi") have been added to your Sabzi Mandi grocery list.")
             }
         }
     }
     
     private func randomizeThali() {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         withAnimation(.spring()) {
             if let dal = availableDals.randomElement() {
                 store.thali.dalRecipeId = dal.id
@@ -196,6 +259,8 @@ struct ThaliPlannerView: View {
     }
     
     private func addThaliToGroceries() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
         if let dal = selectedDal {
             store.addIngredientsToGroceries(recipe: dal)
         }
@@ -206,68 +271,129 @@ struct ThaliPlannerView: View {
     }
 }
 
-struct MacroStatBox: View {
+// MARK: - Aesthetic Components for Thali
+struct AestheticMacroStat: View {
     let title: String
     let value: String
-    let color: Color
     let icon: String
+    let color: Color
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Label(title, systemImage: icon)
-                .font(.caption2)
-                .foregroundColor(.secondary)
+            HStack {
+                Image(systemName: icon)
+                    .font(.caption)
+                    .foregroundColor(color)
+                Spacer()
+            }
             Text(value)
                 .font(.headline)
                 .bold()
-                .foregroundColor(color)
+                .foregroundColor(.primary)
+            Text(title)
+                .font(.caption2)
+                .foregroundColor(.secondary)
         }
+        .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(Color(.systemBackground))
+                .shadow(color: Color.black.opacity(0.03), radius: 4, x: 0, y: 2)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(Color(.systemGray5), lineWidth: 1)
+                )
+        )
     }
 }
 
-struct ThaliItemPickerCard: View {
-    let title: String
+struct ThaliCourseCard: View {
+    let courseNumber: String
+    let courseType: String
     let icon: String
     let color: Color
-    let selectedItem: String
-    let macros: String
+    let recipe: Recipe
     let options: [Recipe]
     let onSelect: (Recipe) -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Label(title, systemImage: icon)
-                    .font(.subheadline)
-                    .bold()
-                    .foregroundColor(color)
+                HStack(spacing: 6) {
+                    Text(courseNumber)
+                        .font(.caption2)
+                        .bold()
+                        .foregroundColor(.white)
+                        .frame(width: 18, height: 18)
+                        .background(color)
+                        .clipShape(Circle())
+                    Text(courseType)
+                        .font(.caption)
+                        .bold()
+                        .foregroundColor(color)
+                }
                 Spacer()
                 Menu {
                     ForEach(options) { r in
                         Button(action: { onSelect(r) }) {
-                            Text("[\(r.diet.rawValue)] \(r.title)")
+                            HStack {
+                                Text(r.title)
+                                if r.id == recipe.id {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
                         }
                     }
                 } label: {
-                    Text("Change")
-                        .font(.caption)
-                        .bold()
-                        .foregroundColor(.orange)
+                    HStack(spacing: 3) {
+                        Text("Change")
+                            .font(.caption)
+                            .bold()
+                        Image(systemName: "chevron.up.chevron.down")
+                            .font(.system(size: 9))
+                    }
+                    .foregroundColor(.orange)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Color.orange.opacity(0.1))
+                    .clipShape(Capsule())
                 }
             }
             
-            Text(selectedItem)
-                .font(.headline)
-                .lineLimit(1)
+            HStack(spacing: 8) {
+                FSSAIBadge(diet: recipe.diet, size: 12)
+                Text(recipe.title)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .lineLimit(1)
+            }
             
-            Text(macros)
-                .font(.caption)
-                .foregroundColor(.secondary)
+            HStack(spacing: 8) {
+                Label("\(recipe.proteinGrams)g protein", systemImage: "flame.fill")
+                    .font(.caption2)
+                    .foregroundColor(.orange)
+                Text("•")
+                    .foregroundColor(.secondary)
+                Label("\(recipe.calories) kcal", systemImage: "bolt.fill")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                Text("•")
+                    .foregroundColor(.secondary)
+                Label("\(recipe.prepTimeMinutes)m prep", systemImage: "clock")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
         }
-        .padding()
-        .background(RoundedRectangle(cornerRadius: 14).fill(Color(.systemGray6)))
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color(.systemBackground))
+                .shadow(color: Color.black.opacity(0.04), radius: 5, x: 0, y: 2)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color(.systemGray5), lineWidth: 1)
+                )
+        )
     }
 }
