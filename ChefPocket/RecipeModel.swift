@@ -5,6 +5,7 @@ import SwiftUI
 enum RecipeScope: String, CaseIterable, Identifiable {
     case curated = "Curated"
     case myKitchen = "My Kitchen"
+    case favorites = "Favorites"
     var id: String { rawValue }
 }
 
@@ -263,6 +264,8 @@ class RecipeStore: ObservableObject {
     // PERMANENT UNVERSIONED USER STORAGE KEYS
     let permanentUserRecipesKey = "chefpocket_user_custom_recipes_permanent"
     let permanentFavoritesKey = "chefpocket_user_favorites_permanent"
+    let deletedTombstonesKey = "chefpocket_deleted_recipe_tombstones_permanent"
+    let migrationCompletedKey = "chefpocket_did_migrate_v131"
     
     // CACHED / SYSTEM KEYS
     let recipesKey = "saved_recipes_key_v7"
@@ -292,8 +295,12 @@ class RecipeStore: ObservableObject {
         recipes.filter { $0.isUserCreated }
     }
     
+    var favoriteRecipes: [Recipe] {
+        recipes.filter { $0.isFavorite }
+    }
+    
     init() {
-        // 1. Run migration scan to recover any custom recipes from historical versions
+        // 1. Run migration scan ONCE to recover any custom recipes from historical versions
         migrateHistoricalUserData()
         
         // 2. Load permanent user data + bundled recipes
@@ -305,11 +312,17 @@ class RecipeStore: ObservableObject {
         }
     }
     
-    // MARK: - Retroactive Migration Scanner
+    // MARK: - Retroactive Migration Scanner (Run Once & Purge)
     /// Recovers all user-created recipes and favorites from historical versions (v1...v6) and permanently protects them.
     func migrateHistoricalUserData() {
+        // Guard: If migration already completed, do NOT re-run to avoid resurrecting deleted recipes!
+        if defaults.bool(forKey: migrationCompletedKey) {
+            return
+        }
+        
         var recoveredCustom: [Recipe] = []
         var recoveredFavorites: Set<String> = []
+        let tombstones = getDeletedTombstones()
         
         // 1. Load any already-permanent custom recipes
         if let permData = defaults.data(forKey: permanentUserRecipesKey) ?? UserDefaults.standard.data(forKey: permanentUserRecipesKey),
@@ -323,15 +336,18 @@ class RecipeStore: ObservableObject {
             recoveredFavorites.formUnion(favList)
         }
         
-        // 3. Scan all historical keys in both App Group defaults and Standard defaults
+        // 3. Scan historical keys
         let targets = [defaults, UserDefaults.standard]
         for def in targets {
             for key in historicalRecipeKeys {
                 if let data = def.data(forKey: key),
                    let list = try? JSONDecoder().decode([Recipe].self, from: data) {
                     for r in list {
+                        // Skip any recipe that was previously deleted!
+                        if tombstones.contains(r.id.uuidString) || tombstones.contains(r.title.lowercased()) {
+                            continue
+                        }
                         if r.isUserCreated {
-                            // Deduplicate by UUID or title
                             if !recoveredCustom.contains(where: { $0.id == r.id || $0.title.lowercased() == r.title.lowercased() }) {
                                 recoveredCustom.append(r)
                             }
@@ -342,8 +358,13 @@ class RecipeStore: ObservableObject {
                         }
                     }
                 }
+                // Purge legacy key so stale items are never re-read!
+                def.removeObject(forKey: key)
             }
         }
+        
+        // Filter recovered custom against tombstones
+        recoveredCustom = recoveredCustom.filter { !tombstones.contains($0.id.uuidString) && !tombstones.contains($0.title.lowercased()) }
         
         // 4. Persist recovered items to permanent storage
         if let encodedCustom = try? JSONEncoder().encode(recoveredCustom) {
@@ -354,15 +375,49 @@ class RecipeStore: ObservableObject {
             defaults.set(encodedFavs, forKey: permanentFavoritesKey)
             UserDefaults.standard.set(encodedFavs, forKey: permanentFavoritesKey)
         }
+        
+        // Mark migration completed
+        defaults.set(true, forKey: migrationCompletedKey)
+        UserDefaults.standard.set(true, forKey: migrationCompletedKey)
+    }
+    
+    private func getDeletedTombstones() -> Set<String> {
+        if let data = defaults.data(forKey: deletedTombstonesKey) ?? UserDefaults.standard.data(forKey: deletedTombstonesKey),
+           let list = try? JSONDecoder().decode([String].self, from: data) {
+            return Set(list)
+        }
+        return []
+    }
+    
+    private func removeTombstone(id: UUID, title: String) {
+        var stones = getDeletedTombstones()
+        stones.remove(id.uuidString)
+        stones.remove(title.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))
+        if let encoded = try? JSONEncoder().encode(Array(stones)) {
+            defaults.set(encoded, forKey: deletedTombstonesKey)
+            UserDefaults.standard.set(encoded, forKey: deletedTombstonesKey)
+        }
+    }
+
+    private func recordDeletedTombstone(id: UUID, title: String) {
+        var stones = getDeletedTombstones()
+        stones.insert(id.uuidString)
+        stones.insert(title.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))
+        if let encoded = try? JSONEncoder().encode(Array(stones)) {
+            defaults.set(encoded, forKey: deletedTombstonesKey)
+            UserDefaults.standard.set(encoded, forKey: deletedTombstonesKey)
+        }
     }
     
     // MARK: - Data Loading & Saving
     func loadData() {
+        let tombstones = getDeletedTombstones()
+        
         // A. Load permanent user custom recipes
         var userRecipes: [Recipe] = []
         if let data = defaults.data(forKey: permanentUserRecipesKey) ?? UserDefaults.standard.data(forKey: permanentUserRecipesKey),
            let decoded = try? JSONDecoder().decode([Recipe].self, from: data) {
-            userRecipes = decoded
+            userRecipes = decoded.filter { !tombstones.contains($0.id.uuidString) && !tombstones.contains($0.title.lowercased()) }
         }
         
         // B. Load favorite IDs
@@ -550,6 +605,8 @@ class RecipeStore: ObservableObject {
             return (existing, false)
         }
         
+        removeTombstone(id: recipe.id, title: recipe.title)
+        
         var newR = recipe
         newR.isUserCreated = true
         recipes.insert(newR, at: 0)
@@ -558,11 +615,20 @@ class RecipeStore: ObservableObject {
     }
     
     func deleteRecipe(id: UUID) {
+        if let r = recipes.first(where: { $0.id == id }) {
+            recordDeletedTombstone(id: r.id, title: r.title)
+        }
         recipes.removeAll(where: { $0.id == id })
         saveData()
     }
     
     func deleteRecipe(at offsets: IndexSet) {
+        for idx in offsets {
+            if idx < recipes.count {
+                let r = recipes[idx]
+                recordDeletedTombstone(id: r.id, title: r.title)
+            }
+        }
         recipes.remove(atOffsets: offsets)
         saveData()
     }
@@ -587,7 +653,15 @@ class RecipeStore: ObservableObject {
         meal: MealType? = nil,
         category: RecipeCategory? = nil
     ) -> Recipe? {
-        var pool = (scope == .myKitchen) ? myRecipes : (scope == .curated ? curatedRecipes : recipes)
+        var pool: [Recipe]
+        switch scope {
+        case .myKitchen:
+            pool = myRecipes
+        case .favorites:
+            pool = favoriteRecipes
+        default:
+            pool = curatedRecipes
+        }
         if pool.isEmpty { pool = recipes }
         
         if let cu = cuisine, cu != .all {

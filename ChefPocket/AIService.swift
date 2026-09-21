@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 struct GeminiGenerationResponse: Codable {
     struct Candidate: Codable {
@@ -19,8 +20,21 @@ class AIService: ObservableObject {
     @Published var isExtracting: Bool = false
     @Published var statusMessage: String = ""
     
-    private let cooldownSeconds: TimeInterval = 5.0
-    private let dailyLimit = 25
+    // Persistent API Key storage across app
+    @AppStorage("chefpocket_gemini_api_key") var storedApiKey: String = ""
+    
+    var effectiveApiKey: String {
+        storedApiKey.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func setApiKey(_ key: String) {
+        let clean = key.trimmingCharacters(in: .whitespacesAndNewlines)
+        storedApiKey = clean
+        UserDefaults.standard.set(clean, forKey: "chefpocket_gemini_api_key")
+    }
+    
+    private let cooldownSeconds: TimeInterval = 2.0
+    private let dailyLimit = 50
     private let lastRequestTimeKey = "chefpocket_ai_last_req_time"
     private let dailyCountKey = "chefpocket_ai_daily_count"
     private let dailyDateKey = "chefpocket_ai_daily_date"
@@ -32,6 +46,10 @@ class AIService: ObservableObject {
     
     var remainingDailyRequests: Int {
         max(0, dailyLimit - dailyUsageCount)
+    }
+    
+    var hasValidApiKey: Bool {
+        !storedApiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
     private func checkDailyReset() {
@@ -58,7 +76,7 @@ class AIService: ObservableObject {
     func extractRecipe(from urlString: String, userApiKey: String? = nil) async throws -> Recipe {
         await MainActor.run {
             self.isExtracting = true
-            self.statusMessage = "Analyzing video link..."
+            self.statusMessage = "Analyzing video link & captions..."
         }
         
         defer {
@@ -68,74 +86,91 @@ class AIService: ObservableObject {
             }
         }
         
-        let clean = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        // 1. Fetch metadata (Title, Author) via YouTube oEmbed or URL hints
-        let (extractedTitle, isShort) = await fetchVideoMetadata(clean)
-        
-        // 2. Check if we have an API Key & Quota for Gemini
-        checkDailyReset()
-        let apiKey = (userApiKey?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false) ? userApiKey! : ""
-        
-        if !apiKey.isEmpty && dailyUsageCount < dailyLimit {
-            // Check cooldown
-            if let lastReq = UserDefaults.standard.object(forKey: lastRequestTimeKey) as? Date,
-               Date().timeIntervalSince(lastReq) < cooldownSeconds {
-                try? await Task.sleep(nanoseconds: UInt64(cooldownSeconds * 1_000_000_000))
-            }
-            
-            await MainActor.run {
-                self.statusMessage = "Cooking recipe with Gemini AI... ✨"
-            }
-            
-            do {
-                let aiRecipe = try await callGeminiAPI(videoTitle: extractedTitle, videoURL: clean, apiKey: apiKey)
-                UserDefaults.standard.set(Date(), forKey: lastRequestTimeKey)
-                incrementDailyCount()
-                return aiRecipe
-            } catch {
-                print("Gemini API call failed, falling back to smart heuristic: \(error.localizedDescription)")
-            }
+        let cleanURL = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !cleanURL.isEmpty else {
+            throw NSError(domain: "ChefPocket", code: 400, userInfo: [NSLocalizedDescriptionKey: "Please enter a valid video link."])
         }
         
-        // 3. Fallback Heuristic Extractor
+        // 1. Resolve API key
+        var activeApiKey = (userApiKey?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false) ? userApiKey!.trimmingCharacters(in: .whitespacesAndNewlines) : storedApiKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        // Check if API key is present
+        guard !activeApiKey.isEmpty else {
+            throw NSError(domain: "ChefPocket", code: 401, userInfo: [NSLocalizedDescriptionKey: "Gemini API Key missing. Please configure your free API Key from aistudio.google.com to extract precise recipes."])
+        }
+        
+        // 2. Fetch video metadata (Title + Description/Caption)
+        let (extractedTitle, extractedDescription, isShort) = await fetchVideoMetadataAndCaption(cleanURL)
+        
+        // 3. Check cooldown
+        if let lastReq = UserDefaults.standard.object(forKey: lastRequestTimeKey) as? Date,
+           Date().timeIntervalSince(lastReq) < cooldownSeconds {
+            try? await Task.sleep(nanoseconds: UInt64(cooldownSeconds * 1_000_000_000))
+        }
+        
         await MainActor.run {
-            self.statusMessage = "Structuring recipe ingredients & steps..."
+            self.statusMessage = "Extracting ingredients & whistle count with Gemini AI... ✨"
         }
-        return smartFallbackExtractor(title: extractedTitle, url: clean, isShort: isShort)
+        
+        // 4. Call Gemini REST API
+        let aiRecipe = try await callGeminiAPI(
+            videoTitle: extractedTitle,
+            videoDescription: extractedDescription,
+            videoURL: cleanURL,
+            apiKey: activeApiKey
+        )
+        
+        UserDefaults.standard.set(Date(), forKey: lastRequestTimeKey)
+        incrementDailyCount()
+        return aiRecipe
     }
     
     // MARK: - Gemini REST API Caller
-    private func callGeminiAPI(videoTitle: String, videoURL: String, apiKey: String) async throws -> Recipe {
-        guard let endpoint = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(apiKey)") else {
-            throw URLError(.badURL)
+    private func callGeminiAPI(videoTitle: String, videoDescription: String, videoURL: String, apiKey: String) async throws -> Recipe {
+        let cleanKey = apiKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard let endpoint = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(cleanKey)") else {
+            throw NSError(domain: "ChefPocket", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid Gemini endpoint configuration."])
         }
         
         let promptText = """
-        You are a Michelin-grade executive chef assistant. Analyze this recipe video:
-        Title: "\(videoTitle)"
-        URL: "\(videoURL)"
-
-        Generate a complete, authentic, structured recipe based on the dish name.
-        Strictly respond with ONLY valid JSON (no markdown ticks, no commentary) adhering to this schema:
+        You are an elite Michelin-trained executive chef assistant. Analyze this video metadata and extract the exact culinary recipe.
+        
+        Video Title: "\(videoTitle)"
+        Video Caption / Description: "\(videoDescription)"
+        Video URL: "\(videoURL)"
+        
+        CRITICAL RULES:
+        1. Identify the exact dish name from the title/caption.
+        2. Extract authentic ingredients with precise metric amounts (grams, ml, tbsp, tsp, piece).
+        3. If it is an Indian pressure cooker dish (dal, rajma, chana, biryani, mutton, etc.), determine the exact cooker whistle count (e.g. 2, 3, 4 whistles). If not a pressure cooker recipe, set whistleCount to null.
+        4. Accurately calculate calories and protein grams per serving.
+        5. Provide numbered, professional cooking instructions with specific heat levels and cooking cues. Never include YouTube URLs or 'extracted from' lines in instructions.
+        6. Determine Diet ("Veg" or "Non-Veg").
+        7. Determine Cuisine ("Indian Regional", "Continental & Italian", "Asian & Indo-Chinese", "Mexican & Tex-Mex", "Middle Eastern", "Cafe & Bistro", "Bakery & Breads", or "Drinks & Brews").
+        8. Determine Category ("Sabzi", "Dal", "High-Protein", "Breakfast", "Street Food", "Rice & Biryani", "Bakery", "Drinks & Shakes", or "Fusion").
+        
+        STRICT REQUIREMENT: Respond ONLY with a valid JSON object (no markdown quotes, no explanation, no text before or after):
         {
-          "title": "Clean, appetizing dish name",
-          "category": "Sabzi" or "Dal" or "High-Protein" or "Breakfast" or "Street Food" or "Rice & Biryani" or "Fusion",
-          "diet": "Veg" or "Non-Veg",
-          "mealTypes": ["Breakfast" or "Lunch" or "Snacks" or "Dinner"],
+          "title": "Dish Name",
+          "category": "Sabzi",
+          "cuisine": "Indian Regional",
+          "diet": "Veg",
+          "mealTypes": ["Lunch", "Dinner"],
           "prepTimeMinutes": 25,
-          "calories": 420,
-          "proteinGrams": 28,
-          "whistleCount": 3 (or null if not pressure cooked),
-          "tags": ["Quick", "Authentic", "Video Import"],
+          "calories": 380,
+          "proteinGrams": 24,
+          "whistleCount": 3,
+          "tags": ["Authentic", "Video Import", "High-Protein"],
           "ingredients": [
-            {"name": "Ingredient Name", "amount": 200, "unit": "g"},
-            {"name": "Spice / Oil", "amount": 1, "unit": "tsp"}
+            {"name": "Paneer / Chicken", "amount": 250, "unit": "g"},
+            {"name": "Desi Ghee", "amount": 2, "unit": "tbsp"},
+            {"name": "Cumin Seeds", "amount": 1, "unit": "tsp"}
           ],
           "instructions": [
-            "Clear step 1 with heat level and visual cue.",
-            "Clear step 2...",
-            "Final finishing step with garnish."
+            "Heat ghee in a pan on medium heat and splutter cumin seeds.",
+            "Add aromatics, sauté until golden brown, and add spices.",
+            "Cover and cook until tender. Serve hot."
           ]
         }
         """
@@ -149,8 +184,7 @@ class AIService: ObservableObject {
                 ]
             ],
             "generationConfig": [
-                "temperature": 0.3,
-                "response_mime_type": "application/json"
+                "temperature": 0.2
             ]
         ]
         
@@ -160,30 +194,58 @@ class AIService: ObservableObject {
         request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
         
         let (data, response) = try await URLSession.shared.data(for: request)
-        guard let httpResp = response as? HTTPURLResponse, (200...299).contains(httpResp.statusCode) else {
-            throw URLError(.badServerResponse)
+        
+        guard let httpResp = response as? HTTPURLResponse else {
+            throw NSError(domain: "ChefPocket", code: 500, userInfo: [NSLocalizedDescriptionKey: "No response received from Gemini server."])
+        }
+        
+        // Handle API errors gracefully with user-friendly messages
+        if !(200...299).contains(httpResp.statusCode) {
+            var errMsg = "Gemini API Error (\(httpResp.statusCode))"
+            if let errJSON = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let errObj = errJSON["error"] as? [String: Any],
+               let msg = errObj["message"] as? String {
+                if msg.contains("API_KEY_INVALID") || msg.contains("API key not valid") {
+                    errMsg = "Invalid Gemini API Key. Please verify your key at aistudio.google.com."
+                } else if msg.contains("RESOURCE_EXHAUSTED") || httpResp.statusCode == 429 {
+                    errMsg = "Gemini quota exceeded. Please wait a moment or use a different key."
+                } else {
+                    errMsg = "\(msg) (Status: \(httpResp.statusCode))"
+                }
+            }
+            throw NSError(domain: "GeminiAPI", code: httpResp.statusCode, userInfo: [NSLocalizedDescriptionKey: errMsg])
         }
         
         let geminiResp = try JSONDecoder().decode(GeminiGenerationResponse.self, from: data)
         guard let rawJSONText = geminiResp.candidates?.first?.content?.parts?.first?.text else {
-            throw URLError(.cannotParseResponse)
+            throw NSError(domain: "ChefPocket", code: 422, userInfo: [NSLocalizedDescriptionKey: "Could not read recipe structure from AI response."])
         }
         
-        // Clean out possible markdown fences
-        let cleaned = rawJSONText
+        // Extract substring between first '{' and last '}'
+        var cleaned = rawJSONText
             .replacingOccurrences(of: "```json", with: "")
             .replacingOccurrences(of: "```", with: "")
             .trimmingCharacters(in: .whitespacesAndNewlines)
+            
+        if let firstBrace = cleaned.firstIndex(of: "{"),
+           let lastBrace = cleaned.lastIndex(of: "}") {
+            cleaned = String(cleaned[firstBrace...lastBrace])
+        }
         
         guard let jsonData = cleaned.data(using: .utf8),
               let dict = try JSONSerialization.jsonObject(with: jsonData) as? [String: Any] else {
-            throw URLError(.cannotDecodeContentData)
+            throw NSError(domain: "ChefPocket", code: 422, userInfo: [NSLocalizedDescriptionKey: "Failed to parse structured recipe JSON from AI."])
         }
         
         // Parse fields
-        let title = dict["title"] as? String ?? videoTitle
+        let title = dict["title"] as? String ?? (videoTitle.isEmpty ? "AI Extracted Dish" : videoTitle)
+        
         let catRaw = dict["category"] as? String ?? "Sabzi"
         let category = RecipeCategory(rawValue: catRaw) ?? .sabzi
+        
+        let cuRaw = dict["cuisine"] as? String ?? "Indian Regional"
+        let cuisine = Cuisine(rawValue: cuRaw) ?? .indian
+        
         let dietRaw = dict["diet"] as? String ?? "Veg"
         let diet = DietType(rawValue: dietRaw) ?? .veg
         
@@ -193,17 +255,17 @@ class AIService: ObservableObject {
         }
         if mealTypes.isEmpty { mealTypes = [.lunch, .dinner] }
         
-        let prep = dict["prepTimeMinutes"] as? Int ?? 20
+        let prep = dict["prepTimeMinutes"] as? Int ?? 25
         let cals = dict["calories"] as? Int ?? 380
         let protein = dict["proteinGrams"] as? Int ?? 22
         let whistles = dict["whistleCount"] as? Int
-        let tags = dict["tags"] as? [String] ?? ["AI Extracted", "Video Import"]
+        let tags = dict["tags"] as? [String] ?? ["AI Extracted", "Chef Verified"]
         
         var ingredients: [Ingredient] = []
         if let ingArr = dict["ingredients"] as? [[String: Any]] {
             for item in ingArr {
                 let name = item["name"] as? String ?? "Ingredient"
-                let amt = item["amount"] as? Double ?? 1.0
+                let amt = (item["amount"] as? NSNumber)?.doubleValue ?? 1.0
                 let unit = item["unit"] as? String ?? "portion"
                 ingredients.append(Ingredient(name: name, amount: amt, unit: unit))
             }
@@ -213,9 +275,9 @@ class AIService: ObservableObject {
         }
         
         var rawInstructions = dict["instructions"] as? [String] ?? [
-            "Prepare and chop all ingredients as listed.",
-            "Heat pan on medium flame, sauté aromatics and spices.",
-            "Add main ingredients and simmer until cooked through.",
+            "Prepare and chop all fresh ingredients as listed.",
+            "Heat pan or pressure cooker on medium heat, sauté aromatics and spices.",
+            "Add main ingredients and simmer until cooked thoroughly.",
             "Finish with fresh garnish and serve hot."
         ]
         let instructions = rawInstructions.filter {
@@ -226,6 +288,7 @@ class AIService: ObservableObject {
         return Recipe(
             title: title,
             category: category,
+            cuisine: cuisine,
             diet: diet,
             mealTypes: mealTypes,
             isUserCreated: true,
@@ -240,90 +303,72 @@ class AIService: ObservableObject {
         )
     }
     
-    // MARK: - Video Metadata (oEmbed)
-    private func fetchVideoMetadata(_ urlString: String) async -> (title: String, isShort: Bool) {
+    // MARK: - Video Metadata & Caption Scraper
+    private func fetchVideoMetadataAndCaption(_ urlString: String) async -> (title: String, description: String, isShort: Bool) {
         let isShort = urlString.contains("shorts") || urlString.contains("youtube") || urlString.contains("youtu.be")
-        var title = isShort ? "Imported YouTube Recipe" : "Imported Video Recipe"
+        var title = ""
+        var description = ""
         
-        if isShort, let encoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+        // 1. Normalize YouTube URL to canonical watch link for metadata fetching
+        var targetURL = urlString
+        if urlString.contains("shorts/") {
+            let parts = urlString.components(separatedBy: "shorts/")
+            if let id = parts.last?.split(separator: "?").first?.split(separator: "/").first {
+                targetURL = "https://www.youtube.com/watch?v=\(id)"
+            }
+        } else if urlString.contains("youtu.be/") {
+            let parts = urlString.components(separatedBy: "youtu.be/")
+            if let id = parts.last?.split(separator: "?").first?.split(separator: "/").first {
+                targetURL = "https://www.youtube.com/watch?v=\(id)"
+            }
+        }
+        
+        // 2. Query oEmbed with iOS Safari User-Agent
+        if let encoded = targetURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
            let oEmbedURL = URL(string: "https://www.youtube.com/oembed?url=\(encoded)&format=json") {
-            if let (data, _) = try? await URLSession.shared.data(from: oEmbedURL),
+            var req = URLRequest(url: oEmbedURL)
+            req.setValue("Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15", forHTTPHeaderField: "User-Agent")
+            if let (data, _) = try? await URLSession.shared.data(for: req),
                let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
                let fetchedTitle = json["title"] as? String, !fetchedTitle.isEmpty {
                 title = fetchedTitle
             }
         }
         
-        return (title, isShort)
-    }
-    
-    // MARK: - Smart Heuristic Fallback Extractor
-    private func smartFallbackExtractor(title: String, url: String, isShort: Bool) -> Recipe {
-        let lower = title.lowercased()
-        
-        // Detect diet
-        let isNonVeg = lower.contains("chicken") || lower.contains("mutton") || lower.contains("egg") ||
-            lower.contains("fish") || lower.contains("prawn") || lower.contains("keema") || lower.contains("meat")
-        let diet: DietType = isNonVeg ? .nonVeg : .veg
-        
-        // Detect category & whistle count
-        var category: RecipeCategory = .sabzi
-        var whistles: Int? = nil
-        var prepTime = 20
-        var calories = 380
-        var protein = isNonVeg ? 32 : 18
-        var mealTypes: [MealType] = [.lunch, .dinner]
-        
-        if lower.contains("dal") || lower.contains("lentil") || lower.contains("chana") || lower.contains("rajma") {
-            category = .dal
-            whistles = 3
-            protein = 22
-        } else if lower.contains("biryani") || lower.contains("pulao") || lower.contains("rice") {
-            category = .rice
-            whistles = 2
-            calories = 480
-        } else if lower.contains("chilla") || lower.contains("dosa") || lower.contains("idli") || lower.contains("poha") || lower.contains("omelette") {
-            category = .breakfast
-            mealTypes = [.breakfast]
-            prepTime = 15
-        } else if lower.contains("chaat") || lower.contains("pav bhaji") || lower.contains("samosa") || lower.contains("roll") {
-            category = .streetFood
-            mealTypes = [.snacks]
-            calories = 420
-        } else if isNonVeg || lower.contains("paneer") || lower.contains("soya") || lower.contains("tofu") {
-            category = .highProtein
-            protein = isNonVeg ? 36 : 28
+        // 3. Query Webpage OpenGraph tags (og:title, og:description) to extract creator caption
+        if let pageURL = URL(string: targetURL) {
+            var req = URLRequest(url: pageURL)
+            req.setValue("Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15", forHTTPHeaderField: "User-Agent")
+            if let (data, _) = try? await URLSession.shared.data(for: req),
+               let html = String(data: data, encoding: .utf8) {
+                // Extract og:title if empty
+                if title.isEmpty {
+                    if let range = html.range(of: "<meta property=\"og:title\" content=\"") {
+                        let after = html[range.upperBound...]
+                        if let end = after.firstIndex(of: "\"") {
+                            title = String(after[..<end])
+                        }
+                    }
+                }
+                // Extract og:description (often has ingredients & recipe steps!)
+                if let range = html.range(of: "<meta property=\"og:description\" content=\"") {
+                    let after = html[range.upperBound...]
+                    if let end = after.firstIndex(of: "\"") {
+                        description = String(after[..<end])
+                    }
+                } else if let range = html.range(of: "<meta name=\"description\" content=\"") {
+                    let after = html[range.upperBound...]
+                    if let end = after.firstIndex(of: "\"") {
+                        description = String(after[..<end])
+                    }
+                }
+            }
         }
         
-        return Recipe(
-            title: title,
-            category: category,
-            diet: diet,
-            mealTypes: mealTypes,
-            isUserCreated: true,
-            tags: ["Video Import", "Trending", diet.rawValue],
-            sourceURL: url,
-            prepTimeMinutes: prepTime,
-            calories: calories,
-            proteinGrams: protein,
-            whistleCount: whistles,
-            ingredients: [
-                Ingredient(name: isNonVeg ? "Main Protein (Chicken / Mutton / Egg)" : "Main Ingredient (Paneer / Dal / Veggies)", amount: 250, unit: "g"),
-                Ingredient(name: "Finely Chopped Onion", amount: 1, unit: "medium"),
-                Ingredient(name: "Tomatoes Pureed", amount: 2, unit: "medium"),
-                Ingredient(name: "Ginger Garlic Paste", amount: 1, unit: "tbsp"),
-                Ingredient(name: "Desi Ghee / Oil", amount: 1, unit: "tbsp"),
-                Ingredient(name: "Garam Masala & Turmeric", amount: 1, unit: "tsp"),
-                Ingredient(name: "Fresh Coriander for Garnish", amount: 1, unit: "handful")
-            ],
-            instructions: [
-                "Heat ghee or oil in a heavy-bottomed pan and sauté ginger garlic paste with cumin seeds until fragrant.",
-                "Add chopped onions and fry on medium-high heat until golden brown.",
-                "Add tomato puree, turmeric, red chilli, and garam masala; bhunao (cook) until the oil releases from the sides.",
-                "Add the main protein/vegetables with half a cup of warm water.",
-                whistles != nil ? "Pressure cook on medium heat for \(whistles!) whistles. Allow steam to release naturally." : "Cover and simmer on low-medium flame for \(prepTime - 10) minutes until tender.",
-                "Finish with a pinch of roasted kasuri methi and fresh coriander. Serve piping hot!"
-            ]
-        )
+        if title.isEmpty {
+            title = isShort ? "Chef Special YouTube Dish" : "Trending Video Dish"
+        }
+        
+        return (title, description, isShort)
     }
 }

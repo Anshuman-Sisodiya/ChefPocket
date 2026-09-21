@@ -73,7 +73,14 @@ struct CookbookHomeView: View {
     
     // Active scope recipes
     private var scopeRecipes: [Recipe] {
-        store.selectedScope == .myKitchen ? store.myRecipes : store.curatedRecipes
+        switch store.selectedScope {
+        case .myKitchen:
+            return store.myRecipes
+        case .favorites:
+            return store.favoriteRecipes
+        default:
+            return store.curatedRecipes
+        }
     }
     
     private var vegCount: Int { scopeRecipes.filter { $0.diet == .veg }.count }
@@ -147,6 +154,20 @@ struct CookbookHomeView: View {
                                 .clipShape(Circle())
                         }
                         
+                        // Quick Favorites Button
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                store.selectedScope = (store.selectedScope == .favorites) ? .curated : .favorites
+                            }
+                        }) {
+                            Image(systemName: store.selectedScope == .favorites ? "heart.fill" : "heart")
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundColor(store.selectedScope == .favorites ? .red : .secondary)
+                                .padding(8)
+                                .background(store.selectedScope == .favorites ? Color.red.opacity(0.15) : Color(.systemGray5))
+                                .clipShape(Circle())
+                        }
+                        
                         // Profile Avatar Button
                         Button(action: {
                             if auth.isAuthenticated {
@@ -217,41 +238,60 @@ struct CookbookHomeView: View {
                         .padding(.horizontal)
                     }
                     
-                    // 3. Inbuilt vs My Kitchen Scope Toggle
+                    // 3. Three-way Scope Selector: Curated | My Kitchen | Favorites
                     HStack(spacing: 0) {
                         Button(action: { withAnimation(.easeInOut(duration: 0.2)) { store.selectedScope = .curated } }) {
-                            HStack(spacing: 6) {
+                            HStack(spacing: 4) {
                                 Image(systemName: "book.closed.fill")
                                     .font(.caption2)
-                                Text("Curated Classics")
-                                    .font(.subheadline)
+                                Text("Curated")
+                                    .font(.caption)
                                     .fontWeight(store.selectedScope == .curated ? .bold : .medium)
                                 Text("(\(store.curatedRecipes.count))")
                                     .font(.caption2)
                                     .foregroundColor(store.selectedScope == .curated ? .white.opacity(0.85) : .secondary)
                             }
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 9)
+                            .padding(.vertical, 8)
                             .background(store.selectedScope == .curated ? Color.orange : Color.clear)
                             .foregroundColor(store.selectedScope == .curated ? .white : .primary)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                         
                         Button(action: { withAnimation(.easeInOut(duration: 0.2)) { store.selectedScope = .myKitchen } }) {
-                            HStack(spacing: 6) {
+                            HStack(spacing: 4) {
                                 Image(systemName: "fork.knife")
                                     .font(.caption2)
-                                Text("My Kitchen")
-                                    .font(.subheadline)
+                                Text("Kitchen")
+                                    .font(.caption)
                                     .fontWeight(store.selectedScope == .myKitchen ? .bold : .medium)
                                 Text("(\(store.myRecipes.count))")
                                     .font(.caption2)
                                     .foregroundColor(store.selectedScope == .myKitchen ? .white.opacity(0.85) : .secondary)
                             }
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 9)
+                            .padding(.vertical, 8)
                             .background(store.selectedScope == .myKitchen ? Color.orange : Color.clear)
                             .foregroundColor(store.selectedScope == .myKitchen ? .white : .primary)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                        
+                        Button(action: { withAnimation(.easeInOut(duration: 0.2)) { store.selectedScope = .favorites } }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "heart.fill")
+                                    .font(.caption2)
+                                    .foregroundColor(store.selectedScope == .favorites ? .white : .red)
+                                Text("Favorites")
+                                    .font(.caption)
+                                    .fontWeight(store.selectedScope == .favorites ? .bold : .medium)
+                                Text("(\(store.favoriteRecipes.count))")
+                                    .font(.caption2)
+                                    .foregroundColor(store.selectedScope == .favorites ? .white.opacity(0.85) : .secondary)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                            .background(store.selectedScope == .favorites ? Color.orange : Color.clear)
+                            .foregroundColor(store.selectedScope == .favorites ? .white : .primary)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                     }
@@ -492,7 +532,43 @@ struct CookbookHomeView: View {
                         .padding(.horizontal)
                         
                         if filteredRecipes.isEmpty {
-                            if store.selectedScope == .myKitchen && store.myRecipes.isEmpty {
+                            if store.selectedScope == .favorites && store.favoriteRecipes.isEmpty {
+                                // Favorites Empty State
+                                VStack(spacing: 14) {
+                                    Image(systemName: "heart.slash")
+                                        .font(.system(size: 48))
+                                        .foregroundColor(.red.opacity(0.7))
+                                    
+                                    VStack(spacing: 4) {
+                                        Text("No Favorites Saved Yet")
+                                            .font(.headline)
+                                        Text("Tap the heart ❤️ on any dish to save it to your personal favorites collection.")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                            .multilineTextAlignment(.center)
+                                            .padding(.horizontal, 24)
+                                    }
+                                    
+                                    Button(action: {
+                                        withAnimation(.easeInOut(duration: 0.2)) {
+                                            store.selectedScope = .curated
+                                        }
+                                    }) {
+                                        Label("Browse Curated Dishes", systemImage: "sparkles")
+                                            .font(.caption)
+                                            .bold()
+                                            .padding(.horizontal, 16)
+                                            .padding(.vertical, 9)
+                                            .background(Color.orange)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(10)
+                                    }
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 40)
+                                .background(RoundedRectangle(cornerRadius: 16).fill(Color(.systemGray6)))
+                                .padding(.horizontal)
+                            } else if store.selectedScope == .myKitchen && store.myRecipes.isEmpty {
                                 // My Kitchen Empty State
                                 VStack(spacing: 14) {
                                     Image(systemName: "fork.knife.circle")
@@ -602,7 +678,7 @@ struct CookbookHomeView: View {
     
     private func extractClipboardURL(_ urlString: String) {
         Task {
-            let apiKey = auth.currentUser?.geminiApiKey
+            let apiKey = auth.currentUser?.geminiApiKey ?? AIService.shared.effectiveApiKey
             if let recipe = try? await AIService.shared.extractRecipe(from: urlString, userApiKey: apiKey) {
                 await MainActor.run {
                     store.addRecipe(recipe)
@@ -767,79 +843,174 @@ struct AIImportModal: View {
     @State private var errorMessage: String? = nil
     @State private var showingAlreadyExistsAlert = false
     @State private var existingRecipeTitle = ""
+    @State private var showingApiKeyEditor = false
+    @State private var inlineApiKey = ""
+    @State private var apiKeySavedBanner = false
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
-                VStack(spacing: 8) {
-                    Image(systemName: "sparkles")
-                        .font(.system(size: 40))
-                        .foregroundColor(.orange)
-                    
-                    Text("AI Video Recipe Extractor")
-                        .font(.title2)
-                        .bold()
-                    
-                    Text("Paste a YouTube Shorts or Instagram Reels link. Google Gemini AI will extract authentic ingredients, whistle counts, and steps.")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 20)
-                }
-                .padding(.top, 24)
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    TextField("https://youtube.com/shorts/...", text: $urlInput)
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                        .autocorrectionDisabled()
-                    
-                    if let err = errorMessage {
-                        Text(err)
-                            .font(.caption2)
-                            .foregroundColor(.red)
-                    }
-                    
-                    HStack {
-                        Label("\(AIService.shared.remainingDailyRequests) free AI extractions left today", systemImage: "bolt.fill")
-                            .font(.caption2)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                    }
-                }
-                .padding(.horizontal)
-                
-                if AIService.shared.isExtracting {
+            ScrollView {
+                VStack(spacing: 20) {
                     VStack(spacing: 8) {
-                        ProgressView()
-                        Text(AIService.shared.statusMessage)
+                        Image(systemName: "sparkles")
+                            .font(.system(size: 38))
+                            .foregroundColor(.orange)
+                        
+                        Text("AI Video Recipe Extractor")
+                            .font(.title2)
+                            .bold()
+                        
+                        Text("Paste a YouTube Shorts or Instagram Reels link. Google Gemini AI will extract authentic ingredients, whistle counts, and cooking steps.")
                             .font(.caption)
                             .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 20)
                     }
-                    .padding()
-                }
-                
-                Button(action: runAIExtraction) {
-                    HStack {
-                        Image(systemName: "sparkles")
-                        Text(AIService.shared.isExtracting ? "Extracting..." : "Extract & Cook")
+                    .padding(.top, 16)
+                    
+                    // URL Input Section
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Video Link")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
+                        
+                        TextField("https://youtube.com/shorts/...", text: $urlInput)
+                            .textFieldStyle(.roundedBorder)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                        
+                        if let err = errorMessage {
+                            HStack(alignment: .top, spacing: 6) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .font(.caption)
+                                    .foregroundColor(.red)
+                                Text(err)
+                                    .font(.caption2)
+                                    .foregroundColor(.red)
+                            }
+                            .padding(8)
+                            .background(Color.red.opacity(0.1))
+                            .cornerRadius(8)
+                        }
                     }
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.orange)
-                    .foregroundColor(.white)
+                    .padding(.horizontal)
+                    
+                    // Gemini API Key Inline Card
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Label(
+                                AIService.shared.hasValidApiKey ? "Gemini API Key Active" : "Gemini API Key Setup",
+                                systemImage: AIService.shared.hasValidApiKey ? "checkmark.seal.fill" : "key.fill"
+                            )
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(AIService.shared.hasValidApiKey ? .green : .orange)
+                            
+                            Spacer()
+                            
+                            Button(showingApiKeyEditor ? "Done" : (AIService.shared.hasValidApiKey ? "Change" : "Add Key")) {
+                                withAnimation {
+                                    showingApiKeyEditor.toggle()
+                                }
+                            }
+                            .font(.caption)
+                            .bold()
+                            .foregroundColor(.orange)
+                        }
+                        
+                        if showingApiKeyEditor {
+                            VStack(alignment: .leading, spacing: 8) {
+                                SecureField("Paste Google AI Studio API Key", text: $inlineApiKey)
+                                    .textFieldStyle(.roundedBorder)
+                                    .textInputAutocapitalization(.never)
+                                    .autocorrectionDisabled()
+                                
+                                HStack {
+                                    Button("Save Key") {
+                                        let clean = inlineApiKey.trimmingCharacters(in: .whitespacesAndNewlines)
+                                        if !clean.isEmpty {
+                                            AIService.shared.setApiKey(clean)
+                                            if auth.isAuthenticated {
+                                                auth.updateProfile(name: auth.currentUser?.name ?? "Chef", diet: auth.currentUser?.dietaryPreference ?? .all, apiKey: clean)
+                                            }
+                                            withAnimation {
+                                                apiKeySavedBanner = true
+                                                showingApiKeyEditor = false
+                                                errorMessage = nil
+                                            }
+                                        }
+                                    }
+                                    .font(.caption)
+                                    .bold()
+                                    .padding(.horizontal, 14)
+                                    .padding(.vertical, 6)
+                                    .background(Color.orange)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                                    .disabled(inlineApiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                                    
+                                    Link("Get Free Key ↗", destination: URL(string: "https://aistudio.google.com/app/apikey")!)
+                                        .font(.caption2)
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                            .padding(.top, 4)
+                        } else if apiKeySavedBanner {
+                            Text("✓ API Key successfully saved and active for unlimited precise extractions.")
+                                .font(.caption2)
+                                .foregroundColor(.green)
+                        } else if !AIService.shared.hasValidApiKey {
+                            Text("Add your free Gemini API key from Google AI Studio to unlock automatic recipe parsing.")
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .padding(12)
+                    .background(Color(.systemGray6))
                     .cornerRadius(12)
+                    .padding(.horizontal)
+                    
+                    // Extraction Progress indicator
+                    if AIService.shared.isExtracting {
+                        VStack(spacing: 8) {
+                            ProgressView()
+                            Text(AIService.shared.statusMessage)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding()
+                    }
+                    
+                    // Action button
+                    Button(action: runAIExtraction) {
+                        HStack {
+                            Image(systemName: "sparkles")
+                            Text(AIService.shared.isExtracting ? "Extracting Recipe..." : "Extract & Add to Kitchen")
+                        }
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                    }
+                    .disabled(urlInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || AIService.shared.isExtracting)
+                    .padding(.horizontal)
+                    
+                    Spacer(minLength: 20)
                 }
-                .disabled(urlInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || AIService.shared.isExtracting)
-                .padding(.horizontal)
-                
-                Spacer()
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { isPresented = false }
+                }
+            }
+            .onAppear {
+                inlineApiKey = AIService.shared.effectiveApiKey
+                if inlineApiKey.isEmpty, let userKey = auth.currentUser?.geminiApiKey, !userKey.isEmpty {
+                    inlineApiKey = userKey
                 }
             }
             .alert(languageManager.t("already_in_kitchen"), isPresented: $showingAlreadyExistsAlert) {
@@ -867,16 +1038,16 @@ struct AIImportModal: View {
         
         Task {
             do {
-                let apiKey = auth.currentUser?.geminiApiKey
+                let apiKey = auth.currentUser?.geminiApiKey.isEmpty == false ? auth.currentUser?.geminiApiKey : AIService.shared.effectiveApiKey
                 let recipe = try await AIService.shared.extractRecipe(from: clean, userApiKey: apiKey)
                 await MainActor.run {
-                    store.addRecipe(recipe)
+                    _ = store.addRecipe(recipe)
                     store.selectedScope = .myKitchen
                     isPresented = false
                 }
             } catch {
                 await MainActor.run {
-                    errorMessage = "Extraction failed: \(error.localizedDescription)"
+                    errorMessage = error.localizedDescription
                 }
             }
         }

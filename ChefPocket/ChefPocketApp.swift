@@ -39,7 +39,7 @@ struct ChefPocketApp: App {
         }
         
         Task {
-            let apiKey = auth.currentUser?.geminiApiKey
+            let apiKey = auth.currentUser?.geminiApiKey ?? AIService.shared.effectiveApiKey
             if let recipe = try? await AIService.shared.extractRecipe(from: sharedVideoURL, userApiKey: apiKey) {
                 await MainActor.run {
                     store.addRecipe(recipe)

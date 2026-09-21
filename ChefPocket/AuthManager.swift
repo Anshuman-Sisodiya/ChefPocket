@@ -48,7 +48,7 @@ class AuthManager: ObservableObject {
             name: cleanName.isEmpty ? "Google Chef" : cleanName,
             email: cleanEmail,
             dietaryPreference: .all,
-            geminiApiKey: currentUser?.geminiApiKey ?? "",
+            geminiApiKey: currentUser?.geminiApiKey.isEmpty == false ? currentUser!.geminiApiKey : AIService.shared.effectiveApiKey,
             isGoogleAccount: true,
             joinedDate: currentUser?.joinedDate ?? Date()
         )
@@ -95,10 +95,12 @@ class AuthManager: ObservableObject {
     }
     
     func updateProfile(name: String, diet: DietType, apiKey: String) {
+        let cleanKey = apiKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        AIService.shared.setApiKey(cleanKey)
         guard var profile = currentUser else { return }
         profile.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
         profile.dietaryPreference = diet
-        profile.geminiApiKey = apiKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        profile.geminiApiKey = cleanKey
         saveProfile(profile)
     }
     
