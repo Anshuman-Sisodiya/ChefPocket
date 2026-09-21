@@ -846,6 +846,7 @@ struct AIImportModal: View {
     @State private var showingApiKeyEditor = false
     @State private var inlineApiKey = ""
     @State private var apiKeySavedBanner = false
+    @AppStorage("chefpocket_gemini_model") private var selectedModel: String = "gemini-3.6-flash"
     
     var body: some View {
         NavigationStack {
@@ -969,6 +970,30 @@ struct AIImportModal: View {
                     .padding(12)
                     .background(Color(.systemGray6))
                     .cornerRadius(12)
+                    .padding(.horizontal)
+                    
+                    // Model Selection
+                    HStack {
+                        Label("AI Engine", systemImage: "sparkle")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
+                        
+                        Spacer()
+                        
+                        Picker("Model", selection: $selectedModel) {
+                            Text("Gemini 3.6 Flash (Recommended)").tag("gemini-3.6-flash")
+                            Text("Gemini 3.8 Flash (Cutting Edge)").tag("gemini-3.8-flash")
+                            Text("Gemini 3.0 Flash").tag("gemini-3.0-flash")
+                            Text("Gemini 2.0 Flash").tag("gemini-2.0-flash")
+                        }
+                        .pickerStyle(.menu)
+                        .font(.caption)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
                     .padding(.horizontal)
                     
                     // Extraction Progress indicator

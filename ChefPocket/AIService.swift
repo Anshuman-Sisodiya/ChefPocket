@@ -22,6 +22,7 @@ class AIService: ObservableObject {
     
     // Persistent API Key storage across app
     @AppStorage("chefpocket_gemini_api_key") var storedApiKey: String = ""
+    @AppStorage("chefpocket_gemini_model") var userPreferredModel: String = "gemini-3.6-flash"
     
     var effectiveApiKey: String {
         storedApiKey.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -129,16 +130,31 @@ class AIService: ObservableObject {
     private func callGeminiAPI(videoTitle: String, videoDescription: String, videoURL: String, apiKey: String) async throws -> Recipe {
         let cleanKey = apiKey.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // Priority order of modern Gemini models
-        let candidateModels = [
-            "gemini-2.0-flash",
+        // Priority order of modern Gemini models (Gemini 3.6 Flash primary)
+        var candidateModels: [String] = []
+        let pref = userPreferredModel.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !pref.isEmpty {
+            candidateModels.append(pref)
+        }
+        
+        let standardModels = [
+            "gemini-3.6-flash",
+            "gemini-3.8-flash",
+            "gemini-3.5-flash",
+            "gemini-3.0-flash",
             "gemini-2.5-flash",
+            "gemini-2.0-flash",
             "gemini-1.5-flash-latest",
             "gemini-1.5-flash",
             "gemini-2.0-flash-lite",
-            "gemini-1.5-pro",
             "gemini-pro"
         ]
+        
+        for m in standardModels {
+            if !candidateModels.contains(m) {
+                candidateModels.append(m)
+            }
+        }
         
         var lastError: Error? = nil
         
