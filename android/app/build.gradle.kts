@@ -10,9 +10,9 @@ android {
     defaultConfig {
         applicationId = "com.chefpocket.app"
         minSdk = 21
-        targetSdk = 33
-        versionCode = 3
-        versionName = "1.4.2"
+        targetSdk = 34
+        versionCode = 4
+        versionName = "1.4.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
