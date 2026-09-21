@@ -554,7 +554,7 @@ struct CookbookHomeView: View {
             }
             .navigationBarHidden(true)
             .sheet(isPresented: $showingProfileSheet) {
-                UserProfileSheet()
+                UserProfileView()
             }
             .sheet(isPresented: $showingAuthModal) {
                 AuthModalView()
@@ -760,10 +760,13 @@ struct AIImportModal: View {
     @Binding var isPresented: Bool
     @EnvironmentObject var store: RecipeStore
     @EnvironmentObject var auth: AuthManager
+    @ObservedObject var languageManager = LanguageManager.shared
     
     @State private var urlInput = ""
     @State private var isProcessing = false
     @State private var errorMessage: String? = nil
+    @State private var showingAlreadyExistsAlert = false
+    @State private var existingRecipeTitle = ""
     
     var body: some View {
         NavigationStack {
@@ -838,6 +841,14 @@ struct AIImportModal: View {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { isPresented = false }
                 }
+            }
+            .alert(languageManager.t("already_in_kitchen"), isPresented: $showingAlreadyExistsAlert) {
+                Button("OK", role: .cancel) {
+                    store.selectedScope = .myKitchen
+                    isPresented = false
+                }
+            } message: {
+                Text("\(languageManager.t("already_in_kitchen_msg")) '\(existingRecipeTitle)'.")
             }
         }
     }
