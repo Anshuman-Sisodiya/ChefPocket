@@ -1,23 +1,49 @@
 # Contributing to ChefPocket
 
-Thank you for your interest in contributing to **ChefPocket**! We welcome bug reports, feature suggestions, authentic recipes, and pull requests.
+Thank you for your interest in contributing to **ChefPocket**! We warmly welcome bug reports, feature suggestions, authentic recipes, documentation improvements, and pull requests across both our **iOS (SwiftUI)** and **Android (Jetpack Compose)** editions.
 
-## How to Contribute
+---
 
-### 1. Reporting Bugs
-- Search existing issues to ensure the bug hasn't already been reported.
-- Open a new issue using the **Bug Report** template.
-- Include iOS version, device model, and clear steps to reproduce.
+## 🛠️ Project Structure
+- `ChefPocket/` & `RecipeShareExtension/`: iOS Swift codebase (`SwiftUI`, `XcodeGen`).
+- `android/`: Android Kotlin codebase (`Jetpack Compose`, `Material 3`, `Gradle`).
+- `docs/`: Technical guides, architecture, and security policies.
+- `ChefPocket/RecipesData.json` & `android/app/src/main/assets/recipes_data.json`: Shared unified offline recipe database.
 
-### 2. Suggesting Features & Recipes
-- For new recipes: ensure the recipe has accurate measurements, estimated macros (calories & protein), cooker whistle count (if pressure cooked), and step-by-step instructions.
+---
+
+## 🤝 How to Contribute
+
+### 1. Adding or Refining Authentic Recipes
+Recipes must be updated in **both** `ChefPocket/RecipesData.json` and `android/app/src/main/assets/recipes_data.json` to maintain cross-platform parity.
+Every recipe must adhere to the standard schema:
+- **`name`**: Clear, authentic dish name.
+- **`cuisine`**: One of `Indian Regional`, `Continental & Italian`, `Asian & Indo-Chinese`, `Mexican & Tex-Mex`, `Middle Eastern`, `Cafe & Bistro`, `Bakery & Breads`, `Drinks & Brews`.
+- **`diet`**: `Veg` or `Non-Veg`.
+- **`mealOccasion`**: `Breakfast`, `Lunch`, `Snacks`, or `Dinner`.
+- **`category`**: `Bakery`, `Drinks & Shakes`, `Sabzi`, `Dal`, `High-Protein`, `Street Food`, `Rice & Biryani`, `Fusion`.
+- **`calories`** and **`protein`**: Realistic nutritional estimates.
+- **`cookerWhistles`**: Integer count (0 if not pressure cooked).
+- **`ingredients`**: List of ingredient strings with precise quantities.
+- **`steps`**: Clear, numbered step-by-step cooking instructions.
+
+### 2. Reporting Bugs
+- Check existing issues before opening a new one.
+- Use the **Bug Report** template.
+- Specify device platform (`iOS` or `Android`), OS version, device model, and reproduction steps.
+
+### 3. Proposing Features
 - Open an issue using the **Feature Request** template.
+- Describe the use case and expected behavior.
 
-### 3. Submitting Pull Requests
-- Fork the repository and create a descriptive branch name: `feature/new-recipe` or `fix/whistle-haptic`.
-- Follow standard Swift style guidelines (Apple Swift API Design Guidelines).
-- Ensure project builds cleanly via `xcodegen generate`.
-- Submit your pull request to the `main` branch.
+### 4. Pull Requests
+- Fork the repository and create a feature branch (`git checkout -b feature/AmazingFeature`).
+- For **iOS**: Ensure code follows Swift API Design Guidelines and `xcodegen generate` succeeds.
+- For **Android**: Ensure code follows Kotlin conventions and `./gradlew :app:assembleRelease` compiles cleanly.
+- Commit with clear semantic commit messages (`feat:`, `fix:`, `docs:`, `perf:`).
+- Open a Pull Request targeting the `main` branch.
 
-## Code of Conduct
-Please be respectful and kind to everyone in all discussions and code reviews.
+---
+
+## 📜 Code of Conduct
+Please be kind, respectful, and collaborative in all discussions and pull requests.

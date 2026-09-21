@@ -1,163 +1,160 @@
 <p align="center">
-  <img src="ChefPocket/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png" width="120" height="120" alt="ChefPocket Icon" style="border-radius: 26px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);" />
+  <img src="ChefPocket/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png" width="120" height="120" alt="ChefPocket Icon" style="border-radius: 26px; box-shadow: 0 8px 28px rgba(0,0,0,0.18);" />
 </p>
 
 <h1 align="center">ChefPocket</h1>
 
 <p align="center">
-  <strong>The Ultimate Native iOS Culinary Companion & Smart Desi Cookbook</strong>
+  <strong>The Ultimate Dual-Platform (iOS & Android) Culinary Companion & Smart Desi Cookbook</strong>
 </p>
 
 <p align="center">
   <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/releases"><img src="https://img.shields.io/github/v/release/Anshuman-Sisodiya/ChefPocket?color=orange&style=flat-square" alt="Latest Release" /></a>
-  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/actions"><img src="https://img.shields.io/github/actions/workflow/status/Anshuman-Sisodiya/ChefPocket/build-ipa.yml?branch=main&label=build&style=flat-square" alt="Build Status" /></a>
-  <img src="https://img.shields.io/badge/Platform-iOS%2016.0+-blue?style=flat-square&logo=apple" alt="iOS 16+" />
-  <img src="https://img.shields.io/badge/Swift-5.9-orange?style=flat-square&logo=swift" alt="Swift 5.9" />
-  <img src="https://img.shields.io/badge/AI-Gemini%201.5%20Flash-4285F4?style=flat-square&logo=google" alt="Google Gemini AI" />
+  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/actions"><img src="https://img.shields.io/github/actions/workflow/status/Anshuman-Sisodiya/ChefPocket/build-apk.yml?branch=main&label=Android%20Build&style=flat-square" alt="Android Build Status" /></a>
+  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/actions"><img src="https://img.shields.io/github/actions/workflow/status/Anshuman-Sisodiya/ChefPocket/build-ipa.yml?branch=main&label=iOS%20Build&style=flat-square" alt="iOS Build Status" /></a>
+  <img src="https://img.shields.io/badge/Platform-iOS%2016.0+%20%7C%20Android%205.0+-blue?style=flat-square" alt="Platforms" />
+  <img src="https://img.shields.io/badge/UI-SwiftUI%20%7C%20Jetpack%20Compose-purple?style=flat-square" alt="UI" />
+  <img src="https://img.shields.io/badge/AI-Gemini%203.6%20Flash-4285F4?style=flat-square&logo=google" alt="Google Gemini AI" />
   <a href="LICENSE"><img src="https://img.shields.io/github/license/Anshuman-Sisodiya/ChefPocket?style=flat-square" alt="License" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.4.0/ChefPocket.apk"><strong>📲 Download Android APK (v1.4.4)</strong></a> •
+  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.4.0/ChefPocket.ipa"><strong>🍏 Download iOS IPA (v1.3.3)</strong></a> •
+  <a href="#-quick-installation--sideloading"><strong>🚀 Installation Guide</strong></a> •
+  <a href="docs/ARCHITECTURE.md"><strong>🏛️ Architecture</strong></a> •
+  <a href="docs/SECURITY_AND_PRIVACY.md"><strong>🔒 Privacy Policy</strong></a>
 </p>
 
 ---
 
 ## 📖 Overview
 
-### 🆕 What's New in v1.3.0
-- **Permanent Custom Recipe Storage**: User-created recipes and favorites are now completely decoupled into permanent unversioned storage (`chefpocket_user_custom_recipes_permanent`). Includes an automated retroactive migration scanner that recovers custom recipes from older versions (v1...v6).
-- **Duplicate Prevention for Links**: Canonical URL normalizer for YouTube Shorts, Watch links, and Instagram Reels prevents saving the same link multiple times.
-- **Delete Custom Recipes**: Easy deletion of user-added recipes directly from `RecipeDetailView` or via context menu in `My Kitchen`.
-- **Compact Dropdown Filter Bar**: Clean SwiftUI dropdown menus (`Menu`) for Cuisines, Meals, and Categories with active highlights and a 1-tap Reset pill, replacing multiple horizontal scrollbars.
-- **Multi-Language Support (8 Languages)**: Full native localization for English, Hindi (हिन्दी), Hinglish (Everyday Hindi), Spanish (Español), French (Français), Tamil (தமிழ்), Telugu (తెలుగు), and Bengali (বাংলা).
-- **Aesthetic Parity Across All Tabs**: Complete visual overhaul of Thali Planner (macro rings & royal platter), Sabzi Mandi (card-segmented groceries), and Cook Mode (circular whistle ring, animated timers & countertop reader).
-- **Google Account Cloud Sync**: Sync custom recipes, favorites, and groceries across devices using your Google Account, plus AirDrop/file export/import.
-- **Dark / Light Mode Toggle & Dynamic Dark App Icon**: OLED Obsidian Dark Mode toggle with automatic switching of the home screen app icon (`AppIcon-Dark`).
+**ChefPocket** is an authentic, high-aesthetic culinary companion designed for home cooks, food lovers, and fitness enthusiasts. Available natively on both **iOS (SwiftUI)** and **Android (Jetpack Compose & Material 3)**, it solves everyday kitchen challenges — from *"Aaj Kya Banau?"* decision fatigue to tracking pressure cooker whistles, planning balanced Indian Thalis, managing grocery aisles, and converting fast YouTube Shorts & Instagram Reels into structured cooking recipes using **Google Gemini AI**.
+
+All **434 curated recipes** across 8 world cuisines are stored 100% offline on your device, ensuring lightning-fast performance and total privacy without tracking or ads.
 
 ---
 
-**ChefPocket** is an authentic, high-aesthetic native iOS application designed for home cooks, food lovers, and fitness enthusiasts. Built using modern SwiftUI, it solves everyday kitchen challenges — from *"Aaj Kya Banau?"* decision fatigue to tracking pressure cooker whistles, planning balanced Indian Thalis, and converting fast YouTube Shorts & Instagram Reels into structured cooking recipes using Google Gemini AI.
+## 🆕 What's New in v1.4.x
+- **🤖 100% Native Android Edition**: Complete Jetpack Compose & Material 3 implementation with identical features, design, and data parity with the iOS version.
+- **🛡️ Google Play Protect Hardened**: Strict security posture with `usesCleartextTraffic="false"`, `network_security_config.xml`, `allowBackup="false"`, and removal of automated clipboard inspection.
+- **⚡ MIUI & Redmi Compatibility**: Dual V1 (JAR) and V2/V3 signature schemes with multi-density pre-rasterized PNG mipmaps, resolving Xiaomi Package Installer errors.
+- **📲 System Share Target**: Share cooking links directly from YouTube Shorts or Instagram Reels into ChefPocket on both Android (`ACTION_SEND`) and iOS (`RecipeShareExtension`).
+- **🧠 Google Gemini 3.6 Flash / 1.5 Flash AI Engine**: Fast video recipe extraction with structured ingredients, whistle counts, and nutritional macros.
+- **💾 Permanent Custom Recipe Storage & Tombstones**: User recipes and deleted curated items are preserved across app updates via unversioned stores (`chefpocket_user_custom_recipes_permanent` and `chefpocket_deleted_recipe_tombstones_permanent`).
+- **🌐 8 Localized Languages**: English, Hindi (हिन्दी), Hinglish, Spanish, French, Tamil, Telugu, and Bengali.
 
 ---
 
 ## ✨ Features at a Glance
 
-### 🍽️ 430+ Curated Inbuilt Recipes (The Ultimate Culinary Hub)
-- **🥖 Artisan Bakery & Breads (65 Recipes)**: Sourdough Country Loafs, French Baguettes, Italian Ciabatta, Shokupan Milk Bread, Brioche, NY Bagels, Mediterranean Pita, 8 Croissant variations (Butter, Pain au Chocolat, Almond Frangipane, Pistachio Cream, Morning Buns, Kouign-Amann), 10 Cheesecake masterpieces (New York Baked, Basque Burnt, Lotus Biscoff, Japanese Cotton Soufflé, Blueberry, Mango), Tarts, Brownies, and Cookies.
-- **☕ Drinks, Brews & Cafe Coolers (60 Recipes - 100% Non-Alcoholic)**: 18-Hour Cold Brews, Affogato al Caffè, Brass Davarah Filter Kaapi, Tiger Boba Milk Tea, Iced Matcha Latte, Peach Mint Iced Tea, Noon Chai, Virgin Mojitos, Blue Curacao Lemonade, Spicy Guava Chilli Fizz, Belgian Freakshakes, and Healthy Smoothies.
-- **🍝 Continental & Italian Bistro (39 Recipes)**: Aglio e Olio, Arrabbiata, Fettuccine Alfredo, Genovese Pesto Fusilli, Four-Cheese Baked Lasagna, Roman Cacio e Pepe, Truffle Tagliatelle, Neapolitan Margherita, Quattro Formaggi Pizza, Continental Sizzlers, Stroganoff, Minestrone, and French Onion Soup.
-- **🥟 Asian & Indo-Chinese Bistro (42 Recipes)**: Street Steamed Veg & Chicken Momos, Kurkure Fried Momos, Crystal Dimsums, Prawn Har Gow, Steamed Bao Buns, Kolkata Hakka Chowmein, Schezwan Fried Rice, Bangkok Pad Thai, Dan Dan Noodles, Manchurian, Tangra Chilli Chicken, and Thai Green/Red Curries.
-- **🌮 Mexican & Tex-Mex Classics (30 Recipes)**: Baja Fish Tacos, Paneer Tinga Tacos, Chicken Birria with Consomé Dip, Cheesy Quesadillas, Mission Burrito Bowls, Enchiladas Rojas & Verdes, Loaded Supreme Nachos, Molcajete Guacamole, Elote, and Churros con Chocolate.
-- **🧆 Middle Eastern & Mediterranean Heritage (27 Recipes)**: Crispy Golden Falafel, Silk-Smooth Hummus, Hummus Kawarma, Charred Baba Ganoush, Fluffy Pita Pockets, Whipped Garlic Toum, Fresh Tabbouleh, Shakshuka, Chicken Shawarma Wraps, and Pistachio Baklava.
-- **🥪 Indian Cafe & Bistro Specials (35 Recipes)**: Legendary Bombay Masala Grilled Sandwich, Club Sandwiches, Peri Peri Paninis, Corn & Spinach Melts, Gourmet Burgers, Truffle Parmesan Fries, Loaded Makhani Fries, Belgian Waffles, and Buttermilk Pancakes.
-- **🍛 Indian Regional Heritage (136 Recipes)**: Hyderabadi Dum Biryani, Awadhi Mutton Biryani, Kolkata Biryani, Chettinad Pepper Chicken, Malabar Fish Curry, Goan Balchão, Bengali Shorshe Maach, Rajasthani Laal Maas, Kashmiri Rogan Josh, and Gujarati Dal Dhokli.
-- **Nutritional Transparency**: Calories, protein in grams, prep time, and cooker whistle counts for every single recipe.
+### 🍽️ 434 Curated Inbuilt Recipes (100% Offline)
+- **🥖 Artisan Bakery & Breads (65 Recipes)**: Sourdough Country Loafs, French Baguettes, Italian Ciabatta, Shokupan Milk Bread, Brioche, NY Bagels, Pita, 8 Croissant variations, and 10 Cheesecakes (New York Baked, Basque Burnt, Lotus Biscoff, Japanese Cotton Soufflé, Blueberry).
+- **☕ Drinks, Brews & Cafe Coolers (60 Recipes - Non-Alcoholic)**: 18-Hour Cold Brews, Affogato, Brass Davarah Filter Kaapi, Tiger Boba Milk Tea, Iced Matcha Latte, Peach Mint Iced Tea, Noon Chai, Virgin Mojitos, Blue Curacao Lemonade, and Healthy Smoothies.
+- **🍝 Continental & Italian Bistro (39 Recipes)**: Aglio e Olio, Arrabbiata, Fettuccine Alfredo, Genovese Pesto, Lasagna, Roman Cacio e Pepe, Truffle Tagliatelle, Neapolitan Margherita, Sizzlers, and French Onion Soup.
+- **🥟 Asian & Indo-Chinese Bistro (42 Recipes)**: Street Steamed Veg & Chicken Momos, Kurkure Fried Momos, Crystal Dimsums, Prawn Har Gow, Bao Buns, Hakka Chowmein, Schezwan Fried Rice, Pad Thai, Dan Dan Noodles, and Thai Curries.
+- **🌮 Mexican & Tex-Mex Classics (30 Recipes)**: Baja Fish Tacos, Paneer Tinga, Chicken Birria with Consomé Dip, Quesadillas, Mission Burritos, Enchiladas Rojas & Verdes, Loaded Nachos, and Churros.
+- **🧆 Middle Eastern & Mediterranean Heritage (27 Recipes)**: Crispy Falafel, Silk-Smooth Hummus, Baba Ganoush, Fluffy Pita Pockets, Whipped Toum, Tabbouleh, Shakshuka, Shawarma Wraps, and Pistachio Baklava.
+- **🥪 Indian Cafe & Bistro Specials (35 Recipes)**: Bombay Masala Grilled Sandwich, Club Sandwiches, Peri Peri Paninis, Corn & Spinach Melts, Gourmet Burgers, Truffle Parmesan Fries, Loaded Makhani Fries, and Waffles.
+- **🍛 Indian Regional Heritage (136 Recipes)**: Hyderabadi Dum Biryani, Awadhi Mutton Biryani, Kolkata Biryani, Chettinad Pepper Chicken, Malabar Fish Curry, Goan Balchão, Bengali Shorshe Maach, Rajasthani Laal Maas, and Kashmiri Rogan Josh.
 
 ### 🌐 Multi-Dimensional Culinary Filtering
-- **Cuisines Bar**: Filter effortlessly across `Indian Regional`, `Continental & Italian`, `Asian & Indo-Chinese`, `Mexican & Tex-Mex`, `Middle Eastern`, `Cafe & Bistro`, `Bakery & Breads`, and `Drinks & Brews`.
+- **Cuisines**: `Indian Regional`, `Continental & Italian`, `Asian & Indo-Chinese`, `Mexican & Tex-Mex`, `Middle Eastern`, `Cafe & Bistro`, `Bakery & Breads`, and `Drinks & Brews`.
 - **Diet Selector**: `All (434)`, `Veg (306)`, `Non-Veg (128)` with geometric vector FSSAI badges.
-- **Meal Occasions**: `Breakfast`, `Lunch`, `Snacks`, and `Dinner`.
-- **Culinary Courses**: `Bakery`, `Drinks & Shakes`, `Sabzi`, `Dal`, `High-Protein`, `Street Food`, `Rice & Biryani`, and `Fusion`.
+- **Meal Occasions**: `Breakfast (Nashta)`, `Lunch`, `Snacks & Tea-Time`, and `Dinner`.
+- **Courses**: `Bakery`, `Drinks & Shakes`, `Sabzi`, `Dal`, `High-Protein`, `Street Food`, `Rice & Biryani`, and `Fusion`.
 
-### 🥗 Pure Veg (🟢) & Non-Veg (🔴) Filtering
-- Dedicated capsule pills (`All 125`, `Veg 65`, `Non-Veg 60`) that never truncate.
-- **Official FSSAI Vector Marks**: Geometric square-and-dot badges representing authentic food packaging standards.
-- Diet-aware randomizer: Pure Veg mode will never suggest non-veg dishes.
-
-### 🌅 Meal Occasions
-- Instantly filter dishes across **Breakfast (Nashta)**, **Lunch**, **Snacks & Tea-Time**, and **Dinner**.
-
-### 🤖 AI Video Recipe Extractor (Google Gemini 1.5 Flash)
-- Paste any cooking link from **YouTube Shorts** or **Instagram Reels**.
-- Directly calls the **Google Gemini 1.5 Flash REST API** to extract authentic ingredient measurements, pressure cooker whistle counts, and step-by-step cooking instructions.
-- **Resource Safeguards**: Built-in 5s cooldown rate limiter, 25 requests/day quota tracker, and intelligent offline heuristic fallback.
+### 🤖 AI Video Recipe Extractor (Gemini 3.6 Flash / 1.5 Flash)
+- Paste any link or share directly from **YouTube Shorts** or **Instagram Reels**.
+- Directly queries the Google Gemini REST API to extract authentic ingredient quantities, pressure cooker whistle counts, and step-by-step instructions.
+- Includes rate-limiting protection (5s cooldown) and intelligent offline heuristic fallback.
 
 ### 🍱 Daily Thali Planner
-- Mix and match your meal: **Dal + Sabzi + Roti/Rice + Dahi/Salad**.
+- Mix and match balanced Indian meals: **Dal + Sabzi + Roti/Rice + Dahi/Salad**.
 - Real-time aggregate calorie and protein calculation.
-- 1-tap transfer of all Thali ingredients directly into your grocery list.
+- 1-tap transfer of all ingredients directly into your grocery list.
 
 ### 🛒 Sabzi Mandi Grocery List
-- Automatically routes recipe ingredients into Indian shopping aisles:
+- Automatically categorizes ingredients into authentic Indian shopping aisles:
   - 🌿 **Sabzi Mandi** (Fresh produce)
   - 🫙 **Masala Dabba** (Spices & seeds)
   - 🌾 **Dals & Grains** (Lentils, rice, flours)
   - 🥛 **Dairy & Ghee** (Paneer, curd, butter)
   - 🥩 **Meat, Fish & Eggs**
-- **1-Tap WhatsApp Share**: Export your formatted grocery list directly to family or vendors.
+- **1-Tap WhatsApp Share**: Export formatted grocery checklists directly to family members or local vendors.
 
 ### ⏱️ Countertop Cook Mode & Whistle Counter
-- **Whistle Counter**: Big, tactile tap target with haptic feedback and target whistle alert.
+- **Whistle Counter**: Large tactile button with haptic feedback and target whistle alert.
 - **Desi Kitchen Timers**: *Tadka Splutter (45s)*, *Bhunao (7m)*, *Dal Boil (10m)*, *Dum (15m)*.
-- **Hands-Free Cooking**: Keeps your iPhone screen awake (`isIdleTimerDisabled = true`) while cooking.
+- **Hands-Free Cooking**: Automatically keeps your device screen awake while cooking.
 
-### 📲 Social Media Sharing
-- Share formatted recipes with ingredients, steps, and video links to **WhatsApp**, **Instagram Stories**, **iMessage**, **Twitter/X**, and **Telegram**.
+---
 
-### 👤 User Authentication & Profile
-- Local account authentication (Sign In / Sign Up) with guest mode support.
-- Track culinary statistics: Curated recipes, My Kitchen creations, and Favorites.
-- Configure custom Google Gemini API Key for unlimited AI extractions.
+## 📲 Quick Installation & Sideloading
+
+### 🤖 Android (Samsung, Redmi, Pixel, OnePlus, etc.)
+1. Download **[`ChefPocket.apk`](https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.4.0/ChefPocket.apk)**.
+2. Tap the APK file to install.
+3. If Google Play Protect shows *"Harmful app blocked: This app is fake"*:
+   - Tap **"More details" ∨**
+   - Tap **"Install anyway"**
+   *(This false positive occurs because ChefPocket is sideloaded with an independent key rather than distributed via Play Store. See [Android Guide](docs/ANDROID_GUIDE.md) for verification details).*
+
+### 🍏 iOS (iPhone running iOS 16.0+)
+1. Download **[`ChefPocket.ipa`](https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.4.0/ChefPocket.ipa)**.
+2. Connect your iPhone to your PC or Mac.
+3. Use **[Sideloadly](https://sideloadly.io/)** or **AltStore** to install `ChefPocket.ipa` with your free Apple ID.
+4. On your iPhone: go to **Settings** → **General** → **VPN & Device Management** → Tap your Apple ID → **Trust**.
 
 ---
 
 ## 🏗️ Architecture & Tech Stack
 
-- **UI Framework**: SwiftUI (iOS 16.0+)
-- **Project Generation**: [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`project.yml`)
-- **CI/CD Pipeline**: GitHub Actions (`macos-14`, Xcode 15/16) automated `.ipa` building & signing injection.
-- **AI Integration**: Google Gemini 1.5 Flash REST API (`URLSession`, structured JSON schema output)
-- **Data Layer**: `Codable`, `UserDefaults` with App Group fallback, local JSON bundle.
-- **Share Extension**: `RecipeShareExtension.appex` (`NSExtension` for sharing links directly from Safari, YouTube, or Instagram).
+| Component | iOS Implementation | Android Implementation |
+| :--- | :--- | :--- |
+| **Language** | Swift 5.9 | Kotlin 1.9.24 |
+| **UI Framework** | SwiftUI (iOS 16.0+) | Jetpack Compose & Material 3 |
+| **Build Tooling** | XcodeGen (`project.yml`) | Gradle 8.7 + AGP 8.4.1 |
+| **AI Integration** | Gemini 3.6 Flash / 1.5 Flash REST API | Gemini 3.6 Flash / 1.5 Flash REST API |
+| **Share Ingestion** | `RecipeShareExtension.appex` | `Intent.ACTION_SEND` Activity |
+| **Persistence** | `UserDefaults` + App Group | `SharedPreferences` + `Gson` |
+| **Security** | Sandboxed Container | Strict TLS / No Cleartext / API 34 |
 
----
-
-## 📲 Sideloading Installation (iPhone 13 / iOS 16+)
-
-You can install ChefPocket without an active Apple Developer Program membership using **Sideloadly** or **AltStore**:
-
-1. Download the latest compiled **`ChefPocket.ipa`** from the [GitHub Releases](https://github.com/Anshuman-Sisodiya/ChefPocket/releases).
-2. Connect your iPhone to your Windows PC or Mac.
-3. Open **Sideloadly** (or AltStore).
-4. Drag and drop `ChefPocket.ipa` into Sideloadly.
-5. Enter your free Apple ID and click **Start**.
-6. When installation finishes, on your iPhone go to:
-   - **Settings** → **General** → **VPN & Device Management** → Tap your Apple ID → **Trust**.
-7. Launch **ChefPocket** and enjoy cooking!
+For detailed technical specifications, read the [Architecture Documentation](docs/ARCHITECTURE.md).
 
 ---
 
 ## 🛠️ Building from Source
 
-### Prerequisites
-- macOS Sonoma or later
-- Xcode 15.4 or Xcode 16+
-- [Homebrew](https://brew.sh/)
-- [XcodeGen](https://github.com/yonaskolb/XcodeGen): `brew install xcodegen`
-
-### Build Steps
+### Building Android App
 ```bash
-# 1. Clone the repository
-git clone https://github.com/Anshuman-Sisodiya/ChefPocket.git
-cd ChefPocket
+cd android
+./gradlew :app:assembleRelease
+# Output: android/app/build/outputs/apk/release/app-release.apk
+```
 
-# 2. Generate the Xcode project
+### Building iOS App
+```bash
+# 1. Install XcodeGen
+brew install xcodegen
+
+# 2. Generate Xcode project
 xcodegen generate
 
-# 3. Open in Xcode
+# 3. Open and build
 open ChefPocket.xcodeproj
 ```
 
-Select the **ChefPocket** scheme and your target iOS Device / Simulator, then press **Cmd + R** to run.
-
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Whether it's submitting a new authentic recipe, optimizing AI extraction prompts, or refining the UI:
-
-1. Fork the Project.
-2. Create your Feature Branch (`git checkout -b feature/AmazingRecipe`).
-3. Commit your Changes (`git commit -m 'Add Goan Prawn Balchão recipe'`).
-4. Push to the Branch (`git push origin feature/AmazingRecipe`).
-5. Open a Pull Request.
+## 📚 Detailed Documentation
+- [🏛️ Architecture Overview](docs/ARCHITECTURE.md)
+- [🤖 Android Developer & User Guide](docs/ANDROID_GUIDE.md)
+- [🍎 iOS Developer & User Guide](docs/IOS_GUIDE.md)
+- [🔒 Security & Privacy Policy](docs/SECURITY_AND_PRIVACY.md)
+- [🚀 Release Notes v1.4.x](docs/RELEASE_NOTES_v1.4.md)
+- [🤝 Contributing Guidelines](CONTRIBUTING.md)
 
 ---
 
