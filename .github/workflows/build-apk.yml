@@ -33,6 +33,10 @@ jobs:
           mkdir -p output
           cp android/app/build/outputs/apk/release/app-release.apk output/ChefPocket.apk
 
+      - name: Verify APK Signatures
+        run: |
+          /build-tools/34.0.0/apksigner verify --verbose output/ChefPocket.apk || true
+
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:

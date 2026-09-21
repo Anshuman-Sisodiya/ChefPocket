@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.chefpocket.app"
-        minSdk = 24
+        minSdk = 21
         targetSdk = 33
         versionCode = 3
         versionName = "1.4.2"
@@ -26,9 +26,9 @@ android {
             storePassword = "chefpocketkeystore"
             keyAlias = "chefpocket"
             keyPassword = "chefpocketkeystore"
-            v1SigningEnabled = true
-            v2SigningEnabled = true
-            v3SigningEnabled = true
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
         }
     }
 
