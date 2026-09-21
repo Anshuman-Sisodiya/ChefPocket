@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_orange">#FF7A00</color>
+    <color name="primary_orange_dark">#E66E00</color>
+    <color name="accent_orange">#FFA040</color>
+    <color name="veg_green">#1B8E3E</color>
+    <color name="nonveg_red">#A62B1E</color>
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="background_light">#F8F9FA</color>
+    <color name="surface_light">#FFFFFF</color>
+</resources>

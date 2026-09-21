@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ChefPocket</string>
+    <string name="share_target_title">Import Recipe to ChefPocket</string>
+</resources>
