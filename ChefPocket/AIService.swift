@@ -125,11 +125,81 @@ class AIService: ObservableObject {
         return aiRecipe
     }
     
-    // MARK: - Gemini REST API Caller
+    // MARK: - Gemini REST API Caller with Multi-Model Fallback & Auto-Discovery
     private func callGeminiAPI(videoTitle: String, videoDescription: String, videoURL: String, apiKey: String) async throws -> Recipe {
         let cleanKey = apiKey.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        guard let endpoint = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(cleanKey)") else {
+        // Priority order of modern Gemini models
+        let candidateModels = [
+            "gemini-2.0-flash",
+            "gemini-2.5-flash",
+            "gemini-1.5-flash-latest",
+            "gemini-1.5-flash",
+            "gemini-2.0-flash-lite",
+            "gemini-1.5-pro",
+            "gemini-pro"
+        ]
+        
+        var lastError: Error? = nil
+        
+        // 1. Try prioritized list of known models
+        for model in candidateModels {
+            do {
+                return try await executeGeminiRequest(
+                    model: model,
+                    videoTitle: videoTitle,
+                    videoDescription: videoDescription,
+                    videoURL: videoURL,
+                    apiKey: cleanKey
+                )
+            } catch let err as NSError where err.code == 404 {
+                print("Gemini model \(model) returned 404. Trying next model...")
+                lastError = err
+                continue
+            } catch {
+                // If error is 400 (bad key), 429 (quota), etc., do not retry other models, return clear error
+                throw error
+            }
+        }
+        
+        // 2. If all preconfigured models returned 404, query available models dynamically
+        if let dynamicModel = await fetchFirstAvailableGenerateContentModel(apiKey: cleanKey) {
+            print("Found dynamic model from Google: \(dynamicModel)")
+            return try await executeGeminiRequest(
+                model: dynamicModel,
+                videoTitle: videoTitle,
+                videoDescription: videoDescription,
+                videoURL: videoURL,
+                apiKey: cleanKey
+            )
+        }
+        
+        throw lastError ?? NSError(domain: "ChefPocket", code: 404, userInfo: [NSLocalizedDescriptionKey: "No compatible Gemini model found for this key. Please verify model permissions in Google AI Studio."])
+    }
+    
+    private func fetchFirstAvailableGenerateContentModel(apiKey: String) async -> String? {
+        guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models?key=\(apiKey)") else { return nil }
+        guard let (data, resp) = try? await URLSession.shared.data(from: url),
+              let http = resp as? HTTPURLResponse, (200...299).contains(http.statusCode) else { return nil }
+        
+        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let models = json["models"] as? [[String: Any]] else { return nil }
+        
+        for m in models {
+            if let name = m["name"] as? String,
+               let methods = m["supportedGenerationMethods"] as? [String],
+               methods.contains("generateContent") {
+                let clean = name.replacingOccurrences(of: "models/", with: "")
+                if clean.contains("flash") || clean.contains("gemini") {
+                    return clean
+                }
+            }
+        }
+        return nil
+    }
+    
+    private func executeGeminiRequest(model: String, videoTitle: String, videoDescription: String, videoURL: String, apiKey: String) async throws -> Recipe {
+        guard let endpoint = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/\(model):generateContent?key=\(apiKey)") else {
             throw NSError(domain: "ChefPocket", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid Gemini endpoint configuration."])
         }
         
