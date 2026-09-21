@@ -1,7 +1,5 @@
 package com.chefpocket.app
 
-import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -18,7 +16,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         handleIntent(intent)
-        checkClipboard()
 
         setContent {
             MainScreen(viewModel = viewModel)
@@ -54,22 +51,6 @@ class MainActivity : ComponentActivity() {
                     viewModel.showAIImportDialog.value = true
                 }
             }
-        }
-    }
-
-    private fun checkClipboard() {
-        try {
-            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clip = clipboard.primaryClip
-            if (clip != null && clip.itemCount > 0) {
-                val text = clip.getItemAt(0).text?.toString() ?: ""
-                val url = extractURL(text)
-                if (url != null && (url.contains("youtube.com") || url.contains("youtu.be") || url.contains("instagram.com"))) {
-                    viewModel.clipboardDetectedURL.value = url
-                }
-            }
-        } catch (e: Exception) {
-            // Ignore clipboard errors
         }
     }
 

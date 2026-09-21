@@ -74,7 +74,7 @@ class AIService {
             val oembedUrl = "https://www.youtube.com/oembed?url=$encoded&format=json"
             val req = Request.Builder()
                 .url(oembedUrl)
-                .header("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)")
+                .header("User-Agent", "Mozilla/5.0 (Linux; Android 14; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36")
                 .build()
 
             client.newCall(req).execute().use { resp ->
@@ -96,7 +96,7 @@ class AIService {
         try {
             val pageReq = Request.Builder()
                 .url(targetURL)
-                .header("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)")
+                .header("User-Agent", "Mozilla/5.0 (Linux; Android 14; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36")
                 .build()
 
             client.newCall(pageReq).execute().use { resp ->
