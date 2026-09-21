@@ -9,6 +9,14 @@ import com.chefpocket.app.network.AIService
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
+data class RecipeFilterState(
+    val scope: RecipeScope = RecipeScope.CURATED,
+    val diet: DietType = DietType.ALL,
+    val cuisine: Cuisine = Cuisine.ALL,
+    val category: RecipeCategory = RecipeCategory.ALL,
+    val query: String = ""
+)
+
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
     val repository = RecipeRepository(application)
     val recipes = repository.recipes
@@ -48,24 +56,31 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
     val showRandomizerDialog = MutableStateFlow(false)
     val showProfileDialog = MutableStateFlow(false)
 
-    // Filtered Recipes Pipeline
-    val filteredRecipes: StateFlow<List<Recipe>> = combine(
-        recipes,
+    // Combine filters into intermediate state flow
+    private val filterState: Flow<RecipeFilterState> = combine(
         _selectedScope,
         _selectedDiet,
         _selectedCuisine,
         _selectedCategory,
         _searchQuery
-    ) { all, scope, diet, cuisine, category, query ->
+    ) { scope, diet, cuisine, category, query ->
+        RecipeFilterState(scope, diet, cuisine, category, query)
+    }
+
+    // Filtered Recipes Pipeline
+    val filteredRecipes: StateFlow<List<Recipe>> = combine(
+        recipes,
+        filterState
+    ) { all, filter ->
         // 1. Scope filter
-        val inScope = when (scope) {
+        val inScope = when (filter.scope) {
             RecipeScope.MY_KITCHEN -> all.filter { it.isUserCreated }
             RecipeScope.FAVORITES -> all.filter { it.isFavorite }
             else -> all.filter { !it.isUserCreated }
         }
 
         // 2. Query search
-        val qClean = query.trim().lowercase()
+        val qClean = filter.query.trim().lowercase()
         val inQuery = if (qClean.isEmpty()) inScope else inScope.filter {
             it.title.lowercase().contains(qClean) ||
                     it.cuisine.lowercase().contains(qClean) ||
@@ -74,16 +89,16 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
         }
 
         // 3. Diet
-        val inDiet = if (diet == DietType.ALL) inQuery else inQuery.filter { it.dietType == diet }
+        val inDiet = if (filter.diet == DietType.ALL) inQuery else inQuery.filter { it.dietType == filter.diet }
 
         // 4. Cuisine
-        val inCuisine = if (cuisine == Cuisine.ALL) inDiet else inDiet.filter {
-            it.cuisine.equals(cuisine.label, ignoreCase = true)
+        val inCuisine = if (filter.cuisine == Cuisine.ALL) inDiet else inDiet.filter {
+            it.cuisine.equals(filter.cuisine.label, ignoreCase = true)
         }
 
         // 5. Category
-        if (category == RecipeCategory.ALL) inCuisine else inCuisine.filter {
-            it.category.equals(category.label, ignoreCase = true)
+        if (filter.category == RecipeCategory.ALL) inCuisine else inCuisine.filter {
+            it.category.equals(filter.category.label, ignoreCase = true)
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
