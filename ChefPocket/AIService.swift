@@ -230,11 +230,12 @@ class AIService: ObservableObject {
         1. Identify the exact dish name from the title/caption.
         2. Extract authentic ingredients with precise metric amounts (grams, ml, tbsp, tsp, piece).
         3. If it is an Indian pressure cooker dish (dal, rajma, chana, biryani, mutton, etc.), determine the exact cooker whistle count (e.g. 2, 3, 4 whistles). If not a pressure cooker recipe, set whistleCount to null.
-        4. Accurately calculate calories and protein grams per serving.
+        4. Deterministic Nutritional Calculation: Calculate total dish calories and protein by summing individual ingredient gram weights using standard ICMR-NIN and USDA nutritional densities (Protein: 4 kcal/g, Carbs: 4 kcal/g, Fat/Oil/Ghee: 9 kcal/g). Then divide the total by the servings count to yield the exact per-serving 'calories' and 'proteinGrams'.
         5. Provide numbered, professional cooking instructions with specific heat levels and cooking cues. Never include YouTube URLs or 'extracted from' lines in instructions.
         6. Determine Diet ("Veg" or "Non-Veg").
         7. Determine Cuisine ("Indian Regional", "Continental & Italian", "Asian & Indo-Chinese", "Mexican & Tex-Mex", "Middle Eastern", "Cafe & Bistro", "Bakery & Breads", or "Drinks & Brews").
         8. Determine Category ("Sabzi", "Dal", "High-Protein", "Breakfast", "Street Food", "Rice & Biryani", "Bakery", "Drinks & Shakes", or "Fusion").
+        9. Specify serving count ("servings": 2, 4, etc.).
         
         STRICT REQUIREMENT: Respond ONLY with a valid JSON object (no markdown quotes, no explanation, no text before or after):
         {
@@ -243,6 +244,7 @@ class AIService: ObservableObject {
           "cuisine": "Indian Regional",
           "diet": "Veg",
           "mealTypes": ["Lunch", "Dinner"],
+          "servings": 2,
           "prepTimeMinutes": 25,
           "calories": 380,
           "proteinGrams": 24,
@@ -342,6 +344,8 @@ class AIService: ObservableObject {
         if mealTypes.isEmpty { mealTypes = [.lunch, .dinner] }
         
         let prep = dict["prepTimeMinutes"] as? Int ?? 25
+        let rawServings = dict["servings"] as? Int ?? 2
+        let servings = max(1, rawServings)
         let cals = dict["calories"] as? Int ?? 380
         let protein = dict["proteinGrams"] as? Int ?? 22
         let whistles = dict["whistleCount"] as? Int
@@ -371,6 +375,11 @@ class AIService: ObservableObject {
             return !l.starts(with: "extracted from") && !l.starts(with: "source:") && !l.contains("http")
         }
         
+        // Validate and ensure nutritional precision using ICMR-NIN standards
+        let computed = NutritionalCalculator.shared.calculateNutrition(for: ingredients, servings: servings)
+        let finalCals = (cals > 50 && abs(cals - computed.perServingCalories) < 250) ? cals : computed.perServingCalories
+        let finalProtein = (protein > 2 && abs(protein - computed.perServingProtein) < 20) ? protein : computed.perServingProtein
+
         return Recipe(
             title: title,
             category: category,
@@ -381,9 +390,10 @@ class AIService: ObservableObject {
             tags: tags,
             sourceURL: videoURL,
             prepTimeMinutes: prep,
-            calories: cals,
-            proteinGrams: protein,
+            calories: max(50, finalCals),
+            proteinGrams: max(1, finalProtein),
             whistleCount: whistles,
+            servings: servings,
             ingredients: ingredients,
             instructions: instructions
         )

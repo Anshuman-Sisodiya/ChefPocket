@@ -79,7 +79,7 @@ jobs:
           with open(app_plist, 'rb') as f:
               dest_app = plistlib.load(f)
           for k, v in src_app.items():
-              if k not in ['CFBundleIdentifier', 'CFBundleExecutable', 'CFBundleName', 'CFBundleIcons', 'CFBundleIcons~ipad']:
+              if k not in ['CFBundleIdentifier', 'CFBundleExecutable', 'CFBundleName']:
                   dest_app[k] = v
           with open(app_plist, 'wb') as f:
               plistlib.dump(dest_app, f)
@@ -92,7 +92,7 @@ jobs:
               with open(ext_plist, 'rb') as f:
                   dest_ext = plistlib.load(f)
               for k, v in src_ext.items():
-                  if k not in ['CFBundleIdentifier', 'CFBundleExecutable', 'CFBundleName', 'CFBundleIcons', 'CFBundleIcons~ipad']:
+                  if k not in ['CFBundleIdentifier', 'CFBundleExecutable', 'CFBundleName']:
                       dest_ext[k] = v
               with open(ext_plist, 'wb') as f:
                   plistlib.dump(dest_ext, f)

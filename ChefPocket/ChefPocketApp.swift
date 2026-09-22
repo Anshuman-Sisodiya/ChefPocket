@@ -19,6 +19,8 @@ struct ChefPocketApp: App {
                     // Sync app icon with active dark/light mode
                     let isDark = UITraitCollection.current.userInterfaceStyle == .dark
                     themeManager.syncAppIcon(systemIsDark: isDark)
+                    // Check for updates in background
+                    UpdateManager.shared.checkForUpdates(silent: true)
                 }
                 .onOpenURL { incomingURL in
                     handleIncomingURL(incomingURL)

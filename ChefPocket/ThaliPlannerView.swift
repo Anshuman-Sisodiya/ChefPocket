@@ -133,9 +133,9 @@ struct ThaliPlannerView: View {
                                 }
                             }
                             
-                            // Bread & Rice Selection
-                            VStack(alignment: .leading, spacing: 10) {
-                                HStack {
+                            // Bread & Rice Selection (Spacious 2x2 Grid, No Truncation)
+                            VStack(alignment: .leading, spacing: 12) {
+                                HStack(alignment: .center) {
                                     HStack(spacing: 6) {
                                         Text("3")
                                             .font(.caption2)
@@ -147,21 +147,52 @@ struct ThaliPlannerView: View {
                                         Text("Roti & Rice")
                                             .font(.subheadline)
                                             .bold()
+                                            .fixedSize(horizontal: true, vertical: false)
                                     }
                                     Spacer()
                                     Text("6g protein • 160 kcal")
                                         .font(.caption2)
                                         .foregroundColor(.secondary)
+                                        .layoutPriority(1)
                                 }
                                 
-                                Picker("Bread", selection: $store.thali.breadOrRice) {
-                                    Text("2x Phulka Roti").tag("2x Whole Wheat Phulkas")
-                                    Text("Steamed Basmati").tag("Steamed Basmati Rice")
-                                    Text("Jeera Rice").tag("Jeera Rice")
-                                    Text("Ajwain Paratha").tag("Ajwain Paratha")
+                                LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)], spacing: 10) {
+                                    ThaliPillOption(
+                                        title: "2x Phulka Roti",
+                                        tag: "2x Whole Wheat Phulkas",
+                                        isSelected: store.thali.breadOrRice == "2x Whole Wheat Phulkas"
+                                    ) {
+                                        store.thali.breadOrRice = "2x Whole Wheat Phulkas"
+                                        store.saveData()
+                                    }
+                                    
+                                    ThaliPillOption(
+                                        title: "Steamed Basmati",
+                                        tag: "Steamed Basmati Rice",
+                                        isSelected: store.thali.breadOrRice == "Steamed Basmati Rice"
+                                    ) {
+                                        store.thali.breadOrRice = "Steamed Basmati Rice"
+                                        store.saveData()
+                                    }
+                                    
+                                    ThaliPillOption(
+                                        title: "Jeera Rice",
+                                        tag: "Jeera Rice",
+                                        isSelected: store.thali.breadOrRice == "Jeera Rice"
+                                    ) {
+                                        store.thali.breadOrRice = "Jeera Rice"
+                                        store.saveData()
+                                    }
+                                    
+                                    ThaliPillOption(
+                                        title: "Ajwain Paratha",
+                                        tag: "Ajwain Paratha",
+                                        isSelected: store.thali.breadOrRice == "Ajwain Paratha"
+                                    ) {
+                                        store.thali.breadOrRice = "Ajwain Paratha"
+                                        store.saveData()
+                                    }
                                 }
-                                .pickerStyle(.segmented)
-                                .onChange(of: store.thali.breadOrRice) { _ in store.saveData() }
                             }
                             .padding(14)
                             .background(
@@ -173,9 +204,9 @@ struct ThaliPlannerView: View {
                                     )
                             )
                             
-                            // Accompaniment Selection
-                            VStack(alignment: .leading, spacing: 10) {
-                                HStack {
+                            // Accompaniment Selection (Spacious 2x2 Grid, No Truncation)
+                            VStack(alignment: .leading, spacing: 12) {
+                                HStack(alignment: .center) {
                                     HStack(spacing: 6) {
                                         Text("4")
                                             .font(.caption2)
@@ -187,21 +218,52 @@ struct ThaliPlannerView: View {
                                         Text("Dahi & Accompaniment")
                                             .font(.subheadline)
                                             .bold()
+                                            .fixedSize(horizontal: false, vertical: true)
                                     }
                                     Spacer()
                                     Text("4g protein • 60 kcal")
                                         .font(.caption2)
                                         .foregroundColor(.secondary)
+                                        .layoutPriority(1)
                                 }
                                 
-                                Picker("Side", selection: $store.thali.side) {
-                                    Text("Cucumber Raita").tag("Cucumber Dahi Raita")
-                                    Text("Kachumber Salad").tag("Kachumber Salad")
-                                    Text("Curd & Achaar").tag("Plain Curd & Achaar")
-                                    Text("Roasted Papad").tag("Roasted Papad")
+                                LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)], spacing: 10) {
+                                    ThaliPillOption(
+                                        title: "Cucumber Raita",
+                                        tag: "Cucumber Dahi Raita",
+                                        isSelected: store.thali.side == "Cucumber Dahi Raita"
+                                    ) {
+                                        store.thali.side = "Cucumber Dahi Raita"
+                                        store.saveData()
+                                    }
+                                    
+                                    ThaliPillOption(
+                                        title: "Kachumber Salad",
+                                        tag: "Kachumber Salad",
+                                        isSelected: store.thali.side == "Kachumber Salad"
+                                    ) {
+                                        store.thali.side = "Kachumber Salad"
+                                        store.saveData()
+                                    }
+                                    
+                                    ThaliPillOption(
+                                        title: "Curd & Achaar",
+                                        tag: "Plain Curd & Achaar",
+                                        isSelected: store.thali.side == "Plain Curd & Achaar"
+                                    ) {
+                                        store.thali.side = "Plain Curd & Achaar"
+                                        store.saveData()
+                                    }
+                                    
+                                    ThaliPillOption(
+                                        title: "Roasted Papad",
+                                        tag: "Roasted Papad",
+                                        isSelected: store.thali.side == "Roasted Papad"
+                                    ) {
+                                        store.thali.side = "Roasted Papad"
+                                        store.saveData()
+                                    }
                                 }
-                                .pickerStyle(.segmented)
-                                .onChange(of: store.thali.side) { _ in store.saveData() }
                             }
                             .padding(14)
                             .background(
@@ -395,5 +457,50 @@ struct ThaliCourseCard: View {
                         .stroke(Color(.systemGray5), lineWidth: 1)
                 )
         )
+    }
+}
+
+
+// MARK: - Spacious Selectable Pill Option (Guarantees No Truncation)
+struct ThaliPillOption: View {
+    let title: String
+    let tag: String
+    let isSelected: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: {
+            let gen = UIImpactFeedbackGenerator(style: .light)
+            gen.impactOccurred()
+            action()
+        }) {
+            HStack(spacing: 8) {
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .font(.system(size: 14))
+                    .foregroundColor(isSelected ? .orange : .secondary.opacity(0.6))
+                
+                Text(title)
+                    .font(.caption)
+                    .fontWeight(isSelected ? .bold : .medium)
+                    .foregroundColor(isSelected ? .orange : .primary)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                
+                Spacer()
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 10)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(isSelected ? Color.orange.opacity(0.1) : Color(.systemGray6))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(isSelected ? Color.orange : Color.clear, lineWidth: 1.5)
+                    )
+            )
+        }
+        .buttonStyle(.plain)
     }
 }

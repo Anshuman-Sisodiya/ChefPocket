@@ -133,6 +133,23 @@ struct CookbookHomeView: View {
                         
                         Spacer()
                         
+                        // Quick 1-Tap AI Import Button
+                        Button(action: { showingImportSheet = true }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "sparkles")
+                                    .font(.system(size: 13, weight: .bold))
+                                Text("AI Import")
+                                    .font(.caption)
+                                    .bold()
+                            }
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 7)
+                            .background(LinearGradient(colors: [.orange, .red], startPoint: .leading, endPoint: .trailing))
+                            .clipShape(Capsule())
+                            .shadow(color: Color.orange.opacity(0.3), radius: 3, x: 0, y: 1)
+                        }
+
                         // Add Recipe Menu Button
                         Menu {
                             Button(action: { showingImportSheet = true }) {
@@ -641,10 +658,11 @@ struct CookbookHomeView: View {
             .sheet(isPresented: $showingManualCreateSheet) {
                 ManualRecipeModal(isPresented: $showingManualCreateSheet)
             }
-            .sheet(isPresented: $showingRandomizerModal) {
-                if let r = randomizedRecipe {
-                    AajKyaBanauResultSheet(recipe: r, isPresented: $showingRandomizerModal)
-                }
+            .sheet(item: $randomizedRecipe) { recipe in
+                AajKyaBanauResultSheet(recipe: recipe, isPresented: Binding(
+                    get: { randomizedRecipe != nil },
+                    set: { if !$0 { randomizedRecipe = nil } }
+                ))
             }
             .alert("Reload All 430+ Inbuilt Recipes?", isPresented: $showingResetAlert) {
                 Button("Reload", role: .destructive) {
@@ -700,7 +718,6 @@ struct CookbookHomeView: View {
             category: store.selectedCategory
         ) {
             randomizedRecipe = pick
-            showingRandomizerModal = true
         }
     }
 }
@@ -871,10 +888,28 @@ struct AIImportModal: View {
                     
                     // URL Input Section
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Video Link")
-                            .font(.caption)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.secondary)
+                        HStack {
+                            Text("Video Link")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.secondary)
+                            
+                            Spacer()
+                            
+                            Button(action: pasteFromClipboardAndExtract) {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "doc.on.clipboard")
+                                    Text("Paste & Extract")
+                                }
+                                .font(.caption)
+                                .bold()
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 4)
+                                .background(Color.orange.opacity(0.15))
+                                .foregroundColor(.orange)
+                                .clipShape(Capsule())
+                            }
+                        }
                         
                         TextField("https://youtube.com/shorts/...", text: $urlInput)
                             .textFieldStyle(.roundedBorder)
@@ -1033,6 +1068,10 @@ struct AIImportModal: View {
                 }
             }
             .onAppear {
+                if urlInput.isEmpty, let clip = UIPasteboard.general.string,
+                   (clip.contains("youtube.com") || clip.contains("youtu.be") || clip.contains("instagram.com")) {
+                    urlInput = clip
+                }
                 inlineApiKey = AIService.shared.effectiveApiKey
                 if inlineApiKey.isEmpty, let userKey = auth.currentUser?.geminiApiKey, !userKey.isEmpty {
                     inlineApiKey = userKey
@@ -1046,6 +1085,13 @@ struct AIImportModal: View {
             } message: {
                 Text("\(languageManager.t("already_in_kitchen_msg")) '\(existingRecipeTitle)'.")
             }
+        }
+    }
+    
+    private func pasteFromClipboardAndExtract() {
+        if let clip = UIPasteboard.general.string, !clip.isEmpty {
+            urlInput = clip
+            runAIExtraction()
         }
     }
     
@@ -1087,6 +1133,21 @@ struct RecipeDetailView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingAddedGroceryAlert = false
     @State private var showingDeleteConfirm = false
+    @State private var currentServings: Int = 2
+    
+    private var scaledCalories: Int {
+        let base = max(1, recipe.servings)
+        return Int(round(Double(recipe.calories * currentServings) / Double(base)))
+    }
+    
+    private var scaledProtein: Int {
+        let base = max(1, recipe.servings)
+        return Int(round(Double(recipe.proteinGrams * currentServings) / Double(base)))
+    }
+    
+    private var currentIngredients: [Ingredient] {
+        return recipe.scaledIngredients(forServings: currentServings)
+    }
     
     private var cleanInstructions: [String] {
         let filtered = recipe.instructions.filter { step in
@@ -1180,8 +1241,8 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
                 // Macro bar
                 HStack(spacing: 12) {
                     MacroBox(title: "Time", value: "\(recipe.prepTimeMinutes) min", icon: "clock")
-                    MacroBox(title: "Calories", value: "\(recipe.calories) kcal", icon: "flame")
-                    MacroBox(title: "Protein", value: "\(recipe.proteinGrams)g", icon: "bolt.fill")
+                    MacroBox(title: "Calories", value: "\(scaledCalories) kcal", icon: "flame")
+                    MacroBox(title: "Protein", value: "\(scaledProtein)g", icon: "bolt.fill")
                     if let whistles = recipe.whistleCount {
                         MacroBox(title: "Cooker", value: "\(whistles) whistles", icon: "bell.fill")
                     }
@@ -1248,8 +1309,61 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
                         }
                     }
                     
+                    // Serving Size Scaler Controller
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Serving Size")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.secondary)
+                            Text("\(currentServings) \(currentServings == 1 ? "Serving" : "Servings")")
+                                .font(.subheadline)
+                                .bold()
+                        }
+                        
+                        Spacer()
+                        
+                        HStack(spacing: 12) {
+                            Button(action: {
+                                if currentServings > 1 {
+                                    let gen = UIImpactFeedbackGenerator(style: .light)
+                                    gen.impactOccurred()
+                                    currentServings -= 1
+                                }
+                            }) {
+                                Image(systemName: "minus.circle.fill")
+                                    .font(.title3)
+                                    .foregroundColor(currentServings > 1 ? .orange : .secondary.opacity(0.4))
+                            }
+                            .disabled(currentServings <= 1)
+                            
+                            Text("\(currentServings)")
+                                .font(.headline)
+                                .bold()
+                                .frame(minWidth: 24)
+                            
+                            Button(action: {
+                                if currentServings < 12 {
+                                    let gen = UIImpactFeedbackGenerator(style: .light)
+                                    gen.impactOccurred()
+                                    currentServings += 1
+                                }
+                            }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.title3)
+                                    .foregroundColor(currentServings < 12 ? .orange : .secondary.opacity(0.4))
+                            }
+                            .disabled(currentServings >= 12)
+                        }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
+                        .background(Color(.systemBackground))
+                        .clipShape(Capsule())
+                    }
+                    .padding(.bottom, 2)
+                    
                     VStack(spacing: 8) {
-                        ForEach(recipe.ingredients) { ing in
+                        ForEach(currentIngredients) { ing in
                             HStack {
                                 Text(ing.name)
                                     .font(.subheadline)
@@ -1380,7 +1494,7 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
     }
     
     private func addAllToGroceries() {
-        store.addIngredientsToGroceries(recipe: recipe)
+        store.addIngredientsToGroceries(recipe: recipe, scaledIngredients: currentIngredients)
         showingAddedGroceryAlert = true
     }
 }

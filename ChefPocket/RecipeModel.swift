@@ -173,13 +173,14 @@ struct Recipe: Identifiable, Codable, Equatable {
     var calories: Int
     var proteinGrams: Int
     var whistleCount: Int? = nil
+    var servings: Int = 2
     var ingredients: [Ingredient]
     var instructions: [String]
     var isFavorite: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id, title, category, cuisine, diet, mealTypes, isUserCreated, tags, sourceURL
-        case prepTimeMinutes, calories, proteinGrams, whistleCount, ingredients, instructions, isFavorite
+        case prepTimeMinutes, calories, proteinGrams, whistleCount, servings, ingredients, instructions, isFavorite
     }
     
     init(
@@ -196,6 +197,7 @@ struct Recipe: Identifiable, Codable, Equatable {
         calories: Int,
         proteinGrams: Int,
         whistleCount: Int? = nil,
+        servings: Int = 2,
         ingredients: [Ingredient],
         instructions: [String],
         isFavorite: Bool = false
@@ -213,6 +215,7 @@ struct Recipe: Identifiable, Codable, Equatable {
         self.calories = calories
         self.proteinGrams = proteinGrams
         self.whistleCount = whistleCount
+        self.servings = servings
         self.ingredients = ingredients
         self.instructions = instructions
         self.isFavorite = isFavorite
@@ -233,9 +236,20 @@ struct Recipe: Identifiable, Codable, Equatable {
         calories = try container.decodeIfPresent(Int.self, forKey: .calories) ?? 350
         proteinGrams = try container.decodeIfPresent(Int.self, forKey: .proteinGrams) ?? 10
         whistleCount = try container.decodeIfPresent(Int.self, forKey: .whistleCount)
+        servings = try container.decodeIfPresent(Int.self, forKey: .servings) ?? 2
         ingredients = try container.decodeIfPresent([Ingredient].self, forKey: .ingredients) ?? []
         instructions = try container.decodeIfPresent([String].self, forKey: .instructions) ?? []
         isFavorite = try container.decodeIfPresent(Bool.self, forKey: .isFavorite) ?? false
+    }
+    
+    func scaledIngredients(forServings target: Int) -> [Ingredient] {
+        let base = max(1, servings)
+        let factor = Double(target) / Double(base)
+        return ingredients.map { ing in
+            var copy = ing
+            copy.amount = ing.amount * factor
+            return copy
+        }
     }
 }
 
@@ -680,8 +694,9 @@ class RecipeStore: ObservableObject {
     }
     
     // MARK: - Grocery Actions
-    func addIngredientsToGroceries(recipe: Recipe) {
-        for ing in recipe.ingredients {
+    func addIngredientsToGroceries(recipe: Recipe, scaledIngredients: [Ingredient]? = nil) {
+        let ings = scaledIngredients ?? recipe.ingredients
+        for ing in ings {
             let cat = categorizeIngredient(ing.name)
             let item = GroceryItem(
                 name: ing.name,

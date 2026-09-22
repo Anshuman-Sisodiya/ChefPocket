@@ -11,6 +11,8 @@ class ThemeManager: ObservableObject {
         }
     }
     
+    @Published var iconStatusMessage: String? = nil
+    
     var colorScheme: ColorScheme? {
         switch appTheme {
         case "light": return .light
@@ -19,9 +21,16 @@ class ThemeManager: ObservableObject {
         }
     }
     
+    var currentIconName: String {
+        return UIApplication.shared.alternateIconName ?? "AppIcon"
+    }
+    
     /// Automatically synchronizes the home screen app icon with the dark/light appearance
     func syncAppIcon(systemIsDark: Bool) {
-        guard UIApplication.shared.supportsAlternateIcons else { return }
+        guard UIApplication.shared.supportsAlternateIcons else {
+            iconStatusMessage = "Alternate icons not supported in this environment."
+            return
+        }
         
         let shouldBeDark: Bool
         switch appTheme {
@@ -36,15 +45,42 @@ class ThemeManager: ObservableObject {
         let currentIcon = UIApplication.shared.alternateIconName
         
         if shouldBeDark && currentIcon != "AppIcon-Dark" {
-            UIApplication.shared.setAlternateIconName("AppIcon-Dark") { error in
-                if let error = error {
-                    print("Failed to set dark mode app icon: \(error.localizedDescription)")
+            UIApplication.shared.setAlternateIconName("AppIcon-Dark") { [weak self] error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self?.iconStatusMessage = "Could not set dark icon: \(error.localizedDescription)"
+                    } else {
+                        self?.iconStatusMessage = "Dark obsidian icon applied."
+                    }
                 }
             }
         } else if !shouldBeDark && currentIcon != nil {
-            UIApplication.shared.setAlternateIconName(nil) { error in
+            UIApplication.shared.setAlternateIconName(nil) { [weak self] error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self?.iconStatusMessage = "Could not restore default icon: \(error.localizedDescription)"
+                    } else {
+                        self?.iconStatusMessage = "Classic amber icon applied."
+                    }
+                }
+            }
+        }
+    }
+    
+    /// Explicit manual icon switcher
+    func setIconManually(useDark: Bool) {
+        guard UIApplication.shared.supportsAlternateIcons else {
+            iconStatusMessage = "Alternate icons not supported."
+            return
+        }
+        let target = useDark ? "AppIcon-Dark" : nil
+        UIApplication.shared.setAlternateIconName(target) { [weak self] error in
+            DispatchQueue.main.async {
                 if let error = error {
-                    print("Failed to restore default app icon: \(error.localizedDescription)")
+                    self?.iconStatusMessage = "Error switching icon: \(error.localizedDescription)"
+                } else {
+                    self?.iconStatusMessage = useDark ? "Dark icon active" : "Default icon active"
+                    self?.objectWillChange.send()
                 }
             }
         }
