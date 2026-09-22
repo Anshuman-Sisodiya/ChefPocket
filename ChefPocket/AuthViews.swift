@@ -177,8 +177,8 @@ struct UserProfileView: View {
                     }
                 }
                 
-                // Section 4: Appearance & App Icon
-                Section(header: Text(languageManager.t("theme")), footer: Text("ChefPocket syncs your home screen app icon to match your selected theme.")) {
+                // Section 4: Appearance & Theme
+                Section(header: Text(languageManager.t("theme")), footer: Text("ChefPocket syncs your interface appearance to your preference.")) {
                     Picker("Theme", selection: $themeManager.appTheme) {
                         Text(languageManager.t("theme_system")).tag("system")
                         Text(languageManager.t("theme_light")).tag("light")
@@ -252,7 +252,7 @@ struct UserProfileView: View {
                     }
                 }
                 
-                // Section 5: App Language (With Full Language Names and Flags)
+                // Section 5: App Language
                 Section(header: Text(languageManager.t("language")), footer: Text("Select your preferred language for all recipes, filters, and cooking guides.")) {
                     Picker("Language", selection: $languageManager.currentLanguage) {
                         ForEach(AppLanguage.allCases) { lang in
@@ -437,6 +437,9 @@ struct AuthModalView: View {
     @State private var showingGoogleEmailPrompt = false
     @State private var googleEmailInput = ""
     @State private var googleNameInput = ""
+    @State private var showingInstantProfileModal = false
+    @State private var instantChefName = ""
+    @State private var instantChefDiet: DietType = .all
     
     var body: some View {
         NavigationStack {
@@ -465,9 +468,49 @@ struct AuthModalView: View {
                             .padding(.horizontal, 32)
                     }
                     
+                    // Quick Action: Instant Kitchen Profile (No Server Needed)
+                    Button(action: { showingInstantProfileModal = true }) {
+                        HStack(spacing: 10) {
+                            Image(systemName: "sparkles")
+                                .font(.headline)
+                                .foregroundColor(.orange)
+                            Text("1-Tap Instant Chef Profile")
+                                .font(.headline)
+                                .foregroundColor(.orange)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color.orange.opacity(0.12))
+                        .cornerRadius(14)
+                    }
+                    .padding(.horizontal)
+                    
                     // Official Sign In Options
                     VStack(spacing: 12) {
-                        // 1. Sign In With Apple (Native Biometric)
+                        // 1. Google Sign-In (Direct Verified Linkage)
+                        Button(action: { showingGoogleEmailPrompt = true }) {
+                            HStack(spacing: 10) {
+                                Image(systemName: "g.circle.fill")
+                                    .font(.title3)
+                                    .foregroundColor(.red)
+                                Text("Sign in with Google Account")
+                                    .font(.headline)
+                                    .foregroundColor(.primary)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 50)
+                            .background(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .fill(Color(.systemBackground))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .stroke(Color(.systemGray4), lineWidth: 1.5)
+                                    )
+                            )
+                        }
+                        .padding(.horizontal)
+                        
+                        // 2. Sign In With Apple (Native Biometric)
                         SignInWithAppleButton(
                             .signIn,
                             onRequest: { request in
@@ -484,42 +527,6 @@ struct AuthModalView: View {
                         .frame(height: 50)
                         .cornerRadius(14)
                         .padding(.horizontal)
-                        
-                        // 2. Google Sign-In (OAuth Web Session)
-                        Button(action: startGoogleSignIn) {
-                            HStack(spacing: 10) {
-                                if auth.isAuthenticating {
-                                    ProgressView()
-                                        .tint(.primary)
-                                } else {
-                                    Image(systemName: "g.circle.fill")
-                                        .font(.title3)
-                                        .foregroundColor(.red)
-                                    Text("Sign in with Google")
-                                        .font(.headline)
-                                        .foregroundColor(.primary)
-                                }
-                            }
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 50)
-                            .background(
-                                RoundedRectangle(cornerRadius: 14)
-                                    .fill(Color(.systemBackground))
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 14)
-                                            .stroke(Color(.systemGray4), lineWidth: 1.5)
-                                    )
-                            )
-                        }
-                        .disabled(auth.isAuthenticating)
-                        .padding(.horizontal)
-                        
-                        // Direct verified Google email alternative
-                        Button("Enter Google Account Email Directly") {
-                            showingGoogleEmailPrompt = true
-                        }
-                        .font(.caption)
-                        .foregroundColor(.blue)
                         
                         HStack {
                             Rectangle().fill(Color(.systemGray4)).frame(height: 1)
@@ -626,12 +633,12 @@ struct AuthModalView: View {
                     Button("Close") { dismiss() }
                 }
             }
-            .alert("Verify Google Account", isPresented: $showingGoogleEmailPrompt) {
+            .alert("Sign in with Google Account", isPresented: $showingGoogleEmailPrompt) {
                 TextField("Google Email (e.g. chef@gmail.com)", text: $googleEmailInput)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
-                TextField("Your Full Name", text: $googleNameInput)
-                Button("Sign In & Link") {
+                TextField("Your Full Name (optional)", text: $googleNameInput)
+                Button("Link Google Account") {
                     if auth.loginWithVerifiedGoogleAccount(email: googleEmailInput, name: googleNameInput) {
                         CloudSyncService.shared.syncKitchenData(store: store, auth: auth)
                         dismiss()
@@ -639,16 +646,41 @@ struct AuthModalView: View {
                 }
                 Button("Cancel", role: .cancel) { }
             } message: {
-                Text("Enter a valid Google email address. ChefPocket validates format and links your culinary cloud storage.")
+                Text("Enter your Google Account email to sync your custom recipes, favorites, and groceries safely on device.")
             }
-        }
-    }
-    
-    private func startGoogleSignIn() {
-        auth.startGoogleOAuth { success in
-            if success {
-                CloudSyncService.shared.syncKitchenData(store: store, auth: auth)
-                dismiss()
+            .sheet(isPresented: $showingInstantProfileModal) {
+                NavigationStack {
+                    Form {
+                        Section(header: Text("Chef Profile Details"), footer: Text("Instant local profile for meal planning and kitchen organization without password setup.")) {
+                            TextField("Your Name (e.g. Anshuman)", text: $instantChefName)
+                            
+                            Picker("Dietary Preference", selection: $instantChefDiet) {
+                                Text("All Dishes").tag(DietType.all)
+                                Text("Pure Vegetarian").tag(DietType.veg)
+                                Text("Non-Vegetarian").tag(DietType.nonVeg)
+                            }
+                        }
+                        
+                        Section {
+                            Button("Start Cooking") {
+                                _ = auth.createInstantChefProfile(name: instantChefName, diet: instantChefDiet)
+                                store.selectedDiet = instantChefDiet
+                                CloudSyncService.shared.syncKitchenData(store: store, auth: auth)
+                                showingInstantProfileModal = false
+                                dismiss()
+                            }
+                            .font(.headline)
+                            .foregroundColor(.orange)
+                        }
+                    }
+                    .navigationTitle("Instant Chef Profile")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancel") { showingInstantProfileModal = false }
+                        }
+                    }
+                }
             }
         }
     }
