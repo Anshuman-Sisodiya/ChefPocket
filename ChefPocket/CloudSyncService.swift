@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import CryptoKit
 
 struct KitchenSyncPayload: Codable {
     var version: Int = 1
@@ -17,7 +18,7 @@ class CloudSyncService: ObservableObject {
     
     @Published var isSyncing: Bool = false
     @Published var lastSyncDate: Date?
-    @Published var syncStatus: String = "Up to date"
+    @Published var syncStatus: String = "Device backup available"
     @Published var syncSummary: String = ""
     
     private let lastSyncKey = "chefpocket_last_cloud_sync_time"
@@ -37,10 +38,12 @@ class CloudSyncService: ObservableObject {
         }
         
         self.isSyncing = true
-        self.syncStatus = "Syncing with Google Account..."
+        self.syncStatus = "Saving kitchen backup..."
         
         let accountEmail = user.email.lowercased()
-        let cloudKey = "chefpocket_cloud_vault_\(accountEmail.hashValue)"
+        // Swift hashValue is randomized on every launch and cannot identify saved data.
+        let accountID = SHA256.hash(data: Data(accountEmail.utf8)).map { String(format: "%02x", $0) }.joined()
+        let cloudKey = "chefpocket_cloud_vault_\(accountID)"
         
         // 1. Gather local data
         let localCustom = store.myRecipes
@@ -60,6 +63,7 @@ class CloudSyncService: ObservableObject {
         var mergedCustom = localCustom
         if let remote = remotePayload {
             for r in remote.customRecipes {
+                if store.wasDeleted(r) { continue }
                 if !mergedCustom.contains(where: { $0.id == r.id || $0.title.lowercased() == r.title.lowercased() }) {
                     mergedCustom.append(r)
                 }
@@ -123,7 +127,7 @@ class CloudSyncService: ObservableObject {
             self.lastSyncDate = Date()
             UserDefaults.standard.set(self.lastSyncDate, forKey: self.lastSyncKey)
             self.isSyncing = false
-            self.syncStatus = "Synced with Google Account"
+            self.syncStatus = "Saved on device; iCloud delivery unverified"
             self.syncSummary = "\(mergedCustom.count) custom dishes • \(mergedFavorites.count) favorites • \(mergedGroceries.count) groceries"
         }
     }

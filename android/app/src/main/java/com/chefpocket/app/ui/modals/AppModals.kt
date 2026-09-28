@@ -1,5 +1,7 @@
 package com.chefpocket.app.ui.modals
 
+import com.chefpocket.app.ui.theme.localized
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -33,17 +35,16 @@ fun AIImportDialog(
     onDismiss: () -> Unit
 ) {
     var urlInput by remember { mutableStateOf(viewModel.clipboardDetectedURL.value ?: "") }
-    var inlineKey by remember { mutableStateOf(viewModel.repository.getApiKey()) }
-    var showKeyEditor by remember { mutableStateOf(false) }
-    var selectedModel by remember { mutableStateOf(viewModel.repository.getPreferredModel()) }
-    var keySavedBanner by remember { mutableStateOf(false) }
+    var sourceText by remember { mutableStateOf("") }
+    val incomingURL by viewModel.clipboardDetectedURL.collectAsState()
+    LaunchedEffect(incomingURL) { incomingURL?.let { urlInput = it } }
 
     val isExtracting by viewModel.isExtracting.collectAsState()
     val statusText by viewModel.extractionStatus.collectAsState()
     val errorText by viewModel.extractionError.collectAsState()
     val duplicateTitle by viewModel.duplicateRecipeTitle.collectAsState()
 
-    val hasKey = inlineKey.isNotBlank()
+
 
     Dialog(
         onDismissRequest = { if (!isExtracting) onDismiss() },
@@ -51,7 +52,9 @@ fun AIImportDialog(
     ) {
         Surface(
             modifier = Modifier
+                .widthIn(max = 600.dp)
                 .fillMaxWidth(0.95f)
+                .imePadding()
                 .fillMaxHeight(0.85f)
                 .clip(RoundedCornerShape(24.dp)),
             color = MaterialTheme.colorScheme.surface
@@ -71,7 +74,7 @@ fun AIImportDialog(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     TextButton(onClick = onDismiss, enabled = !isExtracting) {
-                        Text("Cancel", color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(localized("Cancel"), color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     Text(
                         text = "AI Video Import",
@@ -89,7 +92,7 @@ fun AIImportDialog(
                 )
 
                 Text(
-                    text = "Paste a YouTube Shorts or Instagram Reels link. Google Gemini AI will extract authentic ingredients, whistle counts, and steps.",
+                    text = "Paste a YouTube or Instagram recipe link, or add its recipe caption below.",
                     fontSize = 12.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     lineHeight = 18.sp,
@@ -131,6 +134,7 @@ fun AIImportDialog(
                         text = { Text("This video has already been imported as '$duplicateTitle'.") },
                         confirmButton = {
                             Button(onClick = {
+                                viewModel.activeRecipe.value = viewModel.repository.findRecipeMatchingURL(urlInput)
                                 viewModel.duplicateRecipeTitle.value = null
                                 viewModel.setScope(RecipeScope.MY_KITCHEN)
                                 onDismiss()
@@ -139,120 +143,13 @@ fun AIImportDialog(
                     )
                 }
 
-                // Gemini API Key Card
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .padding(12.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                            Icon(
-                                imageVector = if (hasKey) Icons.Default.Verified else Icons.Default.Key,
-                                contentDescription = null,
-                                tint = if (hasKey) VegGreen else PrimaryOrange,
-                                modifier = Modifier.size(16.dp)
-                            )
-                            Text(
-                                text = if (hasKey) "Gemini API Key Active" else "Gemini API Key Setup",
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = if (hasKey) VegGreen else PrimaryOrange
-                            )
-                        }
-
-                        TextButton(onClick = { showKeyEditor = !showKeyEditor }) {
-                            Text(if (showKeyEditor) "Done" else (if (hasKey) "Change" else "Add Key"), fontSize = 12.sp, color = PrimaryOrange)
-                        }
-                    }
-
-                    if (showKeyEditor) {
-                        OutlinedTextField(
-                            value = inlineKey,
-                            onValueChange = { inlineKey = it },
-                            placeholder = { Text("Paste Google AI Studio Key") },
-                            singleLine = true,
-                            modifier = Modifier.fillMaxWidth(),
-                            shape = RoundedCornerShape(8.dp)
-                        )
-                        Button(
-                            onClick = {
-                                val clean = inlineKey.trim()
-                                if (clean.isNotEmpty()) {
-                                    viewModel.repository.setApiKey(clean)
-                                    keySavedBanner = true
-                                    showKeyEditor = false
-                                }
-                            },
-                            colors = ButtonDefaults.buttonColors(containerColor = PrimaryOrange),
-                            shape = RoundedCornerShape(8.dp)
-                        ) {
-                            Text("Save Key")
-                        }
-                    } else if (keySavedBanner) {
-                        Text("✓ API Key successfully saved and active.", fontSize = 11.sp, color = VegGreen)
-                    } else if (!hasKey) {
-                        Text("Add your free Gemini API key from Google AI Studio to extract recipes.", fontSize = 11.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
-                }
-
-                // AI Engine Picker
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .padding(horizontal = 12.dp, vertical = 6.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text("AI Engine:", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    var expanded by remember { mutableStateOf(false) }
-
-                    Box {
-                        TextButton(onClick = { expanded = true }) {
-                            Text(
-                                when (selectedModel) {
-                                    "gemini-3.6-flash" -> "Gemini 3.6 Flash (Recommended)"
-                                    "gemini-3.8-flash" -> "Gemini 3.8 Flash"
-                                    "gemini-3.0-flash" -> "Gemini 3.0 Flash"
-                                    else -> "Gemini 2.0 Flash"
-                                },
-                                fontSize = 12.sp,
-                                color = PrimaryOrange
-                            )
-                        }
-                        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-                            DropdownMenuItem(text = { Text("Gemini 3.6 Flash (Recommended)") }, onClick = {
-                                selectedModel = "gemini-3.6-flash"
-                                viewModel.repository.setPreferredModel("gemini-3.6-flash")
-                                expanded = false
-                            })
-                            DropdownMenuItem(text = { Text("Gemini 3.8 Flash (Cutting Edge)") }, onClick = {
-                                selectedModel = "gemini-3.8-flash"
-                                viewModel.repository.setPreferredModel("gemini-3.8-flash")
-                                expanded = false
-                            })
-                            DropdownMenuItem(text = { Text("Gemini 3.0 Flash") }, onClick = {
-                                selectedModel = "gemini-3.0-flash"
-                                viewModel.repository.setPreferredModel("gemini-3.0-flash")
-                                expanded = false
-                            })
-                            DropdownMenuItem(text = { Text("Gemini 2.0 Flash") }, onClick = {
-                                selectedModel = "gemini-2.0-flash"
-                                viewModel.repository.setPreferredModel("gemini-2.0-flash")
-                                expanded = false
-                            })
-                        }
-                    }
-                }
+                OutlinedTextField(
+                    value = sourceText, onValueChange = { sourceText = it },
+                    label = { Text("Caption or transcript (optional)") },
+                    minLines = 4, modifier = Modifier.fillMaxWidth()
+                )
+                Text("If the link has no accessible recipe caption, paste its ingredients and steps. Review the result before cooking. Nutrition is estimated.", style = MaterialTheme.typography.bodySmall)
+                TextButton(onClick = { viewModel.showProfileDialog.value = true }) { Text("Import service settings") }
 
                 // Progress Indicator
                 if (isExtracting) {
@@ -267,7 +164,7 @@ fun AIImportDialog(
 
                 // Extract Button
                 Button(
-                    onClick = { viewModel.extractRecipeFromVideo(urlInput, onDismiss) },
+                    onClick = { viewModel.extractRecipeFromVideo(urlInput, sourceText, onDismiss) },
                     enabled = urlInput.isNotBlank() && !isExtracting,
                     modifier = Modifier
                         .fillMaxWidth()

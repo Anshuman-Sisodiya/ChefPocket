@@ -1,5 +1,7 @@
 package com.chefpocket.app.ui.screens
 
+import com.chefpocket.app.ui.theme.localized
+
 import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -7,6 +9,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,7 +36,7 @@ import com.chefpocket.app.viewmodel.RecipeViewModel
 // ==========================================
 // 1. COOKBOOK SCREEN (HOME)
 // ==========================================
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun CookbookScreen(
     viewModel: RecipeViewModel,
@@ -43,6 +47,7 @@ fun CookbookScreen(
     val diet by viewModel.selectedDiet.collectAsState()
     val cuisine by viewModel.selectedCuisine.collectAsState()
     val category by viewModel.selectedCategory.collectAsState()
+    val meal by viewModel.selectedMeal.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
 
     val curatedCount by viewModel.curatedCount.collectAsState()
@@ -58,6 +63,8 @@ fun CookbookScreen(
                     Text("ChefPocket", fontWeight = FontWeight.Bold, color = PrimaryOrange)
                 },
                 actions = {
+                    IconButton(onClick = { viewModel.showProfileDialog.value = true }) { Icon(Icons.Default.Settings, contentDescription = "Settings") }
+                    IconButton(onClick = { viewModel.showCreateRecipeDialog.value = true }) { Icon(Icons.Default.Edit, contentDescription = "Create recipe") }
                     // Quick Heart Favorites Button
                     IconButton(onClick = {
                         viewModel.setScope(if (scope == RecipeScope.FAVORITES) RecipeScope.CURATED else RecipeScope.FAVORITES)
@@ -82,11 +89,13 @@ fun CookbookScreen(
             )
         }
     ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
+        LazyVerticalGrid(
+            columns = GridCells.Adaptive(320.dp),
+            modifier = Modifier.fillMaxSize().padding(padding),
+            contentPadding = PaddingValues(bottom = 24.dp)
         ) {
+            item(span = { GridItemSpan(maxLineSpan) }) {
+            Column {
             // Clipboard Banner
             if (clipboardURL != null) {
                 Row(
@@ -104,7 +113,7 @@ fun CookbookScreen(
                         Text("Recipe link in clipboard", fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
                     }
                     Button(
-                        onClick = { viewModel.extractRecipeFromVideo(clipboardURL!!) },
+                        onClick = { viewModel.showAIImportDialog.value = true },
                         colors = ButtonDefaults.buttonColors(containerColor = PrimaryOrange),
                         shape = RoundedCornerShape(8.dp),
                         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
@@ -175,7 +184,7 @@ fun CookbookScreen(
             OutlinedTextField(
                 value = searchQuery,
                 onValueChange = { viewModel.setSearchQuery(it) },
-                placeholder = { Text("Search 434 dishes, ingredients, tags...", fontSize = 13.sp) },
+                placeholder = { Text("Search dishes, ingredients, tags...", fontSize = 13.sp) },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = null, tint = PrimaryOrange) },
                 singleLine = true,
                 shape = RoundedCornerShape(12.dp),
@@ -184,8 +193,21 @@ fun CookbookScreen(
                     .padding(horizontal = 16.dp, vertical = 4.dp)
             )
 
+            LazyRow(contentPadding = PaddingValues(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                items(RecipeCategory.values()) { value ->
+                    FilterChip(selected = category == value, onClick = { viewModel.setCategory(value) }, label = { Text(value.label) })
+                }
+            }
+            LazyRow(contentPadding = PaddingValues(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                items(MealType.values()) { value ->
+                    FilterChip(selected = meal == value, onClick = { viewModel.setMeal(value) }, label = { Text(value.label) })
+                }
+            }
+            }
+            }
             // Recipe List & Empty States
             if (recipes.isEmpty()) {
+                item(span = { GridItemSpan(maxLineSpan) }) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -228,18 +250,10 @@ fun CookbookScreen(
                         Text("No recipes found matching your filters.", color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 }
+                }
             } else {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(bottom = 80.dp)
-                ) {
-                    items(recipes, key = { it.id }) { recipe ->
-                        RecipeCard(
-                            recipe = recipe,
-                            onClick = { onRecipeClick(recipe) },
-                            onFavoriteToggle = { viewModel.toggleFavorite(recipe.id) }
-                        )
-                    }
+                items(recipes, key = { it.id }) { recipe ->
+                    RecipeCard(recipe = recipe, onClick = { onRecipeClick(recipe) }, onFavoriteToggle = { viewModel.toggleFavorite(recipe.id) })
                 }
             }
         }
@@ -249,7 +263,7 @@ fun CookbookScreen(
 // ==========================================
 // 2. RECIPE DETAIL SCREEN
 // ==========================================
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun RecipeDetailScreen(
     recipe: Recipe,
@@ -257,9 +271,10 @@ fun RecipeDetailScreen(
     onBack: () -> Unit,
     onCookModeClick: () -> Unit
 ) {
-    var multiplier by remember { mutableStateOf(1) }
+    var servings by rememberSaveable(recipe.id) { mutableStateOf(recipe.servings.coerceAtLeast(1)) }
+    val multiplier = servings.toDouble() / recipe.servings.coerceAtLeast(1)
     val context = LocalContext.current
-    var isFav by remember { mutableStateOf(recipe.isFavorite) }
+    val isFav = recipe.isFavorite
     var groceryAddedMsg by remember { mutableStateOf(false) }
 
     Scaffold(
@@ -273,7 +288,6 @@ fun RecipeDetailScreen(
                 },
                 actions = {
                     IconButton(onClick = {
-                        isFav = !isFav
                         viewModel.toggleFavorite(recipe.id)
                     }) {
                         Icon(
@@ -288,7 +302,7 @@ fun RecipeDetailScreen(
 Prep Time: ${recipe.prepTimeMinutes}m | Calories: ${recipe.calories} kcal | Protein: ${recipe.proteinGrams}g
 ${if (recipe.whistleCount != null) "Pressure Cooker: ${recipe.whistleCount} whistles\n" else ""}
 🛒 INGREDIENTS:
-${recipe.ingredients.joinToString("\n") { "• ${it.name} - ${String.format("%.1f", it.amount * multiplier)} ${it.unit}" }}
+${recipe.ingredients.joinToString("\n") { "• ${it.name} - ${String.format(java.util.Locale.getDefault(), "%.1f", it.amount * multiplier)} ${it.unit}" }}
 
 👨‍🍳 INSTRUCTIONS:
 ${recipe.instructions.mapIndexed { i, step -> "${i + 1}. $step" }.joinToString("\n")}
@@ -318,7 +332,7 @@ Shared via ChefPocket App
             // Badges & Cuisine
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 FSSAIBadge(diet = recipe.dietType, size = 16)
-                Text(recipe.cuisine, fontWeight = FontWeight.Bold, color = PrimaryOrange)
+                Text(recipe.cuisine, fontWeight = FontWeight.Bold, color = PrimaryOrange, modifier = Modifier.weight(1f))
                 Text("•")
                 Text(recipe.category, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
@@ -326,16 +340,16 @@ Shared via ChefPocket App
             Text(recipe.title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
 
             // Macros Card
-            Row(
+            FlowRow(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(14.dp))
                     .background(MaterialTheme.colorScheme.surfaceVariant)
                     .padding(12.dp),
-                horizontalArrangement = Arrangement.SpaceAround
+                horizontalArrangement = Arrangement.spacedBy(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                MacroPill("Protein", "${recipe.proteinGrams * multiplier}g")
-                MacroPill("Calories", "${recipe.calories * multiplier} kcal")
+                MacroPill("Protein", "${recipe.proteinGrams}g / serving")
+                MacroPill("Calories", "${recipe.calories} kcal / serving")
                 MacroPill("Prep Time", "${recipe.prepTimeMinutes}m")
                 if (recipe.whistleCount != null) {
                     MacroPill("Whistles", "${recipe.whistleCount}", color = Color(0xFF009688))
@@ -349,33 +363,29 @@ Shared via ChefPocket App
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text("Servings", fontWeight = FontWeight.Bold)
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    listOf(1, 2, 3, 4).forEach { m ->
-                        FilterChip(
-                            selected = multiplier == m,
-                            onClick = { multiplier = m },
-                            label = { Text("${m}x") }
-                        )
-                    }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    IconButton(onClick = { servings-- }, enabled = servings > 1) { Icon(Icons.Default.Remove, contentDescription = "Fewer servings") }
+                    Text(servings.toString())
+                    IconButton(onClick = { servings++ }, enabled = servings < 100) { Icon(Icons.Default.Add, contentDescription = "More servings") }
                 }
             }
 
             // Ingredients
-            Text("Ingredients", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            Text(localized("Ingredients"), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             recipe.ingredients.forEach { ing ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text("• ${ing.name}", fontSize = 14.sp)
-                    Text("${String.format("%.1f", ing.amount * multiplier)} ${ing.unit}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                    Text("• ${ing.name}", fontSize = 14.sp, modifier = Modifier.weight(1f))
+                    Text("${String.format(java.util.Locale.getDefault(), "%.1f", ing.amount * multiplier)} ${ing.unit}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                 }
             }
 
             // Add Ingredients to Grocery List
             Button(
                 onClick = {
-                    viewModel.repository.addIngredientsToGroceries(recipe.ingredients)
+                    viewModel.repository.addIngredientsToGroceries(recipe.scaledIngredients(servings))
                     groceryAddedMsg = true
                 },
                 modifier = Modifier.fillMaxWidth(),
@@ -388,7 +398,7 @@ Shared via ChefPocket App
             }
 
             // Instructions
-            Text("Cooking Instructions", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            Text(localized("Cooking Instructions"), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             recipe.instructions.forEachIndexed { idx, step ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -436,7 +446,7 @@ Shared via ChefPocket App
 // ==========================================
 // 3. THALI PLANNER SCREEN
 // ==========================================
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun ThaliScreen(viewModel: RecipeViewModel) {
     val thali by viewModel.thali.collectAsState()
@@ -446,15 +456,32 @@ fun ThaliScreen(viewModel: RecipeViewModel) {
     val sabzi = recipes.firstOrNull { it.id == thali.sabziRecipeId }
     val dal = recipes.firstOrNull { it.id == thali.dalRecipeId }
     val acc = recipes.firstOrNull { it.id == thali.accompanimentRecipeId }
+    val salad = recipes.firstOrNull { it.id == thali.saladRecipeId }
+    var selectingSlot by remember { mutableStateOf<String?>(null) }
+    var query by remember { mutableStateOf("") }
     val sweet = recipes.firstOrNull { it.id == thali.sweetRecipeId }
 
-    val totalCalories = (grain?.calories ?: 0) + (sabzi?.calories ?: 0) + (dal?.calories ?: 0) + (acc?.calories ?: 0) + (sweet?.calories ?: 0)
-    val totalProtein = (grain?.proteinGrams ?: 0) + (sabzi?.proteinGrams ?: 0) + (dal?.proteinGrams ?: 0) + (acc?.proteinGrams ?: 0) + (sweet?.proteinGrams ?: 0)
+    val totalCalories = (grain?.calories ?: 0) + (sabzi?.calories ?: 0) + (dal?.calories ?: 0) + (acc?.calories ?: 0) + (sweet?.calories ?: 0) + (salad?.calories ?: 0)
+    val totalProtein = (grain?.proteinGrams ?: 0) + (sabzi?.proteinGrams ?: 0) + (dal?.proteinGrams ?: 0) + (acc?.proteinGrams ?: 0) + (sweet?.proteinGrams ?: 0) + (salad?.proteinGrams ?: 0)
 
+    if (selectingSlot != null) {
+        AlertDialog(onDismissRequest = { selectingSlot = null }, title = { Text("Choose a dish") }, text = {
+            Column {
+                OutlinedTextField(query, { query = it }, label = { Text("Search dishes") })
+                LazyColumn(Modifier.heightIn(max = 400.dp)) {
+                    items(recipes.filter { it.title.contains(query, true) }, key = { it.id }) { recipe ->
+                        TextButton(onClick = { viewModel.repository.setThaliSlot(selectingSlot!!, recipe.id); selectingSlot = null }) { Text(recipe.title) }
+                    }
+                }
+            }
+        }, confirmButton = { TextButton(onClick = { selectingSlot = null }) { Text("Close") } }, dismissButton = {
+            TextButton(onClick = { viewModel.repository.setThaliSlot(selectingSlot!!, null); selectingSlot = null }) { Text("Clear slot") }
+        })
+    }
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Thali Planner", fontWeight = FontWeight.Bold, color = PrimaryOrange) },
+                title = { Text(localized("Thali Planner"), fontWeight = FontWeight.Bold, color = PrimaryOrange) },
                 actions = {
                     Button(
                         onClick = { viewModel.repository.autoBalanceThali() },
@@ -491,19 +518,21 @@ fun ThaliScreen(viewModel: RecipeViewModel) {
 
             Text("6-Compartment Authentic Thali", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
 
-            ThaliSlotCard(slot = "Grain / Roti / Rice", recipe = grain)
-            ThaliSlotCard(slot = "Main Sabzi", recipe = sabzi)
-            ThaliSlotCard(slot = "Dal / Curry", recipe = dal)
-            ThaliSlotCard(slot = "Accompaniment / Raita", recipe = acc)
-            ThaliSlotCard(slot = "Mithai / Sweet", recipe = sweet)
+            ThaliSlotCard(slot = "Grain / Roti / Rice", recipe = grain) { selectingSlot = "grain"; query = "" }
+            ThaliSlotCard(slot = "Main Sabzi", recipe = sabzi) { selectingSlot = "sabzi"; query = "" }
+            ThaliSlotCard(slot = "Dal / Curry", recipe = dal) { selectingSlot = "dal"; query = "" }
+            ThaliSlotCard(slot = "Accompaniment / Raita", recipe = acc) { selectingSlot = "accompaniment"; query = "" }
+            ThaliSlotCard(slot = "Salad", recipe = salad) { selectingSlot = "salad"; query = "" }
+            Button(onClick = { viewModel.repository.addIngredientsToGroceries(listOfNotNull(grain, sabzi, dal, acc, salad, sweet).flatMap { it.scaledIngredients(1) }) }) { Text("Add thali ingredients to groceries") }
+            ThaliSlotCard(slot = "Mithai / Sweet", recipe = sweet) { selectingSlot = "sweet"; query = "" }
         }
     }
 }
 
 @Composable
-fun ThaliSlotCard(slot: String, recipe: Recipe?) {
+fun ThaliSlotCard(slot: String, recipe: Recipe?, onClick: () -> Unit) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
@@ -514,7 +543,7 @@ fun ThaliSlotCard(slot: String, recipe: Recipe?) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Text(slot, fontSize = 11.sp, color = PrimaryOrange, fontWeight = FontWeight.Bold)
                 Text(recipe?.title ?: "Not Selected", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
             }
@@ -528,7 +557,7 @@ fun ThaliSlotCard(slot: String, recipe: Recipe?) {
 // ==========================================
 // 4. SABZI MANDI (GROCERY LIST)
 // ==========================================
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun GroceryScreen(viewModel: RecipeViewModel) {
     val groceries by viewModel.groceries.collectAsState()
@@ -540,7 +569,7 @@ fun GroceryScreen(viewModel: RecipeViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Sabzi Mandi", fontWeight = FontWeight.Bold, color = PrimaryOrange) },
+                title = { Text(localized("Sabzi Mandi"), fontWeight = FontWeight.Bold, color = PrimaryOrange) },
                 actions = {
                     IconButton(onClick = {
                         val text = "🛒 Sabzi Mandi Grocery List:\n" + groceries.joinToString("\n") {
@@ -584,7 +613,7 @@ fun GroceryScreen(viewModel: RecipeViewModel) {
                 )
                 Button(
                     onClick = {
-                        if (newItemName.isNotBlank()) {
+                        if (newItemName.isNotBlank() && (newItemAmount.toDoubleOrNull() ?: 0.0) > 0 && newItemUnit.isNotBlank()) {
                             val amt = newItemAmount.toDoubleOrNull() ?: 1.0
                             viewModel.repository.addCustomGrocery(newItemName.trim(), amt, newItemUnit)
                             newItemName = ""
@@ -597,6 +626,10 @@ fun GroceryScreen(viewModel: RecipeViewModel) {
                 }
             }
 
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                OutlinedTextField(newItemAmount, { newItemAmount = it }, label = { Text("Amount") }, modifier = Modifier.weight(1f), singleLine = true)
+                OutlinedTextField(newItemUnit, { newItemUnit = it }, label = { Text("Unit") }, modifier = Modifier.weight(1f), singleLine = true)
+            }
             // Grocery Checklist
             if (groceries.isEmpty()) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -634,10 +667,11 @@ fun GroceryScreen(viewModel: RecipeViewModel) {
 // ==========================================
 // 5. COOK MODE SCREEN
 // ==========================================
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun CookModeScreen(
     recipe: Recipe?,
+    viewModel: RecipeViewModel,
     onClose: () -> Unit
 ) {
     if (recipe == null) {
@@ -647,8 +681,14 @@ fun CookModeScreen(
         return
     }
 
-    var currentStep by remember { mutableStateOf(0) }
-    var whistleTracker by remember { mutableStateOf(0) }
+    var currentStep by rememberSaveable(recipe.id) { mutableStateOf(0) }
+    var whistleTracker by rememberSaveable(recipe.id) { mutableStateOf(0) }
+    val view = androidx.compose.ui.platform.LocalView.current
+    DisposableEffect(view) {
+        val previous = view.keepScreenOn
+        view.keepScreenOn = true
+        onDispose { view.keepScreenOn = previous }
+    }
 
     Scaffold(
         topBar = {
@@ -666,13 +706,15 @@ fun CookModeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
+                .verticalScroll(rememberScrollState())
                 .padding(20.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                KitchenTimer(viewModel)
                 // Step Progress Bar
                 LinearProgressIndicator(
-                    progress = (currentStep + 1).toFloat() / recipe.instructions.size.toFloat(),
+                    progress = (currentStep + 1).toFloat() / recipe.instructions.size.coerceAtLeast(1).toFloat(),
                     color = PrimaryOrange,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -691,6 +733,7 @@ fun CookModeScreen(
                     lineHeight = 32.sp
                 )
 
+                TextButton(onClick = { whistleTracker = 0 }) { Text("Reset whistle count") }
                 // Pressure Cooker Whistle Counter
                 if (recipe.whistleCount != null) {
                     Card(
@@ -726,7 +769,7 @@ fun CookModeScreen(
                     enabled = currentStep > 0,
                     modifier = Modifier.weight(1f)
                 ) {
-                    Text("Previous")
+                    Text(localized("Previous"))
                 }
                 Button(
                     onClick = {

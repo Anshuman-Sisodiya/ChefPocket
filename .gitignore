@@ -4,3 +4,8 @@
 .idea/
 .DS_Store
 output/
+server/.env
+android/local.properties
+android/app/*.keystore
+
+build-artifacts/

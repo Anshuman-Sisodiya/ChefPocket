@@ -9,10 +9,10 @@ android {
 
     defaultConfig {
         applicationId = "com.chefpocket.app"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 34
-        versionCode = 5
-        versionName = "1.4.4"
+        versionCode = 6
+        versionName = "1.5.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -43,9 +43,8 @@ android {
             )
         }
         debug {
-            applicationIdSuffix = ""
-            isDebuggable = false
-            signingConfig = signingConfigs.getByName("release")
+            applicationIdSuffix = ".debug"
+            isDebuggable = true
         }
     }
     compileOptions {
@@ -69,6 +68,7 @@ android {
 }
 
 dependencies {
+    testImplementation("junit:junit:4.13.2")
     val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
     implementation(composeBom)
     androidTestImplementation(composeBom)

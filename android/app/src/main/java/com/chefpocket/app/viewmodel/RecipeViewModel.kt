@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.chefpocket.app.data.models.*
 import com.chefpocket.app.data.repository.RecipeRepository
 import com.chefpocket.app.network.AIService
+import com.chefpocket.app.network.ImportSettings
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -19,6 +21,11 @@ data class RecipeFilterState(
 
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
     val repository = RecipeRepository(application)
+    val importSettings = ImportSettings(application)
+    val theme = MutableStateFlow(importSettings.theme)
+    val language = MutableStateFlow(importSettings.language)
+    fun setLanguage(value: String) { importSettings.language = value; language.value = value }
+    fun setTheme(value: String) { importSettings.theme = value; theme.value = value }
     val recipes = repository.recipes
     val groceries = repository.groceries
     val thali = repository.thali
@@ -36,6 +43,9 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
 
     private val _selectedCategory = MutableStateFlow(RecipeCategory.ALL)
     val selectedCategory: StateFlow<RecipeCategory> = _selectedCategory.asStateFlow()
+    private val _selectedMeal = MutableStateFlow(MealType.ALL)
+    val selectedMeal: StateFlow<MealType> = _selectedMeal.asStateFlow()
+    fun setMeal(meal: MealType) { _selectedMeal.value = meal }
 
     private val _searchQuery = MutableStateFlow("")
     val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
@@ -55,6 +65,16 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
     val showCreateRecipeDialog = MutableStateFlow(false)
     val showRandomizerDialog = MutableStateFlow(false)
     val showProfileDialog = MutableStateFlow(false)
+    val timerDeadline = MutableStateFlow<Long?>(null)
+    val timerRemaining = MutableStateFlow(0)
+    fun startTimer(seconds: Int) {
+        timerRemaining.value = seconds
+        timerDeadline.value = android.os.SystemClock.elapsedRealtime() + seconds * 1000L
+    }
+    fun pauseTimer() {
+        timerDeadline.value?.let { timerRemaining.value = ((it - android.os.SystemClock.elapsedRealtime() + 999) / 1000).toInt().coerceAtLeast(0) }
+        timerDeadline.value = null
+    }
 
     // Combine filters into intermediate state flow
     private val filterState: Flow<RecipeFilterState> = combine(
@@ -70,8 +90,9 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
     // Filtered Recipes Pipeline
     val filteredRecipes: StateFlow<List<Recipe>> = combine(
         recipes,
-        filterState
-    ) { all, filter ->
+        filterState,
+        _selectedMeal
+    ) { all, filter, meal ->
         // 1. Scope filter
         val inScope = when (filter.scope) {
             RecipeScope.MY_KITCHEN -> all.filter { it.isUserCreated }
@@ -85,6 +106,7 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
             it.title.lowercase().contains(qClean) ||
                     it.cuisine.lowercase().contains(qClean) ||
                     it.category.lowercase().contains(qClean) ||
+                    it.tags.any { tag -> tag.lowercase().contains(qClean) } ||
                     it.ingredients.any { ing -> ing.name.lowercase().contains(qClean) }
         }
 
@@ -97,9 +119,10 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
         }
 
         // 5. Category
-        if (filter.category == RecipeCategory.ALL) inCuisine else inCuisine.filter {
+        val inCategory = if (filter.category == RecipeCategory.ALL) inCuisine else inCuisine.filter {
             it.category.equals(filter.category.label, ignoreCase = true)
         }
+        if (meal == MealType.ALL) inCategory else inCategory.filter { recipe -> recipe.mealTypes.any { it.equals(meal.label, true) || (meal == MealType.SNACK && it.equals("Snack", true)) } }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     // Counts
@@ -137,9 +160,9 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
         _selectedScope.value = RecipeScope.MY_KITCHEN
     }
 
-    fun extractRecipeFromVideo(url: String, onComplete: () -> Unit = {}) {
+    fun extractRecipeFromVideo(url: String, sourceText: String = "", onComplete: () -> Unit = {}) {
         val clean = url.trim()
-        if (clean.isEmpty()) return
+        if (clean.isEmpty() || isExtracting.value) return
 
         // Duplicate check
         val existing = repository.findRecipeMatchingURL(clean)
@@ -148,25 +171,23 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
             return
         }
 
+        isExtracting.value = true
         viewModelScope.launch {
-            isExtracting.value = true
             extractionError.value = null
             extractionStatus.value = "Analyzing video link..."
             try {
-                val apiKey = repository.getApiKey()
-                val model = repository.getPreferredModel()
                 val recipe = AIService.shared.extractRecipe(
                     urlString = clean,
-                    userApiKey = apiKey,
-                    preferredModel = model
-                ) { status ->
-                    extractionStatus.value = status
-                }
+                    settings = importSettings,
+                    sourceText = sourceText
+                )
                 repository.addRecipe(recipe)
                 _selectedScope.value = RecipeScope.MY_KITCHEN
                 showAIImportDialog.value = false
                 clipboardDetectedURL.value = null
                 onComplete()
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Exception) {
                 extractionError.value = e.localizedMessage ?: "Extraction failed. Please check your link or API key."
             } finally {

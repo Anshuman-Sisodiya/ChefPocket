@@ -26,6 +26,7 @@ jobs:
         run: |
           gradle wrapper --gradle-version 8.7
           chmod +x gradlew
+          ./gradlew :app:testDebugUnitTest :app:lintDebug
           ./gradlew :app:assembleRelease --stacktrace
 
       - name: Copy & Name APK

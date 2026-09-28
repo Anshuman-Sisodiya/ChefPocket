@@ -2,6 +2,8 @@ import SwiftUI
 
 @main
 struct ChefPocketApp: App {
+    @Environment(\.colorScheme) private var systemColorScheme
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var store = RecipeStore()
     @StateObject private var auth = AuthManager()
     @StateObject private var themeManager = ThemeManager.shared
@@ -15,6 +17,15 @@ struct ChefPocketApp: App {
                 .environmentObject(themeManager)
                 .environmentObject(languageManager)
                 .preferredColorScheme(themeManager.colorScheme)
+                .onChange(of: systemColorScheme) { scheme in
+                    themeManager.syncAppIcon(systemIsDark: scheme == .dark)
+                }
+                .onChange(of: scenePhase) { phase in
+                    if phase == .active { themeManager.syncAppIcon(systemIsDark: systemColorScheme == .dark) }
+                }
+                .onChange(of: themeManager.appTheme) { _ in
+                    themeManager.syncAppIcon(systemIsDark: systemColorScheme == .dark)
+                }
                 .onAppear {
                     // Sync app icon with active dark/light mode
                     let isDark = UITraitCollection.current.userInterfaceStyle == .dark
@@ -34,19 +45,6 @@ struct ChefPocketApp: App {
               let queryItem = components.queryItems?.first(where: { $0.name == "url" }),
               let sharedVideoURL = queryItem.value else { return }
         
-        // Deduplication check
-        if let existing = store.findRecipe(matchingURL: sharedVideoURL) {
-            print("Recipe already exists: \(existing.title)")
-            return
-        }
-        
-        Task {
-            let apiKey = auth.currentUser?.geminiApiKey ?? AIService.shared.effectiveApiKey
-            if let recipe = try? await AIService.shared.extractRecipe(from: sharedVideoURL, userApiKey: apiKey) {
-                await MainActor.run {
-                    store.addRecipe(recipe)
-                }
-            }
-        }
+        AIService.shared.pendingImportURL = sharedVideoURL
     }
 }

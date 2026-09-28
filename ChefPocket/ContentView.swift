@@ -32,6 +32,9 @@ struct ContentView: View {
                 .tag(3)
         }
         .tint(.orange)
+        .onReceive(AIService.shared.$pendingImportURL) { url in
+            if url != nil { selectedTab = 0 }
+        }
     }
 }
 
@@ -652,6 +655,9 @@ struct CookbookHomeView: View {
             .sheet(isPresented: $showingAuthModal) {
                 AuthModalView()
             }
+            .onReceive(AIService.shared.$pendingImportURL) { url in
+                if url != nil { showingImportSheet = true }
+            }
             .sheet(isPresented: $showingImportSheet) {
                 AIImportModal(isPresented: $showingImportSheet)
             }
@@ -695,16 +701,8 @@ struct CookbookHomeView: View {
     }
     
     private func extractClipboardURL(_ urlString: String) {
-        Task {
-            let apiKey = auth.currentUser?.geminiApiKey ?? AIService.shared.effectiveApiKey
-            if let recipe = try? await AIService.shared.extractRecipe(from: urlString, userApiKey: apiKey) {
-                await MainActor.run {
-                    store.addRecipe(recipe)
-                    detectedClipboardURL = nil
-                    store.selectedScope = .myKitchen
-                }
-            }
-        }
+        AIService.shared.pendingImportURL = urlString
+        showingImportSheet = true
     }
     
     private func spinAajKyaBanau() {
@@ -860,10 +858,8 @@ struct AIImportModal: View {
     @State private var errorMessage: String? = nil
     @State private var showingAlreadyExistsAlert = false
     @State private var existingRecipeTitle = ""
-    @State private var showingApiKeyEditor = false
-    @State private var inlineApiKey = ""
-    @State private var apiKeySavedBanner = false
-    @AppStorage("chefpocket_gemini_model") private var selectedModel: String = "gemini-3.6-flash"
+    @ObservedObject private var aiService = AIService.shared
+    @State private var sourceText = ""
     
     var body: some View {
         NavigationStack {
@@ -878,7 +874,7 @@ struct AIImportModal: View {
                             .font(.title2)
                             .bold()
                         
-                        Text("Paste a YouTube Shorts or Instagram Reels link. Google Gemini AI will extract authentic ingredients, whistle counts, and cooking steps.")
+                        Text("Paste a YouTube or Instagram recipe link. Import from its caption, or supply the recipe transcript below.")
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -932,110 +928,20 @@ struct AIImportModal: View {
                     }
                     .padding(.horizontal)
                     
-                    // Gemini API Key Inline Card
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack {
-                            Label(
-                                AIService.shared.hasValidApiKey ? "Gemini API Key Active" : "Gemini API Key Setup",
-                                systemImage: AIService.shared.hasValidApiKey ? "checkmark.seal.fill" : "key.fill"
-                            )
-                            .font(.caption)
-                            .fontWeight(.semibold)
-                            .foregroundColor(AIService.shared.hasValidApiKey ? .green : .orange)
-                            
-                            Spacer()
-                            
-                            Button(showingApiKeyEditor ? "Done" : (AIService.shared.hasValidApiKey ? "Change" : "Add Key")) {
-                                withAnimation {
-                                    showingApiKeyEditor.toggle()
-                                }
-                            }
-                            .font(.caption)
-                            .bold()
-                            .foregroundColor(.orange)
-                        }
-                        
-                        if showingApiKeyEditor {
-                            VStack(alignment: .leading, spacing: 8) {
-                                SecureField("Paste Google AI Studio API Key", text: $inlineApiKey)
-                                    .textFieldStyle(.roundedBorder)
-                                    .textInputAutocapitalization(.never)
-                                    .autocorrectionDisabled()
-                                
-                                HStack {
-                                    Button("Save Key") {
-                                        let clean = inlineApiKey.trimmingCharacters(in: .whitespacesAndNewlines)
-                                        if !clean.isEmpty {
-                                            AIService.shared.setApiKey(clean)
-                                            if auth.isAuthenticated {
-                                                auth.updateProfile(name: auth.currentUser?.name ?? "Chef", diet: auth.currentUser?.dietaryPreference ?? .all, apiKey: clean)
-                                            }
-                                            withAnimation {
-                                                apiKeySavedBanner = true
-                                                showingApiKeyEditor = false
-                                                errorMessage = nil
-                                            }
-                                        }
-                                    }
-                                    .font(.caption)
-                                    .bold()
-                                    .padding(.horizontal, 14)
-                                    .padding(.vertical, 6)
-                                    .background(Color.orange)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
-                                    .disabled(inlineApiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                                    
-                                    Link("Get Free Key ↗", destination: URL(string: "https://aistudio.google.com/app/apikey")!)
-                                        .font(.caption2)
-                                        .foregroundColor(.secondary)
-                                }
-                            }
-                            .padding(.top, 4)
-                        } else if apiKeySavedBanner {
-                            Text("✓ API Key successfully saved and active for unlimited precise extractions.")
-                                .font(.caption2)
-                                .foregroundColor(.green)
-                        } else if !AIService.shared.hasValidApiKey {
-                            Text("Add your free Gemini API key from Google AI Studio to unlock automatic recipe parsing.")
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                    .padding(12)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(12)
-                    .padding(.horizontal)
-                    
-                    // Model Selection
-                    HStack {
-                        Label("AI Engine", systemImage: "sparkle")
-                            .font(.caption)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.secondary)
-                        
-                        Spacer()
-                        
-                        Picker("Model", selection: $selectedModel) {
-                            Text("Gemini 3.6 Flash (Recommended)").tag("gemini-3.6-flash")
-                            Text("Gemini 3.8 Flash (Cutting Edge)").tag("gemini-3.8-flash")
-                            Text("Gemini 3.0 Flash").tag("gemini-3.0-flash")
-                            Text("Gemini 2.0 Flash").tag("gemini-2.0-flash")
-                        }
-                        .pickerStyle(.menu)
-                        .font(.caption)
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-                    
+                    ImportSettingsView().padding(.horizontal)
+                    VStack(alignment: .leading) {
+                        Text("Caption or transcript (optional)").font(.headline)
+                        TextEditor(text: $sourceText).frame(minHeight: 130)
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.secondary.opacity(0.3)))
+                        Text("Paste ingredients and steps if the video caption is unavailable. Review imported quantities and nutrition estimates before cooking.")
+                            .font(.caption).foregroundColor(.secondary)
+                    }.padding(.horizontal)
+
                     // Extraction Progress indicator
-                    if AIService.shared.isExtracting {
+                    if aiService.isExtracting {
                         VStack(spacing: 8) {
                             ProgressView()
-                            Text(AIService.shared.statusMessage)
+                            Text(aiService.statusMessage)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -1046,7 +952,7 @@ struct AIImportModal: View {
                     Button(action: runAIExtraction) {
                         HStack {
                             Image(systemName: "sparkles")
-                            Text(AIService.shared.isExtracting ? "Extracting Recipe..." : "Extract & Add to Kitchen")
+                            Text(aiService.isExtracting ? "Extracting Recipe..." : "Extract & Add to Kitchen")
                         }
                         .font(.headline)
                         .frame(maxWidth: .infinity)
@@ -1055,27 +961,30 @@ struct AIImportModal: View {
                         .foregroundColor(.white)
                         .cornerRadius(12)
                     }
-                    .disabled(urlInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || AIService.shared.isExtracting)
+                    .disabled(urlInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || aiService.isExtracting)
                     .padding(.horizontal)
                     
                     Spacer(minLength: 20)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .interactiveDismissDisabled(aiService.isExtracting)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { isPresented = false }
+                        .disabled(aiService.isExtracting)
                 }
             }
             .onAppear {
+                if let incoming = aiService.pendingImportURL {
+                    urlInput = incoming
+                    aiService.pendingImportURL = nil
+                }
                 if urlInput.isEmpty, let clip = UIPasteboard.general.string,
                    (clip.contains("youtube.com") || clip.contains("youtu.be") || clip.contains("instagram.com")) {
                     urlInput = clip
                 }
-                inlineApiKey = AIService.shared.effectiveApiKey
-                if inlineApiKey.isEmpty, let userKey = auth.currentUser?.geminiApiKey, !userKey.isEmpty {
-                    inlineApiKey = userKey
-                }
+
             }
             .alert(languageManager.t("already_in_kitchen"), isPresented: $showingAlreadyExistsAlert) {
                 Button("OK", role: .cancel) {
@@ -1110,7 +1019,7 @@ struct AIImportModal: View {
         Task {
             do {
                 let apiKey = auth.currentUser?.geminiApiKey.isEmpty == false ? auth.currentUser?.geminiApiKey : AIService.shared.effectiveApiKey
-                let recipe = try await AIService.shared.extractRecipe(from: clean, userApiKey: apiKey)
+                let recipe = try await AIService.shared.extractRecipe(from: clean, userApiKey: apiKey, sourceText: sourceText)
                 await MainActor.run {
                     _ = store.addRecipe(recipe)
                     store.selectedScope = .myKitchen
@@ -1133,16 +1042,19 @@ struct RecipeDetailView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingAddedGroceryAlert = false
     @State private var showingDeleteConfirm = false
-    @State private var currentServings: Int = 2
+    @State private var currentServings: Int
+
+    init(recipe: Recipe) {
+        self.recipe = recipe
+        _currentServings = State(initialValue: max(1, recipe.servings))
+    }
     
     private var scaledCalories: Int {
-        let base = max(1, recipe.servings)
-        return Int(round(Double(recipe.calories * currentServings) / Double(base)))
+        recipe.calories
     }
     
     private var scaledProtein: Int {
-        let base = max(1, recipe.servings)
-        return Int(round(Double(recipe.proteinGrams * currentServings) / Double(base)))
+        recipe.proteinGrams
     }
     
     private var currentIngredients: [Ingredient] {
@@ -1174,7 +1086,7 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
         }
         
         text += "🛒 INGREDIENTS:\n"
-        for ing in recipe.ingredients {
+        for ing in currentIngredients {
             text += "• \(ing.name) - \(String(format: "%.1f", ing.amount)) \(ing.unit)\n"
         }
         
@@ -1241,8 +1153,8 @@ Prep Time: \(recipe.prepTimeMinutes) mins | Calories: \(recipe.calories) kcal | 
                 // Macro bar
                 HStack(spacing: 12) {
                     MacroBox(title: "Time", value: "\(recipe.prepTimeMinutes) min", icon: "clock")
-                    MacroBox(title: "Calories", value: "\(scaledCalories) kcal", icon: "flame")
-                    MacroBox(title: "Protein", value: "\(scaledProtein)g", icon: "bolt.fill")
+                    MacroBox(title: "Calories / serving", value: "\(scaledCalories) kcal", icon: "flame")
+                    MacroBox(title: "Protein / serving", value: "\(scaledProtein)g", icon: "bolt.fill")
                     if let whistles = recipe.whistleCount {
                         MacroBox(title: "Cooker", value: "\(whistles) whistles", icon: "bell.fill")
                     }

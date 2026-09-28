@@ -49,8 +49,16 @@ class ShareViewController: UIViewController {
     }
 
     private func saveAndOpenMainApp(url: String) {
-        guard let encodedURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let deepLink = URL(string: "chefpocket://import?url=\(encodedURL)") else {
+        // Item providers call back off the main thread. UIKit and extension presentation must run on it.
+        if !Thread.isMainThread {
+            DispatchQueue.main.async { [weak self] in self?.saveAndOpenMainApp(url: url) }
+            return
+        }
+        var components = URLComponents()
+        components.scheme = "chefpocket"
+        components.host = "import"
+        components.queryItems = [URLQueryItem(name: "url", value: url)]
+        guard let deepLink = components.url else {
             self.extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
             return
         }

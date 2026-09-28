@@ -14,6 +14,7 @@ struct CookModeView: View {
     @State private var isTimerRunning = false
     @State private var timerName = ""
     @State private var timer: Timer? = nil
+    @State private var timerDeadline: Date? = nil
     
     // Countertop Reader State
     @State private var selectedRecipeId: UUID? = nil
@@ -322,7 +323,8 @@ struct CookModeView: View {
             }
             .navigationTitle(languageManager.t("cookmode_title"))
             .onAppear {
-                UIApplication.shared.isIdleTimerDisabled = true // Keep screen awake while cooking!
+                UIApplication.shared.isIdleTimerDisabled = true
+                if isTimerRunning { scheduleTimerTicks() }
             }
             .onDisappear {
                 UIApplication.shared.isIdleTimerDisabled = false
@@ -352,32 +354,36 @@ struct CookModeView: View {
         activeTimerSeconds = seconds
         isTimerRunning = true
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            if activeTimerSeconds > 0 {
-                activeTimerSeconds -= 1
-            } else {
-                stopTimer()
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.success)
-            }
+        timerDeadline = Date().addingTimeInterval(TimeInterval(seconds))
+        scheduleTimerTicks()
+    }
+
+    private func scheduleTimerTicks() {
+        timer?.invalidate()
+        refreshCountdown()
+        guard isTimerRunning else { return }
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in refreshCountdown() }
+    }
+
+    private func refreshCountdown() {
+        guard let deadline = timerDeadline else { return }
+        activeTimerSeconds = max(0, Int(ceil(deadline.timeIntervalSinceNow)))
+        if activeTimerSeconds == 0 {
+            stopTimer()
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
         }
     }
-    
+
     private func resumeTimer() {
         guard activeTimerSeconds > 0 else { return }
         isTimerRunning = true
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            if activeTimerSeconds > 0 {
-                activeTimerSeconds -= 1
-            } else {
-                stopTimer()
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.success)
-            }
-        }
+        timerDeadline = Date().addingTimeInterval(TimeInterval(activeTimerSeconds))
+        scheduleTimerTicks()
     }
-    
+
     private func stopTimer() {
+        if let deadline = timerDeadline { activeTimerSeconds = max(0, Int(ceil(deadline.timeIntervalSinceNow))) }
+        timerDeadline = nil
         timer?.invalidate()
         timer = nil
         isTimerRunning = false

@@ -13,7 +13,7 @@ import java.util.UUID
 
 class RecipeRepository(private val context: Context) {
     private val prefs: SharedPreferences = context.getSharedPreferences("chefpocket_prefs", Context.MODE_PRIVATE)
-    private val gson = Gson()
+    private val gson = RecipeJson.gson
 
     // Storage Keys (Matching iOS architecture)
     private val keyUserRecipes = "chefpocket_user_custom_recipes_permanent"
@@ -97,13 +97,13 @@ class RecipeRepository(private val context: Context) {
         }
 
         // 3. Load 434 bundled recipes from assets
-        val bundled = loadBundledRecipes().map { recipe ->
+        val bundled = loadBundledRecipes().filter { !tombstones.contains(it.id) && !tombstones.contains(it.title.trim().lowercase()) }.map { recipe ->
             val isFav = favSet.contains(recipe.id) || favSet.contains(recipe.title.trim().lowercase())
             recipe.copy(isFavorite = isFav)
         }
 
         // 4. Merge: Custom recipes first, then Curated
-        _recipes.value = customRecipes + bundled
+        _recipes.value = customRecipes.map { it.copy(isFavorite = favSet.contains(it.id) || favSet.contains(it.title.trim().lowercase())) } + bundled
 
         // 5. Load Groceries
         val grocJson = prefs.getString(keyGroceries, null)
@@ -185,11 +185,8 @@ class RecipeRepository(private val context: Context) {
     }
 
     fun findRecipeMatchingURL(url: String): Recipe? {
-        val clean = url.trim().lowercase()
-        return _recipes.value.firstOrNull { r ->
-            val src = r.sourceURL?.trim()?.lowercase() ?: ""
-            src == clean || (src.contains("shorts/") && clean.contains("shorts/") && src.substringAfter("shorts/").take(11) == clean.substringAfter("shorts/").take(11))
-        }
+        val clean = RecipeLinks.identity(url)
+        return _recipes.value.firstOrNull { r -> !r.sourceURL.isNullOrBlank() && RecipeLinks.identity(r.sourceURL) == clean }
     }
 
     fun getRandomRecipe(
@@ -203,7 +200,6 @@ class RecipeRepository(private val context: Context) {
             RecipeScope.FAVORITES -> favoriteRecipes
             else -> curatedRecipes
         }
-        if (pool.isEmpty()) pool = _recipes.value
 
         if (cuisine != null && cuisine != Cuisine.ALL) {
             pool = pool.filter { it.cuisine.equals(cuisine.label, ignoreCase = true) }
@@ -221,7 +217,10 @@ class RecipeRepository(private val context: Context) {
     fun addIngredientsToGroceries(ingredients: List<Ingredient>) {
         val current = _groceries.value.toMutableList()
         ingredients.forEach { ing ->
-            current.add(
+            val existing = current.indexOfFirst { !it.isChecked && it.name.trim().equals(ing.name.trim(), true) && it.unit.trim().equals(ing.unit.trim(), true) }
+            if (existing >= 0) {
+                current[existing] = current[existing].copy(amount = current[existing].amount + ing.amount)
+            } else current.add(
                 GroceryItem(
                     name = ing.name,
                     amount = ing.amount,
@@ -247,6 +246,7 @@ class RecipeRepository(private val context: Context) {
     }
 
     fun addCustomGrocery(name: String, amount: Double, unit: String) {
+        if (name.isBlank() || unit.isBlank() || !amount.isFinite() || amount <= 0) return
         val item = GroceryItem(name = name, amount = amount, unit = unit)
         _groceries.value = listOf(item) + _groceries.value
         saveData()
@@ -268,7 +268,8 @@ class RecipeRepository(private val context: Context) {
     }
 
     fun autoBalanceThali() {
-        val curated = curatedRecipes
+        val preference = _profile.value.dietaryPreference
+        val curated = curatedRecipes.filter { preference == DietType.ALL || it.dietType == preference }
         val grain = curated.filter { it.category.contains("Rice", ignoreCase = true) || it.title.contains("Roti", ignoreCase = true) }.randomOrNull()
         val sabzi = curated.filter { it.category.equals("Sabzi", ignoreCase = true) }.randomOrNull()
         val dal = curated.filter { it.category.equals("Dal", ignoreCase = true) }.randomOrNull()
@@ -280,7 +281,7 @@ class RecipeRepository(private val context: Context) {
             sabziRecipeId = sabzi?.id,
             dalRecipeId = dal?.id,
             accompanimentRecipeId = acc?.id,
-            saladRecipeId = null,
+            saladRecipeId = curated.filter { it.title.contains("Salad", true) }.randomOrNull()?.id,
             sweetRecipeId = sweet?.id
         )
         saveData()
@@ -335,5 +336,29 @@ class RecipeRepository(private val context: Context) {
 
     fun setPreferredModel(model: String) {
         prefs.edit().putString(keyModel, model.trim()).apply()
+    }
+
+    fun exportBackup(): String = gson.toJson(mapOf(
+        "version" to 1, "platform" to "android", "customRecipes" to myRecipes,
+        "favoriteRecipeIds" to favoriteRecipes.map { it.id }, "groceries" to _groceries.value, "thali" to _thali.value
+    ))
+
+    fun importBackup(json: String) {
+        val root = com.google.gson.JsonParser.parseString(json).asJsonObject
+        require(root["version"]?.asInt == 1 && root["platform"]?.asString == "android") { "Choose a ChefPocket Android version 1 backup." }
+        val restored = root.getAsJsonArray("customRecipes").map { gson.fromJson(it, Recipe::class.java) }
+        val groceries = root.getAsJsonArray("groceries").map { gson.fromJson(it, GroceryItem::class.java) }
+        require(groceries.all { !it.id.isNullOrBlank() && !it.name.isNullOrBlank() && !it.unit.isNullOrBlank() && it.amount.isFinite() && it.amount > 0 }) { "Backup contains invalid grocery items." }
+        val favorites = root.getAsJsonArray("favoriteRecipeIds").map { it.asString }.toSet()
+        val thali = gson.fromJson(root.getAsJsonObject("thali"), ThaliPlan::class.java) ?: ThaliPlan()
+        // Validate everything above before mutating persistent state. Restore merges without erasing current data.
+        restored.forEach { recipe ->
+            if (_recipes.value.none { it.id == recipe.id }) addRecipe(recipe)
+        }
+        _recipes.value = _recipes.value.map { it.copy(isFavorite = it.isFavorite || it.id in favorites) }
+        _groceries.value = (_groceries.value + groceries).distinctBy { it.id }
+        val ids = _recipes.value.map { it.id }.toSet()
+        _thali.value = thali.copy(grainRecipeId = thali.grainRecipeId?.takeIf { it in ids }, sabziRecipeId = thali.sabziRecipeId?.takeIf { it in ids }, dalRecipeId = thali.dalRecipeId?.takeIf { it in ids }, accompanimentRecipeId = thali.accompanimentRecipeId?.takeIf { it in ids }, saladRecipeId = thali.saladRecipeId?.takeIf { it in ids }, sweetRecipeId = thali.sweetRecipeId?.takeIf { it in ids })
+        saveData()
     }
 }

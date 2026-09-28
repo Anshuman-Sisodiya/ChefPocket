@@ -53,7 +53,7 @@ class UpdateManager: ObservableObject {
     private let lastCheckedKey = "chefpocket_last_update_check_timestamp"
     
     init() {
-        self.currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.3.3"
+        self.currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.5.0"
         if let timestamp = UserDefaults.standard.object(forKey: lastCheckedKey) as? Date {
             self.lastCheckedDate = timestamp
         }

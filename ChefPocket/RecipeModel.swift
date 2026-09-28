@@ -402,6 +402,11 @@ class RecipeStore: ObservableObject {
         }
         return []
     }
+
+    func wasDeleted(_ recipe: Recipe) -> Bool {
+        let stones = getDeletedTombstones()
+        return stones.contains(recipe.id.uuidString) || stones.contains(recipe.title.lowercased())
+    }
     
     private func removeTombstone(id: UUID, title: String) {
         var stones = getDeletedTombstones()
@@ -547,59 +552,21 @@ class RecipeStore: ObservableObject {
     
     // MARK: - URL Normalization & Deduplication
     static func normalizeURL(_ urlString: String) -> String {
-        var clean = urlString.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard !clean.isEmpty else { return "" }
-        
-        // Remove tracking query strings (?si=..., &feature=..., etc.)
-        if let qIdx = clean.firstIndex(of: "?") {
-            let query = String(clean[qIdx...])
-            if clean.contains("watch?v=") {
-                if let vRange = query.range(of: "v=") {
-                    let afterV = String(query[vRange.upperBound...])
-                    let vid = afterV.split(separator: "&").first ?? ""
-                    return "yt:\(vid)"
-                }
-            }
-            clean = String(clean[..<qIdx])
+        let clean = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let parts = URLComponents(string: clean), let host = parts.host?.lowercased() else { return clean }
+        let path = parts.path.split(separator: "/").map(String.init)
+        if ["youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be"].contains(host) {
+            var id: String?
+            if host == "youtu.be" { id = path.first }
+            else if path.first == "shorts" || path.first == "embed" { id = path.dropFirst().first }
+            else { id = parts.queryItems?.first(where: { $0.name == "v" })?.value }
+            if let id = id, !id.isEmpty { return "yt:" + id }
         }
-        
-        // YouTube Shorts: /shorts/ABC123xyz
-        if clean.contains("/shorts/") {
-            let parts = clean.components(separatedBy: "/shorts/")
-            if let last = parts.last {
-                let vid = last.split(separator: "/").first?.split(separator: "?").first ?? ""
-                return "yt:\(vid)"
-            }
-        }
-        
-        // youtu.be/ABC123xyz
-        if clean.contains("youtu.be/") {
-            let parts = clean.components(separatedBy: "youtu.be/")
-            if let last = parts.last {
-                let vid = last.split(separator: "/").first?.split(separator: "?").first ?? ""
-                return "yt:\(vid)"
-            }
-        }
-        
-        // Instagram: /reel/ABC123xyz or /p/ABC123xyz
-        if clean.contains("/reel/") {
-            let parts = clean.components(separatedBy: "/reel/")
-            if let last = parts.last {
-                let code = last.split(separator: "/").first?.split(separator: "?").first ?? ""
-                return "ig:\(code)"
-            }
-        }
-        if clean.contains("/p/") {
-            let parts = clean.components(separatedBy: "/p/")
-            if let last = parts.last {
-                let code = last.split(separator: "/").first?.split(separator: "?").first ?? ""
-                return "ig:\(code)"
-            }
-        }
-        
+        if ["instagram.com", "www.instagram.com"].contains(host),
+           path.first == "reel" || path.first == "p", let id = path.dropFirst().first { return "ig:" + id }
         return clean
     }
-    
+
     func findRecipe(matchingURL urlString: String) -> Recipe? {
         let targetNorm = RecipeStore.normalizeURL(urlString)
         guard !targetNorm.isEmpty else { return nil }

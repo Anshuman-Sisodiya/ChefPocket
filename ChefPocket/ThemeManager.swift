@@ -27,6 +27,12 @@ class ThemeManager: ObservableObject {
     
     /// Automatically synchronizes the home screen app icon with the dark/light appearance
     func syncAppIcon(systemIsDark: Bool) {
+        guard UIApplication.shared.applicationState == .active else { return }
+        // Modern iOS chooses the primary asset's dark variant, including while the app is closed.
+        if #available(iOS 18.0, *), appTheme == "system" {
+            if UIApplication.shared.alternateIconName != nil { setIconManually(useDark: false) }
+            return
+        }
         guard UIApplication.shared.supportsAlternateIcons else {
             iconStatusMessage = "Alternate icons not supported in this environment."
             return

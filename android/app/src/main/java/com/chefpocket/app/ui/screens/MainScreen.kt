@@ -1,6 +1,13 @@
 package com.chefpocket.app.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.activity.compose.BackHandler
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.unit.dp
+import com.chefpocket.app.ui.modals.ManualRecipeDialog
+import com.chefpocket.app.ui.modals.SettingsDialog
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
@@ -13,6 +20,8 @@ import com.chefpocket.app.ui.modals.AIImportDialog
 import com.chefpocket.app.ui.modals.RandomizerDialog
 import com.chefpocket.app.ui.theme.ChefPocketTheme
 import com.chefpocket.app.ui.theme.PrimaryOrange
+import com.chefpocket.app.ui.theme.*
+import androidx.compose.ui.platform.LocalContext
 import com.chefpocket.app.viewmodel.RecipeViewModel
 
 enum class BottomTab(val label: String, val icon: ImageVector) {
@@ -24,17 +33,26 @@ enum class BottomTab(val label: String, val icon: ImageVector) {
 
 @Composable
 fun MainScreen(viewModel: RecipeViewModel) {
-    ChefPocketTheme {
-        var currentTab by remember { mutableStateOf(BottomTab.COOKBOOK) }
+    val theme by viewModel.theme.collectAsState()
+    val language by viewModel.language.collectAsState()
+    val context = LocalContext.current
+    val strings = remember(language) { KitchenLanguage(context, language) }
+    CompositionLocalProvider(LocalKitchenLanguage provides strings) {
+    ChefPocketTheme(darkTheme = if (theme == "system") isSystemInDarkTheme() else theme == "dark") {
+        var currentTab by rememberSaveable { mutableStateOf(BottomTab.COOKBOOK) }
         val activeRecipe by viewModel.activeRecipe.collectAsState()
         val showAIImport by viewModel.showAIImportDialog.collectAsState()
         val showRandomizer by viewModel.showRandomizerDialog.collectAsState()
 
-        var isCookModeActive by remember { mutableStateOf(false) }
+        var isCookModeActive by rememberSaveable { mutableStateOf(false) }
 
+        BackHandler(enabled = isCookModeActive || activeRecipe != null) {
+            if (isCookModeActive) isCookModeActive = false else viewModel.activeRecipe.value = null
+        }
         if (isCookModeActive) {
             CookModeScreen(
                 recipe = activeRecipe,
+                viewModel = viewModel,
                 onClose = { isCookModeActive = false }
             )
         } else if (activeRecipe != null) {
@@ -64,7 +82,7 @@ fun MainScreen(viewModel: RecipeViewModel) {
                                 },
                                 label = {
                                     Text(
-                                        text = tab.label,
+                                        text = localized(tab.label),
                                         color = if (currentTab == tab) PrimaryOrange else MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                 }
@@ -73,7 +91,7 @@ fun MainScreen(viewModel: RecipeViewModel) {
                     }
                 }
             ) { padding ->
-                Box(modifier = Modifier.padding(padding)) {
+                Box(modifier = Modifier.padding(padding).fillMaxSize(), contentAlignment = Alignment.TopCenter) {
                     when (currentTab) {
                         BottomTab.COOKBOOK -> CookbookScreen(
                             viewModel = viewModel,
@@ -81,14 +99,18 @@ fun MainScreen(viewModel: RecipeViewModel) {
                         )
                         BottomTab.THALI -> ThaliScreen(viewModel = viewModel)
                         BottomTab.GROCERY -> GroceryScreen(viewModel = viewModel)
-                        BottomTab.COOK_MODE -> CookModeScreen(
-                            recipe = viewModel.filteredRecipes.collectAsState().value.firstOrNull(),
-                            onClose = { currentTab = BottomTab.COOKBOOK }
-                        )
+                        BottomTab.COOK_MODE -> CookRecipePicker(viewModel) {
+                            viewModel.activeRecipe.value = it
+                            isCookModeActive = true
+                        }
                     }
                 }
             }
         }
+
+        val showManual by viewModel.showCreateRecipeDialog.collectAsState()
+        val showSettings by viewModel.showProfileDialog.collectAsState()
+        if (showManual) ManualRecipeDialog(viewModel) { viewModel.showCreateRecipeDialog.value = false }
 
         // Modals / Dialogs
         if (showAIImport) {
@@ -105,5 +127,7 @@ fun MainScreen(viewModel: RecipeViewModel) {
                 onRecipeSelected = { viewModel.activeRecipe.value = it }
             )
         }
+        if (showSettings) SettingsDialog(viewModel) { viewModel.showProfileDialog.value = false }
+    }
     }
 }

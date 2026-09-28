@@ -58,7 +58,7 @@ struct UserProfileView: View {
                                 .foregroundColor(.secondary)
                             
                             if auth.currentUser?.isGoogleAccount == true {
-                                Text("Google Account Linked")
+                                Text("Local profile with email")
                                     .font(.system(size: 10, weight: .bold))
                                     .foregroundColor(.blue)
                                     .padding(.horizontal, 6)
@@ -137,7 +137,7 @@ struct UserProfileView: View {
                 }
                 
                 // Section 3: Cloud Sync & Cross-Device Backup
-                Section(header: Text(languageManager.t("cloud_sync")), footer: Text("All your custom recipes, favorites, and groceries sync automatically with your account.")) {
+                Section(header: Text("Kitchen backup"), footer: Text("Saves a device backup and requests iCloud synchronization when available. This does not sync through Google. Export a file for a portable backup.")) {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(syncService.syncStatus)
@@ -153,7 +153,7 @@ struct UserProfileView: View {
                         if syncService.isSyncing {
                             ProgressView()
                         } else {
-                            Button(languageManager.t("sync_now")) {
+                            Button("Save backup") {
                                 let generator = UIImpactFeedbackGenerator(style: .medium)
                                 generator.impactOccurred()
                                 syncService.syncKitchenData(store: store, auth: auth)
@@ -288,10 +288,8 @@ struct UserProfileView: View {
                 }
                 
                 // Section 7: AI Video Extractor Settings
-                Section(header: Text("AI Video Recipe Extractor"), footer: Text("Configure an optional custom Google Gemini API Key for high-frequency video extractions.")) {
-                    SecureField("Google Gemini API Key", text: $apiKey)
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
+                Section(header: Text("AI Video Recipe Extractor")) {
+                    ImportSettingsView()
                 }
                 
                 // Section 8: Save & Log Out
@@ -493,7 +491,7 @@ struct AuthModalView: View {
                                 Image(systemName: "g.circle.fill")
                                     .font(.title3)
                                     .foregroundColor(.red)
-                                Text("Sign in with Google Account")
+                                Text("Create local profile with email")
                                     .font(.headline)
                                     .foregroundColor(.primary)
                             }
@@ -633,12 +631,12 @@ struct AuthModalView: View {
                     Button("Close") { dismiss() }
                 }
             }
-            .alert("Sign in with Google Account", isPresented: $showingGoogleEmailPrompt) {
+            .alert("Create local profile", isPresented: $showingGoogleEmailPrompt) {
                 TextField("Google Email (e.g. chef@gmail.com)", text: $googleEmailInput)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                 TextField("Your Full Name (optional)", text: $googleNameInput)
-                Button("Link Google Account") {
+                Button("Save profile") {
                     if auth.loginWithVerifiedGoogleAccount(email: googleEmailInput, name: googleNameInput) {
                         CloudSyncService.shared.syncKitchenData(store: store, auth: auth)
                         dismiss()
@@ -646,7 +644,7 @@ struct AuthModalView: View {
                 }
                 Button("Cancel", role: .cancel) { }
             } message: {
-                Text("Enter your Google Account email to sync your custom recipes, favorites, and groceries safely on device.")
+                Text("Your name and email are saved on this device. This does not sign you into Google or verify email ownership.")
             }
             .sheet(isPresented: $showingInstantProfileModal) {
                 NavigationStack {

@@ -220,6 +220,7 @@ fun MacroPill(label: String, value: String, icon: ImageVector? = null, color: Co
 
 // MARK: - Recipe Card
 @Composable
+@OptIn(ExperimentalLayoutApi::class)
 fun RecipeCard(
     recipe: Recipe,
     onClick: () -> Unit,
@@ -244,10 +245,11 @@ fun RecipeCard(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(modifier = Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     FSSAIBadge(diet = recipe.dietType, size = 14)
                     Text(
                         text = recipe.cuisine,
+                        modifier = Modifier.weight(1f),
                         fontSize = 11.sp,
                         fontWeight = FontWeight.SemiBold,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -262,7 +264,7 @@ fun RecipeCard(
 
                 IconButton(
                     onClick = onFavoriteToggle,
-                    modifier = Modifier.size(24.dp)
+                    modifier = Modifier.size(48.dp)
                 ) {
                     Icon(
                         imageVector = if (recipe.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
@@ -281,9 +283,9 @@ fun RecipeCard(
             )
 
             // Macros & Whistle Count
-            Row(
+            FlowRow(
                 modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
+                verticalArrangement = Arrangement.spacedBy(8.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 MacroPill(label = "Protein", value = "${recipe.proteinGrams}g", color = PrimaryOrange)

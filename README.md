@@ -19,8 +19,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.4.0/ChefPocket.apk">Download Android APK</a> &bull;
-  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.4.0/ChefPocket.ipa">Download iOS IPA</a> &bull;
+  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.5.0/ChefPocket.apk">Download Android APK</a> &bull;
+  <a href="https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.5.0/ChefPocket.ipa">Download iOS IPA</a> &bull;
   <a href="#installation-and-sideloading">Installation Guide</a> &bull;
   <a href="docs/ARCHITECTURE.md">Architecture</a> &bull;
   <a href="docs/SECURITY_AND_PRIVACY.md">Security & Privacy</a>
@@ -125,7 +125,7 @@ For in-depth architectural specifications, refer to the [Technical Architecture 
 ## Installation and Sideloading
 
 ### Android (Samsung, Xiaomi/Redmi, Pixel, OnePlus)
-1. Download [`ChefPocket.apk`](https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.4.0/ChefPocket.apk).
+1. Download [`ChefPocket.apk`](https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.5.0/ChefPocket.apk).
 2. Open the file on your device and proceed with the installation prompt.
 3. If Google Play Protect shows a verification note for sideloaded apps:
    - Tap **More details**
@@ -133,7 +133,7 @@ For in-depth architectural specifications, refer to the [Technical Architecture 
    *(ChefPocket contains zero trackers or ads and is signed with an independent developer key. See the [Android Guide](docs/ANDROID_GUIDE.md) for full compliance details).*
 
 ### iOS (iPhone running iOS 16.0 or later)
-1. Download [`ChefPocket.ipa`](https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.4.0/ChefPocket.ipa).
+1. Download [`ChefPocket.ipa`](https://github.com/Anshuman-Sisodiya/ChefPocket/releases/download/v1.5.0/ChefPocket.ipa).
 2. Connect your iPhone to your computer.
 3. Install the IPA via [Sideloadly](https://sideloadly.io/) or [AltStore](https://altstore.io/) using your Apple ID.
 4. On your iPhone, navigate to **Settings** &rarr; **General** &rarr; **VPN & Device Management** &rarr; Tap your Apple ID &rarr; Select **Trust**.
@@ -170,7 +170,7 @@ xcodebuild clean build -project ChefPocket.xcodeproj -scheme ChefPocket -destina
 - [Android Developer & User Guide](docs/ANDROID_GUIDE.md)
 - [iOS Developer & User Guide](docs/IOS_GUIDE.md)
 - [Security & Privacy Policy](docs/SECURITY_AND_PRIVACY.md)
-- [Release Notes](docs/RELEASE_NOTES_v1.4.md)
+- [Release Notes](docs/RELEASE_NOTES_v1.5.md)
 - [Contribution Guidelines](CONTRIBUTING.md)
 
 ---

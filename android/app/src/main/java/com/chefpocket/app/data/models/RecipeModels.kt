@@ -58,7 +58,7 @@ enum class MealType(val label: String) {
     BREAKFAST("Breakfast"),
     LUNCH("Lunch"),
     DINNER("Dinner"),
-    SNACK("Snack")
+    SNACK("Snacks")
 }
 
 data class Ingredient(
@@ -83,10 +83,14 @@ data class Recipe(
     val calories: Int = 350,
     val proteinGrams: Int = 15,
     val whistleCount: Int? = null,
+    val servings: Int = 2,
     val ingredients: List<Ingredient> = emptyList(),
     val instructions: List<String> = emptyList(),
     var isFavorite: Boolean = false
 ) {
+    fun scaledIngredients(targetServings: Int): List<Ingredient> = ingredients.map {
+        it.copy(amount = it.amount * targetServings.coerceAtLeast(1).toDouble() / servings.coerceAtLeast(1))
+    }
     val dietType: DietType
         get() = if (diet.equals("Non-Veg", ignoreCase = true)) DietType.NON_VEG else DietType.VEG
 }
