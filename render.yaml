@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: chefpocket-import-service
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.mjs
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: ENABLE_YOUTUBE_VIDEO
+        value: "true"
+      - key: GEMINI_MODEL
+        value: gemini-1.5-flash
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: IMPORT_ACCESS_TOKENS
+        sync: false

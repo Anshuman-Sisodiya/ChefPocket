@@ -45,5 +45,7 @@ export function createServer({ env = process.env, caption = fetchCaption, genera
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const server = createServer(); server.requestTimeout = 150_000;
-  server.listen(Number(process.env.PORT || 8787), process.env.HOST || '127.0.0.1', () => console.log('ChefPocket import service listening'));
+  const port = Number(process.env.PORT || 8787);
+  const host = process.env.HOST || (process.env.PORT ? '0.0.0.0' : '127.0.0.1');
+  server.listen(port, host, () => console.log(`ChefPocket import service listening on ${host}:${port}`));
 }
