@@ -83,7 +83,7 @@ export function providersFromEnv(env) {
   for (const kind of (env.AI_PROVIDER_ORDER || 'gemini,anthropic').split(',').map(s => s.trim())) {
     const prefix = kind.toUpperCase();
     if (['gemini', 'anthropic'].includes(kind) && env[`${prefix}_API_KEY`]) {
-      const modelVal = env[`${prefix}_MODEL`] || (kind === 'gemini' ? 'gemini-3.6-flash,gemini-3.8-flash,gemini-2.5-flash,gemini-2.0-flash' : 'claude-3-5-sonnet-latest');
+      const modelVal = env[`${prefix}_MODEL`] || (kind === 'gemini' ? 'gemini-3.8-flash,gemini-3.5-flash-lite,gemini-2.5-flash' : 'claude-3-5-sonnet-latest');
       for (const model of modelVal.split(',').map(m => m.trim()).filter(Boolean)) {
         providers.push({ kind, key: env[`${prefix}_API_KEY`], model });
       }
