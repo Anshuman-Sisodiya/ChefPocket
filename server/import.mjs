@@ -82,11 +82,17 @@ export function providersFromEnv(env) {
   const providers = [];
   for (const kind of (env.AI_PROVIDER_ORDER || 'gemini,anthropic').split(',').map(s => s.trim())) {
     const prefix = kind.toUpperCase();
-    if (['gemini', 'anthropic'].includes(kind) && env[`${prefix}_API_KEY`] && env[`${prefix}_MODEL`]) providers.push({ kind, key: env[`${prefix}_API_KEY`], model: env[`${prefix}_MODEL`] });
+    if (['gemini', 'anthropic'].includes(kind) && env[`${prefix}_API_KEY`]) {
+      const modelVal = env[`${prefix}_MODEL`] || (kind === 'gemini' ? 'gemini-3.6-flash,gemini-3.8-flash,gemini-2.5-flash,gemini-2.0-flash' : 'claude-3-5-sonnet-latest');
+      for (const model of modelVal.split(',').map(m => m.trim()).filter(Boolean)) {
+        providers.push({ kind, key: env[`${prefix}_API_KEY`], model });
+      }
+    }
   }
   return providers;
 }
 export async function generateRecipe(text, url, providers, { fetcher = fetch, sleep = ms => new Promise(r => setTimeout(r, ms)), videoURL = null } = {}) {
+  let lastErrorText = null;
   if (!providers.length) throw new ImportError(503, 'Import service has no configured AI provider. Contact the app administrator.');
   for (const provider of providers) {
     if (videoURL && provider.kind !== 'gemini' && text.length < 40) continue;
@@ -102,13 +108,17 @@ export async function generateRecipe(text, url, providers, { fetcher = fetch, sl
           headers: { 'Content-Type': 'application/json', ...(gemini ? { 'x-goog-api-key': provider.key } : { 'x-api-key': provider.key, 'anthropic-version': '2023-06-01' }) },
           body: JSON.stringify(gemini ? { systemInstruction: { parts: [{ text: systemPrompt }] }, contents: [{ parts }], generationConfig: { temperature: 0, responseMimeType: 'application/json' } } : { model: provider.model, max_tokens: 4096, system: instructions, messages: [{ role: 'user', content: prompt }] }) });
         if (!response.ok) {
-          await response.body?.cancel();
+          const errText = await response.text().catch(() => '');
+          if (errText) {
+            console.error(`[AI Provider ${provider.kind} (${provider.model})] HTTP ${response.status}:`, errText);
+            lastErrorText = errText;
+          }
           if ([429, 500, 502, 503, 504, 529].includes(response.status) && attempt === 0) {
             const retry = Number(response.headers.get('retry-after'));
             if (retry > 5) break; // Respect long cooldowns by switching providers, never hammer the same one.
             await sleep(Math.max(1000, retry * 1000 || 1000)); continue;
           }
-          break; // Bad key/model: try the next configured provider, without exposing provider details.
+          break; // Bad key/model: try the next configured provider
         }
         const body = JSON.parse(await boundedText(response, 100_000));
         const raw = gemini ? body.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') : body.content?.filter(p => p.type === 'text').map(p => p.text).join('');
@@ -122,5 +132,14 @@ export async function generateRecipe(text, url, providers, { fetcher = fetch, sl
       }
     }
   }
-  throw new ImportError(503, 'AI providers are unavailable or at capacity. Please try again later.');
+  let userMessage = 'AI providers are unavailable or at capacity. Please try again later.';
+  if (lastErrorText) {
+    try {
+      const parsedErr = JSON.parse(lastErrorText);
+      if (parsedErr.error?.message) {
+        userMessage = `AI provider error: ${parsedErr.error.message}`;
+      }
+    } catch {}
+  }
+  throw new ImportError(503, userMessage);
 }

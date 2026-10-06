@@ -15,7 +15,7 @@ services:
       - key: ENABLE_YOUTUBE_VIDEO
         value: "true"
       - key: GEMINI_MODEL
-        value: gemini-1.5-flash
+        value: "gemini-3.6-flash,gemini-3.8-flash,gemini-2.5-flash,gemini-2.0-flash"
       - key: GEMINI_API_KEY
         sync: false
       - key: IMPORT_ACCESS_TOKENS
